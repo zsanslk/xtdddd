@@ -298,29 +298,96 @@
     document.getElementById('rosterSub').textContent = '支持按姓名、河流名称、行政区划、单位、职务模糊检索；共入库 ' + records.length + ' 条示例记录（约全省 1% 抽样）。';
 
 
-    /* ---------- 章节导航 ---------- */
+    /* ---------- 章节导航（含二级标题目录） ---------- */
     (function () {
-      var links = document.querySelectorAll('aside.toc a');
-      var order = [].slice.call(links).map(function (a) { return a.dataset.ch });
+      var toc = document.getElementById('toc');
+      if (!toc) return;
+      var links = [].slice.call(toc.querySelectorAll('a.toc-lv1'));
+      var subs = [].slice.call(toc.querySelectorAll('a.toc-sub'));
+      var groups = [].slice.call(toc.querySelectorAll('.toc-grp'));
+      var order = links.map(function (a) { return a.dataset.ch });
       var pos = document.getElementById('chPos'), prev = document.getElementById('prevCh'), next = document.getElementById('nextCh');
-      function showCh(id) {
+
+      function showCh(id, keepScroll) {
         document.querySelectorAll('.chapter').forEach(function (s) { s.classList.toggle('on', s.id === id) });
         links.forEach(function (a) { a.classList.toggle('active', a.dataset.ch === id) });
+        subs.forEach(function (a) { a.classList.remove('active') });
+        lastSub = null;
+        groups.forEach(function (g) {
+          var a = g.querySelector('a.toc-lv1');
+          g.classList.toggle('open', !!a && a.dataset.ch === id);
+        });
         var i = order.indexOf(id);
-        if (i > -1) { pos.textContent = (i + 1) + ' / ' + order.length; prev.disabled = i === 0; next.disabled = i === order.length - 1; }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (i > -1 && pos) {
+          pos.textContent = (i + 1) + ' / ' + order.length;
+          if (prev) prev.disabled = i === 0;
+          if (next) next.disabled = i === order.length - 1;
+        }
+        if (!keepScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-      prev.addEventListener('click', function () { var i = order.indexOf(document.querySelector('.chapter.on').id); if (i > 0) showCh(order[i - 1]) });
-      next.addEventListener('click', function () { var i = order.indexOf(document.querySelector('.chapter.on').id); if (i < order.length - 1) showCh(order[i + 1]) });
+      if (prev) prev.addEventListener('click', function () { var i = order.indexOf(document.querySelector('.chapter.on').id); if (i > 0) showCh(order[i - 1]) });
+      if (next) next.addEventListener('click', function () { var i = order.indexOf(document.querySelector('.chapter.on').id); if (i < order.length - 1) showCh(order[i + 1]) });
+
+      function setHash(h) { if (history.replaceState) history.replaceState(null, '', '#' + h); }
+      function offsetTop(el) { return el.getBoundingClientRect().top + window.pageYOffset - 68; }
+
       links.forEach(function (a) {
         a.addEventListener('click', function (e) {
           e.preventDefault();
           showCh(a.dataset.ch);
-          if (history.replaceState) history.replaceState(null, '', '#' + a.dataset.ch);
+          setHash(a.dataset.ch);
         });
       });
+
+      subs.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          var id = a.getAttribute('href').slice(1);
+          showCh(a.dataset.ch, true);
+          subs.forEach(function (b) { b.classList.toggle('active', b === a) });
+          var t = document.getElementById(id);
+          if (t) window.scrollTo({ top: offsetTop(t), behavior: 'smooth' });
+          setHash(id);
+        });
+      });
+
+      /* 滚动时高亮当前二级标题，并让目录跟随滚动 */
+      var ticking = false, lastSub = null;
+      function spy() {
+        ticking = false;
+        var cur = document.querySelector('.chapter.on');
+        if (!cur) return;
+        var mine = subs.filter(function (a) { return a.dataset.ch === cur.id });
+        if (!mine.length) return;
+        var line = window.pageYOffset + 100, hit = null;
+        mine.forEach(function (a) {
+          var el = document.getElementById(a.getAttribute('href').slice(1));
+          if (el && el.getBoundingClientRect().top + window.pageYOffset <= line) hit = a;
+        });
+        if (hit === lastSub) return;
+        lastSub = hit;
+        subs.forEach(function (a) { a.classList.toggle('active', a === hit) });
+        if (hit) {
+          var r = hit.getBoundingClientRect(), tr = toc.getBoundingClientRect();
+          if (r.bottom > tr.bottom - 10) toc.scrollTop += r.bottom - tr.bottom + 26;
+          else if (r.top < tr.top + 10) toc.scrollTop -= tr.top - r.top + 26;
+        }
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; window.requestAnimationFrame(spy); }
+      }, { passive: true });
+
       var h = location.hash.replace('#', '');
-      if (h && document.getElementById(h) && document.getElementById(h).classList.contains('chapter')) showCh(h);
+      if (h) {
+        var el = document.getElementById(h);
+        if (el && el.classList.contains('chapter')) {
+          showCh(h, true);
+        } else if (el) {
+          var sub = subs.filter(function (a) { return a.getAttribute('href') === '#' + h })[0];
+          if (sub) showCh(sub.dataset.ch, true);
+          window.setTimeout(function () { window.scrollTo(0, offsetTop(el)) }, 80);
+        }
+      }
     })();
   
 

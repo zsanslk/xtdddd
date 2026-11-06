@@ -6096,3 +6096,76 @@
       width: 148px;
       white-space: nowrap
     }
+
+    /* ================= 目录：二级标题（章内小节） ================= */
+    aside.toc .toc-grp {
+      margin: 0 0 2px
+    }
+
+    aside.toc a.toc-lv1 {
+      font-weight: 600
+    }
+
+    aside.toc a.toc-lv1::after {
+      content: "";
+      flex: 0 0 auto;
+      width: 5px;
+      height: 5px;
+      margin-left: auto;
+      margin-right: 2px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: rotate(45deg);
+      opacity: .4;
+      transition: transform .18s ease, opacity .18s ease
+    }
+
+    aside.toc .toc-grp.open a.toc-lv1::after {
+      transform: rotate(-135deg);
+      opacity: .65
+    }
+
+    aside.toc .toc-subs {
+      display: none;
+      margin: 2px 0 6px 13px;
+      padding-left: 9px;
+      border-left: 1px solid #E1EAF3
+    }
+
+    aside.toc .toc-grp.open .toc-subs {
+      display: block
+    }
+
+    aside.toc a.toc-sub {
+      display: block;
+      padding: 5px 8px;
+      margin: 0 0 1px;
+      background: none;
+      border: 0;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #5A6E80;
+      white-space: normal
+    }
+
+    aside.toc a.toc-sub::before {
+      display: none
+    }
+
+    aside.toc a.toc-sub:hover {
+      background: #F2F7FB;
+      color: var(--blue)
+    }
+
+    aside.toc a.toc-sub.active {
+      background: #E9F1F9;
+      color: var(--blue-800);
+      font-weight: 600
+    }
+
+    h4.sec[id],
+    h3[id] {
+      scroll-margin-top: 76px
+    }
