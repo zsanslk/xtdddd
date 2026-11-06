@@ -315,7 +315,9 @@
         lastSub = null;
         groups.forEach(function (g) {
           var a = g.querySelector('a.toc-lv1');
-          g.classList.toggle('open', !!a && a.dataset.ch === id);
+          var open = !!a && a.dataset.ch === id;
+          g.classList.toggle('open', open);
+          if (a) a.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
         var i = order.indexOf(id);
         if (i > -1 && pos) {
@@ -334,6 +336,15 @@
       links.forEach(function (a) {
         a.addEventListener('click', function (e) {
           e.preventDefault();
+          var g = a.closest('.toc-grp');
+          var cur = document.querySelector('.chapter.on');
+          // 点“当前章节”的标题只做开合：再走 showCh 会把它强制重新展开，收起后点一下就回来
+          if (cur && a.dataset.ch === cur.id) {
+            if (!g) return;
+            var open = g.classList.toggle('open');
+            a.setAttribute('aria-expanded', open ? 'true' : 'false');
+            return;
+          }
           showCh(a.dataset.ch);
           setHash(a.dataset.ch);
         });
@@ -368,6 +379,8 @@
         lastSub = hit;
         subs.forEach(function (a) { a.classList.toggle('active', a === hit) });
         if (hit) {
+          var grp = hit.closest('.toc-grp');
+          if (!grp || !grp.classList.contains('open')) return; // 收起时链接高度为 0，跟着滚会把目录顶到头上
           var r = hit.getBoundingClientRect(), tr = toc.getBoundingClientRect();
           if (r.bottom > tr.bottom - 10) toc.scrollTop += r.bottom - tr.bottom + 26;
           else if (r.top < tr.top + 10) toc.scrollTop -= tr.top - r.top + 26;
@@ -376,6 +389,12 @@
       window.addEventListener('scroll', function () {
         if (!ticking) { ticking = true; window.requestAnimationFrame(spy); }
       }, { passive: true });
+
+      // 初始 aria-expanded 与 HTML 上的 .open 对齐
+      groups.forEach(function (g) {
+        var a = g.querySelector('a.toc-lv1');
+        if (a) a.setAttribute('aria-expanded', g.classList.contains('open') ? 'true' : 'false');
+      });
 
       var h = location.hash.replace('#', '');
       if (h) {
@@ -801,75 +820,68 @@
         }).observe(lb, { attributes: true, attributeFilter: ['class'] });
       }
     })();
-  
 
-/* ==================== 全局封面（进入窗口） ==================== */
+/* ==================== 底部快捷菜单（Pad / 手机） ==================== */
 (function () {
-  var cover = document.getElementById('cover');
-  if (!cover) return;
+  var bar = document.querySelector('.tabbar');
+  if (!bar) return;
+  var items = [].slice.call(bar.querySelectorAll('.tabbar__item'));
+  var navPrev = document.getElementById('prevChBar');
+  var navNext = document.getElementById('nextChBar');
 
-  var root = document.documentElement;
-  var btn = document.getElementById('coverEnter');
-  var closed = false;
-
-  /* 深链进入：theme-init 已标记 cover-skip，封面保持隐藏 */
-  if (root.className.indexOf('cover-skip') > -1) {
-    root.classList.remove('cover-open');
-    cover.setAttribute('aria-hidden', 'true');
-    return;
+  function chLinks() {
+    return [].slice.call(document.querySelectorAll('.toc a.toc-lv1'));
   }
 
-  function finish() {
-    cover.classList.add('done');
-    cover.setAttribute('aria-hidden', 'true');
-    root.classList.add('cover-skip');
-    var main = document.querySelector('main.content');
-    if (main) {
-      if (!main.hasAttribute('tabindex')) main.setAttribute('tabindex', '-1');
-      try { main.focus({ preventScroll: true }); } catch (e) { main.focus(); }
+  function curIndex() {
+    var cur = document.querySelector('.chapter.on');
+    if (!cur) return -1;
+    var ls = chLinks();
+    for (var i = 0; i < ls.length; i++) {
+      if (ls[i].dataset.ch === cur.id) return i;
     }
+    return -1;
   }
 
-  function enter() {
-    if (closed) return;
-    closed = true;
-    cover.classList.add('closing');
-    root.classList.remove('cover-open');
-    window.setTimeout(finish, 660);
+  function sync() {
+    var cur = document.querySelector('.chapter.on');
+    var id = cur ? cur.id : '';
+    items.forEach(function (it) {
+      it.classList.toggle('is-on', !!it.dataset.ch && it.dataset.ch === id);
+    });
+
+    /* 首末章要把对应的翻页按钮置灰，否则点了没反应 */
+    var i = curIndex(), total = chLinks().length;
+    if (navPrev) navPrev.disabled = i <= 0;
+    if (navNext) navNext.disabled = i < 0 || i >= total - 1;
   }
 
-  if (btn) {
-    btn.addEventListener('click', enter);
-  }
-
-  /* 初始焦点落在封面上（不直接落在按钮，避免出现默认外框） */
-  try { cover.focus({ preventScroll: true }); } catch (e) { cover.focus(); }
-
-  /* 键盘：回车 / 空格 / Esc 均可进入；Tab 焦点限制在封面内 */
-  document.addEventListener('keydown', function (e) {
-    if (closed) return;
-    var k = e.key;
-    if (k === 'Enter' || k === ' ' || k === 'Escape' || k === 'Spacebar') {
-      e.preventDefault();
-      enter();
-      return;
-    }
-    if (k === 'Tab') {
-      var f = cover.querySelectorAll('button, a[href]');
-      if (!f.length) return;
-      var first = f[0], last = f[f.length - 1];
-      var inside = cover.contains(document.activeElement);
-      if (e.shiftKey && (!inside || document.activeElement === first)) {
-        e.preventDefault(); last.focus();
-      } else if (!e.shiftKey && (!inside || document.activeElement === last)) {
-        e.preventDefault(); first.focus();
-      }
-    }
+  /* 点「政策」直接触发目录里对应章节的链接，复用已有的切章 + 记 hash 逻辑 */
+  bar.addEventListener('click', function (e) {
+    var item = e.target.closest('.tabbar__item[data-ch]');
+    if (!item) return;
+    e.preventDefault();
+    var link = document.querySelector('.toc a.toc-lv1[data-ch="' + item.dataset.ch + '"]');
+    if (link) link.click();
   });
 
-  /* 焦点被外部（如脚本）抢走时拉回封面 */
-  document.addEventListener('focusin', function (e) {
-    if (closed || cover.contains(e.target)) return;
-    if (btn) btn.focus({ preventScroll: true });
-  });
+  /* 翻页同样走目录链接，不依赖正文底部那组按钮存不存在 */
+  function step(delta) {
+    var i = curIndex();
+    if (i < 0) return;
+    var target = chLinks()[i + delta];
+    if (target) target.click();
+  }
+
+  if (navPrev) navPrev.addEventListener('click', function () { step(-1) });
+  if (navNext) navNext.addEventListener('click', function () { step(1) });
+
+  /* 高亮跟着当前章节走：showCh 只改 .chapter 的 .on，盯这一处最省事 */
+  if (window.MutationObserver) {
+    var mo = new MutationObserver(sync);
+    [].forEach.call(document.querySelectorAll('.chapter'), function (c) {
+      mo.observe(c, { attributes: true, attributeFilter: ['class'] });
+    });
+  }
+  sync();
 })();

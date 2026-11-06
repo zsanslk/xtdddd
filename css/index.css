@@ -2575,6 +2575,9 @@
       position: absolute;
       top: 12px;
       right: 16px;
+      /* 放大后的图片是 transform 元素、在 DOM 里又排在按钮之后，不抬 z-index 会把它盖住，
+         点 X 点到的是图片，关不掉 */
+      z-index: 8;
       width: 38px;
       height: 38px;
       border-radius: 50%;
@@ -3965,6 +3968,16 @@
       text-overflow: ellipsis
     }
 
+    /* 标题兼作“回封面”入口 */
+    .topbar a.tt {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .topbar a.tt:hover {
+      opacity: .82
+    }
+
     .topbar .period {
       font-size: 11.5px;
       background: rgba(255, 255, 255, .18);
@@ -3997,6 +4010,58 @@
       background: rgba(255, 255, 255, .16);
       color: #fff;
       border: 1px solid rgba(255, 255, 255, .34)
+    }
+
+    /* ---------- 顶部登录按钮 ---------- */
+    /* 原先只有一条 color:#fff 写在 prefers-reduced-motion 里，默认渲染成蓝色链接，蓝底上几乎看不见 */
+    .topbar .login {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      flex: none;
+      height: 30px;
+      padding: 0 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, .38);
+      background: rgba(255, 255, 255, .14);
+      color: #fff;
+      font-size: 12.5px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: .5px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .18s ease, border-color .18s ease, color .18s ease, transform .18s ease
+    }
+
+    .topbar .login .ico {
+      width: 14px;
+      height: 14px;
+      flex: none
+    }
+
+    /* 已登录时显示姓名，过长省略 */
+    .topbar .login .lbl {
+      max-width: 6em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap
+    }
+
+    .topbar .login:hover {
+      background: #fff;
+      border-color: #fff;
+      color: var(--blue)
+    }
+
+    .topbar .login:active {
+      transform: translateY(1px)
+    }
+
+    .topbar .login:focus-visible {
+      outline: 2px solid #FFE9B8;
+      outline-offset: 2px
     }
 
     /* ---------- 封面 ---------- */
@@ -5591,6 +5656,13 @@
         font-size: 11px
       }
 
+      .topbar .login {
+        height: 28px;
+        padding: 0 10px;
+        font-size: 12px;
+        letter-spacing: 0
+      }
+
       .btn-print {
         padding: 6px 8px
       }
@@ -6125,15 +6197,32 @@
       opacity: .65
     }
 
+    /* 展开/收起靠 grid-template-rows 0fr→1fr，高度随内容自适应，不用 JS 量高 */
     aside.toc .toc-subs {
-      display: none;
-      margin: 2px 0 6px 13px;
+      display: grid;
+      grid-template-rows: 0fr;
+      margin: 0 0 0 13px;
       padding-left: 9px;
-      border-left: 1px solid #E1EAF3
+      border-left: 1px solid #E1EAF3;
+      /* visibility 延迟到收起动画结束才生效，收起后子项不再被 Tab 聚焦 */
+      visibility: hidden;
+      transition: grid-template-rows .26s cubic-bezier(.4, 0, .2, 1),
+        margin .26s cubic-bezier(.4, 0, .2, 1),
+        visibility 0s linear .26s
     }
 
     aside.toc .toc-grp.open .toc-subs {
-      display: block
+      grid-template-rows: 1fr;
+      margin: 2px 0 6px 13px;
+      visibility: visible;
+      transition: grid-template-rows .26s cubic-bezier(.4, 0, .2, 1),
+        margin .26s cubic-bezier(.4, 0, .2, 1),
+        visibility 0s linear 0s
+    }
+
+    aside.toc .toc-subs-inner {
+      min-height: 0;
+      overflow: hidden
     }
 
     aside.toc a.toc-sub {
@@ -6170,414 +6259,132 @@
       scroll-margin-top: 76px
     }
 
-    /* ==================== 全局封面 / 进入窗口 ==================== */
-    /* 参照云展馆序厅：深蓝—青绿渐变 + 水波 + 中心文案 + 主按钮 */
-    html.cover-open,
-    html.cover-open body {
-      overflow: hidden;
-      height: 100%
-    }
-
-    html.cover-open .layout,
-    html.cover-open .topbar,
-    html.cover-open header.hero {
-      visibility: hidden
-    }
-
-    html.cover-skip .cover {
-      display: none
-    }
-
-    .cover {
-      position: fixed;
-      inset: 0;
-      z-index: 300;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 44px 24px 36px;
-      overflow: hidden;
-      color: #fff;
-      background:
-        radial-gradient(120% 90% at 50% -10%, rgba(55, 138, 221, .38), transparent 58%),
-        linear-gradient(160deg, #072F58 0%, #0B4F8A 46%, #0C6564 78%, #0E7C7B 100%);
-      opacity: 1;
-      transition: opacity .6s ease, visibility .6s ease
-    }
-
-    .cover.closing {
-      opacity: 0;
-      visibility: hidden
-    }
-
-    .cover:focus {
-      outline: none
-    }
-
-    .cover.done {
-      display: none
-    }
-
-    /* 背景光晕与水波 */
-    .cv-bg {
-      position: absolute;
-      inset: 0;
-      pointer-events: none
-    }
-
-    .cv-glow {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(70px)
-    }
-
-    .cv-glow.g1 {
-      width: 520px;
-      height: 520px;
-      left: -170px;
-      top: -140px;
-      background: radial-gradient(circle, rgba(55, 138, 221, .60), transparent 68%);
-      animation: cvFloat 15s ease-in-out infinite
-    }
-
-    .cv-glow.g2 {
-      width: 640px;
-      height: 640px;
-      right: -220px;
-      bottom: -240px;
-      background: radial-gradient(circle, rgba(24, 160, 150, .55), transparent 68%);
-      animation: cvFloat 19s ease-in-out infinite reverse
-    }
-
-    .cv-waves {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 220px
-    }
-
-    @keyframes cvFloat {
-
-      0%,
-      100% {
-        transform: translate3d(0, 0, 0) scale(1)
-      }
-
-      50% {
-        transform: translate3d(24px, -18px, 0) scale(1.08)
-      }
-    }
-
-    /* 中心内容 */
-    .cv-inner {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 780px;
-      text-align: center
-    }
-
-    .cv-inner>* {
-      animation: cvUp .75s cubic-bezier(.2, .7, .3, 1) both
-    }
-
-    .cv-inner>*:nth-child(1) {
-      animation-delay: .05s
-    }
-
-    .cv-inner>*:nth-child(2) {
-      animation-delay: .12s
-    }
-
-    .cv-inner>*:nth-child(3) {
-      animation-delay: .19s
-    }
-
-    .cv-inner>*:nth-child(4) {
-      animation-delay: .26s
-    }
-
-    .cv-inner>*:nth-child(5) {
-      animation-delay: .33s
-    }
-
-    .cv-inner>*:nth-child(6) {
-      animation-delay: .40s
-    }
-
-    .cv-inner>*:nth-child(7) {
-      animation-delay: .47s
-    }
-
-    .cv-inner>*:nth-child(8) {
-      animation-delay: .54s
-    }
-
-    @keyframes cvUp {
-      from {
-        opacity: 0;
-        transform: translateY(16px)
-      }
-
-      to {
-        opacity: 1;
-        transform: none
-      }
-    }
-
-    .cv-badge {
-      display: inline-block;
-      padding: 5px 20px;
-      border: 1px solid rgba(255, 255, 255, .42);
-      border-radius: 22px;
-      background: rgba(255, 255, 255, .08);
-      color: #FFE9B8;
-      font-size: 12.5px;
-      letter-spacing: 3px
-    }
-
-    .cv-kicker {
-      margin-top: 30px;
-      color: #A9CBE8;
-      font-size: 14px;
-      letter-spacing: 12px;
-      text-indent: 12px
-    }
-
-    .cv-title {
-      margin-top: 10px;
-      font-size: clamp(27px, 4.3vw, 50px);
-      font-weight: 700;
-      line-height: 1.35;
-      letter-spacing: 6px;
-      text-indent: 6px;
-      text-shadow: 0 4px 26px rgba(0, 0, 0, .30)
-    }
-
-    .cv-slogan {
-      margin-top: 16px;
-      color: #FFE9B8;
-      font-size: 15px;
-      letter-spacing: 4px;
-      text-indent: 4px
-    }
-
-    .cv-desc {
-      margin: 22px auto 0;
-      max-width: 620px;
-      color: #CBE0F0;
-      font-size: 13.5px;
-      line-height: 2;
-      text-align: justify;
-      text-align-last: center
-    }
-
-    .cv-meta {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 13px;
-      margin-top: 24px;
-      color: #B7D2E8;
-      font-size: 12.5px;
-      letter-spacing: 1px
-    }
-
-    .cv-meta b {
-      color: #fff;
-      font-size: 15px;
-      margin-right: 2px
-    }
-
-    .cv-meta i {
-      width: 1px;
-      height: 12px;
-      background: rgba(255, 255, 255, .30)
-    }
-
-    .cv-btns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
-      margin-top: 34px
-    }
-
-    .cv-enter {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 13px 32px;
-      border: 0;
-      border-radius: 26px;
-      background: #fff;
-      color: var(--blue);
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      cursor: pointer;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, .22);
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease
-    }
-
-    .cv-enter svg {
-      width: 16px;
-      height: 16px;
-      transition: transform .2s ease
-    }
-
-    .cv-enter:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 32px rgba(0, 0, 0, .28)
-    }
-
-    .cv-enter:hover svg {
-      transform: translateX(3px)
-    }
-
-    .cv-enter:active {
-      transform: translateY(0)
-    }
-
-    .cv-enter:focus-visible,
-    .cv-ghost:focus-visible {
-      outline: 2px solid #FFE9B8;
-      outline-offset: 3px
-    }
-
-    .cv-ghost {
-      display: inline-flex;
-      align-items: center;
-      padding: 13px 26px;
-      border: 1px solid rgba(255, 255, 255, .55);
-      border-radius: 26px;
-      color: #fff;
-      font-size: 14px;
-      letter-spacing: 2px;
-      text-decoration: none;
-      transition: background .2s ease, border-color .2s ease, transform .2s ease
-    }
-
-    .cv-ghost:hover {
-      background: rgba(255, 255, 255, .14);
-      border-color: rgba(255, 255, 255, .8);
-      transform: translateY(-2px)
-    }
-
-    .cv-foot {
-      margin-top: 38px;
-      color: rgba(255, 255, 255, .55);
-      font-size: 11.5px;
-      letter-spacing: 1px
-    }
-
-    @media (max-width: 680px) {
-      .cover {
-        padding: 36px 20px 30px
-      }
-
-      .cv-kicker {
-        margin-top: 24px;
-        font-size: 12.5px;
-        letter-spacing: 8px;
-        text-indent: 8px
-      }
-
-      .cv-title {
-        font-size: 25px;
-        letter-spacing: 3px;
-        text-indent: 3px
-      }
-
-      .cv-slogan {
-        margin-top: 12px;
-        font-size: 12.5px;
-        letter-spacing: 2px;
-        text-indent: 2px
-      }
-
-      .cv-desc {
-        margin-top: 16px;
-        font-size: 12.5px;
-        line-height: 1.9;
-        text-align: center;
-        text-align-last: center
-      }
-
-      .cv-meta {
-        gap: 9px;
-        margin-top: 18px;
-        font-size: 11.5px
-      }
-
-      .cv-btns {
-        margin-top: 28px;
-        gap: 10px
-      }
-
-      .cv-enter,
-      .cv-ghost {
-        padding: 12px 24px;
-        font-size: 14px
-      }
-
-      .cv-foot {
-        margin-top: 26px;
-        font-size: 11px;
-        line-height: 1.8
-      }
-    }
-
-    /* 矮屏（如手机横屏）压缩纵向间距，保证按钮与说明完整可见 */
-    @media (max-height: 620px) {
-      .cover {
-        padding: 20px 24px 16px
-      }
-
-      .cv-kicker {
-        margin-top: 10px
-      }
-
-      .cv-title {
-        margin-top: 6px;
-        font-size: 26px
-      }
-
-      .cv-slogan {
-        margin-top: 8px
-      }
-
-      .cv-desc {
-        display: none
-      }
-
-      .cv-meta {
-        margin-top: 12px
-      }
-
-      .cv-btns {
-        margin-top: 18px
-      }
-
-      .cv-foot {
-        margin-top: 16px
-      }
+    /* 章节锚点同样要躲开固定顶栏，否则 #ch1 进来章节标题正好被压住 */
+    section.chapter[id] {
+      scroll-margin-top: 76px
     }
 
     @media (prefers-reduced-motion: reduce) {
 
-      .cover,
-      .cv-enter,
-      .cv-ghost {
+      aside.toc .toc-subs,
+      aside.toc .toc-subs-inner {
         transition: none
       }
+    }
 
-      .cv-inner>*,
-      .cv-glow {
-        animation: none
+    /* 极窄屏：只留文字，把横向空间让给标题（图标比两个字更占地方） */
+    @media (max-width:400px) {
+      .topbar .login {
+        padding: 0 9px;
+        font-size: 12px;
+        letter-spacing: 0
+      }
+
+      .topbar .login .ico {
+        display: none
+      }
+    }
+
+    /* ==================== 底部快捷菜单（Pad / 手机） ==================== */
+    .tabbar {
+      display: none
+    }
+
+    @media (max-width:1024px) {
+      .tabbar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 95;
+        display: flex;
+        gap: 6px;
+        box-sizing: border-box;
+        padding: 6px 10px calc(6px + env(safe-area-inset-bottom));
+        background: rgba(255, 255, 255, .97);
+        border-top: 1px solid var(--line);
+        box-shadow: 0 -3px 14px rgba(11, 79, 138, .08);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px)
+      }
+
+      .tabbar__item {
+        position: relative;
+        flex: 1 1 0;
+        /* Pad 上别把四项拉得太宽，各自封顶后整体居中 */
+        max-width: 200px;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        padding: 4px 4px;
+        border: 0;
+        background: none;
+        border-radius: 10px;
+        font: inherit;
+        text-decoration: none;
+        color: #4B5C6B;
+        font-weight: 600;
+        line-height: 1.2;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        transition: background-color .18s ease, color .18s ease
+      }
+
+      .tabbar__item svg {
+        width: 21px;
+        height: 21px;
+        display: block
+      }
+
+      .tabbar__item span {
+        /* 四项并排后每格只剩约 88px，字号随视口收一点，「我管理的河流」才不会被截断 */
+        font-size: calc(clamp(10px, 3.1vw, 11.5px) * var(--fs-k));
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%
+      }
+
+      .tabbar__item:disabled {
+        color: #BCC9D4;
+        cursor: default
+      }
+
+      .tabbar__item:disabled:active {
+        background: none
+      }
+
+      /* 上下章已并入底栏，正文底部那条不再重复出现 */
+      .chnav {
+        display: none
+      }
+
+      .tabbar__item:active {
+        background: #EEF4FA
+      }
+
+      .tabbar {
+        justify-content: center
+      }
+
+      /* 选中态用顶部小横条，比整块底色轻 */
+      .tabbar__item.is-on::before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 50%;
+        width: 18px;
+        height: 3px;
+        margin-left: -9px;
+        border-radius: 2px;
+        background: var(--blue)
+      }
+
+      /* 给固定条让位，别压住「上一章/下一章」 */
+      .layout {
+        padding-bottom: calc(74px + env(safe-area-inset-bottom))
       }
     }

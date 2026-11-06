@@ -101,7 +101,7 @@ body {
 
 .brand__title {
   margin: 0 0 14px;
-  font-size: clamp(28px, 2.5vw, 40px);
+  font-size: clamp(70px, 20vw, 85px);
   font-weight: 800;
   letter-spacing: 0.02em;
   line-height: 1.2;
@@ -145,6 +145,56 @@ body {
   font-weight: 800;
   letter-spacing: 0.02em;
   color: #16181c;
+}
+
+/* 标题行：左边标题、右边返回首页 */
+.card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 26px;
+}
+
+.card__head .card__title {
+  margin-bottom: 0;
+}
+
+.card__back {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #f2f4f7;
+  color: #4e5969;
+  text-decoration: none;
+  transition: color 0.18s ease, background-color 0.18s ease,
+    border-color 0.18s ease, transform 0.12s ease;
+}
+
+.card__back svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.card__back:hover {
+  color: var(--brand);
+  background: #eef4ff;
+  border-color: #c9dcfa;
+}
+
+.card__back:active {
+  transform: translateY(1px);
+}
+
+.card__back:focus-visible {
+  outline: 3px solid rgba(28, 107, 240, 0.3);
+  outline-offset: 2px;
 }
 
 /* -------------------------------------------------------------------- 表单 */
@@ -705,7 +755,7 @@ body {
   }
 }
 
-/* 手机：卡片满宽、内边距收紧，键盘弹出时不裁切 */
+/* 手机：内容上移贴住安全区、卡片占满可用宽度、字号整体抬一档 */
 @media (max-width: 600px) {
   .page {
     min-height: 100dvh;
@@ -717,36 +767,64 @@ body {
       linear-gradient(100deg, rgba(3, 24, 36, 0.45) 0%, rgba(3, 24, 36, 0.2) 100%);
   }
 
+  /* 整块（标题+卡片）在页脚以上垂直居中；用 auto 边距而不是 justify-content，
+     键盘弹起内容超高时 auto 会塌成 0，不会被顶出视口 */
   .page__main {
-    padding: 24px 22px 16px;
+    justify-content: flex-start;
+    padding: calc(env(safe-area-inset-top) + 24px) 16px 16px;
   }
 
   .brand {
-    margin-bottom: 16px;
+    margin-top: auto;
+    margin-bottom: 36px;
   }
 
   .brand__title {
-    font-size: 26px;
+    margin-bottom: 10px;
+    /* 桌面 70-85px，手机上按 12.3vw 缩到 48px 封顶，320 屏也不撑破 */
+    font-size: clamp(34px, 12.3vw, 48px);
     letter-spacing: 0.01em;
   }
 
   .brand__sub {
-    font-size: 13px;
+    font-size: 13.5px;
     letter-spacing: 0.01em;
   }
 
+  /* 卡片收窄两成并水平居中，比标题略窄一点，形成"标题架在卡片上"的关系 */
+  .panel {
+    width: 80%;
+    /* 320 屏上 80% 只剩 230，验证码行放不下，给个下限兜住 */
+    min-width: min(272px, 100%);
+    max-width: 352px;
+    /* 上下 auto 与 .brand 的 margin-top:auto 配合，把整块顶到中间 */
+    margin: 0 auto auto;
+  }
+
   .card {
-    /* 大屏手机上限宽，避免卡片在 428 以上视口被拉宽 */
     width: 100%;
-    max-width: 360px;
-    margin: 0 auto;
-    padding: 20px 18px 16px;
+    padding: 22px 16px 18px;
     border-radius: 14px;
   }
 
   .card__title {
-    margin-bottom: 16px;
-    font-size: 21px;
+    margin-bottom: 18px;
+    font-size: 22px;
+  }
+
+  .card__head {
+    margin-bottom: 18px;
+  }
+
+  .card__back {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .card__back svg {
+    width: 19px;
+    height: 19px;
   }
 
   /* 16px 可避免 iOS Safari 聚焦时自动放大 */
@@ -760,16 +838,33 @@ body {
   }
 
   .field {
-    height: 42px;
+    height: 46px;
+    padding: 0 12px;
+  }
+
+  .field__icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* 验证码行：按钮让出一点宽度，占位文字不至于顶到边框 */
+  .field-row {
+    gap: 8px;
   }
 
   .code-btn {
     width: 96px;
   }
 
+  .field__input::placeholder {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .submit {
-    height: 44px;
-    margin-top: 18px;
+    height: 48px;
+    margin-top: 22px;
     font-size: 16px;
   }
 
@@ -779,7 +874,7 @@ body {
   }
 
   .card--result {
-    padding: 20px 18px 16px;
+    padding: 22px 18px 18px;
   }
 
   .card--result .card__title {
@@ -790,13 +885,27 @@ body {
     max-height: 42vh;
   }
 
+  .page__foot {
+    padding: 0 16px calc(16px + env(safe-area-inset-bottom));
+  }
+
   .toast {
     bottom: 28px;
   }
 }
 
-/* 矮屏手机（横屏）或其他极小屏：隐藏装饰文案，优先保证表单可用 */
-@media (max-height: 620px) and (max-width: 960px) {
+/* 小屏手机（320-400）：把验证码按钮再收窄，输入框留出完整占位文字 */
+@media (max-width: 400px) {
+  .code-btn {
+    width: 84px;
+    padding: 0 4px;
+    font-size: 14px;
+  }
+}
+
+/* 矮屏横屏：隐藏装饰文案，优先保证表单可用
+   加 orientation 限定，否则 320×568 这类竖屏小机也会被当成横屏把标题藏掉 */
+@media (max-height: 620px) and (max-width: 960px) and (orientation: landscape) {
   .brand {
     display: none;
   }

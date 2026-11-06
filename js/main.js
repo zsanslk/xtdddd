@@ -303,8 +303,12 @@
           var name = fieldValue(form.querySelector("[name='username']"));
           saveSession(name, token);
           toast("登录成功");
-          window.location.assign('./index2.html')
-          enterResult(name);
+          // 登录页只是入口，成功后回手册首页；replace 避免回退又落回登录页
+          // 带 #ch1 锚点直接落到正文第一章，不经过封面页
+          // 停 600ms 让 toast 有机会被看到，跳转本身是同步的，不会因慢网卡住
+          setTimeout(function () {
+            window.location.replace("./shouce.html#ch1");
+          }, 600);
         } else {
           toast((res && res.msg) || "登录失败");
         }
@@ -351,20 +355,30 @@
     return res.json();
   }
 
+  /* 登录态存 localStorage：关浏览器、换标签页都还在，只有手动点“退出”才清 */
   function saveSession(userName, tk) {
     try {
-      sessionStorage.setItem(SESSION_KEY, JSON.stringify({ userName: userName, token: tk }));
+      localStorage.setItem(SESSION_KEY, JSON.stringify({ userName: userName, token: tk }));
+      // 清掉旧版本存在 sessionStorage 里的那份，避免两份打架
+      sessionStorage.removeItem(SESSION_KEY);
     } catch (e) {
-      /* 隐私模式下 sessionStorage 不可用，忽略 */
+      /* 隐私模式下 localStorage 不可用，忽略 */
     }
   }
 
-  function clearSession() {
-    try {
-      sessionStorage.removeItem(SESSION_KEY);
-    } catch (e) {
-      /* 同上 */
+  function readSession() {
+    var raw = null;
+    try { raw = localStorage.getItem(SESSION_KEY); } catch (e) { raw = null; }
+    if (!raw) {
+      // 兼容旧版本：早先存在 sessionStorage 里的登录态
+      try { raw = sessionStorage.getItem(SESSION_KEY); } catch (e) { raw = null; }
     }
+    return raw;
+  }
+
+  function clearSession() {
+    try { localStorage.removeItem(SESSION_KEY); } catch (e) { }
+    try { sessionStorage.removeItem(SESSION_KEY); } catch (e) { }
   }
 
   function enterResult(userName) {
@@ -440,8 +454,9 @@
         if (res && res.code === 401) {
           // 后端原文较长（含请求路径），控制台留证据，界面给用户看的说法
           console.warn("[hzz] 认证失败：", res.msg);
+          // 只提示不清理：登录态要留到用户手动点“退出”才清
           toast("登录状态已失效，请重新登录");
-          backToLogin();
+          renderHint("登录状态已失效，请点右上角“退出”后重新登录。");
           return;
         }
         if (!res || res.code !== 200) {
@@ -553,12 +568,7 @@
   /* ------------------------------------------------------------ 会话恢复 */
 
   (function restore() {
-    var raw = null;
-    try {
-      raw = sessionStorage.getItem(SESSION_KEY);
-    } catch (e) {
-      raw = null;
-    }
+    var raw = readSession();
     if (!raw) return;
     try {
       var saved = JSON.parse(raw);
