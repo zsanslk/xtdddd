@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>云南河湖长制十周年成果云展（2016—2026）</title>
+<style>
+  :root{
+    --ink:#1f2d3d; --sub:#5b6b7c; --line:#e3eaf1;
+    --blue:#1f4e79; --blue-d:#17365d; --blue-l:#eef4fa;
+    --teal:#0f6b65; --teal-l:#e9f5f3; --gold:#b8860b; --gold-l:#fbf5e6;
+    --bg:#f7f9fb; --card:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Microsoft YaHei","PingFang SC","Source Han Sans SC",sans-serif;background:var(--bg);color:var(--ink);line-height:1.8}
+
+  /* ---------- 顶部导航 ---------- */
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(23,54,93,.96);backdrop-filter:blur(6px);color:#dce7f2;display:flex;align-items:center;gap:6px;padding:10px 26px;flex-wrap:wrap}
+  .topbar .logo{font-size:15px;font-weight:700;color:#fff;letter-spacing:2px;margin-right:auto}
+  .topbar a{color:#c9d9ea;text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;transition:.2s}
+  .topbar a:hover{background:rgba(255,255,255,.14);color:#fff}
+  .topbar a.book{background:var(--teal);color:#fff}
+
+  /* ---------- 序厅 ---------- */
+  .hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:70px 24px;
+    background:linear-gradient(160deg,#17365d 0%,#1f4e79 45%,#0f6b65 100%);color:#fff;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;left:-10%;right:-10%;bottom:-60px;height:180px;background:radial-gradient(ellipse at center,rgba(255,255,255,.18),transparent 65%)}
+  .hero .badge{display:inline-block;border:1px solid rgba(255,255,255,.5);color:#ffe9b8;font-size:13px;letter-spacing:4px;padding:6px 22px;border-radius:24px;margin-bottom:26px}
+  .hero h1{font-size:46px;letter-spacing:6px;margin-bottom:16px;text-shadow:0 2px 12px rgba(0,0,0,.25)}
+  .hero .years{font-size:20px;letter-spacing:10px;color:#ffe9b8;margin-bottom:22px}
+  .hero .slogan{font-size:16px;color:#d8e6f3;letter-spacing:3px;margin-bottom:38px}
+  .hero .btns a{display:inline-block;margin:0 8px;padding:11px 30px;border-radius:26px;font-size:14px;text-decoration:none;letter-spacing:2px;transition:.2s}
+  .hero .btns .b1{background:#fff;color:var(--blue)}
+  .hero .btns .b2{border:1px solid rgba(255,255,255,.6);color:#fff}
+  .hero .btns a:hover{transform:translateY(-2px)}
+  .hero .src{position:absolute;bottom:18px;font-size:11.5px;color:rgba(255,255,255,.65);letter-spacing:1px}
+
+  /* ---------- 展区通用 ---------- */
+  section.hall{padding:72px 24px;max-width:1120px;margin:0 auto}
+  .hall-head{text-align:center;margin-bottom:44px}
+  .hall-head .no{display:inline-block;background:var(--gold-l);color:var(--gold);font-size:12.5px;letter-spacing:3px;padding:4px 16px;border-radius:16px;margin-bottom:12px}
+  .hall-head h2{font-size:30px;color:var(--blue);letter-spacing:3px}
+  .hall-head p{color:var(--sub);font-size:14px;margin-top:8px}
+
+  /* ---------- 数字墙 ---------- */
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:12px;padding:26px 18px;text-align:center;box-shadow:0 2px 8px rgba(31,78,121,.06)}
+  .kpi b{display:block;font-size:36px;color:var(--blue);letter-spacing:1px}
+  .kpi i{display:block;font-style:normal;font-size:12.5px;color:var(--gold);margin:2px 0 6px}
+  .kpi em{font-style:normal;font-size:13px;color:var(--sub)}
+
+  /* ---------- 治水模式 ---------- */
+  .modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .mode{background:linear-gradient(180deg,#fff, var(--teal-l));border:1px solid var(--line);border-radius:12px;padding:24px 20px}
+  .mode h3{font-size:17px;color:var(--teal);margin-bottom:8px}
+  .mode p{font-size:13.5px;color:var(--sub)}
+
+  /* ---------- 六大水系 ---------- */
+  .rivers{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+  .river{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(31,78,121,.06)}
+  .rname{background:linear-gradient(120deg,#17365d,#1f4e79 60%,#2f6b9c);color:#fff;font-size:18px;font-weight:700;letter-spacing:3px;padding:12px 20px;display:flex;align-items:baseline;gap:10px}
+  .rname small{font-size:12px;font-weight:400;color:#bcd2e8;letter-spacing:1px}
+  .rbody{padding:16px 20px}
+  .rbody p{font-size:13px;color:var(--sub);margin-bottom:6px}
+  .rbody .rl{color:var(--blue);font-size:12.5px}
+  .rbody .tag{display:inline-block;font-size:11px;background:var(--teal-l);color:var(--teal);border-radius:10px;padding:1px 9px;margin:6px 4px 0 0}
+
+  /* ---------- 九湖亮点 ---------- */
+  .lakes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .lake{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(31,78,121,.06)}
+  .lake .ph{height:120px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12.5px;letter-spacing:2px;background:linear-gradient(135deg,#1f4e79,#3a7ca5)}
+  .lake:nth-child(3n) .ph{background:linear-gradient(135deg,#0f6b65,#3a9e8f)}
+  .lake:nth-child(3n+2) .ph{background:linear-gradient(135deg,#17365d,#4a6d9c)}
+  .lake .body{padding:16px 18px}
+  .lake h3{font-size:16px;color:var(--blue);margin-bottom:6px}
+  .lake p{font-size:13px;color:var(--sub)}
+  .lake .tag{display:inline-block;font-size:11px;background:var(--teal-l);color:var(--teal);border-radius:10px;padding:1px 9px;margin:8px 4px 0 0}
+
+  /* ---------- 大事记 ---------- */
+  .timeline{position:relative;max-width:760px;margin:0 auto;padding-left:34px}
+  .timeline::before{content:"";position:absolute;left:10px;top:6px;bottom:6px;width:3px;background:linear-gradient(180deg,var(--blue),var(--teal));border-radius:2px}
+  .tl{position:relative;margin-bottom:26px}
+  .tl-dot{position:absolute;left:-30px;top:6px;width:15px;height:15px;border-radius:50%;background:#fff;border:4px solid var(--teal)}
+  .tl-year{font-size:15px;font-weight:700;color:var(--gold);letter-spacing:1px}
+  .tl-text{font-size:14px;color:var(--ink)}
+  .tl-text span{color:var(--sub);font-size:13px}
+
+  /* ---------- 制度 / 参与 ---------- */
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+  .col{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:10px;padding:20px 22px}
+  .col h3{font-size:16px;color:var(--blue);margin-bottom:8px}
+  .col p,.col li{font-size:13.5px;color:var(--sub)}
+  .col ul{padding-left:18px}
+  .law9{font-size:30px;color:var(--teal);font-weight:700;letter-spacing:2px}
+
+  /* ---------- 影像展 ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+  .ph-slot{height:150px;border:2px dashed #b9c9da;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#8aa1b8;font-size:12.5px;background:var(--blue-l)}
+  .ph-slot b{font-size:14px;color:var(--blue);margin-bottom:4px}
+
+  /* ---------- 展望 ---------- */
+  .future{background:linear-gradient(135deg,#17365d,#0f6b65);color:#eaf3fb;border-radius:16px;padding:40px 36px;text-align:center}
+  .future h2{color:#fff;font-size:26px;letter-spacing:3px;margin-bottom:14px}
+  .future p{font-size:14px;color:#cfe2f0;max-width:760px;margin:0 auto 10px}
+  .future .goal{display:inline-block;margin-top:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);border-radius:24px;padding:8px 26px;font-size:15px;color:#ffe9b8;letter-spacing:2px}
+
+  footer{padding:40px 24px;text-align:center;font-size:12px;color:var(--sub)}
+  footer a{color:var(--blue);text-decoration:none}
+  /* ---------- 河长数据模块 ---------- */
+  .lv-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px;justify-content:center}
+  .lv-tab{border:1px solid var(--line);background:#fff;color:var(--sub);font-size:13.5px;padding:9px 20px;border-radius:22px;cursor:pointer;font-family:inherit;transition:.2s;letter-spacing:1px}
+  .lv-tab:hover{border-color:var(--teal);color:var(--teal)}
+  .lv-tab.on{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:600}
+  .lv-panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px 26px;box-shadow:0 2px 8px rgba(31,78,121,.06)}
+  .lv-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:12px}
+  .lv-head b{font-size:19px;color:var(--blue);letter-spacing:1px}
+  .lv-head .freq{background:var(--gold-l);color:var(--gold);font-size:12.5px;border-radius:14px;padding:3px 14px}
+  .lv-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .lv-cols h5{font-size:13.5px;color:var(--teal);margin-bottom:6px}
+  .lv-cols ul{padding-left:18px;font-size:13px;color:var(--sub)}
+  .lv-cols li{margin-bottom:4px}
+  .lv-note{margin-top:14px;font-size:12px;color:var(--sub);background:var(--blue-l);border-left:3px solid var(--blue);border-radius:6px;padding:10px 14px}
+  @media(max-width:700px){.hero h1{font-size:30px}.hall-head h2{font-size:24px}}
+</style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<div class="topbar">
+  <div class="logo">云展</div>
+  <a href="#hall0">序厅</a>
+  <a href="#hall1">十年数字</a>
+  <a href="#hall2">治水模式</a>
+  <a href="#hall3b">六大水系</a>
+  <a href="#hall3">九湖亮点</a>
+  <a href="#hall4">制度法治</a>
+  <a href="#hall5">大事记</a>
+  <a href="#hall6">影像展</a>
+  <a href="#hall8">河长数据</a>
+  <a href="#hall7">展望 2030</a>
+</div>
+
+<!-- ================= 序厅 ================= -->
+<header class="hero" id="hall0">
+  <div class="badge">云 展 馆</div>
+  <h1>河湖长制十周年成果云展</h1>
+  <div class="years">2016 — 2026</div>
+  <div class="slogan">云南省全面推行河湖长制十周年成果展</div>
+  <div class="btns">
+    <a class="b1" href="#hall1">进入展厅</a>
+  </div>
+  <div class="src">资料属性：工作参考 ｜ 数据口径：水利部及云南省公开发布（检索截止 2026-11-02）</div>
+</header>
+
+<!-- ================= 第一展厅：十年数字 ================= -->
+<section class="hall" id="hall1">
+  <div class="hall-head">
+    <div class="no">第一展厅</div>
+    <h2>十年数字墙</h2>
+    <p>五级河湖长体系全覆盖，高原湖泊治理投入与成效一览</p>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><b>3.8 万+</b><i>名</i><em>五级河湖长，实现全省河湖库渠全覆盖</em></div>
+    <div class="kpi"><b>94.1%</b><i>+28.1 个百分点</i><em>2025 年国控断面优良水体比例</em></div>
+    <div class="kpi"><b>300 亿+</b><i>元</i><em>九大高原湖泊保护治理累计投入</em></div>
+    <div class="kpi"><b>224 个</b><i>已完工 179 个</i><em>“三治一改善”重点保护治理项目</em></div>
+    <div class="kpi"><b>11250 个</b><i>2021 年以来</i><em>河湖库“四乱”问题整改完成</em></div>
+    <div class="kpi"><b>165.8 km²</b><i>原一级保护区 2.8 倍</i><em>新划定生态保护核心区面积</em></div>
+    <div class="kpi"><b>1987 + 30</b><i>条河流 + 个湖泊</i><em>提前一年完成健康评价</em></div>
+    <div class="kpi"><b>9 名</b><i>省委常委</i><em>担任九大高原湖泊省级湖长</em></div>
+  </div>
+</section>
+
+<!-- ================= 第二展厅：治水模式 ================= -->
+<section class="hall" id="hall2" style="background:#fff;border-radius:16px">
+  <div class="hall-head">
+    <div class="no">第二展厅</div>
+    <h2>治水模式</h2>
+    <p>从“一湖之治”走向“全域联治”的云南路径</p>
+  </div>
+  <div class="modes">
+    <div class="mode"><h3>三治一改善</h3><p>聚焦治污水、治农业面源污染、治垃圾、改善水生态，项目化推进、清单化管理，224 个重点项目接续实施。</p></div>
+    <div class="mode"><h3>两线三区</h3><p>划定湖滨生态红线、湖泊生态黄线，划分生态保护核心区、缓冲区、绿色发展区，以 30 条正负面清单管控空间。</p></div>
+    <div class="mode"><h3>五级河长 + 督察</h3><p>省、州（市）、县、乡、村五级河湖长责任体系，配套省、州（市）、县三级督察，高原湖泊研究中心专家驻点支撑。</p></div>
+    <div class="mode"><h3>一湖一策一档</h3><p>以健康评价为基础建立“一河（湖）一档”，滚动修编“一河（湖）一策”，问题、目标、任务、措施、责任五张清单闭环。</p></div>
+    <div class="mode"><h3>数智监管</h3><p>取用水管理、河湖监测感知、遥感复核、问题在线闭环等数字化能力持续增强，推动“人海战术”向“科技智治”跃升。</p></div>
+    <div class="mode"><h3>联防联治</h3><p>跨界河湖联合会商、信息共享、联合执法；泸沽湖滇川共护、阳宗海跨市协同，流域上下游一体推进。</p></div>
+  </div>
+</section>
+
+<!-- ================= 第三展厅：六大水系 ================= -->
+<section class="hall" id="hall3b">
+  <div class="hall-head">
+    <div class="no">第三展厅</div>
+    <h2>六大水系</h2>
+    <p>云南河流分属长江、珠江、红河、澜沧江、怒江、伊洛瓦底江六大水系，六大水系出境断面水质全部达到优良以上</p>
+  </div>
+  <div class="rivers">
+    <div class="river">
+      <div class="rname">长江<small>金沙江</small></div>
+      <div class="rbody">
+        <p>云南北部和东部重要水系，承担<strong>长江上游生态安全屏障</strong>责任。</p>
+        <p class="rl">纳管湖泊：滇池、程海、泸沽湖</p>
+        <span class="tag">水源涵养</span><span class="tag">水土保持</span><span class="tag">长江十年禁渔</span><span class="tag">岸线管控</span>
+      </div>
+    </div>
+    <div class="river">
+      <div class="rname">珠江<small>南盘江</small></div>
+      <div class="rbody">
+        <p>发源于云南，是云南东部重要水系，高原湖泊最为集中。</p>
+        <p class="rl">纳管湖泊：抚仙湖、星云湖、杞麓湖、阳宗海、异龙湖</p>
+        <span class="tag">高原湖泊</span><span class="tag">入湖河道</span><span class="tag">生态水量</span><span class="tag">源头保护</span>
+      </div>
+    </div>
+    <div class="river">
+      <div class="rname">红河<small>元江</small></div>
+      <div class="rbody">
+        <p>发源于云南的重要出境河流，流域山地与干热河谷特征明显。</p>
+        <p class="rl">治理重点：水土流失、生态流量、水环境风险</p>
+        <span class="tag">水土流失治理</span><span class="tag">出境断面水质</span><span class="tag">跨境信息协同</span>
+      </div>
+    </div>
+    <div class="river">
+      <div class="rname">澜沧江<small>湄公河</small></div>
+      <div class="rbody">
+        <p>重要国际河流，云南西部和南部生态与发展的关键廊道。</p>
+        <p class="rl">纳管湖泊：洱海</p>
+        <span class="tag">生物多样性</span><span class="tag">水源涵养</span><span class="tag">库区支流治理</span><span class="tag">农业面源</span>
+      </div>
+    </div>
+    <div class="river">
+      <div class="rname">怒江<small>萨尔温江</small></div>
+      <div class="rbody">
+        <p>重要国际河流，山高谷深、生态敏感，保存重要自然生态空间。</p>
+        <p class="rl">治理重点：自然生态与生物多样性保护、地质灾害风险</p>
+        <span class="tag">自然生态保护</span><span class="tag">水土保持</span><span class="tag">岸线开发约束</span>
+      </div>
+    </div>
+    <div class="river">
+      <div class="rname">伊洛瓦底江<small>大盈江</small></div>
+      <div class="rbody">
+        <p>云南西部重要出境水系，与边境地区生产生活、生态安全密切相关；大盈江入选<strong>全国幸福河湖优秀案例</strong>。</p>
+        <p class="rl">治理重点：河道管护、湿地保护、跨境协同</p>
+        <span class="tag">幸福河湖优秀案例</span><span class="tag">湿地保护</span><span class="tag">跨境协同</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 第四展厅：九湖亮点 ================= -->
+<section class="hall" id="hall3">
+  <div class="hall-head">
+    <div class="no">第四展厅</div>
+    <h2>九大高原湖泊亮点</h2>
+    <p>九湖分属长江、珠江、澜沧江三大水系，主要入湖河道 124 条、总长约 1111.42 千米</p>
+  </div>
+  <div class="lakes">
+    <div class="lake"><div class="ph">影像位 · 滇池</div><div class="body"><h3>滇池（昆明 · 长江水系）</h3><p>全湖水质连续 8 年保持Ⅳ类并稳定向好；建成 108 公里环湖绿道，改造提升沿岸 46 个美丽乡村。</p><span class="tag">环湖绿道</span><span class="tag">蓝藻防控</span></div></div>
+    <div class="lake"><div class="ph">影像位 · 洱海</div><div class="body"><h3>洱海（大理 · 澜沧江水系）</h3><p>海菜花重新绽放，公开口径面积超 43 万平方米；环湖生态廊道与农业面源治理形成系统示范。</p><span class="tag">海菜花</span><span class="tag">生态廊道</span></div></div>
+    <div class="lake"><div class="ph">影像位 · 抚仙湖</div><div class="body"><h3>抚仙湖（玉溪 · 珠江水系）</h3><p>深水湖泊保护优先，严控总磷输入与湖滨开发，保持湖泊良好水生态。</p><span class="tag">保护优先</span></div></div>
+    <div class="lake"><div class="ph">影像位 · 星云湖</div><div class="body"><h3>星云湖（玉溪 · 珠江水系）</h3><p>坝区农业退水收集利用、内源风险防控，与抚仙湖实施隔河联合调度、系统协同。</p><span class="tag">联合调度</span></div></div>
+    <div class="lake"><div class="ph">影像位 · 杞麓湖</div><div class="body"><h3>杞麓湖（玉溪 · 珠江水系）</h3><p>2025 年实现脱劣；控肥控药、农田退水循环利用持续推进，巩固治理成果。</p><span class="tag">2025 脱劣</span></div></div>
+    <div class="lake"><div class="ph">影像位 · 阳宗海</div><div class="body"><h3>阳宗海（昆明·玉溪 · 珠江水系）</h3><p>跨行政区域联防联治，持续开展砷及风险源监测，共商共办共验。</p><span class="tag">跨界协同</span></div></div>
+    <div class="lake"><div class="ph">影像位 · 泸沽湖</div><div class="body"><h3>泸沽湖（丽江 · 长江水系）</h3><p>滇川跨省联防联治，统筹湖泊保护、民族文化、旅游承载与村落发展。</p><span class="tag">跨省共护</span></div></div>
+    <div class="lake"><div class="ph">影像位 · 程海</div><div class="body"><h3>程海（丽江 · 长江水系）</h3><p>封闭碱性湖泊，统筹生态水位、科学补水与螺旋藻产业绿色转型。</p><span class="tag">科学补水</span></div></div>
+    <div class="lake"><div class="ph">影像位 · 异龙湖</div><div class="body"><h3>异龙湖（红河 · 珠江水系）</h3><p>2025 年实现脱劣；城镇与农村污水、农业面源、入湖河道与湿地修复统筹发力。</p><span class="tag">2025 脱劣</span></div></div>
+  </div>
+  <p style="text-align:center;margin-top:20px;font-size:13px;color:var(--sub)">另：赤水河（云南段）、大盈江入选全国幸福河湖优秀案例。</p>
+</section>
+
+<!-- ================= 第四展厅：制度法治 + 全民参与 ================= -->
+<section class="hall" id="hall4" style="background:#fff;border-radius:16px">
+  <div class="hall-head">
+    <div class="no">第五展厅</div>
+    <h2>制度法治 · 全民参与</h2>
+    <p>依法治湖与社会共治双轮驱动</p>
+  </div>
+  <div class="cols">
+    <div class="col">
+      <div class="law9">“9 + 1” → “9 + 2”</div>
+      <p>逐一修订 9 个重点高原湖泊保护条例，出台《云南省重点高原湖泊入湖河道保护条例》（2025-09-01 施行），形成“一湖一条例＋入湖河道保护条例”的“9+1”法规体系；2026 年推进农业面源污染防治立法，向“9+2”拓展，推动“田—河—湖”全链条依法管控。</p>
+    </div>
+    <div class="col">
+      <h3>全民参与</h3>
+      <ul>
+        <li>民间河长、志愿者队伍持续壮大，畅通公众监督举报渠道；</li>
+        <li>河湖保护进村规民约、进课堂、进社区；</li>
+        <li>滇池绿道、亲水空间让治理成果可感可及；</li>
+        <li>十周年主题宣传凝聚全社会爱湖护湖共识。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 第五展厅：大事记 ================= -->
+<section class="hall" id="hall5">
+  <div class="hall-head">
+    <div class="no">第六展厅</div>
+    <h2>十年大事记</h2>
+    <p>云南河湖长制从建章立制到系统治理的关键节点</p>
+  </div>
+  <div class="timeline">
+    <div class="tl"><div class="tl-dot"></div><div class="tl-year">2016</div><div class="tl-text">中办、国办印发《关于全面推行河长制的意见》，云南全面建立河长制。<span>（制度起点）</span></div></div>
+    <div class="tl"><div class="tl-dot"></div><div class="tl-year">2017</div><div class="tl-text">湖长制指导意见出台，湖泊管理保护进入“湖长”时代。<span>（湖长制起步）</span></div></div>
+    <div class="tl"><div class="tl-dot"></div><div class="tl-year">2018</div><div class="tl-text">省、州（市）、县、乡、村五级河湖长体系全面建成。<span>（组织全覆盖）</span></div></div>
+    <div class="tl"><div class="tl-dot"></div><div class="tl-year">2021</div><div class="tl-text">水利部《河长湖长履职规范（试行）》印发；云南启动九湖“两线三区”划定。<span>（履职有规范）</span></div></div>
+    <div class="tl"><div class="tl-dot"></div><div class="tl-year">2022</div><div class="tl-text">云政发〔2022〕25 号出台“三区”管控 30 条正负面清单。<span>（空间管控成型）</span></div></div>
+    <div class="tl"><div class="tl-dot"></div><div class="tl-year">2023</div><div class="tl-text">《云南省九大高原湖泊入湖河道综合治理规划》发布，治理延伸至“入湖河道—流域—全域”。</div></div>
+    <div class="tl"><div class="tl-dot"></div><div class="tl-year">2025</div><div class="tl-text">《关于全面推进江河保护治理的意见》印发；《云南省重点高原湖泊入湖河道保护条例》施行；杞麓湖、异龙湖实现脱劣。<span>（法治升级、水质突破）</span></div></div>
+    <div class="tl"><div class="tl-dot"></div><div class="tl-year">2026</div><div class="tl-text">全面推行河湖长制十周年；省总河长令部署七方面 40 项重点，启动九湖“一湖一策”（2026—2030 年）编制。<span>（迈向新征程）</span></div></div>
+  </div>
+</section>
+
+<!-- ================= 第六展厅：影像展 ================= -->
+<section class="hall" id="hall6" style="background:#fff;border-radius:16px">
+  <div class="hall-head">
+    <div class="no">第七展厅</div>
+    <h2>云上影像展</h2>
+    <p>预留影像展位，可替换为九湖治理前后对比、巡湖纪实与群众亲水场景照片</p>
+  </div>
+  <div class="gallery">
+    <div class="ph-slot"><b>滇池绿道</b>治理成效 · 待替换实拍图</div>
+    <div class="ph-slot"><b>洱海海菜花</b>生态恢复 · 待替换实拍图</div>
+    <div class="ph-slot"><b>抚仙湖岸线</b>保护修复 · 待替换实拍图</div>
+    <div class="ph-slot"><b>杞麓湖田园</b>面源治理 · 待替换实拍图</div>
+    <div class="ph-slot"><b>泸沽湖晨雾</b>跨省共护 · 待替换实拍图</div>
+    <div class="ph-slot"><b>异龙湖湿地</b>脱劣攻坚 · 待替换实拍图</div>
+    <div class="ph-slot"><b>巡湖纪实</b>履职瞬间 · 待替换实拍图</div>
+    <div class="ph-slot"><b>民间河长</b>全民参与 · 待替换实拍图</div>
+  </div>
+</section>
+
+<!-- ================= 第八展厅：五级河湖长数据中心 ================= -->
+<section class="hall" id="hall8">
+  <div class="hall-head">
+    <div class="no">第八展厅</div>
+    <h2>五级河湖长数据中心</h2>
+    <p>全省 3.8 万余名五级河湖长实现河湖库渠全覆盖，点击层级标签，查看各级河湖长的职责、巡查频次与河湖数据</p>
+  </div>
+
+  <div class="kpis" style="margin-bottom:26px">
+    <div class="kpi"><b>3.8 万+</b><i>名</i><em>省、州（市）、县、乡、村五级河湖长</em></div>
+    <div class="kpi"><b>5 级</b><i>责任体系</i><em>党政领导担任，河湖库渠全覆盖</em></div>
+    <div class="kpi"><b>9 名</b><i>省委常委</i><em>担任九大高原湖泊省级湖长</em></div>
+    <div class="kpi"><b>3 级</b><i>督察体系</i><em>省、州（市）、县三级督察强化落实</em></div>
+  </div>
+
+  <div class="lv-tabs" id="lvTabs">
+    <button class="lv-tab on" data-lv="s1">省级河湖长</button>
+    <button class="lv-tab" data-lv="s2">州（市）级河湖长</button>
+    <button class="lv-tab" data-lv="s3">县级河湖长</button>
+    <button class="lv-tab" data-lv="s4">乡级河湖长</button>
+    <button class="lv-tab" data-lv="s5">村级河湖长</button>
+  </div>
+
+  <div class="lv-panel" id="lv-s1">
+    <div class="lv-head"><b>省级河湖长</b><span class="freq">巡查频次：每年不少于 2 次</span></div>
+    <div class="lv-cols">
+      <div><h5>履职重点</h5><ul>
+        <li>审定并组织实施“一河（湖）一策”方案；</li>
+        <li>组织突出问题专项整治，协调重大问题；</li>
+        <li>明晰上下游、左右岸、干支流目标任务，推动流域统筹；</li>
+        <li>督导省级部门和下一级河湖长履职，严格考核。</li>
+      </ul></div>
+      <div><h5>可查看河湖数据</h5><ul>
+        <li>九大高原湖泊全湖水质、水位、藻情与年度评价；</li>
+        <li>六大水系省控以上断面水质与出境断面情况；</li>
+        <li>全省“三治一改善”项目台账与投资进度；</li>
+        <li>全省“四乱”问题整治与销号汇总；</li>
+        <li>各州（市）河湖长履职考核结果。</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="lv-panel" id="lv-s2" style="display:none">
+    <div class="lv-head"><b>州（市）级河湖长</b><span class="freq">巡查频次：每年不少于 3 次，每半年不少于 1 次</span></div>
+    <div class="lv-cols">
+      <div><h5>履职重点</h5><ul>
+        <li>组织实施“一河（湖）一策”细化方案；</li>
+        <li>组织专项治理与问题整治，督促查处违法行为；</li>
+        <li>协调落实河湖管理保护和治理规划；</li>
+        <li>督导本级部门和县级河湖长履职。</li>
+      </ul></div>
+      <div><h5>可查看河湖数据</h5><ul>
+        <li>本州（市）责任河湖的断面水质与月度变化；</li>
+        <li>入湖（入库）河道名录、水质与负荷数据；</li>
+        <li>辖区保护治理项目进度、资金与绩效；</li>
+        <li>辖区问题台账、交办与整改销号情况；</li>
+        <li>跨县（市、区）联防联治事项清单。</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="lv-panel" id="lv-s3" style="display:none">
+    <div class="lv-head"><b>县级河湖长</b><span class="freq">巡查频次：每季度不少于 1 次</span></div>
+    <div class="lv-cols">
+      <div><h5>履职重点</h5><ul>
+        <li>组织河湖问题自查自纠，查清问题底数；</li>
+        <li>组织有关部门限时完成问题整治；</li>
+        <li>加强跟踪检查，严格销号管理；</li>
+        <li>对性质严重问题依法追究、依纪问责。</li>
+      </ul></div>
+      <div><h5>可查看河湖数据</h5><ul>
+        <li>县域河段（湖片）水质监测与排污口台账；</li>
+        <li>“两线三区”界桩、图斑与涉河项目审批数据；</li>
+        <li>“四乱”问题清单与整改前后影像；</li>
+        <li>辖区河湖健康评价与“一河（湖）一档”；</li>
+        <li>乡、村级河湖长巡查上报记录。</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="lv-panel" id="lv-s4" style="display:none">
+    <div class="lv-head"><b>乡级河湖长</b><span class="freq">巡查频次：每月不少于 1 次</span></div>
+    <div class="lv-cols">
+      <div><h5>履职重点</h5><ul>
+        <li>开展河湖经常性巡查，组织整改发现问题；</li>
+        <li>组织河湖日常清漂、保洁；</li>
+        <li>不能解决的问题及时向上级报告；</li>
+        <li>配合开展清理整治与执法行动。</li>
+      </ul></div>
+      <div><h5>可查看河湖数据</h5><ul>
+        <li>责任河段（湖片）日常巡查记录与轨迹；</li>
+        <li>保洁清漂、岸线垃圾与设施运维记录；</li>
+        <li>上级交办问题及整改进度；</li>
+        <li>群众反映与举报事项办理情况。</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="lv-panel" id="lv-s5" style="display:none">
+    <div class="lv-head"><b>村级河湖长</b><span class="freq">巡查频次：每周不少于 1 次</span></div>
+    <div class="lv-cols">
+      <div><h5>履职重点</h5><ul>
+        <li>组织订立河湖保护村规民约；</li>
+        <li>开展河湖日常巡查；</li>
+        <li>劝阻、制止涉河湖违法违规行为；</li>
+        <li>不能解决的问题及时向上级报告。</li>
+      </ul></div>
+      <div><h5>可查看河湖数据</h5><ul>
+        <li>村域河段（湖片）巡查打卡与问题上报记录；</li>
+        <li>村规民约事项与公众参与情况；</li>
+        <li>小微水体、沟渠塘坝管护信息；</li>
+        <li>已上报问题的处理反馈。</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="lv-note">说明：各级河湖长名单、责任河湖明细及实时动态数据，以“云南省河湖长制信息管理系统”登记口径为准；本模块展示公开汇总信息与分级数据查看框架，供工作参考。</div>
+
+  <h3 style="margin-top:30px">九湖责任数据速查</h3>
+  <p>各级河湖长可按责任归属快速定位对应湖泊的基础与成效数据。</p>
+  <table>
+    <tr><th>湖泊</th><th>所在区域</th><th>所属水系</th><th>主要入湖河道</th><th>十年亮点数据</th></tr>
+    <tr><td><strong>滇池</strong></td><td>昆明市</td><td>长江（金沙江）</td><td>35 条</td><td>全湖Ⅳ类连续 8 年；环湖绿道 108 公里、美丽乡村 46 个</td></tr>
+    <tr><td><strong>洱海</strong></td><td>大理州</td><td>澜沧江（湄公河）</td><td>27 条</td><td>海菜花恢复超 43 万平方米</td></tr>
+    <tr><td><strong>抚仙湖</strong></td><td>玉溪市</td><td>珠江（南盘江）</td><td>22 条</td><td>深水湖泊保护优先，水质保持优良</td></tr>
+    <tr><td><strong>星云湖</strong></td><td>玉溪市</td><td>珠江（南盘江）</td><td>12 条</td><td>与抚仙湖隔河联合调度、系统协同</td></tr>
+    <tr><td><strong>杞麓湖</strong></td><td>玉溪市</td><td>珠江（南盘江）</td><td>7 条</td><td>2025 年实现脱劣</td></tr>
+    <tr><td><strong>阳宗海</strong></td><td>昆明市、玉溪市</td><td>珠江（南盘江）</td><td>4 条</td><td>跨行政区域联防联治持续推进</td></tr>
+    <tr><td><strong>泸沽湖</strong></td><td>丽江市（滇川交界）</td><td>长江（金沙江）</td><td>5 条</td><td>滇川跨省联防联治机制深化</td></tr>
+    <tr><td><strong>程海</strong></td><td>丽江市永胜县</td><td>长江（金沙江）</td><td>5 条</td><td>生态水位与科学补水统筹推进</td></tr>
+    <tr><td><strong>异龙湖</strong></td><td>红河州石屏县</td><td>珠江（南盘江）</td><td>7 条</td><td>2025 年实现脱劣</td></tr>
+  </table>
+</section>
+
+<!-- ================= 展望 2030 ================= -->
+<section class="hall" id="hall7">
+  <div class="future">
+    <h2>展望 2030</h2>
+    <p>编制实施九大高原湖泊“一湖一策”方案（2026—2030 年），滚动更新五张清单；持续“三治一改善”，从严“两线三区”管控；推进“9+2”法规体系与新一轮健康评价、数智监管。</p>
+    <p>让每一泓高原湖水，都成为云南最动人的底色。</p>
+    <div class="goal">目标：2030 年全省建成省、州（市）级幸福河湖 170 个</div>
+  </div>
+</section>
+
+<footer>
+  云南河湖长制十周年成果云展（2016—2026）｜仅供工作参考<br>
+  数据来源：水利部、云南省人民政府公开发布
+</footer>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('#lvTabs .lv-tab');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('on');});
+      t.classList.add('on');
+      ['s1','s2','s3','s4','s5'].forEach(function(k){
+        var p=document.getElementById('lv-'+k);
+        if(p)p.style.display=(k===t.getAttribute('data-lv'))?'':'none';
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
