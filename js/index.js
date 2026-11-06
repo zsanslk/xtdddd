@@ -802,3 +802,74 @@
       }
     })();
   
+
+/* ==================== 全局封面（进入窗口） ==================== */
+(function () {
+  var cover = document.getElementById('cover');
+  if (!cover) return;
+
+  var root = document.documentElement;
+  var btn = document.getElementById('coverEnter');
+  var closed = false;
+
+  /* 深链进入：theme-init 已标记 cover-skip，封面保持隐藏 */
+  if (root.className.indexOf('cover-skip') > -1) {
+    root.classList.remove('cover-open');
+    cover.setAttribute('aria-hidden', 'true');
+    return;
+  }
+
+  function finish() {
+    cover.classList.add('done');
+    cover.setAttribute('aria-hidden', 'true');
+    root.classList.add('cover-skip');
+    var main = document.querySelector('main.content');
+    if (main) {
+      if (!main.hasAttribute('tabindex')) main.setAttribute('tabindex', '-1');
+      try { main.focus({ preventScroll: true }); } catch (e) { main.focus(); }
+    }
+  }
+
+  function enter() {
+    if (closed) return;
+    closed = true;
+    cover.classList.add('closing');
+    root.classList.remove('cover-open');
+    window.setTimeout(finish, 660);
+  }
+
+  if (btn) {
+    btn.addEventListener('click', enter);
+  }
+
+  /* 初始焦点落在封面上（不直接落在按钮，避免出现默认外框） */
+  try { cover.focus({ preventScroll: true }); } catch (e) { cover.focus(); }
+
+  /* 键盘：回车 / 空格 / Esc 均可进入；Tab 焦点限制在封面内 */
+  document.addEventListener('keydown', function (e) {
+    if (closed) return;
+    var k = e.key;
+    if (k === 'Enter' || k === ' ' || k === 'Escape' || k === 'Spacebar') {
+      e.preventDefault();
+      enter();
+      return;
+    }
+    if (k === 'Tab') {
+      var f = cover.querySelectorAll('button, a[href]');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      var inside = cover.contains(document.activeElement);
+      if (e.shiftKey && (!inside || document.activeElement === first)) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && (!inside || document.activeElement === last)) {
+        e.preventDefault(); first.focus();
+      }
+    }
+  });
+
+  /* 焦点被外部（如脚本）抢走时拉回封面 */
+  document.addEventListener('focusin', function (e) {
+    if (closed || cover.contains(e.target)) return;
+    if (btn) btn.focus({ preventScroll: true });
+  });
+})();

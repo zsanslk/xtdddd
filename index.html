@@ -16,6 +16,49 @@
 
 <body>
 
+  <!-- ==================== 全局封面 / 进入窗口 ==================== -->
+  <div class="cover" id="cover" role="dialog" aria-modal="true" aria-labelledby="coverTitle" tabindex="-1">
+    <div class="cv-bg" aria-hidden="true">
+      <span class="cv-glow g1"></span>
+      <span class="cv-glow g2"></span>
+      <svg class="cv-waves" viewBox="0 0 1440 220" preserveAspectRatio="none">
+        <path d="M0,118 C240,66 480,168 720,118 C960,68 1200,164 1440,112 L1440,220 L0,220 Z"
+          fill="rgba(255,255,255,.07)" />
+        <path d="M0,156 C260,108 500,198 760,148 C1020,98 1220,184 1440,142 L1440,220 L0,220 Z"
+          fill="rgba(255,255,255,.10)" />
+        <path d="M0,190 C280,158 520,222 800,190 C1080,158 1240,215 1440,186 L1440,220 L0,220 Z"
+          fill="rgba(255,255,255,.05)" />
+      </svg>
+    </div>
+
+    <div class="cv-inner">
+      <div class="cv-badge">云南省河湖长制 · 2026 年版</div>
+      <p class="cv-kicker">欢 迎 使 用</p>
+      <h1 class="cv-title" id="coverTitle">云南省河湖长制工作手册</h1>
+      <p class="cv-slogan">政策依据 · 履职清单 · 河湖信息速查</p>
+      <p class="cv-desc">面向省、州（市）、县、乡、村五级河湖长，汇集政策依据、履职要求、全省河湖长信息、岸线空间管控、清四乱、幸福河湖、奖补资金与高原湖泊、六大水系资料，巡河巡湖随手可查。</p>
+
+      <div class="cv-meta">
+        <span><b>8</b> 章</span><i></i>
+        <span><b>45</b> 个小节</span><i></i>
+        <span>数据截止 2025-12-31</span>
+      </div>
+
+      <div class="cv-btns">
+        <button class="cv-enter" id="coverEnter" type="button">
+          <span>进入手册</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h13M12.5 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <a class="cv-ghost" href="./云南河湖长制十周年成果云展.html" target="_blank" rel="noopener">参观云展馆</a>
+      </div>
+
+      <p class="cv-foot">内部工作资料 ｜ 图件为示意，不作执法依据，引用请与正式文件及主管部门公布数据核对</p>
+    </div>
+  </div>
+
   <header class="topbar">
     <button class="tb-toc" id="tocBtn" type="button" aria-controls="toc" aria-expanded="true">
       <span class="ico">☰</span><span class="lbl">目录</span>

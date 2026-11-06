@@ -6169,3 +6169,415 @@
     h3[id] {
       scroll-margin-top: 76px
     }
+
+    /* ==================== 全局封面 / 进入窗口 ==================== */
+    /* 参照云展馆序厅：深蓝—青绿渐变 + 水波 + 中心文案 + 主按钮 */
+    html.cover-open,
+    html.cover-open body {
+      overflow: hidden;
+      height: 100%
+    }
+
+    html.cover-open .layout,
+    html.cover-open .topbar,
+    html.cover-open header.hero {
+      visibility: hidden
+    }
+
+    html.cover-skip .cover {
+      display: none
+    }
+
+    .cover {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 44px 24px 36px;
+      overflow: hidden;
+      color: #fff;
+      background:
+        radial-gradient(120% 90% at 50% -10%, rgba(55, 138, 221, .38), transparent 58%),
+        linear-gradient(160deg, #072F58 0%, #0B4F8A 46%, #0C6564 78%, #0E7C7B 100%);
+      opacity: 1;
+      transition: opacity .6s ease, visibility .6s ease
+    }
+
+    .cover.closing {
+      opacity: 0;
+      visibility: hidden
+    }
+
+    .cover:focus {
+      outline: none
+    }
+
+    .cover.done {
+      display: none
+    }
+
+    /* 背景光晕与水波 */
+    .cv-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none
+    }
+
+    .cv-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px)
+    }
+
+    .cv-glow.g1 {
+      width: 520px;
+      height: 520px;
+      left: -170px;
+      top: -140px;
+      background: radial-gradient(circle, rgba(55, 138, 221, .60), transparent 68%);
+      animation: cvFloat 15s ease-in-out infinite
+    }
+
+    .cv-glow.g2 {
+      width: 640px;
+      height: 640px;
+      right: -220px;
+      bottom: -240px;
+      background: radial-gradient(circle, rgba(24, 160, 150, .55), transparent 68%);
+      animation: cvFloat 19s ease-in-out infinite reverse
+    }
+
+    .cv-waves {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 220px
+    }
+
+    @keyframes cvFloat {
+
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) scale(1)
+      }
+
+      50% {
+        transform: translate3d(24px, -18px, 0) scale(1.08)
+      }
+    }
+
+    /* 中心内容 */
+    .cv-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 780px;
+      text-align: center
+    }
+
+    .cv-inner>* {
+      animation: cvUp .75s cubic-bezier(.2, .7, .3, 1) both
+    }
+
+    .cv-inner>*:nth-child(1) {
+      animation-delay: .05s
+    }
+
+    .cv-inner>*:nth-child(2) {
+      animation-delay: .12s
+    }
+
+    .cv-inner>*:nth-child(3) {
+      animation-delay: .19s
+    }
+
+    .cv-inner>*:nth-child(4) {
+      animation-delay: .26s
+    }
+
+    .cv-inner>*:nth-child(5) {
+      animation-delay: .33s
+    }
+
+    .cv-inner>*:nth-child(6) {
+      animation-delay: .40s
+    }
+
+    .cv-inner>*:nth-child(7) {
+      animation-delay: .47s
+    }
+
+    .cv-inner>*:nth-child(8) {
+      animation-delay: .54s
+    }
+
+    @keyframes cvUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .cv-badge {
+      display: inline-block;
+      padding: 5px 20px;
+      border: 1px solid rgba(255, 255, 255, .42);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .08);
+      color: #FFE9B8;
+      font-size: 12.5px;
+      letter-spacing: 3px
+    }
+
+    .cv-kicker {
+      margin-top: 30px;
+      color: #A9CBE8;
+      font-size: 14px;
+      letter-spacing: 12px;
+      text-indent: 12px
+    }
+
+    .cv-title {
+      margin-top: 10px;
+      font-size: clamp(27px, 4.3vw, 50px);
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 6px;
+      text-indent: 6px;
+      text-shadow: 0 4px 26px rgba(0, 0, 0, .30)
+    }
+
+    .cv-slogan {
+      margin-top: 16px;
+      color: #FFE9B8;
+      font-size: 15px;
+      letter-spacing: 4px;
+      text-indent: 4px
+    }
+
+    .cv-desc {
+      margin: 22px auto 0;
+      max-width: 620px;
+      color: #CBE0F0;
+      font-size: 13.5px;
+      line-height: 2;
+      text-align: justify;
+      text-align-last: center
+    }
+
+    .cv-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      margin-top: 24px;
+      color: #B7D2E8;
+      font-size: 12.5px;
+      letter-spacing: 1px
+    }
+
+    .cv-meta b {
+      color: #fff;
+      font-size: 15px;
+      margin-right: 2px
+    }
+
+    .cv-meta i {
+      width: 1px;
+      height: 12px;
+      background: rgba(255, 255, 255, .30)
+    }
+
+    .cv-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-top: 34px
+    }
+
+    .cv-enter {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 32px;
+      border: 0;
+      border-radius: 26px;
+      background: #fff;
+      color: var(--blue);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      cursor: pointer;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, .22);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease
+    }
+
+    .cv-enter svg {
+      width: 16px;
+      height: 16px;
+      transition: transform .2s ease
+    }
+
+    .cv-enter:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, .28)
+    }
+
+    .cv-enter:hover svg {
+      transform: translateX(3px)
+    }
+
+    .cv-enter:active {
+      transform: translateY(0)
+    }
+
+    .cv-enter:focus-visible,
+    .cv-ghost:focus-visible {
+      outline: 2px solid #FFE9B8;
+      outline-offset: 3px
+    }
+
+    .cv-ghost {
+      display: inline-flex;
+      align-items: center;
+      padding: 13px 26px;
+      border: 1px solid rgba(255, 255, 255, .55);
+      border-radius: 26px;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      transition: background .2s ease, border-color .2s ease, transform .2s ease
+    }
+
+    .cv-ghost:hover {
+      background: rgba(255, 255, 255, .14);
+      border-color: rgba(255, 255, 255, .8);
+      transform: translateY(-2px)
+    }
+
+    .cv-foot {
+      margin-top: 38px;
+      color: rgba(255, 255, 255, .55);
+      font-size: 11.5px;
+      letter-spacing: 1px
+    }
+
+    @media (max-width: 680px) {
+      .cover {
+        padding: 36px 20px 30px
+      }
+
+      .cv-kicker {
+        margin-top: 24px;
+        font-size: 12.5px;
+        letter-spacing: 8px;
+        text-indent: 8px
+      }
+
+      .cv-title {
+        font-size: 25px;
+        letter-spacing: 3px;
+        text-indent: 3px
+      }
+
+      .cv-slogan {
+        margin-top: 12px;
+        font-size: 12.5px;
+        letter-spacing: 2px;
+        text-indent: 2px
+      }
+
+      .cv-desc {
+        margin-top: 16px;
+        font-size: 12.5px;
+        line-height: 1.9;
+        text-align: center;
+        text-align-last: center
+      }
+
+      .cv-meta {
+        gap: 9px;
+        margin-top: 18px;
+        font-size: 11.5px
+      }
+
+      .cv-btns {
+        margin-top: 28px;
+        gap: 10px
+      }
+
+      .cv-enter,
+      .cv-ghost {
+        padding: 12px 24px;
+        font-size: 14px
+      }
+
+      .cv-foot {
+        margin-top: 26px;
+        font-size: 11px;
+        line-height: 1.8
+      }
+    }
+
+    /* 矮屏（如手机横屏）压缩纵向间距，保证按钮与说明完整可见 */
+    @media (max-height: 620px) {
+      .cover {
+        padding: 20px 24px 16px
+      }
+
+      .cv-kicker {
+        margin-top: 10px
+      }
+
+      .cv-title {
+        margin-top: 6px;
+        font-size: 26px
+      }
+
+      .cv-slogan {
+        margin-top: 8px
+      }
+
+      .cv-desc {
+        display: none
+      }
+
+      .cv-meta {
+        margin-top: 12px
+      }
+
+      .cv-btns {
+        margin-top: 18px
+      }
+
+      .cv-foot {
+        margin-top: 16px
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .cover,
+      .cv-enter,
+      .cv-ghost {
+        transition: none
+      }
+
+      .cv-inner>*,
+      .cv-glow {
+        animation: none
+      }
+    }
