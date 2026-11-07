@@ -27,14 +27,6 @@
         <button type="button" data-fs="m" title="标准字" aria-pressed="true">标准</button>
         <button type="button" data-fs="l" title="大号字" aria-pressed="false">大</button>
       </div>
-      <a href="./login.html" id="login" class="login" aria-label="登录">
-        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"
-          stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="8" r="3.4" />
-          <path d="M5.2 20c0-3.6 3-6 6.8-6s6.8 2.4 6.8 6" />
-        </svg>
-        <span class="lbl">登录</span>
-      </a>
     </div>
   </header>
 
@@ -98,11 +90,12 @@
         <a href="#ch6" data-ch="ch6" class="toc-lv1"><span>清四乱</span></a>
         <div class="toc-subs">
           <div class="toc-subs-inner">
-            <a href="#s-luanzhan" data-ch="ch6" class="toc-sub">一、乱占</a>
-            <a href="#s-luancai" data-ch="ch6" class="toc-sub">二、乱采</a>
-            <a href="#s-luandui" data-ch="ch6" class="toc-sub">三、乱堆</a>
-            <a href="#s-luanjian" data-ch="ch6" class="toc-sub">四、乱建</a>
-            <a href="#ch6-s1" data-ch="ch6" class="toc-sub">五、工作要求与台账</a>
+            <a href="#ch6-types" data-ch="ch6" class="toc-sub">一、四类问题全景</a>
+            <a href="#ch6-c1" data-ch="ch6" class="toc-sub">二、乱占（8 项）</a>
+            <a href="#ch6-c2" data-ch="ch6" class="toc-sub">三、乱采（3 项）</a>
+            <a href="#ch6-c3" data-ch="ch6" class="toc-sub">四、乱堆（4 项）</a>
+            <a href="#ch6-c4" data-ch="ch6" class="toc-sub">五、乱建（8 项）</a>
+            <a href="#ch6-rule" data-ch="ch6" class="toc-sub">六、认定主线</a>
           </div>
         </div>
       </div>
@@ -642,7 +635,7 @@
               </div>
               <p class="mapnote">示意图：行政区划界线经简化处理，不作为划界依据；人数为结构示意值。</p>
             </div>
-            <div class="tblwrap">
+            <div class="tblwrap" hidden>
               <table id="prefTable">
                 <thead>
                   <tr>
@@ -655,59 +648,6 @@
                 </thead>
                 <tbody></tbody>
               </table>
-            </div>
-            <p class="sub" style="margin-top:12px">注：因四舍五入，占比分项之和可能与 100% 略有出入；人数为结构示意值。</p>
-          </section>
-          <section id="tab-roster">
-            <h2>河长名册检索</h2>
-            <p class="sub" id="rosterSub">支持按姓名、河流名称、行政区划、单位、职务、编号模糊检索；省级河长可点击下方“省级”快捷按钮或层级下拉查看。</p>
-
-            <div class="quick" id="quickLv">
-              <button data-lv="" class="on">全部层级</button>
-              <button data-lv="省级">省级</button>
-              <button data-lv="州市级">州市级</button>
-              <button data-lv="区县级">区县级</button>
-              <button data-lv="乡镇级">乡镇级</button>
-              <button data-lv="村（社区）级">村（社区）级</button>
-            </div>
-
-            <div class="filters">
-              <input type="text" id="q" placeholder="搜索：姓名 / 河流 / 行政区划 / 单位 / 职务 / 编号…">
-              <select id="fLevel">
-                <option value="">全部层级</option>
-                <option>省级</option>
-                <option>州市级</option>
-                <option>区县级</option>
-                <option>乡镇级</option>
-                <option>村（社区）级</option>
-              </select>
-              <select id="fPref">
-                <option value="">全部州市</option>
-              </select>
-              <button id="resetBtn" class="btn-reset" title="恢复默认：全部层级 + 全部州市">重置</button>
-            </div>
-            <div class="chips">当前筛选 <b id="hitCount">0</b> 条示例记录 <span id="hitScope"></span></div>
-
-            <div class="tblwrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>编号</th>
-                    <th>级别</th>
-                    <th>行政区划</th>
-                    <th>河流（湖泊）名称</th>
-                    <th>责任河段</th>
-                    <th>河长姓名</th>
-                    <th>职务</th>
-                    <th>所在单位</th>
-                  </tr>
-                </thead>
-                <tbody id="rosterBody"></tbody>
-              </table>
-            </div>
-            <div class="pager">
-              <span id="pageInfo"></span>
-              <span><button id="prevBtn">上一页</button> <button id="nextBtn">下一页</button></span>
             </div>
           </section>
         </div>
@@ -921,241 +861,398 @@
       </section>
 
       <section id="ch6" class="chapter">
-        <div class="ch-head">
-          <h2>“清四乱”有关工作要求及问题分类</h2>
-          <p class="lead">
-            做好河湖库“清四乱”工作是落实党中央、国务院河湖管护部署、守住水安全底线的基础性任务，是保障行洪畅通的关键举措。习近平总书记指出“水安全是涉及国家长治久安的大事”，并强调要全面加强河湖行洪空间管控，坚决保障人民群众生命财产安全。
-          </p>
-        </div>
+        <div class="qlz">
+          <div class="qz-sheet">
+            <div class="qz-hero">
+              <span class="qz-tag">一 图 读 懂</span>
+              <h1>河湖库“清四乱”<small>问题认定标准及整改要求</small></h1>
+              <div class="qz-kpis">
+                <div><b>4 类</b><span class="qz-kpi-t">乱占 乱采 <wbr>乱堆 乱建</span></div>
+                <div><b>22 种</b>地物对象</div>
+                <div><b>1 图</b><span class="qz-kpi-t">认定＋整改</span></div>
+              </div>
+            </div>
 
-        <div class="card">
-          <p class="p">云南省始终坚持将河湖库“清四乱”作为推行河湖长制的重要抓手，纳入河湖长制常态化工作，纵深推进常态化规范化，确保全省江河行洪畅通。</p>
-          <p class="p">根据全国河湖长制管理信息系统四乱问题管理模块，“四乱”问题分为<b>乱占、乱采、乱堆、乱建</b>四类，涉及围河（湖）造地、围网养殖、采砂场、垃圾堆放、临河房屋、光伏（风电）项目等 20
-            余种地物对象。认定标准及整改要求参照水利部河湖保护中心河湖库地物遥感图斑判定工作指引，以及云南省河湖地物遥感图斑核查和“四乱”问题认定标准及整改措施执行。</p>
-          <div class="chips">
-            <a href="#s-luanzhan">乱占（8 类）</a>
-            <a href="#s-luancai">乱采（3 类）</a>
-            <a href="#s-luandui">乱堆（4 类）</a>
-            <a href="#s-luanjian">乱建（8 类）</a>
+            <!-- 1 意义 -->
+            <div class="qz-card" id="ch6-why">
+              <div class="qz-sec-head"><span class="qz-sec-num">1</span>
+                <h2>为什么清 · 三个定位</h2>
+              </div>
+              <div class="qz-why">
+                <div class="qz-why-row"><span class="qz-ico">基</span>
+                  <p><b>基础性任务</b>——落实党中央、国务院河湖管护部署、守住水安全底线的<b>基础性任务</b>。</p>
+                </div>
+                <div class="qz-why-row"><span class="qz-ico">关</span>
+                  <p><b>关键举措</b>——保障<b>行洪畅通</b>的关键举措。</p>
+                </div>
+                <div class="qz-why-row"><span class="qz-ico">抓</span>
+                  <p><b>重要抓手</b>——云南省将河湖库“清四乱”作为推行<b>河湖长制</b>的重要抓手，纳入河湖长制<b>常态化工作</b>，纵深推进常态化规范化，确保全省江河行洪畅通。</p>
+                </div>
+              </div>
+              <div style="margin-top:12px;" class="qz-quote">
+                <b>习近平总书记要求</b>
+                “水安全是涉及国家长治久安的大事”；2026年6月30日中央政治局会议进一步强调：<b
+                  style="display:inline;font-size:14.5px;letter-spacing:.5px;">全面加强河湖行洪空间管控，坚决保障人民群众生命财产安全</b>。
+              </div>
+            </div>
+
+            <!-- 2 四类全景 -->
+            <div class="qz-card" id="ch6-types">
+              <div class="qz-sec-head"><span class="qz-sec-num">2</span>
+                <h2>四类问题全景</h2>
+                <span class="qz-hint">依据全国河湖长制管理信息系统“四乱”问题管理模块</span>
+              </div>
+              <div class="qz-types">
+                <div class="qz-type qz-t1">
+                  <div class="qz-cn">乱占</div>
+                  <div class="qz-cnt">围、占、种、建<br>挤占水域岸线</div>
+                  <div class="qz-names">围河（湖）造地、围占养殖、围网养殖、坑塘养殖、文体旅游设施、耕地、片林、其它占用</div>
+                </div>
+                <div class="qz-type qz-t2">
+                  <div class="qz-cn">乱采</div>
+                  <div class="qz-cnt">无证、超许可<br>挖砂取土采矿</div>
+                  <div class="qz-names">采砂场、取土场、其他开采</div>
+                </div>
+                <div class="qz-type qz-t3">
+                  <div class="qz-cn">乱堆</div>
+                  <div class="qz-cnt">倾倒、堆放<br>阻碍行洪</div>
+                  <div class="qz-names">弃渣（土）场、垃圾堆放、固体堆放、其他堆放</div>
+                </div>
+                <div class="qz-type qz-t4">
+                  <div class="qz-cn">乱建</div>
+                  <div class="qz-cnt">未批先建<br>批建不符</div>
+                  <div class="qz-names">临河房屋、码头、造（修）船厂、光伏（风电）项目、大棚、桥梁、拦河闸坝（橡胶坝）、其他建（构）筑物</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 乱占 -->
+            <div class="qz-cat" id="ch6-c1">
+              <div class="qz-cat-head qz-t1"><span class="qz-big">乱 占</span>
+                <span class="qz-desc">核心：围垦、围占、围网、种植<br>挤占行洪空间与水域岸线</span>
+              </div>
+              <div class="qz-cat-body">
+                <div class="qz-items">
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占1</span>
+                      <h4>围河（湖）造地</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span
+                          class="qz-lab qz-lab-rule">认定</span>任何形式围垦湖泊的行为均属于乱占问题；围垦河道前未开展科学论证、未经水行政主管部门同意、未报人民政府批准的，均属于乱占问题。
+                      </p>
+                      <p class="qz-fix"><span
+                          class="qz-lab qz-lab-fix">整改</span>依法依规整改。湖泊按国家规定防洪标准有计划退地还湖、退田还湖，将违法建设的土堤、矮围等清除至滩地原状高程，拆除地面建筑物、构筑物，取缔相关非法活动；河道限期拆除违法占用河道及滩地建设的围堤、护岸、阻水道路、拦河坝等，铲平抬高的滩地，恢复原状。
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占2</span>
+                      <h4>围占养殖</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span
+                          class="qz-lab qz-lab-rule">认定</span>添堵原有河道沟叉、贮水湖塘洼淀需人民政府批准，未经批准的属于乱占问题；河道管理范围内禁止修建围堤、阻水渠道、阻水道路，禁止修建围堤，通过修建围堤围占湖泊水域进行养殖、围占河道水域养殖行为均属于乱占问题。
+                      </p>
+                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规拆除妨碍行洪的建（构）筑物。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占3</span>
+                      <h4>围网养殖</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span
+                          class="qz-lab qz-lab-rule">认定</span>使用拦河渔网等违法渔具捕捞；位于行洪主干道、妨碍河道行洪的围网及网箱养殖；不具备水行政主管部门有效许可的围网及网箱养殖，或未按许可要求开展活动；不符合水域岸线规划的养殖。
+                      </p>
+                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规拆除行洪通道内建设的养殖设施。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占4</span>
+                      <h4>坑塘养殖</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>未经河道主管机关批准或会同其他机关批准，或不按许可要求，在河道管理范围内爆破、钻探挖筑鱼塘的行为。</p>
+                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>可依法依规补办手续或出具审查意见。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占5</span>
+                      <h4>文体旅游设施</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span
+                          class="qz-lab qz-lab-rule">认定</span>未经人民政府批准围堵原有河道沟叉、贮水湖塘洼淀景观；通过抬高或者建设围堤围占湖泊水域滩地；未经水行政主管部门许可，或不按许可在河道管理范围内建设文体、旅游等相关附属建筑物、构筑物。
+                      </p>
+                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规完善许可手续或依法依规拆除。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占6</span>
+                      <h4>耕地</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span
+                          class="qz-lab qz-lab-rule">认定</span>河道管理范围内通过修建围堤、阻水渠道、阻水道路围垦河道用作耕地用途的属于乱占问题；种植妨碍行洪的高秆农作物、芦苇、杞柳、荻柴等。
+                      </p>
+                      <p class="qz-fix"><span
+                          class="qz-lab qz-lab-fix">整改</span>位于主河槽内、洪水频繁上滩的（5年一遇洪水位以下的）、水库征地线以下的不稳定耕地，有序退出；其他河道管理范围内的耕地，在不妨碍行洪、蓄洪和输水的基础上，商自然资源部门依法依规处理；确有必要保留下来的耕地及园地，不得新建、改建、扩建生产围堤，不得种植妨碍行洪的高秆作物，禁止建设妨碍行洪的建筑物、构筑物。严禁以各种名义围湖造地、非法围垦河道。
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占7</span>
+                      <h4>片林</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>河道管理条例施行后种植的片林。</p>
+                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规清除。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占8</span>
+                      <h4>其它占用</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>束窄河道、影响行洪安全和水生态、水环境的，以及未经许可的各类占用行为。</p>
+                      <p class="qz-fix"><span
+                          class="qz-lab qz-lab-fix">整改</span>科学评估，影响行洪或水工安全、水生态、水环境的限期按整治标准整治；不影响或可采取补救措施的，在“确有需要、无法避让、确认安全”原则下妥善处理。
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- 乱采 -->
+            <div class="qz-cat" id="ch6-c2">
+              <div class="qz-cat-head qz-t2"><span class="qz-big">乱 采</span>
+                <span class="qz-desc">核心：无证或超许可<br>采砂、取土、开采矿物</span>
+              </div>
+              <div class="qz-cat-body">
+                <div class="qz-items">
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#0E6E7A">采1</span>
+                      <h4>采砂场</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>未办理河道采砂许可证的河道采砂活动；未按许可要求、超审批许可的采砂、堆放活动，均属于乱采行为。</p>
+                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>清理整治，恢复原状。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#0E6E7A">采2</span>
+                      <h4>取土场</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>未经许可，或不按许可，在河道管理范围内挖掘泥土／石块等。</p>
+                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>清理整治，恢复原状。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#0E6E7A">采3</span>
+                      <h4>其他开采</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>未经许可，或不按许可，在河道管理范围内挖掘其他矿物。</p>
+                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规处罚到位；情节严重、触犯刑律的，坚决移交司法机关追究刑事责任。</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- 乱堆 -->
+            <div class="qz-cat" id="ch6-c3">
+              <div class="qz-cat-head qz-t3"><span class="qz-big">乱 堆</span>
+                <span class="qz-desc">核心：非法设置堆场、倾倒堆放<br>弃渣、垃圾、固体废物</span>
+              </div>
+              <div class="qz-cat-body">
+                <div class="qz-items">
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#8A6D1B">堆1</span>
+                      <h4>弃渣（土）场</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>河湖库管理范围内非法设置弃渣土场、尾矿库等。</p>
+                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规清除。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#8A6D1B">堆2</span>
+                      <h4>垃圾堆放</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>河湖库管理范围内乱扔乱堆垃圾。</p>
+                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规清除。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#8A6D1B">堆3</span>
+                      <h4>固体堆放</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>河湖库管理范围内倾倒、填埋、贮存、堆放固体废物；弃置、堆放阻碍行洪的物体。</p>
+                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规清除。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#8A6D1B">堆4</span>
+                      <h4>其他堆放</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>河湖库管理范围内倾倒、堆放其他物体。</p>
+                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规清除。</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- 乱建 -->
+            <div class="qz-cat" id="ch6-c4">
+              <div class="qz-cat-head qz-t4"><span class="qz-big">乱 建</span>
+                <span class="qz-desc">核心：未批先建、批建不符<br>超权限许可、超类别许可</span>
+              </div>
+              <div class="qz-cat-body">
+                <div class="qz-items">
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建1</span>
+                      <h4>临河房屋</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>未经许可，或不按许可，在河湖库管理范围内建设的房屋。</p>
+                      <p class="qz-fix"><span
+                          class="qz-lab qz-lab-fix">整改</span>除河道管理条例施行前建设的、河道管理条例施行后建设但属农民唯一住房外，其余临河房屋依法依规拆除。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建2</span>
+                      <h4>码头</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>未经许可，或不按许可，在河道管理范围内建设的码头。</p>
+                      <p class="qz-fix"><span
+                          class="qz-lab qz-lab-fix">整改</span>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建3</span>
+                      <h4>造（修）船厂</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>未经许可，或不按许可，在河湖库管理范围内建设的造修船厂。</p>
+                      <p class="qz-fix"><span
+                          class="qz-lab qz-lab-fix">整改</span>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建4</span>
+                      <h4>光伏（风电）项目</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>非法在河湖库管理范围内建设光伏电站、风力发电站及附属房屋等建筑物、构筑物。</p>
+                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规拆除。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建5</span>
+                      <h4>大棚</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span
+                          class="qz-lab qz-lab-rule">认定</span>行洪河道主槽及设计标准洪水对应行洪断面内，缩窄河道、增加流速、影响河势、壅高水位等阻碍行洪、蓄洪的大棚；位于防洪高水位以下侵占水库防洪库容的大棚。
+                      </p>
+                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规整改。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建6</span>
+                      <h4>桥梁</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>在河湖库管理范围内未批先建、批建不符、超权限许可、超类别许可的桥梁。</p>
+                      <p class="qz-fix"><span
+                          class="qz-lab qz-lab-fix">整改</span>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建7</span>
+                      <h4>拦河闸坝（橡胶坝）</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>未经许可，或不按许可，在河湖库管理范围内建设的拦河闸坝。</p>
+                      <p class="qz-fix"><span
+                          class="qz-lab qz-lab-fix">整改</span>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</p>
+                    </div>
+                  </div>
+
+                  <div class="qz-item">
+                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建8</span>
+                      <h4>其他建（构）筑物</h4>
+                    </div>
+                    <div class="qz-item-body">
+                      <p><span class="qz-lab qz-lab-rule">认定</span>未经许可，或不按许可，在河道管理范围内建设的其他建筑物、构筑物。</p>
+                      <p class="qz-fix"><span
+                          class="qz-lab qz-lab-fix">整改</span>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 共性 -->
+            <div class="qz-card" id="ch6-rule">
+              <div class="qz-sec-head"><span class="qz-sec-num">3</span>
+                <h2>认定主线 · 三句话看懂</h2>
+                <span class="qz-hint">据各条认定标准归纳</span>
+              </div>
+              <div class="qz-common">
+                <div><b>① 有没有“许可”</b>未经许可、不按许可、超范围超类别许可——是绝大多数问题成立的共同前提（乱占、乱采、乱建尤甚）。</div>
+                <div><b>② 有没有“批准”</b>围垦河道、添堵沟叉、围堵景观等情形，须经科学论证、水行政主管部门同意、人民政府批准，缺一即为乱占。</div>
+                <div><b>③ 有没有“妨碍行洪”</b>是否阻碍行洪蓄洪、束窄河道、抬高水位、侵占防洪库容、危害水工安全——决定问题性质与整改力度。</div>
+                <div>
+                  <b>整改四条路径</b>拆除（临河房屋、光伏风电、片林、围网设施）／限期整治恢复原状（采砂取土、堆放、围垦）／完善许可手续或审查意见（码头、船厂、桥梁、闸坝、坑塘）／分类处置有序退出（不稳定耕地、其它占用）。
+                </div>
+              </div>
+            </div>
+
+            <div class="qz-foot">
+              <div class="qz-rule"></div>
+              依据：全国河湖长制管理信息系统四乱问题管理模块分类；认定标准及整改要求参照水利部河湖保护中心 2025 年 9 月<br>
+              下发的河湖库地物遥感图斑判定工作指引解读，及云南省 2024 年发布的河湖地物遥感图斑核查工作和<br>
+              河湖“四乱”问题认定标准及整改措施<br>
+              <span style="color:#A8B8C6;">说明：原文概览表述四类问题共涉 22 种地物对象；认定章节按乱占 8 项、乱采 3 项、乱堆 4 项、乱建 8 项逐项列明（原文乱建小节序号缺
+                5）。本图以认定章节为准，不作增补。</span>
+            </div>
           </div>
-          <div class="hint">点击任一条目可展开“认定标准 / 整改要求”。基层核查时按“先判类别、再对标准、后定措施”的顺序使用。</div>
-        </div>
-
-        <h4 class="sec" id="s-luanzhan">一、乱占</h4>
-        <div class="card acc-group">
-          <details class="acc">
-            <summary><span class="nm">1. 围河（湖）造地</span><span class="tag lv2">拆除恢复</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>任何形式围垦湖泊的行为均属于乱占问题；围垦河道前未开展科学论证、未经水行政主管部门同意并报人民政府批准的，均属于乱占问题。</p>
-              <p>
-                <b>整改要求：</b>依法依规整改。湖泊按国家规定的防洪标准有计划地退地还湖、退田还湖，将违法建设的土堤、矮围等清除至滩地原状高程，拆除地面建筑物、构筑物，取缔相关非法活动；河道限期拆除违法占用河道及其滩地建设的围堤、护岸、阻水道路、拦河坝等，铲平抬高的滩地，恢复原状。
-              </p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">2. 围占养殖</span><span class="tag lv2">拆除</span></summary>
-            <div class="acc-b">
-              <p>
-                <b>认定标准：</b>添堵原有河道沟叉、贮水湖塘洼淀需人民政府批准，未经批准的属于乱占问题；河道管理范围内禁止修建围堤、阻水渠道、阻水道路，通过修建围堤围占湖泊水域进行养殖、围占河道水域养殖的行为，均属于乱占问题。
-              </p>
-              <p><b>整改要求：</b>依法依规拆除妨碍行洪的建（构）筑物。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">3. 围网养殖</span><span class="tag lv2">拆除</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>使用拦河渔网等违法渔具捕捞；位于行洪主干道、妨碍河道行洪的围网及网箱养殖；不具备水行政主管部门有效许可的围网及网箱养殖，或不按许可要求开展活动；不符合水域岸线规划的养殖。</p>
-              <p><b>整改要求：</b>依法依规拆除行洪通道内建设的养殖设施。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">4. 坑塘养殖</span><span class="tag lv1">补办或整改</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>未经河道主管机关批准或会同其他机关批准，或不按许可要求，在河道管理范围内爆破、钻探、挖筑鱼塘的行为。</p>
-              <p><b>整改要求：</b>可依法依规补办手续或出具审查意见。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">5. 文体旅游设施</span><span class="tag lv1">完善许可或拆除</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>未经人民政府批准围堵原有河道沟叉、贮水湖塘洼淀景观；通过抬高或建设围堤围占湖泊水域滩地；未经水行政主管部门许可，或不按许可在河道管理范围内建设文体、旅游等相关附属建筑物、构筑物。
-              </p>
-              <p><b>整改要求：</b>依法依规完善许可手续，或依法依规拆除。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">6. 耕地</span><span class="tag lv1">分类处置</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>河道管理范围内通过修建围堤、阻水渠道、阻水道路围垦河道用作耕地；种植妨碍行洪的高秆农作物、芦苇、杞柳、荻柴等。</p>
-              <p><b>整改要求：</b>位于主河槽内、洪水频繁上滩（5
-                年一遇洪水位以下）、水库征地线以下的不稳定耕地有序退出；其他河道管理范围内的耕地在不妨碍行洪、蓄洪和输水的基础上，商自然资源部门依法依规处理；确需保留的耕地及园地，不得新建、改建、扩建生产围堤，不得种植妨碍行洪的高秆作物，禁止建设妨碍行洪的建筑物、构筑物。严禁以各种名义围湖造地、非法围垦河道。
-              </p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">7. 片林</span><span class="tag lv2">清除</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>河道管理条例施行后种植的片林。</p>
-              <p><b>整改要求：</b>依法依规清除。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">8. 其它占用</span><span class="tag lv1">评估处置</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>束窄河道、影响行洪安全和水生态、水环境的，以及未经许可的各类占用行为。</p>
-              <p><b>整改要求：</b>科学评估，影响行洪或水工安全、水生态、水环境的，限期按整治标准整治；不影响或可采取补救措施的，在确有需要、无法避让、确认安全的原则下妥善处理。</p>
-            </div>
-          </details>
-        </div>
-
-        <h4 class="sec" id="s-luancai">二、乱采</h4>
-        <div class="card acc-group">
-          <details class="acc">
-            <summary><span class="nm">1. 采砂场</span><span class="tag lv2">清理恢复</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>未办理河道采砂许可证的河道采砂活动；未按许可要求，超审批许可的采砂、堆放活动，均属于乱采行为。</p>
-              <p><b>整改要求：</b>清理整治，恢复原状。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">2. 取土场</span><span class="tag lv2">清理恢复</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>未经许可，或不按许可，在河道管理范围内挖掘泥土、石块等。</p>
-              <p><b>整改要求：</b>清理整治，恢复原状。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">3. 其他开采</span><span class="tag lv2">处罚到位</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>未经许可，或不按许可，在河道管理范围内挖掘其他矿物。</p>
-              <p><b>整改要求：</b>依法依规处罚到位；情节严重、触犯刑律的，坚决移交司法机关追究刑事责任。</p>
-            </div>
-          </details>
-        </div>
-
-        <h4 class="sec" id="s-luandui">三、乱堆</h4>
-        <div class="card acc-group">
-          <details class="acc">
-            <summary><span class="nm">1. 弃渣（土）场</span><span class="tag lv2">清除</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>河湖库管理范围内非法设置弃渣土场、尾矿库等。</p>
-              <p><b>整改要求：</b>依法依规清除。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">2. 垃圾堆放</span><span class="tag lv2">清除</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>河湖库管理范围内乱扔乱堆垃圾。</p>
-              <p><b>整改要求：</b>依法依规清除。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">3. 固体堆放</span><span class="tag lv2">清除</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>河湖库管理范围内倾倒、填埋、贮存、堆放固体废物；弃置、堆放阻碍行洪的物体。</p>
-              <p><b>整改要求：</b>依法依规清除。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">4. 其他堆放</span><span class="tag lv2">清除</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>河湖库管理范围内倾倒、堆放其他物体。</p>
-              <p><b>整改要求：</b>依法依规清除。</p>
-            </div>
-          </details>
-        </div>
-
-        <h4 class="sec" id="s-luanjian">四、乱建</h4>
-        <div class="card acc-group">
-          <details class="acc">
-            <summary><span class="nm">1. 临河房屋</span><span class="tag lv2">原则拆除</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>未经许可，或不按许可，在河湖库管理范围内建设的房屋。</p>
-              <p><b>整改要求：</b>除河道管理条例施行前建设的、条例施行后建设但属农民唯一住房外，其余临河房屋需依法依规拆除。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">2. 码头</span><span class="tag lv1">完善许可或拆除</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>未经许可，或不按许可，在河道管理范围内建设的码头。</p>
-              <p><b>整改要求：</b>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">3. 造（修）船厂</span><span class="tag lv1">完善许可或拆除</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>未经许可，或不按许可，在河湖库管理范围内建设的造（修）船厂。</p>
-              <p><b>整改要求：</b>依法依规完善许可文件或审查意见，或依法依规拆除。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">4. 光伏（风电）项目</span><span class="tag lv2">拆除</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>非法在河湖库管理范围内建设光伏电站、风力发电站及附属房屋等建筑物、构筑物。</p>
-              <p><b>整改要求：</b>依法依规拆除。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">5. 大棚</span><span class="tag lv1">依法整改</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>位于行洪河道主槽及设计标准洪水对应行洪断面内，缩窄河道、增加流速、影响河势、壅高水位等阻碍行洪、蓄洪的大棚；位于防洪高水位以下侵占水库防洪库容的大棚。</p>
-              <p><b>整改要求：</b>依法依规整改。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">6. 桥梁</span><span class="tag lv1">完善许可或拆除</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>在河湖库管理范围内未批先建、批建不符、超权限许可、超类别许可的桥梁。</p>
-              <p><b>整改要求：</b>依法依规完善许可文件或审查意见，或依法依规拆除。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">7. 拦河闸坝（橡胶坝）</span><span class="tag lv1">完善许可或拆除</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>未经许可，或不按许可，在河湖库管理范围内建设的拦河闸坝。</p>
-              <p><b>整改要求：</b>依法依规完善许可文件或审查意见，或依法依规拆除。</p>
-            </div>
-          </details>
-          <details class="acc">
-            <summary><span class="nm">8. 其他建（构）筑物</span><span class="tag lv1">完善许可或拆除</span></summary>
-            <div class="acc-b">
-              <p><b>认定标准：</b>未经许可，或不按许可，在河道管理范围内建设的其他建筑物、构筑物。</p>
-              <p><b>整改要求：</b>依法依规完善许可文件或审查意见，或依法依规拆除。</p>
-            </div>
-          </details>
-        </div>
-
-        <h4 id="ch6-s1" class="sec">五、工作要求与台账</h4>
-        <div class="card">
-          <div class="tscroll">
-            <table>
-              <thead>
-                <tr>
-                  <th style="width:118px">机制</th>
-                  <th>要求</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>常态排查</td>
-                  <td>日常巡查、遥感图斑核查、群众举报相结合，做到“发现一处、入账一处”。</td>
-                </tr>
-                <tr>
-                  <td>分级交办</td>
-                  <td>按属地管理与行业监管职责双向交办，明确责任人、措施、时限。</td>
-                </tr>
-                <tr>
-                  <td>销号管理</td>
-                  <td>整改前后影像对比、现场核实，验收合格方可销号；反弹问题重新入账。</td>
-                </tr>
-                <tr>
-                  <td>台账四要素</td>
-                  <td>问题位置（坐标/河段）、问题类型（四类之一）、责任单位与责任人、整改时限与结果。</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="warn"><b>提醒：</b>“四乱”问题认定以遥感图斑判定指引和本省认定标准为准；现场核查要留存带定位与时间水印的照片或视频，避免“认定有争议、销号无依据”。</div>
         </div>
       </section>
 
@@ -3585,6 +3682,62 @@
 
 
     </main>
+
+    <!-- 我管理的水域：独立视图，不是弹层；进入后目录与正文让位 -->
+    <section class="view-mine" id="viewMine" tabindex="-1" aria-labelledby="vmTitle">
+      <div class="vm-head">
+        <h2 id="vmTitle">我管理的水域</h2>
+        <p class="vm-lead">登录后显示您担任河湖长的河段、湖片、渠段、坝塘片与水库片</p>
+      </div>
+
+      <div class="vm-guest" id="vmGuest">
+        <div class="wl-empty wl-empty--page">
+          <svg class="wl-fig" viewBox="0 0 300 120" aria-hidden="true">
+            <defs>
+              <pattern id="vmGrid" width="15" height="15" patternUnits="userSpaceOnUse">
+                <path d="M15 0H0V15" fill="none" stroke="#EDF1F4" stroke-width="1" />
+              </pattern>
+            </defs>
+            <rect x="0" y="0" width="300" height="120" fill="url(#vmGrid)" />
+            <!-- 河道与水库示意，仅作占位，不代表实际数据 -->
+            <path d="M-6 92C48 62 86 46 148 54c52 7 88 34 158 26" fill="none" stroke="#C6D1DA" stroke-width="1.6" />
+            <path d="M-6 106C50 78 90 62 150 70c50 6 84 30 156 24" fill="none" stroke="#DFE7EE" stroke-width="1.6" />
+            <ellipse cx="223" cy="34" rx="34" ry="16" fill="none" stroke="#C6D1DA" stroke-width="1.4"
+              stroke-dasharray="5 3" />
+            <circle cx="86" cy="30" r="9" fill="none" stroke="#DFE7EE" stroke-width="1.4" stroke-dasharray="3 3" />
+          </svg>
+
+          <ul class="wl-legend">
+            <li><i class="wl-sw wl-sw--river"></i>河段</li>
+            <li><i class="wl-sw wl-sw--lake"></i>湖片</li>
+            <li><i class="wl-sw wl-sw--chan"></i>渠段</li>
+            <li><i class="wl-sw wl-sw--pond"></i>坝塘片</li>
+            <li><i class="wl-sw wl-sw--res"></i>水库片</li>
+          </ul>
+          <p class="wl-tip">上图为示意，登录后按实际管辖水域填充</p>
+
+          <button class="vm-btn primary wl-cta" type="button" id="vmLogin">登 录</button>
+        </div>
+      </div>
+
+      <div class="vm-user" id="vmUser" hidden>
+        <div class="vm-user__name" id="vmUserName"></div>
+        <p class="vm-user__meta">登录状态保存在本机，仅手动退出才清除</p>
+        <p class="vm-user__hint">水域清单取自河湖长制信息管理系统，接入后在此按河段、湖片、渠段、坝塘片、水库片分组显示。</p>
+        <div class="vm-actions">
+          <button class="vm-btn primary" type="button" id="vmLogout">退出登录</button>
+        </div>
+      </div>
+
+      <div class="vm-note">
+        <h3>说明</h3>
+        <ul>
+          <li>本页展示您担任河湖长的河段、湖片、渠段、坝塘片、水库片五类水域。</li>
+          <li>水域名称与责任范围以主管部门台账为准，示意关系不作为执法依据。</li>
+          <li>登录仅用于身份核验；退出后清除本机登录状态。</li>
+        </ul>
+      </div>
+    </section>
   </div>
 
   <!-- 底部快捷菜单：Pad / 手机可见 -->
@@ -3620,7 +3773,7 @@
       </svg>
       <span>政策</span>
     </a>
-    <a class="tabbar__item" href="./login.html">
+    <a class="tabbar__item" href="#" data-open-login aria-haspopup="dialog">
       <svg viewBox="0 0 1024 1024" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M354.133333 784.042667s34.816 45.226667 157.866667 45.226666 155.989333-45.226667 155.989333-45.226666l-52.48-41.984H389.546667l-35.413334 41.984z"
@@ -3635,39 +3788,77 @@
           d="M700.672 719.189333c92.16-61.269333 153.088-166.058667 153.088-284.757333 0-188.416-153.344-341.76-341.76-341.76S170.24 246.016 170.24 434.432c0 118.698667 60.928 223.488 153.088 284.757333a160.085333 160.085333 0 0 0-30.464 21.504c-38.997333 35.328-58.709333 87.978667-58.709333 156.416 0 18.858667 15.274667 34.133333 34.133333 34.133334s34.133333-15.274667 34.133333-34.133334c0-48.128 12.032-83.541333 35.84-105.472 32.768-30.122667 79.530667-26.88 80.810667-26.709333 2.048 0.170667 4.096 0.170667 6.058667 0a342.016 342.016 0 0 0 173.482666 0c2.133333 0.170667 4.266667 0.256 6.4 0 0.512 0 47.104-3.669333 80.213334 26.282667 24.064 21.845333 36.266667 57.429333 36.266666 105.898666 0 18.858667 15.274667 34.133333 34.133334 34.133334s34.133333-15.274667 34.133333-34.133334c0-68.522667-19.712-121.088-58.709333-156.416a156.945067 156.945067 0 0 0-30.378667-21.504zM238.506667 434.432c0-150.784 122.709333-273.493333 273.493333-273.493333s273.493333 122.709333 273.493333 273.493333S662.784 707.925333 512 707.925333 238.506667 585.216 238.506667 434.432z"
           fill="#5F5F6B" />
       </svg>
-      <span>我管理的河流</span>
+      <span>我管理的水域</span>
     </a>
   </nav>
 
-  <script src="./js/index.js"></script>
-  <script>
-    /* 顶栏登录态：登录页成功后写 localStorage.hzz_session，回首页把按钮切成“姓名 / 退出” */
-    (function () {
-      var link = document.getElementById("login");
-      if (!link) return;
-      var KEY = "hzz_session";
-      var raw = null, s = null;
-      try { raw = localStorage.getItem(KEY); } catch (e) { raw = null; }
-      if (!raw) { try { raw = sessionStorage.getItem(KEY); } catch (e) { raw = null; } }
-      if (!raw) return;
-      try { s = JSON.parse(raw); } catch (e) { return; }
-      if (!s || !s.userName) return;
+  <!-- 登录模态框：替代原 login.html 页面，就地弹层 -->
+  <div class="dlg-mask" id="loginMask" hidden>
+    <div class="dlg" role="dialog" aria-modal="true" aria-labelledby="dlgTitle" aria-describedby="dlgSub">
+      <div class="dlg-bar" aria-hidden="true"></div>
+      <button class="dlg-x" id="loginClose" type="button" aria-label="关闭">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9"
+          stroke-linecap="round">
+          <path d="M5 5l14 14M19 5L5 19" />
+        </svg>
+      </button>
 
-      var lbl = link.querySelector(".lbl");
-      if (lbl) lbl.textContent = s.userName;
-      link.classList.add("is-in");
-      link.href = "#";
-      link.title = "点击退出登录";
-      link.setAttribute("aria-label", s.userName + "，点击退出登录");
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-        // 只有这里（手动点退出）才清登录态
-        try { localStorage.removeItem(KEY); } catch (err) { }
-        try { sessionStorage.removeItem(KEY); } catch (err) { }
-        window.location.reload();
-      });
-    })();
-  </script>
+      <div id="dlgFormPanel">
+        <div class="dlg-head">
+          <h2 class="dlg-title" id="dlgTitle">登 录</h2>
+          <p class="dlg-sub" id="dlgSub">云南省河湖长工作手册 · 河湖长身份核验</p>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <label class="dlg-field" data-field="username">
+            <span class="dlg-label">姓名</span>
+            <input class="dlg-input" type="text" name="username" placeholder="请输入姓名" autocomplete="username">
+            <em class="dlg-msg"></em>
+          </label>
+
+          <label class="dlg-field" data-field="phone">
+            <span class="dlg-label">手机号</span>
+            <input class="dlg-input" type="tel" name="phone" inputmode="numeric" maxlength="11"
+              placeholder="请输入 11 位手机号" autocomplete="tel">
+            <em class="dlg-msg"></em>
+          </label>
+
+          <div class="dlg-field" data-field="smscode">
+            <span class="dlg-label">短信验证码</span>
+            <div class="dlg-row">
+              <input class="dlg-input" type="text" name="smscode" inputmode="numeric" maxlength="6" placeholder="6 位数字"
+                autocomplete="one-time-code">
+              <button class="dlg-code" type="button" id="sendCode" disabled>获取验证码</button>
+            </div>
+            <em class="dlg-msg"></em>
+          </div>
+
+          <button class="dlg-submit" type="submit"><span>登 录</span></button>
+          <p class="dlg-note">验证码发送至所填手机号，仅用于本次身份核验。登录状态保存在本机，点右上角姓名可退出。</p>
+        </form>
+      </div>
+
+      <div id="dlgUserPanel" hidden>
+        <div class="dlg-head">
+          <h2 class="dlg-title" id="dlgUserTitle">已登录</h2>
+          <p class="dlg-sub">云南省河湖长工作手册</p>
+        </div>
+        <div id="dlgUserInfo"></div>
+        <div class="dlg-actions">
+          <button class="dlg-btn" type="button" id="loginClose2">关闭</button>
+          <button class="dlg-btn primary" type="button" id="dlgLogout">退出登录</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dlg-toast" id="dlgToast" role="status" aria-live="polite"></div>
+
+  <!-- 脚本地址带版本串，避免改完 JS 后还跑旧的 -->
+  <script src="./assets/vendor/sm2.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/section-collapse.js"></script>
+  <script src="./js/login-modal.js"></script>
+  <script src="./js/my-waters.js"></script>
 </body>
 
 </html>

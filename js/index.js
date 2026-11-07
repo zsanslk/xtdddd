@@ -173,6 +173,7 @@
       var tr = e.target.closest('tr.rowlink');
       if (tr) {
         switchTab('roster');
+        if (!rosterOn) return; /* 名册区块不在，别把筛选控件当存在 */
         document.getElementById('q').value = '';
         document.getElementById('fLevel').value = '';
         document.getElementById('fPref').value = tr.dataset.pref;
@@ -220,6 +221,7 @@
         var t = e.target.closest ? e.target.closest('[data-pref]') : null;
         if (!t) return;
         switchTab('roster');
+        if (!rosterOn) return;
         document.getElementById('q').value = '';
         document.getElementById('fLevel').value = '';
         document.getElementById('fPref').value = t.dataset.pref;
@@ -229,10 +231,17 @@
     })();
 
     /* ---------- 名册检索 ---------- */
+    /* 名册区块可能被整段移除（当前版本就删了），没有容器时整段跳过，
+       否则这里的空指针会打断同一个脚本里后面的切章逻辑 */
+    var rosterBox = document.getElementById('rosterBody');
+    var rosterOn = !!(rosterBox && document.getElementById('q') && document.getElementById('fLevel') &&
+      document.getElementById('fPref') && document.getElementById('hitCount'));
+
     var selP = document.getElementById('fPref');
-    P.forEach(function (p) { var o = document.createElement('option'); o.value = p.name; o.textContent = p.name; selP.appendChild(o) });
+    if (selP) P.forEach(function (p) { var o = document.createElement('option'); o.value = p.name; o.textContent = p.name; selP.appendChild(o) });
     var PAGE = 20, page = 1;
     function filtered() {
+      if (!rosterOn) return [];
       var q = document.getElementById('q').value.trim().toLowerCase();
       var lv = document.getElementById('fLevel').value, pf = document.getElementById('fPref').value;
       return records.filter(function (r) {
@@ -247,10 +256,11 @@
     }
     function lvTag(l) { return '<span class="tag lv' + l + '">' + LVNAMES[l] + '</span>' }
     function render() {
+      if (!rosterOn) return;
       var list = filtered(), start = (page - 1) * PAGE, rows = list.slice(start, start + PAGE);
       document.getElementById('hitCount').textContent = list.length;
       document.getElementById('hitScope').textContent = page > 1 ? '（第 ' + start + '—' + Math.min(start + rows.length, list.length) + ' 条）' : '';
-      document.getElementById('rosterBody').innerHTML = rows.length ? rows.map(function (r) {
+      rosterBox.innerHTML = rows.length ? rows.map(function (r) {
         return '<tr><td style="color:#93A1AE">' + r.code + '</td><td>' + lvTag(r.lv) + '</td><td>' + r.area + '</td><td>' + r.river + '</td><td>' + r.reach + '</td><td><b style="font-weight:500">' + r.who + '</b></td><td>' + r.post + '</td><td>' + r.unit + '</td></tr>';
       }).join('') : '<tr><td colspan="8" class="empty">没有匹配的记录，试试更换关键词或清空筛选条件。</td></tr>';
       var tp = Math.max(1, Math.ceil(list.length / PAGE));
@@ -259,29 +269,33 @@
       document.getElementById('nextBtn').disabled = page >= tp;
     }
     function syncChips() {
+      if (!rosterOn) return;
       var lv = document.getElementById('fLevel').value;
       document.querySelectorAll('#quickLv button').forEach(function (x) { x.classList.toggle('on', x.dataset.lv === lv) });
     }
     function apply() { page = 1; syncChips(); render() }
     function resetRosterFilters() {
+      if (!rosterOn) return;
       document.getElementById('q').value = '';
       document.getElementById('fLevel').value = '';
       document.getElementById('fPref').value = '';
       page = 1; syncChips(); render();
     }
-    document.getElementById('q').addEventListener('input', apply);
-    document.getElementById('fLevel').addEventListener('change', apply);
-    document.getElementById('fPref').addEventListener('change', apply);
-    document.getElementById('resetBtn').addEventListener('click', resetRosterFilters);
-    document.querySelectorAll('#quickLv button').forEach(function (b) {
-      b.addEventListener('click', function () {
-        if (b.dataset.lv === '' && document.getElementById('fPref').value !== '') { document.getElementById('fPref').value = ''; }
-        document.getElementById('fLevel').value = b.dataset.lv;
-        apply();
+    if (rosterOn) {
+      document.getElementById('q').addEventListener('input', apply);
+      document.getElementById('fLevel').addEventListener('change', apply);
+      document.getElementById('fPref').addEventListener('change', apply);
+      document.getElementById('resetBtn').addEventListener('click', resetRosterFilters);
+      document.querySelectorAll('#quickLv button').forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (b.dataset.lv === '' && document.getElementById('fPref').value !== '') { document.getElementById('fPref').value = ''; }
+          document.getElementById('fLevel').value = b.dataset.lv;
+          apply();
+        });
       });
-    });
-    document.getElementById('prevBtn').addEventListener('click', function () { page--; render() });
-    document.getElementById('nextBtn').addEventListener('click', function () { page++; render() });
+      document.getElementById('prevBtn').addEventListener('click', function () { page--; render() });
+      document.getElementById('nextBtn').addEventListener('click', function () { page++; render() });
+    }
 
     /* ---------- Tab 切换 ---------- */
     function switchTab(id) {
@@ -295,7 +309,8 @@
       });
     });
     resetRosterFilters();
-    document.getElementById('rosterSub').textContent = '支持按姓名、河流名称、行政区划、单位、职务模糊检索；共入库 ' + records.length + ' 条示例记录（约全省 1% 抽样）。';
+    var rosterSub = document.getElementById('rosterSub');
+    if (rosterSub) rosterSub.textContent = '支持按姓名、河流名称、行政区划、单位、职务模糊检索；共入库 ' + records.length + ' 条示例记录（约全省 1% 抽样）。';
 
 
     /* ---------- 章节导航（含二级标题目录） ---------- */
@@ -306,9 +321,19 @@
       var subs = [].slice.call(toc.querySelectorAll('a.toc-sub'));
       var groups = [].slice.call(toc.querySelectorAll('.toc-grp'));
       var order = links.map(function (a) { return a.dataset.ch });
+      /* 章号写进 data-no 供 CSS 取用：display:none 的章不参与 CSS 计数器，靠计数器会永远是"第一章" */
+      var CN = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+      [].forEach.call(document.querySelectorAll('main.content > .chapter'), function (c, k) {
+        // attr() 只读自己所在元素的属性，所以要写在 .ch-head 上，不能写在 .chapter 上
+        var head = c.querySelector('.ch-head');
+        if (head) head.setAttribute('data-no', CN[k] || String(k + 1));
+      });
       var pos = document.getElementById('chPos'), prev = document.getElementById('prevCh'), next = document.getElementById('nextCh');
 
-      function showCh(id, keepScroll) {
+      var REDUCE = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var swapTimer = null;
+
+      function applyCh(id) {
         document.querySelectorAll('.chapter').forEach(function (s) { s.classList.toggle('on', s.id === id) });
         links.forEach(function (a) { a.classList.toggle('active', a.dataset.ch === id) });
         subs.forEach(function (a) { a.classList.remove('active') });
@@ -325,8 +350,42 @@
           if (prev) prev.disabled = i === 0;
           if (next) next.disabled = i === order.length - 1;
         }
-        if (!keepScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+
+      /* 换章：先回到页首（瞬时，不走平滑滚动，否则会和过渡动画叠在一起），
+         再让新章从翻页方向轻轻横移 + 淡入一点点 */
+      function showCh(id, keepScroll) {
+        var wasView = !!(window.__hzzMine && window.__hzzMine.isOpen());
+        if (wasView) window.__hzzMine.hide({ keepHash: true });
+        var target = document.getElementById(id);
+        if (!target) return;
+
+        var prevCh = document.querySelector('.chapter.on');
+        var dir = 1;
+        if (prevCh && prevCh !== target) {
+          var a = order.indexOf(prevCh.id), b = order.indexOf(id);
+          if (a > -1 && b > -1 && b < a) dir = -1;
+        }
+
+        applyCh(id);
+        if (wasView) setHash(id);
+        if (keepScroll) return;
+
+        window.scrollTo({ top: 0, behavior: 'auto' });
+        if (REDUCE) return;
+
+        target.classList.remove('swap-in');
+        target.style.setProperty('--swap-dx', (dir < 0 ? -20 : 20) + 'px');
+        void target.offsetHeight; // 连续翻章时强制重排，动画才会重播
+        target.classList.add('swap-in');
+        clearTimeout(swapTimer);
+        swapTimer = setTimeout(function () { target.classList.remove('swap-in') }, 340);
+      }
+
+      /* 底栏「上一章/下一章」要复用同一个切章入口；原先靠 target.click() 点目录链接，
+         但一级标题现在只负责开合二级目录，点了不切章，导致底栏翻页失效 */
+      window.__hzzShowCh = showCh;
+
       if (prev) prev.addEventListener('click', function () { var i = order.indexOf(document.querySelector('.chapter.on').id); if (i > 0) showCh(order[i - 1]) });
       if (next) next.addEventListener('click', function () { var i = order.indexOf(document.querySelector('.chapter.on').id); if (i < order.length - 1) showCh(order[i + 1]) });
 
@@ -336,17 +395,13 @@
       links.forEach(function (a) {
         a.addEventListener('click', function (e) {
           e.preventDefault();
-          var g = a.closest('.toc-grp');
+          /* 非当前章 → 切章（showCh 会展开对应分组）；已是当前章 → 只开合二级目录 */
           var cur = document.querySelector('.chapter.on');
-          // 点“当前章节”的标题只做开合：再走 showCh 会把它强制重新展开，收起后点一下就回来
-          if (cur && a.dataset.ch === cur.id) {
-            if (!g) return;
-            var open = g.classList.toggle('open');
-            a.setAttribute('aria-expanded', open ? 'true' : 'false');
-            return;
-          }
-          showCh(a.dataset.ch);
-          setHash(a.dataset.ch);
+          if (!cur || cur.id !== a.dataset.ch) { showCh(a.dataset.ch); return; }
+          var g = a.closest('.toc-grp');
+          if (!g) return;
+          var open = g.classList.toggle('open');
+          a.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
       });
 
@@ -549,7 +604,12 @@
       if (mask) mask.addEventListener('click', function () { setToc(false); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setToc(false); });
       toc.addEventListener('click', function (e) {
-        if (narrow() && e.target.closest('a')) setToc(false);
+        if (!narrow()) return;
+        var a = e.target.closest('a');
+        if (!a) return;
+        /* 一级标题只是展开/收起二级目录，抽屉保持打开，不该把整个目录收走 */
+        if (a.classList.contains('toc-lv1')) return;
+        setToc(false);
       });
 
       var lastNarrow = narrow();
@@ -846,31 +906,42 @@
   function sync() {
     var cur = document.querySelector('.chapter.on');
     var id = cur ? cur.id : '';
+    /* 视图打开时正文不在场，章节高亮与翻页都没有意义 */
+    var inView = !!(window.__hzzMine && window.__hzzMine.isOpen());
+    /* 底栏只有「政策」和「我管理的水域」两栏，选中态做成互斥的：
+       在手册里就亮「政策」，进了视图就亮「我管理的水域」，始终能看出现在在哪 */
     items.forEach(function (it) {
-      it.classList.toggle('is-on', !!it.dataset.ch && it.dataset.ch === id);
+      if (!it.dataset.ch) return;
+      it.classList.toggle('is-on', !inView);
     });
 
-    /* 首末章要把对应的翻页按钮置灰，否则点了没反应 */
+    /* 首末章要把对应的翻页按钮置灰；视图里一律禁用 */
     var i = curIndex(), total = chLinks().length;
-    if (navPrev) navPrev.disabled = i <= 0;
-    if (navNext) navNext.disabled = i < 0 || i >= total - 1;
+    if (navPrev) navPrev.disabled = inView || i <= 0;
+    if (navNext) navNext.disabled = inView || i < 0 || i >= total - 1;
   }
 
-  /* 点「政策」直接触发目录里对应章节的链接，复用已有的切章 + 记 hash 逻辑 */
+  /* 视图进出后要重算一次，my-waters.js 会调 */
+  window.__hzzSyncNav = sync;
+
+  /* 「政策」现在只当"回到手册"的出口：视图里点它退出，并落回进来时读到的地方。
+     正文里点它不再置顶——长书模式下置顶等于把读者拽回开头，和翻页是两套逻辑，先留空 */
   bar.addEventListener('click', function (e) {
     var item = e.target.closest('.tabbar__item[data-ch]');
     if (!item) return;
     e.preventDefault();
-    var link = document.querySelector('.toc a.toc-lv1[data-ch="' + item.dataset.ch + '"]');
-    if (link) link.click();
+    if (window.__hzzMine && window.__hzzMine.isOpen()) {
+      window.__hzzMine.hide({ refocus: true });
+    }
   });
 
-  /* 翻页同样走目录链接，不依赖正文底部那组按钮存不存在 */
+  /* 翻页同样走 showCh，不依赖正文底部那组按钮存不存在 */
   function step(delta) {
     var i = curIndex();
     if (i < 0) return;
     var target = chLinks()[i + delta];
-    if (target) target.click();
+    if (!target) return;
+    if (window.__hzzShowCh) window.__hzzShowCh(target.dataset.ch);
   }
 
   if (navPrev) navPrev.addEventListener('click', function () { step(-1) });
@@ -883,5 +954,15 @@
       mo.observe(c, { attributes: true, attributeFilter: ['class'] });
     });
   }
+
+  /* 滚动时只看“是否在页首”，变了才重算高亮，避免每次滚动都跑一遍 sync */
+  var lastTop = null;
+  window.addEventListener('scroll', function () {
+    var atTop = (window.pageYOffset || 0) < 140;
+    if (atTop === lastTop) return;
+    lastTop = atTop;
+    sync();
+  }, { passive: true });
+
   sync();
 })();

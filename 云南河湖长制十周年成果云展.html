@@ -1003,14 +1003,29 @@
       }
     }
 
-    /* ---------- 手机 ---------- */
+    /* ---------- 手机：按移动端重新排版，不是把 PC 版等比缩小 ---------- */
     @media(max-width:768px) {
       body {
         line-height: 1.75
       }
 
+      /* 序厅：内容集中成一块，不再上下各空一大片 */
+      .hero {
+        min-height: auto;
+        padding: 52px var(--pad-x) 30px
+      }
+
+      .hero h1 {
+        font-size: clamp(23px, 6.4vw, 30px);
+        letter-spacing: 1px
+      }
+
       .hero .badge {
-        margin-bottom: 20px
+        margin-bottom: 16px
+      }
+
+      .hero .slogan {
+        margin-bottom: 22px
       }
 
       .hero .btns a {
@@ -1018,10 +1033,155 @@
         padding: 10px 22px
       }
 
-      .hall-head p {
-        padding: 0 2px
+      /* 资料来源跟着内容走，不再绝对定位贴底导致中间空一块 */
+      .hero .src {
+        position: static;
+        margin-top: 24px;
+        font-size: 11px;
+        line-height: 1.7
       }
 
+      /* 展厅：收紧上下留白 */
+      section.hall {
+        padding: 34px var(--pad-x)
+      }
+
+      .hall-head {
+        margin-bottom: 20px
+      }
+
+      .hall-head h2 {
+        font-size: 21px;
+        letter-spacing: 1px
+      }
+
+      .hall-head p {
+        padding: 0 2px;
+        font-size: 13px;
+        line-height: 1.7
+      }
+
+      /* 数字墙：两列，数据卡矮一点，一屏能看全 */
+      .kpis {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px
+      }
+
+      .kpi {
+        padding: 13px 10px
+      }
+
+      .kpi b {
+        font-size: 23px
+      }
+
+      .kpi i {
+        font-size: 11.5px;
+        margin: 1px 0 4px
+      }
+
+      .kpi em {
+        font-size: 11.5px;
+        line-height: 1.6
+      }
+
+      /* 治水模式 / 六大水系 / 九湖：单列，但卡片更紧凑 */
+      .modes,
+      .rivers,
+      .lakes {
+        gap: 10px
+      }
+
+      .mode {
+        padding: 15px 14px
+      }
+
+      .mode h3 {
+        font-size: 16px;
+        margin-bottom: 5px
+      }
+
+      .mode p {
+        font-size: 13.5px;
+        line-height: 1.75
+      }
+
+      .rname {
+        padding: 9px 14px;
+        font-size: 16px;
+        letter-spacing: 2px
+      }
+
+      .rbody {
+        padding: 11px 14px
+      }
+
+      .rbody p {
+        font-size: 13.5px;
+        line-height: 1.75;
+        margin-bottom: 4px
+      }
+
+      .rbody .tag,
+      .lake .tag {
+        margin-top: 4px
+      }
+
+      .lake .ph {
+        height: 84px
+      }
+
+      .lake .body {
+        padding: 11px 14px
+      }
+
+      .lake h3 {
+        font-size: 15.5px;
+        margin-bottom: 4px
+      }
+
+      .lake p {
+        font-size: 13.5px;
+        line-height: 1.75
+      }
+
+      /* 影像展：占位块两列，别让 8 个空框占满三屏 */
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px
+      }
+
+      .ph-slot {
+        height: 92px;
+        font-size: 11.5px
+      }
+
+      .ph-slot b {
+        font-size: 13px;
+        margin-bottom: 2px
+      }
+
+      /* 制度法治 */
+      .cols {
+        gap: 10px
+      }
+
+      .col {
+        padding: 15px 16px
+      }
+
+      .col h3 {
+        font-size: 15.5px;
+        margin-bottom: 6px
+      }
+
+      .col p,
+      .col li {
+        font-size: 13.5px;
+        line-height: 1.75
+      }
+
+      /* 大事记 */
       .timeline {
         padding-left: 26px
       }
@@ -1035,12 +1195,17 @@
         top: 7px
       }
 
+      .tl {
+        margin-bottom: 20px
+      }
+
       .tl-year {
         font-size: 14.5px
       }
 
       .tl-text {
-        font-size: 13.5px
+        font-size: 13.5px;
+        line-height: 1.75
       }
 
       .lv-tabs {
@@ -1087,16 +1252,15 @@
         --pad-x: 14px
       }
 
-      /* 序厅略收高度，资料来源仍贴底，避免正文区空得发呆 */
+      /* 序厅在 768 档已改成内容居中，这里不再撑满屏 */
       .hero {
-        min-height: 80vh;
-        min-height: 80svh
+        padding: 44px var(--pad-x) 26px
       }
 
       .hero .src {
         padding: 0 10px;
         font-size: 11px;
-        line-height: 1.6
+        line-height: 1.7
       }
 
       .hero h1 {
@@ -1113,8 +1277,9 @@
         padding: 3px 13px
       }
 
+      /* 数字墙两列后格子更窄，字号跟着收 */
       .kpi b {
-        font-size: 26px
+        font-size: 21px
       }
 
       .lv-tabs {
@@ -1144,11 +1309,15 @@
       }
 
       .kpi {
-        padding: 14px 10px
+        padding: 12px 8px
       }
 
       .kpi b {
-        font-size: 22px
+        font-size: 19px
+      }
+
+      .kpi em {
+        font-size: 11px
       }
 
       .rname {
