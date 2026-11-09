@@ -350,12 +350,12 @@
     }
 
     .filters .btn-reset {
-      border: 0.5px solid #C9D4DE;
-      background: #F4F7FA;
-      border-radius: 8px;
+      border: 1px solid #C6D1DA;
+      background: #F5F6F7;
+      border-radius: 0;
       padding: 9px 16px;
       font-size: 13px;
-      color: var(--blue-700);
+      color: #16324A;
       cursor: pointer;
       white-space: nowrap
     }
@@ -467,7 +467,7 @@
     .quick button {
       border: 0.5px solid #C9D4DE;
       background: #fff;
-      border-radius: 16px;
+      border-radius: 0;
       padding: 5px 16px;
       font-size: 12px;
       color: var(--muted);
@@ -525,7 +525,7 @@
     .pager button {
       border: 0.5px solid #C9D4DE;
       background: #fff;
-      border-radius: 8px;
+      border-radius: 0;
       padding: 7px 16px;
       font-size: 13px;
       cursor: pointer;
@@ -4482,7 +4482,7 @@
 
     body {
       overflow-x: clip;
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Source Han Sans SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
       font-size: 15px;
       line-height: 1.75;
       padding-top: 52px;
@@ -5260,8 +5260,8 @@
 
     .filters input,
     .filters select {
-      border: 1px solid #C9D7E4;
-      border-radius: 8px;
+      border: 1px solid #C6D1DA;
+      border-radius: 0;
       font-size: 13px
     }
 
@@ -5281,7 +5281,7 @@
 
     .quick button {
       border: 1px solid #D3DFEA;
-      border-radius: 18px;
+      border-radius: 0;
       color: #4A5D6F;
       font-weight: 600;
       padding: 5px 15px
@@ -5305,7 +5305,7 @@
 
     .pager button {
       border: 1px solid #C9D7E4;
-      border-radius: 6px;
+      border-radius: 0;
       color: var(--blue);
       font-weight: 600
     }
@@ -5859,7 +5859,7 @@
       background: rgba(255, 255, 255, .16);
       border: 1px solid rgba(255, 255, 255, .3);
       color: #fff;
-      border-radius: 6px;
+      border-radius: 0;
       padding: 6px 10px;
       font-size: 12.5px;
       font-weight: 600;
@@ -5884,7 +5884,7 @@
       gap: 2px;
       background: rgba(255, 255, 255, .16);
       border: 1px solid rgba(255, 255, 255, .3);
-      border-radius: 8px;
+      border-radius: 0;
       padding: 2px
     }
 
@@ -5898,7 +5898,7 @@
       font-weight: 600;
       line-height: 1.2;
       padding: 4px 8px;
-      border-radius: 6px;
+      border-radius: 0;
       cursor: pointer;
       white-space: nowrap
     }
@@ -6861,7 +6861,7 @@
         padding: 4px 4px;
         border: 0;
         background: none;
-        border-radius: 10px;
+        border-radius: 0;
         font: inherit;
         text-decoration: none;
         color: #4B5C6B;
@@ -6928,33 +6928,35 @@
       }
     }
 
-    /* ========== 政务风试点：仅第一章（#ch1） ========== */
-    /* 只作用于第一章，其余章节保持原样，便于对比取舍；确认后再决定是否全站推广。 */
-    #ch1 {
+    /* ========== 政务风：公文版式（.gv，挂在第一章、第二章的 section 上） ========== */
+    /* 早期只在第一章试点（#ch1），现改为 .gv 类，后续要推广到其他章节时给 section 加 class 即可。 */
+    .gv {
       --gv-ink: #16324A;
       --gv-ink2: #33475B;
       --gv-red: #9C2B27;
       --gv-line: #D9E0E6;
       --gv-line2: #E7ECF0;
       --gv-fill: #F5F6F7;
-      --gv-serif: "FZXiaoBiaoSong-B05S", "方正小标宋简体", "STZhongsong", "华文中宋", "Source Han Serif SC", "Noto Serif SC", "SimSun", serif;
-      --gv-hei: "SimHei", "黑体", "Heiti SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
-      --gv-fang: "FangSong", "仿宋_GB2312", "STFangsong", "SimSun", serif;
-      --gv-kai: "KaiTi", "楷体_GB2312", "STKaiti", "SimSun", serif;
-      --gv-song: "SimSun", "宋体", "Songti SC", "STSong", serif;
+      /* 字体栈：系统字体在前，自托管 webfont 只在前面的 CJK 字体全部缺失时才兜底，
+         避免「系统有宋体、却先命中 webfont」导致同一屏出现两种宋体 */
+      --gv-serif: "FZXiaoBiaoSong-B05S", "方正小标宋简体", "STZhongsong", "华文中宋", "SimSun", "Source Han Serif SC", "Noto Serif SC", serif;
+      --gv-hei: "SimHei", "黑体", "Heiti SC", "Microsoft YaHei", "Source Han Sans SC", sans-serif;
+      --gv-fang: "FangSong", "仿宋_GB2312", "STFangsong", "FZNewKai-Z03S", "SimSun", serif;
+      --gv-kai: "KaiTi", "楷体_GB2312", "STKaiti", "FZNewKai-Z03S", "SimSun", serif;
+      --gv-song: "SimSun", "宋体", "Songti SC", "STSong", "Source Han Serif SC", serif;
     }
 
     /* 章头：居中标题 + 双细线，公文版式 */
-    #ch1.chapter {
+    .gv.chapter {
       padding-top: 30px
     }
 
-    #ch1 .ch-head {
+    .gv .ch-head {
       text-align: center;
       margin-bottom: 28px
     }
 
-    #ch1 .ch-head .ch-eyebrow {
+    .gv .ch-head .ch-eyebrow {
       font-family: var(--gv-serif);
       font-size: calc(13px * var(--fs-k));
       letter-spacing: .55em;
@@ -6963,7 +6965,7 @@
       margin-bottom: 10px
     }
 
-    #ch1 .ch-head h2 {
+    .gv .ch-head h2 {
       font-family: var(--gv-serif);
       font-size: calc(27px * var(--fs-k));
       font-weight: 700;
@@ -6975,7 +6977,7 @@
       line-height: 1.5
     }
 
-    #ch1 .ch-head h2::after {
+    .gv .ch-head h2::after {
       content: "";
       display: block;
       height: 9px;
@@ -6988,7 +6990,7 @@
       border: none
     }
 
-    #ch1 .ch-head .lead {
+    .gv .ch-head .lead {
       font-family: var(--gv-serif);
       font-size: calc(15px * var(--fs-k));
       line-height: 2;
@@ -6999,7 +7001,7 @@
     }
 
     /* 节标题：黑体 + 细底线，去掉圆角色块 */
-    #ch1 h4.sec {
+    .gv h4.sec {
       font-family: var(--gv-hei);
       font-size: calc(16px * var(--fs-k));
       font-weight: 700;
@@ -7011,7 +7013,7 @@
       border-bottom: 1px solid var(--gv-line)
     }
 
-    #ch1 h4.sec::before {
+    .gv h4.sec::before {
       content: "";
       display: inline-block;
       width: 5px;
@@ -7022,7 +7024,7 @@
     }
 
     /* 二级标题折叠：标题本身是开关，右侧一枚细折角 */
-    #ch1 h4.sec.sec-toggle {
+    .gv h4.sec.sec-toggle {
       position: relative;
       padding-right: 30px;
       cursor: pointer;
@@ -7030,12 +7032,12 @@
       -webkit-tap-highlight-color: transparent
     }
 
-    #ch1 h4.sec.sec-toggle:hover {
+    .gv h4.sec.sec-toggle:hover {
       color: #0C1E2E;
       border-bottom-color: #B9C6D2
     }
 
-    #ch1 .sec-caret {
+    .gv .sec-caret {
       position: absolute;
       right: 8px;
       top: 50%;
@@ -7049,21 +7051,21 @@
       transition: transform .18s ease, border-color .18s ease
     }
 
-    #ch1 h4.sec.sec-toggle:hover .sec-caret {
+    .gv h4.sec.sec-toggle:hover .sec-caret {
       border-color: var(--gv-red)
     }
 
-    #ch1 h4.sec.is-collapsed .sec-caret {
+    .gv h4.sec.is-collapsed .sec-caret {
       transform: rotate(-45deg)
     }
 
-    #ch1 .sec-body[hidden] {
+    .gv .sec-body[hidden] {
       display: none
     }
 
     /* 正文段落：首行缩进两字，仿宋 */
-    #ch1>p,
-    #ch1 .sec-body>p {
+    .gv>p,
+    .gv .sec-body>p {
       font-family: var(--gv-fang);
       font-size: calc(15.5px * var(--fs-k));
       line-height: 2;
@@ -7073,15 +7075,15 @@
       margin: 0 0 6px
     }
 
-    #ch1 p b,
-    #ch1 p strong {
+    .gv p b,
+    .gv p strong {
       font-family: var(--gv-hei);
       font-weight: 700;
       color: var(--gv-ink)
     }
 
     /* 引文：楷体 + 左侧红线，署名右对齐加破折号 */
-    #ch1 .quote {
+    .gv .quote {
       background: #FCFBF7;
       border: none;
       border-left: 3px solid var(--gv-red);
@@ -7090,7 +7092,7 @@
       margin: 0 0 16px
     }
 
-    #ch1 .quote .qs {
+    .gv .quote .qs {
       font-family: var(--gv-kai);
       font-size: calc(16.5px * var(--fs-k));
       font-weight: 400;
@@ -7099,7 +7101,7 @@
       color: var(--gv-ink)
     }
 
-    #ch1 .quote .src {
+    .gv .quote .src {
       font-family: var(--gv-fang);
       font-size: calc(13px * var(--fs-k));
       color: #7A8794;
@@ -7107,12 +7109,12 @@
       margin-top: 10px
     }
 
-    #ch1 .quote .src::before {
+    .gv .quote .src::before {
       content: "—— "
     }
 
     /* 卡片：直角 + 1px 描边，取消阴影 */
-    #ch1 .card {
+    .gv .card {
       border: 1px solid var(--gv-line);
       border-radius: 0;
       box-shadow: none;
@@ -7120,7 +7122,7 @@
       margin-bottom: 18px
     }
 
-    #ch1 .card h3 {
+    .gv .card h3 {
       font-family: var(--gv-hei);
       font-size: calc(15px * var(--fs-k));
       font-weight: 700;
@@ -7131,7 +7133,7 @@
       border-bottom: 1px solid var(--gv-line2)
     }
 
-    #ch1 .card h3::before {
+    .gv .card h3::before {
       width: 4px;
       height: 14px;
       border-radius: 0;
@@ -7141,18 +7143,18 @@
     }
 
     /* 表格：全框线 + 灰底表头 */
-    #ch1 .tscroll {
+    .gv .tscroll {
       border-radius: 0
     }
 
-    #ch1 table {
+    .gv table {
       border-collapse: collapse;
       border: 1px solid #C6D1DA;
       font-size: calc(14px * var(--fs-k));
       color: #2B3B4A
     }
 
-    #ch1 th {
+    .gv th {
       font-family: var(--gv-hei);
       font-size: calc(13.5px * var(--fs-k));
       font-weight: 700;
@@ -7165,17 +7167,33 @@
       white-space: normal
     }
 
-    #ch1 td {
+    .gv td {
       border: 1px solid #DFE5EB;
       padding: 12px 14px;
       font-family: var(--gv-song);
       font-size: calc(14.5px * var(--fs-k));
       line-height: 1.9;
-      vertical-align: top;
+      text-align: center;
+      vertical-align: middle;
       white-space: normal
     }
 
-    #ch1 tbody td:first-child {
+    /* 表头同样垂直居中，避免多行表头与单行单元格错位 */
+    .gv th {
+      vertical-align: middle
+    }
+
+    /* 文件清单：文号列不折行（云河长组发〔2017〕1号 这类整段保持一行） */
+    .gv table.filelist td:last-child {
+      white-space: nowrap
+    }
+
+    /* 「序号」两个字不要被挤成上下两行 */
+    .gv table.filelist th:first-child {
+      white-space: nowrap
+    }
+
+    .gv tbody td:first-child {
       text-align: center;
       font-family: var(--gv-hei);
       font-weight: 700;
@@ -7184,17 +7202,17 @@
     }
 
     /* 覆盖全站的 td b 蓝字，表内强调统一用墨色 */
-    #ch1 td b,
-    #ch1 td strong {
+    .gv td b,
+    .gv td strong {
       color: var(--gv-ink)
     }
 
-    #ch1 table tbody tr:hover>td {
+    .gv table tbody tr:hover>td {
       background: #fff
     }
 
     /* 说明框：浅米底 + 直角 */
-    #ch1 .pin {
+    .gv .pin {
       background: #FAFAF7;
       border: 1px solid #E3E3DC;
       border-left: 3px solid var(--gv-ink);
@@ -7206,27 +7224,37 @@
       padding: 14px 18px
     }
 
-    #ch1 .pin b {
+    .gv .pin b {
       font-family: var(--gv-hei);
       color: #41453F;
       font-weight: 700
     }
 
     /* 只有开头的「工作落点：」用红色，正文强调词保持墨色 */
-    #ch1 .pin>b:first-child {
+    .gv .pin>b:first-child {
       color: var(--gv-red)
     }
 
-    /* 文件条目 */
-    #ch1 .doc {
-      gap: 18px;
+    /* 文件条目：日期块与标题同排，用 grid 让两者自动等高 */
+    .gv .doc {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 18px;
       padding: 18px 0;
       border-bottom: 1px solid var(--gv-line2)
     }
 
-    #ch1 .doc .dt {
-      flex: 0 0 54px;
-      height: 58px;
+    .gv .doc .dt {
+      grid-column: 1;
+      grid-row: 1;
+      /* 高度 = 标题两行（h5 15.5px × line-height 1.65 × 2） */
+      align-self: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 54px;
+      height: calc(52px * var(--fs-k));
       border: 1px solid #C6D1DA;
       background: var(--gv-fill);
       border-radius: 0;
@@ -7237,7 +7265,32 @@
       letter-spacing: .5px
     }
 
-    #ch1 .doc .db h5 {
+    /* .db 拆开参与网格：标题进第二列第一行，说明 / 要点 / 链接依次排在下面 */
+    .gv .doc .db {
+      display: contents
+    }
+
+    .gv .doc .db h5 {
+      grid-column: 2;
+      grid-row: 1
+    }
+
+    .gv .doc .db .meta {
+      grid-column: 2;
+      grid-row: 2
+    }
+
+    .gv .doc .db ul {
+      grid-column: 2;
+      grid-row: 3
+    }
+
+    .gv .doc .db .ext {
+      grid-column: 2;
+      grid-row: 4
+    }
+
+    .gv .doc .db h5 {
       font-family: var(--gv-serif);
       font-size: calc(15.5px * var(--fs-k));
       font-weight: 700;
@@ -7246,14 +7299,19 @@
       margin-bottom: 6px
     }
 
-    #ch1 .doc .db .meta {
+    /* 标题里「（水河湖〔2018〕243号）」这类文号整段不拆行 */
+    .gv .doc .db h5 span {
+      white-space: nowrap
+    }
+
+    .gv .doc .db .meta {
       font-family: var(--gv-fang);
       font-size: calc(13.5px * var(--fs-k));
       color: #7A8794;
       margin-bottom: 8px
     }
 
-    #ch1 .doc .db ul {
+    .gv .doc .db ul {
       margin: 8px 0 0 18px;
       font-family: var(--gv-song);
       font-size: calc(14.5px * var(--fs-k));
@@ -7261,16 +7319,16 @@
       color: var(--gv-ink2)
     }
 
-    #ch1 .doc .db li {
+    .gv .doc .db li {
       margin-bottom: 6px
     }
 
-    #ch1 .doc .db li b {
+    .gv .doc .db li b {
       font-family: var(--gv-hei);
       color: var(--gv-ink)
     }
 
-    #ch1 .ul {
+    .gv .ul {
       margin: 4px 0 0 20px;
       font-family: var(--gv-song);
       font-size: calc(15px * var(--fs-k));
@@ -7278,12 +7336,12 @@
       color: var(--gv-ink2)
     }
 
-    #ch1 .ul li {
+    .gv .ul li {
       margin-bottom: 6px
     }
 
     /* 原文链接：实线，不用虚线 */
-    #ch1 .ext {
+    .gv .ext {
       display: inline-block;
       margin-top: 8px;
       font-family: var(--gv-fang);
@@ -7292,38 +7350,302 @@
       border-bottom: 1px solid #B9C6D2
     }
 
-    #ch1 .ext:hover {
+    .gv .ext:hover {
       color: var(--gv-red);
       border-bottom-color: var(--gv-red)
     }
 
     @media (max-width:640px) {
-      #ch1 .ch-head h2 {
+      .gv .ch-head h2 {
         font-size: calc(22px * var(--fs-k));
         letter-spacing: 2px
       }
 
-      #ch1 .ch-head .ch-eyebrow {
+      .gv .ch-head .ch-eyebrow {
         font-size: calc(12px * var(--fs-k))
       }
 
-      #ch1 .card {
+      .gv .card {
         padding: 18px 16px
       }
 
-      #ch1 .quote {
+      .gv .quote {
         padding: 14px 16px
       }
 
-      #ch1 .quote .qs {
+      .gv .quote .qs {
         font-size: calc(15.5px * var(--fs-k))
       }
 
-      #ch1 .quote .src {
+      .gv .quote .src {
         font-size: calc(12.5px * var(--fs-k));
         text-align: left;
         padding-left: 2em;
         text-indent: -2em
+      }
+
+      /* 文件条目：手机端改为「日期在左 + 标题紧跟日期右侧」的双列网格，
+         说明与要点回到整行宽。桌面端的 flex: 0 0 54px 在纵向排列下会把
+         宽度撑满整行，这里用 grid 彻底接管排布 */
+      .gv .doc {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 10px;
+        row-gap: 6px;
+        align-items: start;
+        padding: 14px 0
+      }
+
+      /* .db 拆开参与网格：h5 进第二列第一行，其余子元素整行铺开 */
+      .gv .doc .db {
+        display: contents
+      }
+
+      .gv .doc .dt {
+        grid-column: 1;
+        grid-row: 1;
+        flex: none;
+        width: auto;
+        height: calc(52px * var(--fs-k));
+        align-self: start;
+        padding: 3px 8px;
+        font-size: calc(11.5px * var(--fs-k));
+        line-height: 1.45;
+        letter-spacing: .2px;
+        text-align: center
+      }
+
+      .gv .doc .db h5 {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: center;
+        margin: 0
+      }
+
+      .gv .doc .db .meta {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        margin: 0
+      }
+
+      .gv .doc .db ul {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        margin: 2px 0 0 18px;
+        font-size: calc(14px * var(--fs-k));
+        line-height: 1.9
+      }
+
+      .gv .doc .db .ext {
+        grid-column: 1 / -1;
+        grid-row: 4;
+        margin-top: 8px
+      }
+
+      /* 表格：手机端收紧内边距与字号，减少横向滚动距离 */
+      .gv th {
+        padding: 8px 9px
+      }
+
+      .gv td {
+        padding: 9px 10px;
+        font-size: calc(13.5px * var(--fs-k));
+        line-height: 1.8
+      }
+    }
+
+    /* ---------- 指标卡：公文配色（直角、灰底、墨色数字） ---------- */
+    .gv .metric {
+      background: var(--gv-fill);
+      border: 1px solid var(--gv-line);
+      border-radius: 0;
+      padding: 14px 16px
+    }
+
+    .gv .metric .num {
+      font-family: var(--gv-serif);
+      font-size: calc(26px * var(--fs-k));
+      font-weight: 700;
+      letter-spacing: 0;
+      color: var(--gv-ink)
+    }
+
+    .gv .metric .lab {
+      font-family: var(--gv-hei);
+      font-size: calc(13px * var(--fs-k));
+      color: var(--gv-ink)
+    }
+
+    .gv .metric .note {
+      font-family: var(--gv-fang);
+      font-size: calc(12px * var(--fs-k));
+      line-height: 1.6;
+      color: #7A8794
+    }
+
+    /* ---------- 标签：方角 + 墨色深浅梯度，去掉彩色胶囊 ---------- */
+    .gv .tag {
+      border-radius: 0;
+      padding: 1px 7px;
+      font-family: var(--gv-hei);
+      font-size: calc(11.5px * var(--fs-k));
+      font-weight: 700;
+      letter-spacing: .3px;
+      border: 1px solid transparent
+    }
+
+    .gv .tag.lv0 {
+      background: var(--gv-ink);
+      color: #fff
+    }
+
+    .gv .tag.lv1 {
+      background: #3A4D60;
+      color: #fff
+    }
+
+    .gv .tag.lv2 {
+      background: #E7ECF0;
+      border-color: #C9D3DB;
+      color: var(--gv-ink)
+    }
+
+    .gv .tag.lv3 {
+      background: #fff;
+      border-color: #B9C6D2;
+      color: #2B3B4A
+    }
+
+    .gv .tag.lv4 {
+      background: #F5F6F7;
+      border-color: #D9E0E6;
+      color: #4A5A68
+    }
+
+    /* ---------- 表格内文件链接：墨蓝、无下划线、细底线 ---------- */
+    .gv td a {
+      color: #1B4E77;
+      text-decoration: none;
+      border-bottom: 1px solid #C6D1DA
+    }
+
+    .gv td a:hover {
+      color: var(--gv-red);
+      border-bottom-color: var(--gv-red)
+    }
+
+    /* ---------- 章内二级页签（总览 / 分州市一览 / 名册检索）：方角、墨色选中 ---------- */
+    .gv nav.tabs.subtabs {
+      border-radius: 0;
+      border-color: var(--gv-line);
+      box-shadow: none
+    }
+
+    .gv nav.tabs.subtabs button {
+      border-radius: 0;
+      font-family: var(--gv-hei);
+      color: #4A5A68;
+      letter-spacing: .3px
+    }
+
+    .gv nav.tabs.subtabs button.on {
+      background: var(--gv-ink);
+      border-color: var(--gv-ink);
+      color: #fff;
+      box-shadow: none
+    }
+
+    /* ---------- 流程链：方角胶囊 + 箭头，一行排布
+       ≥641 正常尺寸；手机把字号和内边距收一档，保证五个节点 + 四个箭头
+       在 360~390px 内排成一行，不换行、不截断 ---------- */
+    .gv .flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 12px 0 14px
+    }
+
+    .gv .flow .st {
+      flex: 0 0 auto;
+      background: var(--gv-fill);
+      border: 1px solid var(--gv-line);
+      border-radius: 0;
+      color: var(--gv-ink);
+      font-family: var(--gv-hei);
+      font-size: calc(12.5px * var(--fs-k));
+      font-weight: 700;
+      letter-spacing: 0;
+      padding: 7px 12px;
+      white-space: nowrap
+    }
+
+    .gv .flow .ar {
+      flex: 0 0 auto;
+      color: #9AA8B4;
+      font-size: 12px
+    }
+
+    /* 手机：收紧到能一行放下（390/360 都不换行） */
+    @media (max-width:640px) {
+      .gv .flow {
+        gap: 3px;
+        margin: 10px 0 12px
+      }
+
+      .gv .flow .st {
+        font-size: calc(10.5px * var(--fs-k));
+        padding: 4px 5px
+      }
+
+      .gv .flow .ar {
+        font-size: 8.5px
+      }
+    }
+
+    /* 小屏（≤360）再收一档 */
+    @media (max-width:360px) {
+      .gv .flow {
+        gap: 3px
+      }
+
+      .gv .flow .st {
+        font-size: calc(10px * var(--fs-k));
+        padding: 3px 4px
+      }
+
+      .gv .flow .ar {
+        font-size: 8px
+      }
+    }
+
+    /* 手机 / 平板：三个指标压成一排，不再纵向堆三张卡 */
+    @media (max-width:720px) {
+      .gv .grid3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin-bottom: 18px
+      }
+
+      .gv .metric {
+        padding: 10px 9px
+      }
+
+      .gv .metric .num {
+        font-size: calc(21px * var(--fs-k));
+        line-height: 1.2
+      }
+
+      .gv .metric .lab {
+        font-size: calc(12px * var(--fs-k));
+        margin-top: 2px
+      }
+
+      .gv .metric .note {
+        font-size: calc(10.5px * var(--fs-k));
+        line-height: 1.45;
+        margin-top: 3px
       }
     }
 
@@ -8154,7 +8476,7 @@
 
     /* ========== 长书：二级标题统一（原来只有第一章是政务风，长书里必须一路到底） ========== */
     h4.sec {
-      font-family: "SimHei", "黑体", "Heiti SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+      font-family: "SimHei", "黑体", "Heiti SC", "Microsoft YaHei", "Source Han Sans SC", sans-serif;
       font-size: calc(16px * var(--fs-k));
       font-weight: 700;
       letter-spacing: .5px;

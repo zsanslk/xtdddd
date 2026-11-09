@@ -11,6 +11,7 @@
 
 注：项目的静态引用不带 ?v=，所以不依赖服务器是否支持查询串。
 """
+
 import http.server
 import os
 import socketserver
@@ -18,14 +19,15 @@ import sys
 
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8099
 ROOT = os.path.dirname(os.path.abspath(__file__))
+HOST = "0.0.0.0"
 os.chdir(ROOT)
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
-        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
-        self.send_header('Pragma', 'no-cache')
-        self.send_header('Expires', '0')
+        self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
+        self.send_header("Pragma", "no-cache")
+        self.send_header("Expires", "0")
         super().end_headers()
 
     def log_message(self, fmt, *args):
@@ -34,6 +36,6 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
 
 socketserver.ThreadingTCPServer.allow_reuse_address = True
-with socketserver.ThreadingTCPServer(('127.0.0.1', PORT), Handler) as httpd:
-    print('serving %s on http://127.0.0.1:%d' % (ROOT, PORT), flush=True)
+with socketserver.ThreadingTCPServer((HOST, PORT), Handler) as httpd:
+    print("serving %s on http://%s:%d" % (ROOT,HOST, PORT), flush=True)
     httpd.serve_forever()

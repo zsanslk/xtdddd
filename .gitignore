@@ -1,3 +1,10 @@
 pdf/*
 images/*
 .workbuddy/*
+
+# 字体原始包与解压出的整包 OTF/TTF（单个 16~28MB，压缩包 80~140MB）
+# 只提交子集后的 assets/font/web/*.woff2；需要重新子集时本地保留源文件即可
+assets/font/*.zip
+assets/font/heiti/
+assets/font/songti/
+assets/font/kaiti/

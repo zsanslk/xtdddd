@@ -1,0 +1,54 @@
+/* ==========================================================================
+   自托管字体（按站点字符集子集化）—— 由 tools/subset-fonts.py 生成
+   Windows 自带的方正小标宋 / 仿宋 / 楷体在 Linux、部分国产系统和多数安卓
+   浏览器上并不存在，正文会退化成默认字体。这里用本站实际用到的 1400 余字符
+   做子集，单文件 190~280KB，只在对应字体被用到时才下载。
+   正文增删文字后请重跑 tools/subset-fonts.py，否则新字会回落到系统字体。
+   ========================================================================== */
+
+@font-face {
+  font-family: "Source Han Serif SC";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/font/web/SourceHanSerifSC-400.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+2000-206F, U+3000-303F, U+4E00-9FFF, U+FF00-FFEF;
+}
+
+@font-face {
+  font-family: "Source Han Serif SC";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/font/web/SourceHanSerifSC-700.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+2000-206F, U+3000-303F, U+4E00-9FFF, U+FF00-FFEF;
+}
+
+@font-face {
+  font-family: "Source Han Sans SC";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/font/web/SourceHanSansSC-400.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+2000-206F, U+3000-303F, U+4E00-9FFF, U+FF00-FFEF;
+}
+
+@font-face {
+  font-family: "Source Han Sans SC";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/font/web/SourceHanSansSC-700.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+2000-206F, U+3000-303F, U+4E00-9FFF, U+FF00-FFEF;
+}
+
+/* 楷体：方正新楷体（FZNewKai-Z03S），只有常规体；仿宋缺失时也用它兜底。
+   注意：方正字体为商业字体，网页嵌入属于使用行为，需在授权范围内使用。 */
+@font-face {
+  font-family: "FZNewKai-Z03S";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/font/web/FZNewKai-400.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+2000-206F, U+3000-303F, U+4E00-9FFF, U+FF00-FFEF;
+}

@@ -9,6 +9,7 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="description" content="云南省河湖长制工作手册：政策依据、工作要求、全省河湖长信息、岸线空间管控、清四乱、幸福河湖、高原湖泊与六大水系。">
   <title>云南省河湖长工作手册</title>
+  <link rel="stylesheet" href="./css/fonts.css">
   <link rel="stylesheet" href="./css/index.css">
   <script src="./js/theme-init.js"></script>
   <!--  -->
@@ -147,7 +148,7 @@
 
     <main class="content">
 
-      <section id="ch1" class="chapter on">
+      <section id="ch1" class="chapter gv on">
         <div class="ch-head">
           <h2>总体要求与中央文件</h2>
           <p class="lead">习近平总书记关于治水的重要论述，是河湖长制工作的根本遵循；中央三份文件把要求固化为制度。前三节分别回答“怎么治水”“治什么”“用什么方法治”，第四节给出各级河湖长工作的上位依据。</p>
@@ -301,7 +302,7 @@
         </div>
       </section>
 
-      <section id="ch3" class="chapter">
+      <section id="ch3" class="chapter gv">
         <div class="ch-head">
           <h2>工作要求与河湖长信息</h2>
           <p class="lead">国家层面三份文件回答“河湖长具体干什么、怎么干、干不好怎么办”，云南省级四份文件解决“本地怎么落地”。工作不是“挂名”，要有动作、有记录、有结果；最后一节收录全省 16
@@ -311,7 +312,7 @@
         <h4 id="ch3-s1" class="sec">一、工作依据文件清单</h4>
         <div class="card">
           <div class="tscroll">
-            <table>
+            <table class="filelist">
               <thead>
                 <tr>
                   <th style="width:44px">序号</th>
@@ -478,11 +479,11 @@
         <h4 id="ch3-s4" class="sec">四、问题处置闭环</h4>
         <div class="card">
           <div class="flow">
-            <span class="st">① 发现</span><span class="ar">→</span>
-            <span class="st">② 交办</span><span class="ar">→</span>
-            <span class="st">③ 整改</span><span class="ar">→</span>
-            <span class="st">④ 验收销号</span><span class="ar">→</span>
-            <span class="st">⑤ 回头看</span>
+            <span class="st">①发现</span><span class="ar">→</span>
+            <span class="st">②交办</span><span class="ar">→</span>
+            <span class="st">③整改</span><span class="ar">→</span>
+            <span class="st">④验收销号</span><span class="ar">→</span>
+            <span class="st">⑤回头看</span>
           </div>
           <div class="tscroll">
             <table>
@@ -523,7 +524,8 @@
             </table>
           </div>
         </div>
-        <h4 id="ch3-s5" class="sec">五、全省各级河湖长信息</h4>
+        <h4 id="ch3-s5" class="sec">五、全省各级河湖长信息 <b><i style="color: red;">是否需要删除？或者只针对河长办（县、州\市、省）</i></b> </h4>
+        <p></p>
         <p>全省 16 个州市、五级河湖长体系与名册检索。<b>本模块为交互式</b>：可查看层级结构与区域分布、按州市下钻、按姓名/河流/单位/编号检索。当前数据为结构示意值，正式发布前替换为省河湖长办台账。</p>
         <div id="ch4" class="tabmod">
           <nav class="tabs subtabs">
@@ -555,60 +557,62 @@
               </div>
             </div>
 
-            <div class="card">
+            <div class="card" hidden>
               <h3>五级河湖长分布（由高到低）</h3>
               <div class="pyr" id="pyramid"></div>
             </div>
 
-            <div class="tip"><b>一句话读图：</b>乡镇与村社区两级合计约 33,920 人，占全省 89% —— 河湖长制的责任重心在基层末梢。</div>
+            <div class="tip" hidden><b>一句话读图：</b>乡镇与村社区两级合计约 33,920 人，占全省 89% —— 河湖长制的责任重心在基层末梢。</div>
 
             <div class="card">
               <h3>五级职责速览</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th>层级</th>
-                    <th>典型河长</th>
-                    <th>所在单位</th>
-                    <th>主要职责</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="tag lv0">省级</span></td>
-                    <td>省总河长、副总河长、省级河（湖）长</td>
-                    <td>省委、省人民政府</td>
-                    <td>统筹全省河湖长制工作，督办重大问题</td>
-                  </tr>
-                  <tr>
-                    <td><span class="tag lv1">州市级</span></td>
-                    <td>州（市）总河长、州（市）级河（湖）长</td>
-                    <td>州（市）党委、人民政府</td>
-                    <td>组织跨县河流联防联治，考核下级河长</td>
-                  </tr>
-                  <tr>
-                    <td><span class="tag lv2">区县级</span></td>
-                    <td>县（市、区）总河长、县级河（湖）长</td>
-                    <td>县（市、区）党委、人民政府</td>
-                    <td>落实治理任务，协调执法与项目落地</td>
-                  </tr>
-                  <tr>
-                    <td><span class="tag lv3">乡镇级</span></td>
-                    <td>乡镇（街道）党（工）委书记、乡镇长</td>
-                    <td>乡镇人民政府、街道办事处</td>
-                    <td>组织日常巡查，处置发现问题</td>
-                  </tr>
-                  <tr>
-                    <td><span class="tag lv4">村（社区）级</span></td>
-                    <td>村党总支书记、村委会主任</td>
-                    <td>村民委员会、社区居民委员会</td>
-                    <td>巡河护河、宣传引导、第一时间上报</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="tscroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>层级</th>
+                      <th>典型河长</th>
+                      <th>所在单位</th>
+                      <th>主要职责</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="tag lv0">省级</span></td>
+                      <td>省总河长、副总河长、省级河（湖）长</td>
+                      <td>省委、省人民政府</td>
+                      <td>统筹全省河湖长制工作，督办重大问题</td>
+                    </tr>
+                    <tr>
+                      <td><span class="tag lv1">州市级</span></td>
+                      <td>州（市）总河长、州（市）级河（湖）长</td>
+                      <td>州（市）党委、人民政府</td>
+                      <td>组织跨县河流联防联治，考核下级河长</td>
+                    </tr>
+                    <tr>
+                      <td><span class="tag lv2">区县级</span></td>
+                      <td>县（市、区）总河长、县级河（湖）长</td>
+                      <td>县（市、区）党委、人民政府</td>
+                      <td>落实治理任务，协调执法与项目落地</td>
+                    </tr>
+                    <tr>
+                      <td><span class="tag lv3">乡镇级</span></td>
+                      <td>乡镇（街道）党（工）委书记、乡镇长</td>
+                      <td>乡镇人民政府、街道办事处</td>
+                      <td>组织日常巡查，处置发现问题</td>
+                    </tr>
+                    <tr>
+                      <td><span class="tag lv4">村（社区）级</span></td>
+                      <td>村党总支书记、村委会主任</td>
+                      <td>村民委员会、社区居民委员会</td>
+                      <td>巡河护河、宣传引导、第一时间上报</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
 
-            <div class="expo-card">
+            <div class="expo-card" hidden>
               <div class="expo-band">
                 <span class="expo-kicker">云展馆 · 2016—2026</span>
                 <h3>云南河湖长制十周年成果云展</h3>
