@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>水域管辖概览</title>
+  <link rel="stylesheet" href="./assets/vendor/leaflet/leaflet.css" />
+  <style>
+    :root {
+      --brand: #1c6bf0;
+      --ink: #1d2129;
+      --ink-soft: #4e5969;
+      --muted: #86909c;
+      --line: #e4e7ec;
+      --bg: #f5f7fa;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    body { display: flex; flex-direction: column; }
+
+    .bar {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 20px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .bar__t { font-size: 15px; font-weight: 500; }
+    .bar__sub { font-size: 12px; color: var(--muted); }
+    .bar__acts { margin-left: auto; display: flex; gap: 8px; }
+
+    .btn {
+      font: inherit;
+      font-size: 12px;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink-soft);
+      cursor: pointer;
+    }
+
+    .btn:hover { border-color: var(--brand); color: var(--brand); }
+    .btn[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+    .btn:disabled { opacity: .45; cursor: not-allowed; }
+
+    main { flex: 1 1 auto; display: flex; min-height: 0; }
+
+    #map {
+      position: relative;
+      flex: 1 1 auto;
+      background-color: #edf1f6;
+      background-image:
+        linear-gradient(#e2e7ee 1px, transparent 1px),
+        linear-gradient(90deg, #e2e7ee 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    .leaflet-container { background: transparent; }
+
+    .map-flag {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      z-index: 500;
+      font-size: 11.5px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, .9);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 3px 8px;
+    }
+
+    .panel {
+      flex: 0 0 320px;
+      overflow-y: auto;
+      padding: 18px 20px 28px;
+      background: #fff;
+      border-left: 1px solid var(--line);
+    }
+
+    .p-h { font-size: 16px; font-weight: 500; margin: 0 0 2px; }
+
+    .p-role {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: #eaf1fe;
+      color: var(--brand);
+      margin-bottom: 14px;
+    }
+
+    .kv { display: flex; gap: 10px; font-size: 13px; padding: 7px 0; border-bottom: 1px dashed var(--line); }
+    .kv__k { flex: 0 0 76px; color: var(--muted); }
+    .kv__v { flex: 1; color: var(--ink-soft); word-break: break-all; }
+
+    .p-sec { font-size: 12px; color: var(--muted); margin: 22px 0 8px; letter-spacing: .5px; }
+
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+    .stat { padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; }
+    .stat__n { font-size: 20px; font-weight: 500; line-height: 1.2; }
+    .stat__l { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    .warn {
+      margin-top: 18px;
+      padding: 10px 12px;
+      border-left: 3px solid #f0a020;
+      background: #fffaf0;
+      font-size: 12px;
+      line-height: 1.65;
+      color: #8a5a00;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .kid-list { margin: 0; padding: 0; list-style: none; }
+    .kid-list li {
+      display: flex;
+      gap: 8px;
+      font-size: 12.5px;
+      padding: 5px 0;
+      color: var(--ink-soft);
+      border-bottom: 1px solid #f2f4f7;
+    }
+    .kid-list li i { font-style: normal; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 16px; }
+
+    .pt-anchor { background: none; border: 0; }
+
+    .leaflet-tooltip.pt-label {
+      font-size: 11.5px;
+      color: #1d2129;
+      background: rgba(255, 255, 255, .92);
+      border: 1px solid rgba(0, 0, 0, .07);
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+      box-shadow: none;
+    }
+
+    .leaflet-tooltip.pt-label--self {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #fff;
+      background: rgba(28, 107, 240, .95);
+      border-color: transparent;
+    }
+
+    .leaflet-tooltip::before { display: none; }
+
+    @media (max-width: 760px) {
+      main { flex-direction: column; }
+      .panel { flex: 0 0 auto; max-height: 46vh; border-left: 0; border-top: 1px solid var(--line); }
+      .bar { flex-wrap: wrap; gap: 8px; }
+      .bar__acts { width: 100%; margin-left: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="bar">
+    <span class="bar__t">水域管辖概览</span>
+    <span class="bar__sub" id="sub">加载中…</span>
+    <div class="bar__acts">
+      <button class="btn" id="btnMode" aria-pressed="true">视图：下级标注</button>
+      <button class="btn" id="btnBase" aria-pressed="false" disabled>底图：未接入</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="map">
+      <span class="map-flag" id="mapFlag">无底图 · 仅标注点位</span>
+    </div>
+    <aside class="panel">
+      <h2 class="p-h" id="pName">—</h2>
+      <span class="p-role" id="pRole">—</span>
+
+      <div class="kv"><span class="kv__k">区划代码</span><span class="kv__v" id="pCode">—</span></div>
+      <div class="kv"><span class="kv__k">所属区划</span><span class="kv__v" id="pParent">—</span></div>
+      <div class="kv"><span class="kv__k">中心坐标</span><span class="kv__v" id="pCore">—</span></div>
+
+      <p class="p-sec">概览</p>
+      <div class="stat-grid">
+        <div class="stat"><div class="stat__n" id="sKids">—</div><div class="stat__l">下辖区划</div></div>
+        <div class="stat"><div class="stat__n" id="sWater">—</div><div class="stat__l">河湖库渠塘</div></div>
+        <div class="stat"><div class="stat__n" id="sChief">—</div><div class="stat__l">在任河长</div></div>
+        <div class="stat"><div class="stat__n" id="sSeg">—</div><div class="stat__l">管护河段</div></div>
+      </div>
+
+      <p class="p-sec">下辖区划</p>
+      <ul class="kid-list" id="kidList"></ul>
+
+      <div class="warn" id="warn" hidden></div>
+    </aside>
+  </main>
+
+  <script src="./assets/vendor/leaflet/leaflet.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var API = 'https://app.ynmap.cn/river';
+      var APP_ID = 'c1af3fe6-b9ef-4270-a02b-32403280f103';
+      var DEFAULT_UID = '453a16e3-9c5a-4379-a857-c57c7f240d14';
+
+      var qs = new URLSearchParams(location.search);
+      var uid = qs.get('uid') || DEFAULT_UID;
+      var tk = qs.get('tk') || '';
+
+      var el = {
+        sub: document.getElementById('sub'),
+        pName: document.getElementById('pName'),
+        pRole: document.getElementById('pRole'),
+        pCode: document.getElementById('pCode'),
+        pParent: document.getElementById('pParent'),
+        pCore: document.getElementById('pCore'),
+        sKids: document.getElementById('sKids'),
+        sWater: document.getElementById('sWater'),
+        sChief: document.getElementById('sChief'),
+        sSeg: document.getElementById('sSeg'),
+        kids: document.getElementById('kidList'),
+        warn: document.getElementById('warn'),
+        btnMode: document.getElementById('btnMode'),
+        btnBase: document.getElementById('btnBase'),
+        mapFlag: document.getElementById('mapFlag')
+      };
+
+      function readToken() {
+        try {
+          var s = JSON.parse(localStorage.getItem('hzz_session') || 'null');
+          return (s && s.token) || '';
+        } catch (e) { return ''; }
+      }
+
+      function api(path) {
+        var h = { 'tdt-s-app-id': APP_ID };
+        var t = readToken();
+        if (t) h['Tdt-S-Token'] = t;
+        return fetch(API + path, { headers: h }).then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        });
+      }
+
+      function warn(text) {
+        el.warn.hidden = false;
+        el.warn.innerHTML += (el.warn.innerHTML ? '<br>' : '') + text;
+      }
+
+      function esc(s) {
+        return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+        });
+      }
+
+      var map = L.map('map', {
+        zoomControl: true,
+        attributionControl: false,
+        preferCanvas: true
+      }).setView([25.37775, 104.45712], 12);
+
+      var selfLayer = L.layerGroup().addTo(map);
+      var kidLayer = L.layerGroup().addTo(map);
+      var kidLabels = [];
+      var showKids = true;
+
+      function dot(latlng, opts) {
+        return L.circleMarker(latlng, Object.assign({
+          radius: 5,
+          color: '#fff',
+          weight: 1.5,
+          fillColor: '#1c6bf0',
+          fillOpacity: 1
+        }, opts));
+      }
+
+      // 标签只用 tooltip，避免 divIcon 与 tooltip 各渲染一次
+      function label(latlng, text, cls, dir, offset) {
+        return L.marker(latlng, {
+          interactive: false,
+          icon: L.divIcon({ className: 'pt-anchor', html: '', iconSize: [0, 0], iconAnchor: [0, 0] })
+        }).bindTooltip(text, {
+          permanent: true,
+          direction: dir || 'right',
+          offset: offset || [7, 0],
+          className: 'pt-label ' + (cls || '')
+        });
+      }
+
+      // 村名在低缩放级别会叠成一团，只在放大后展示
+      function syncLabels() {
+        var on = map.getZoom() >= 11;
+        kidLabels.forEach(function (m) {
+          if (on) { m.openTooltip(); } else { m.closeTooltip(); }
+        });
+      }
+
+      // 全称太长，地图上放不下；列表里仍用全称
+      function shortName(n) {
+        return String(n || '')
+          .replace(/社区居民委员会$/, '社区')
+          .replace(/村民委员会$/, '村')
+          .replace(/村委会$/, '村');
+      }
+
+      function render(user, self, kids) {
+        el.pName.textContent = self.adName || user.userName || '—';
+        el.pRole.textContent = user.userType === '1' ? '河长' : '河长办';
+        el.pCode.textContent = self.adCode || '—';
+        el.pParent.textContent = self.ascription || '—';
+        el.pCore.textContent = self.coreLon + ', ' + self.coreLat;
+        el.sKids.textContent = kids.length;
+        el.sub.textContent = (self.ascription || '') + ' · ' + kids.length + ' 个下辖区划';
+
+        var center = [self.coreLat, self.coreLon];
+
+        selfLayer.clearLayers();
+        selfLayer.addLayer(dot(center, { radius: 9, fillColor: '#0f5fbf', weight: 2 }));
+        selfLayer.addLayer(label(center, self.adName, 'pt-label--self', 'top', [0, -18]));
+
+        kidLayer.clearLayers();
+        kidLabels = [];
+        kids.forEach(function (k) {
+          if (k.coreLat == null || k.coreLon == null) return;
+          var p = [k.coreLat, k.coreLon];
+          L.polyline([center, p], {
+            color: '#1c6bf0', weight: 1, opacity: .22, dashArray: '3 5'
+          }).addTo(kidLayer);
+          dot(p, { radius: 4 }).addTo(kidLayer);
+
+          // 标签朝远离中心的一侧放，避免全挤在点右侧互相压住
+          var dLat = k.coreLat - self.coreLat;
+          var dLon = k.coreLon - self.coreLon;
+          var dir, off;
+          if (Math.abs(dLat) > Math.abs(dLon)) {
+            dir = dLat > 0 ? 'top' : 'bottom';
+            off = [0, dLat > 0 ? -8 : 8];
+          } else {
+            dir = dLon > 0 ? 'right' : 'left';
+            off = [dLon > 0 ? 8 : -8, 0];
+          }
+
+          var m = label(p, esc(shortName(k.adName)), '', dir, off);
+          m.addTo(kidLayer);
+          kidLabels.push(m);
+        });
+
+        el.kids.innerHTML = kids.length
+          ? kids.map(function (k, i) {
+              return '<li><i>' + (i + 1) + '</i><span>' + esc(k.adName) + '</span></li>';
+            }).join('')
+          : '<li>无下级区划</li>';
+
+        var pts = [[self.coreLat, self.coreLon]];
+        kids.forEach(function (k) {
+          if (k.coreLat != null) pts.push([k.coreLat, k.coreLon]);
+        });
+        map.fitBounds(L.latLngBounds(pts), {
+          paddingTopLeft: [40, 40],
+          paddingBottomRight: [110, 50],
+          maxZoom: 13
+        });
+        var z = qs.get('z');
+        if (z) map.setZoom(Number(z));
+        syncLabels();
+
+        if (!self.geom) {
+          warn('行政区划边界（geom）为空：本级只能按中心点标注，无法绘制辖域范围。');
+        }
+      }
+
+      function loadStats(self) {
+        if (!readToken()) {
+          ['sWater', 'sChief', 'sSeg'].forEach(function (k) { el[k].textContent = '—'; });
+          warn('未登录：河湖数量、河长人数等统计接口需要 token，当前显示为“—”。');
+          return;
+        }
+        api('/statistics/getWaterNumber?adCode=' + encodeURIComponent(self.adCode))
+          .then(function (res) {
+            var d = res && res.data;
+            el.sWater.textContent = (d == null) ? '0'
+              : (typeof d === 'object'
+                  ? Object.keys(d).reduce(function (n, k) { return n + (Number(d[k]) || 0); }, 0)
+                  : d);
+          })
+          .catch(function () { el.sWater.textContent = '—'; });
+      }
+
+      el.btnMode.addEventListener('click', function () {
+        showKids = !showKids;
+        el.btnMode.setAttribute('aria-pressed', String(showKids));
+        el.btnMode.textContent = showKids ? '视图：下级标注' : '视图：本级概览';
+        if (showKids) { map.addLayer(kidLayer); syncLabels(); } else { map.removeLayer(kidLayer); }
+        if (!showKids) {
+          map.setView([kidCenter[0], kidCenter[1]], 13);
+        }
+      });
+
+      var kidCenter = [25.37775, 104.45712];
+
+      /* ---------------- 底图 ----------------
+         院内 WMTS：https://smap{1..5}.ynmap.cn/tileServer/service/smap/{service}/3857/wmts/tile/default/{z}/{y}/{x}?key=
+         服务按 Referer 域名白名单放行（只有 app.ynmap.cn 和 yunnan.tianditu.gov.cn），
+         本地由 serve.py 的 /tile-proxy/ 代发 Referer，部署到白名单域名则直连。 */
+      var TILE_KEY = '3887eac79c524f069b592db50f31878c';
+      var TILE_SUBS = ['1', '2', '3', '4', '5'];
+      var onWhiteHost = /(^|\.)(ynmap\.cn|tianditu\.gov\.cn)$/.test(location.hostname);
+
+      function tileUrl(service) {
+        if (onWhiteHost) {
+          return 'https://smap{s}.ynmap.cn/tileServer/service/smap/' + service +
+            '/3857/wmts/tile/default/{z}/{y}/{x}?key=' + TILE_KEY;
+        }
+        // 本地走代理，路径里不放域名：某些内网穿透会把路径中的主机名当 Host 处理
+        return '/tiles/{s}/' + service + '/{z}/{y}/{x}?key=' + TILE_KEY;
+      }
+
+      function wmts(service) {
+        return L.tileLayer(tileUrl(service), {
+          subdomains: TILE_SUBS,
+          minZoom: 3,
+          maxZoom: 18,
+          crossOrigin: true
+        });
+      }
+
+      // 底图注记层默认关：它标的村名和我们自己的点位标签是同一批，叠在一起反而乱
+      var withLabel = qs.get('lab') === '1';
+
+      var baseGroups = {
+        vec: withLabel ? [wmts('ynVecMS'), wmts('ynCvaMS')] : [wmts('ynVecMS')],
+        img: withLabel ? [wmts('ynImgMS'), wmts('ynCiaMS')] : [wmts('ynImgMS')],
+        none: []
+      };
+
+      var b0 = qs.get('base');
+      var baseMode = b0 === 'none' ? 'none' : b0 === 'img' ? 'img' : 'vec';
+      var tileErrors = 0;
+
+      function applyBase(mode, silent) {
+        ['vec', 'img'].forEach(function (k) {
+          baseGroups[k].forEach(function (ly) { map.removeLayer(ly); });
+        });
+        if (mode !== 'none') {
+          baseGroups[mode].forEach(function (ly) { ly.addTo(map); });
+        }
+        baseMode = mode;
+        el.btnBase.setAttribute('aria-pressed', String(mode !== 'none'));
+        el.btnBase.textContent = mode === 'vec' ? '底图：矢量' : mode === 'img' ? '底图：影像' : '底图：关';
+        el.mapFlag.textContent = mode === 'vec' ? '底图：天地图云南 · 矢量'
+          : mode === 'img' ? '底图：天地图云南 · 影像'
+          : '无底图 · 仅标注点位';
+        if (!silent) { tileErrors = 0; }
+      }
+
+      // 瓦片全挂时别让用户对着灰屏猜，给一条明确提示
+      function watchTiles() {
+        ['vec', 'img'].forEach(function (k) {
+          baseGroups[k].forEach(function (ly) {
+            ly.on('tileerror', function () {
+              tileErrors += 1;
+              if (tileErrors === 6) {
+                warn('底图瓦片加载失败：本地需走 serve.py 代理，或把页面部署到 app.ynmap.cn 域名下。');
+              }
+            });
+          });
+        });
+      }
+
+      el.btnBase.disabled = false;
+      el.btnBase.addEventListener('click', function () {
+        applyBase(baseMode === 'vec' ? 'img' : baseMode === 'img' ? 'none' : 'vec');
+      });
+
+      applyBase(baseMode, true);
+      watchTiles();
+
+      map.on('zoomend', syncLabels);
+
+      api('/user/info?id=' + encodeURIComponent(uid))
+        .then(function (u) {
+          var user = u && u.data;
+          if (!user) throw new Error('未查到该用户');
+          return api('/adCode/getInfo?id=' + user.adCodeId + '&returnGeom=false')
+            .then(function (a) {
+              var self = a && a.data;
+              if (!self) throw new Error('未查到该用户所属区划');
+              kidCenter = [self.coreLat, self.coreLon];
+              return api('/adCode/attrListByParentId?parentId=' + user.adCodeId + '&nextChild=false')
+                .then(function (c) {
+                  render(user, self, (c && c.data) || []);
+                  loadStats(self);
+                });
+            });
+        })
+        .catch(function (err) {
+          el.sub.textContent = '加载失败';
+          warn('数据加载失败：' + (err && err.message ? err.message : '未知错误'));
+        });
+    })();
+  </script>
+
+</body>
+
+</html>

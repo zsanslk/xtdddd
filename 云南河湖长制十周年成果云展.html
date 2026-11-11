@@ -82,6 +82,36 @@
       color: #fff
     }
 
+    /* 返回手册封面：顶栏最左，和「展厅导航」同一套轻量按钮语言 */
+    .topbar a.back {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #fff;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .24);
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-size: 13.5px;
+      letter-spacing: 1px
+    }
+
+    .topbar a.back:hover {
+      background: rgba(255, 255, 255, .22);
+      color: #fff
+    }
+
+    .topbar a.back svg {
+      width: 14px;
+      height: 14px;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round
+    }
+
     /* ---------- 序厅 ---------- */
     .hero {
       min-height: 88vh;
@@ -1399,6 +1429,12 @@
 
   <!-- 顶部导航 -->
   <div class="topbar">
+    <a class="back" href="./shouce.html" aria-label="返回云南省河湖长工作手册">
+      <svg viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 5 8 12l7 7" />
+      </svg>
+      <span>返回手册</span>
+    </a>
     <div class="logo">云展</div>
     <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu">
       <span class="txt">展厅导航</span><i aria-hidden="true">▼</i>
@@ -1869,76 +1905,76 @@
     <p class="table-hint">表格内容较多，可左右滑动查看。</p>
     <div class="table-wrap">
       <table>
-      <tr>
-        <th>湖泊</th>
-        <th>所在区域</th>
-        <th>所属水系</th>
-        <th>主要入湖河道</th>
-        <th>十年亮点数据</th>
-      </tr>
-      <tr>
-        <td><strong>滇池</strong></td>
-        <td>昆明市</td>
-        <td>长江（金沙江）</td>
-        <td>35 条</td>
-        <td>全湖Ⅳ类连续 8 年；环湖绿道 108 公里、美丽乡村 46 个</td>
-      </tr>
-      <tr>
-        <td><strong>洱海</strong></td>
-        <td>大理州</td>
-        <td>澜沧江（湄公河）</td>
-        <td>27 条</td>
-        <td>海菜花恢复超 43 万平方米</td>
-      </tr>
-      <tr>
-        <td><strong>抚仙湖</strong></td>
-        <td>玉溪市</td>
-        <td>珠江（南盘江）</td>
-        <td>22 条</td>
-        <td>深水湖泊保护优先，水质保持优良</td>
-      </tr>
-      <tr>
-        <td><strong>星云湖</strong></td>
-        <td>玉溪市</td>
-        <td>珠江（南盘江）</td>
-        <td>12 条</td>
-        <td>与抚仙湖隔河联合调度、系统协同</td>
-      </tr>
-      <tr>
-        <td><strong>杞麓湖</strong></td>
-        <td>玉溪市</td>
-        <td>珠江（南盘江）</td>
-        <td>7 条</td>
-        <td>2025 年实现脱劣</td>
-      </tr>
-      <tr>
-        <td><strong>阳宗海</strong></td>
-        <td>昆明市、玉溪市</td>
-        <td>珠江（南盘江）</td>
-        <td>4 条</td>
-        <td>跨行政区域联防联治持续推进</td>
-      </tr>
-      <tr>
-        <td><strong>泸沽湖</strong></td>
-        <td>丽江市（滇川交界）</td>
-        <td>长江（金沙江）</td>
-        <td>5 条</td>
-        <td>滇川跨省联防联治机制深化</td>
-      </tr>
-      <tr>
-        <td><strong>程海</strong></td>
-        <td>丽江市永胜县</td>
-        <td>长江（金沙江）</td>
-        <td>5 条</td>
-        <td>生态水位与科学补水统筹推进</td>
-      </tr>
-      <tr>
-        <td><strong>异龙湖</strong></td>
-        <td>红河州石屏县</td>
-        <td>珠江（南盘江）</td>
-        <td>7 条</td>
-        <td>2025 年实现脱劣</td>
-      </tr>
+        <tr>
+          <th>湖泊</th>
+          <th>所在区域</th>
+          <th>所属水系</th>
+          <th>主要入湖河道</th>
+          <th>十年亮点数据</th>
+        </tr>
+        <tr>
+          <td><strong>滇池</strong></td>
+          <td>昆明市</td>
+          <td>长江（金沙江）</td>
+          <td>35 条</td>
+          <td>全湖Ⅳ类连续 8 年；环湖绿道 108 公里、美丽乡村 46 个</td>
+        </tr>
+        <tr>
+          <td><strong>洱海</strong></td>
+          <td>大理州</td>
+          <td>澜沧江（湄公河）</td>
+          <td>27 条</td>
+          <td>海菜花恢复超 43 万平方米</td>
+        </tr>
+        <tr>
+          <td><strong>抚仙湖</strong></td>
+          <td>玉溪市</td>
+          <td>珠江（南盘江）</td>
+          <td>22 条</td>
+          <td>深水湖泊保护优先，水质保持优良</td>
+        </tr>
+        <tr>
+          <td><strong>星云湖</strong></td>
+          <td>玉溪市</td>
+          <td>珠江（南盘江）</td>
+          <td>12 条</td>
+          <td>与抚仙湖隔河联合调度、系统协同</td>
+        </tr>
+        <tr>
+          <td><strong>杞麓湖</strong></td>
+          <td>玉溪市</td>
+          <td>珠江（南盘江）</td>
+          <td>7 条</td>
+          <td>2025 年实现脱劣</td>
+        </tr>
+        <tr>
+          <td><strong>阳宗海</strong></td>
+          <td>昆明市、玉溪市</td>
+          <td>珠江（南盘江）</td>
+          <td>4 条</td>
+          <td>跨行政区域联防联治持续推进</td>
+        </tr>
+        <tr>
+          <td><strong>泸沽湖</strong></td>
+          <td>丽江市（滇川交界）</td>
+          <td>长江（金沙江）</td>
+          <td>5 条</td>
+          <td>滇川跨省联防联治机制深化</td>
+        </tr>
+        <tr>
+          <td><strong>程海</strong></td>
+          <td>丽江市永胜县</td>
+          <td>长江（金沙江）</td>
+          <td>5 条</td>
+          <td>生态水位与科学补水统筹推进</td>
+        </tr>
+        <tr>
+          <td><strong>异龙湖</strong></td>
+          <td>红河州石屏县</td>
+          <td>珠江（南盘江）</td>
+          <td>7 条</td>
+          <td>2025 年实现脱劣</td>
+        </tr>
       </table>
     </div>
   </section>

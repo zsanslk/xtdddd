@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!-- miaoda-super-design | title: 生态导览v2 | skeleton: 全宽封面+横向滚动模块带+卡片流 | sig: 模块卡片微质感渐变+磨砂图标chip+导航两行居中 -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>河长履职电子手册 · 生态导览</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: { center: true, padding: '2rem', screens: { '2xl': '1400px' } },
+        extend: {
+          colors: {
+            canvas: 'hsl(var(--canvas))',
+            border: 'hsl(var(--border))',
+            input: 'hsl(var(--input))',
+            ring: 'hsl(var(--ring))',
+            background: 'hsl(var(--background))',
+            foreground: 'hsl(var(--foreground))',
+            primary: { DEFAULT: 'hsl(var(--primary))', foreground: 'hsl(var(--primary-foreground))' },
+            secondary: { DEFAULT: 'hsl(var(--secondary))', foreground: 'hsl(var(--secondary-foreground))' },
+            destructive: { DEFAULT: 'hsl(var(--destructive))', foreground: 'hsl(var(--destructive-foreground))' },
+            muted: { DEFAULT: 'hsl(var(--muted))', foreground: 'hsl(var(--muted-foreground))' },
+            accent: { DEFAULT: 'hsl(var(--accent))', foreground: 'hsl(var(--accent-foreground))' },
+            popover: { DEFAULT: 'hsl(var(--popover))', foreground: 'hsl(var(--popover-foreground))' },
+            card: { DEFAULT: 'hsl(var(--card))', foreground: 'hsl(var(--card-foreground))' }
+          },
+          borderRadius: {
+            lg: 'var(--radius)',
+            md: 'calc(var(--radius) - 2px)',
+            sm: 'calc(var(--radius) - 4px)'
+          },
+          keyframes: {
+            /* ===== KEYFRAMES:BEGIN ===== */
+            'fade-up': { '0%': { opacity: '0', transform: 'translateY(18px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            'fade-in': { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            'slide-left': { '0%': { opacity: '0', transform: 'translateX(24px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } }
+            /* ===== KEYFRAMES:END ===== */
+          },
+          animation: {
+            /* ===== ANIMATIONS:BEGIN ===== */
+            'fade-up': 'fade-up 0.55s ease forwards',
+            'fade-in': 'fade-in 0.7s ease forwards',
+            'slide-left': 'slide-left 0.5s ease forwards'
+            /* ===== ANIMATIONS:END ===== */
+          }
+        }
+      },
+      plugins: [
+        function ({ addVariant }) {
+          addVariant('intersect', '&:not([no-intersect])');
+        }
+      ]
+    };
+  </script>
+  <style>
+    /* ===== FONT-FACE:BEGIN ===== */
+    @font-face { font-family: "ResourceHanRoundedCN"; src: url("https://resource-static.bj.bcebos.com/fonts-skill/ResourceHanRoundedCN-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+    @font-face { font-family: "ResourceHanRoundedCN"; src: url("https://resource-static.bj.bcebos.com/fonts-skill/ResourceHanRoundedCN-Medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
+    @font-face { font-family: "ResourceHanRoundedCN"; src: url("https://resource-static.bj.bcebos.com/fonts-skill/ResourceHanRoundedCN-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+    @font-face { font-family: "ResourceHanRoundedCN"; src: url("https://resource-static.bj.bcebos.com/fonts-skill/ResourceHanRoundedCN-Heavy.ttf") format("truetype"); font-weight: 900; font-display: swap; }
+    /* ===== FONT-FACE:END ===== */
+
+    /* ===== DESIGN-TOKENS:BEGIN ===== */
+    :root {
+      --radius: 1.25rem;
+      --background: 200 60% 98%;
+      --foreground: 210 49% 15%;
+      --card: 0 0% 100%;
+      --card-foreground: 210 49% 15%;
+      --primary: 203 86% 40%;
+      --primary-foreground: 0 0% 100%;
+      --secondary: 200 50% 94%;
+      --secondary-foreground: 210 49% 22%;
+      --muted: 200 40% 95%;
+      --muted-foreground: 210 16% 42%;
+      --accent: 168 76% 36%;
+      --accent-foreground: 0 0% 100%;
+      --destructive: 0 72% 51%;
+      --destructive-foreground: 0 0% 100%;
+      --border: 200 35% 88%;
+      --input: 200 35% 88%;
+      --ring: 203 86% 40%;
+      --popover: 0 0% 100%;
+      --popover-foreground: 210 49% 15%;
+    }
+    /* ===== DESIGN-TOKENS:END ===== */
+
+    /* ===== CUSTOM-TOKENS:BEGIN ===== */
+    :root {
+      --canvas: 205 45% 88%;
+      --water-100: 200 80% 96%;
+      --warn: 32 95% 44%;
+      --warn-foreground: 0 0% 100%;
+    }
+    /* ===== CUSTOM-TOKENS:END ===== */
+
+    /* ===== SIGNATURE-CSS:BEGIN ===== */
+    body { font-family: "ResourceHanRoundedCN", "PingFang SC", "Microsoft YaHei", sans-serif; }
+    .tnum { font-variant-numeric: tabular-nums; }
+    .card-shadow { box-shadow: 0 8px 24px -10px hsl(203 60% 25% / 0.22); }
+    .grad-water { background-image: linear-gradient(135deg, hsl(203 86% 44%), hsl(168 76% 38%)); }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .snap-x-mod { scroll-snap-type: x mandatory; }
+    .snap-item { scroll-snap-align: start; }
+    .card-elev { box-shadow: 0 12px 26px -14px hsl(203 60% 22% / 0.32); }
+    .mod-head { position: relative; overflow: hidden; }
+    .mod-sheen { position: absolute; inset: 0; background-image: linear-gradient(180deg, hsl(0 0% 100% / 0.28), hsl(0 0% 100% / 0) 58%); }
+    .icon-chip { position: relative; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 14px; background: hsl(0 0% 100% / 0.16); box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.45), 0 3px 8px -3px hsl(203 60% 18% / 0.4); backdrop-filter: blur(2px); }
+    /* ===== SIGNATURE-CSS:END ===== */
+  </style>
+</head>
+<body class="bg-canvas text-foreground antialiased flex justify-center">
+
+  <!-- 手机壳 -->
+  <div class="relative w-full max-w-[390px] min-h-screen bg-background flex flex-col overflow-hidden card-shadow">
+
+    <!-- 可滚动内容 -->
+    <main id="scrollArea" class="flex-1 min-h-0 overflow-y-auto no-scrollbar">
+
+      <!-- 全宽封面 hero -->
+      <section id="hero" class="relative h-[340px] shrink-0 overflow-hidden">
+        <img id="heroImg" src="https://miaoda-image.cdn.bcebos.com/img/corpus/fe050c55ca3f4abdaac730842f9a3a48.jpg" alt="云南高原湖泊碧水蓝天风光" class="absolute inset-0 w-full h-full object-cover scale-110 will-change-transform" />
+        <div class="absolute inset-0" style="background-image:linear-gradient(to bottom, hsl(203 80% 20% / 0.45), hsl(203 80% 20% / 0.15) 45%, hsl(210 49% 12% / 0.82))"></div>
+
+        <!-- 状态栏 -->
+        <div class="absolute top-0 inset-x-0 z-20 px-5 pt-3 pb-2 flex items-center justify-between text-[12px] font-medium text-primary-foreground">
+          <span class="tnum">9:41</span>
+          <div class="flex items-center gap-1.5">
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="1.5" width="3" height="10.5" rx="1"/></svg>
+            <svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1"><rect x="0.5" y="0.5" width="18" height="11" rx="3"/><rect x="2" y="2" width="13" height="8" rx="1.5" fill="currentColor" stroke="none"/><path d="M20 4v4a2 2 0 0 0 0-4z" fill="currentColor" stroke="none"/></svg>
+          </div>
+        </div>
+
+        <!-- 封面文案 -->
+        <div class="absolute bottom-0 inset-x-0 z-10 px-5 pb-6 text-primary-foreground">
+          <div class="flex items-center gap-2 text-[12px] text-primary-foreground/85 opacity-0 animate-fade-in">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-primary-foreground/20 text-[12px] font-black">滇</span>
+            云南省河湖长制
+          </div>
+          <h1 class="mt-2 text-[28px] leading-tight font-black tracking-tight text-balance opacity-0 animate-fade-up">一册在手<br/>做河长的贴身帮手</h1>
+          <p class="mt-2 text-[13px] text-primary-foreground/85 opacity-0 animate-fade-up">云南省重点高原湖泊 · 湖长调研履职电子手册</p>
+        </div>
+      </section>
+
+      <!-- 模块横向滚动带 -->
+      <section id="modules" class="px-4 pt-5">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-[16px] font-bold text-foreground">履职模块</h2>
+          <span class="text-[12px] text-muted-foreground">左右滑动 ›</span>
+        </div>
+        <div class="flex gap-3 overflow-x-auto no-scrollbar snap-x-mod -mx-4 px-4 pb-1">
+          <!-- 文件总览 -->
+          <a href="#modules" class="shrink-0 snap-item w-[132px] rounded-2xl bg-card border border-border overflow-hidden card-elev">
+            <div class="h-[70px] mod-head flex items-center justify-center text-primary-foreground" style="background-image:linear-gradient(150deg, hsl(203 90% 56%), hsl(203 82% 34%))">
+              <span class="mod-sheen"></span>
+              <span class="icon-chip"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+            </div>
+            <div class="px-3 py-2.5"><div class="text-[14px] font-bold text-foreground">文件总览</div><div class="text-[12px] text-muted-foreground">总体要求·中央文件</div></div>
+          </a>
+          <!-- 河湖台账 -->
+          <a href="#modules" class="shrink-0 snap-item w-[132px] rounded-2xl bg-card border border-border overflow-hidden card-elev">
+            <div class="h-[70px] mod-head flex items-center justify-center text-accent-foreground" style="background-image:linear-gradient(150deg, hsl(168 78% 46%), hsl(168 72% 28%))">
+              <span class="mod-sheen"></span>
+              <span class="icon-chip"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
+            </div>
+            <div class="px-3 py-2.5"><div class="text-[14px] font-bold text-foreground">河湖台账</div><div class="text-[12px] text-muted-foreground">工作要求·河湖长</div></div>
+          </a>
+          <!-- 岸线管控 -->
+          <a href="#modules" class="shrink-0 snap-item w-[132px] rounded-2xl bg-card border border-border overflow-hidden card-elev">
+            <div class="h-[70px] mod-head flex items-center justify-center text-primary-foreground" style="background-image:linear-gradient(150deg, hsl(203 90% 56%), hsl(203 82% 34%))">
+              <span class="mod-sheen"></span>
+              <span class="icon-chip"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            </div>
+            <div class="px-3 py-2.5"><div class="text-[14px] font-bold text-foreground">岸线管控</div><div class="text-[12px] text-muted-foreground">划定·四等分区</div></div>
+          </a>
+          <!-- 四乱治理 -->
+          <a href="#modules" class="shrink-0 snap-item w-[132px] rounded-2xl bg-card border border-border overflow-hidden card-elev">
+            <div class="h-[70px] mod-head flex items-center justify-center text-primary-foreground" style="background-image:linear-gradient(150deg, hsl(36 96% 56%), hsl(28 92% 40%))">
+              <span class="mod-sheen"></span>
+              <span class="icon-chip"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+            </div>
+            <div class="px-3 py-2.5"><div class="text-[14px] font-bold text-foreground">四乱治理</div><div class="text-[12px] text-muted-foreground">清四乱·涉河审批</div></div>
+          </a>
+          <!-- 幸福河湖 -->
+          <a href="#modules" class="shrink-0 snap-item w-[132px] rounded-2xl bg-card border border-border overflow-hidden card-elev">
+            <div class="h-[70px] mod-head flex items-center justify-center text-accent-foreground" style="background-image:linear-gradient(150deg, hsl(168 78% 46%), hsl(168 72% 28%))">
+              <span class="mod-sheen"></span>
+              <span class="icon-chip"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></span>
+            </div>
+            <div class="px-3 py-2.5"><div class="text-[14px] font-bold text-foreground">幸福河湖</div><div class="text-[12px] text-muted-foreground">建设标准·案例</div></div>
+          </a>
+          <!-- 奖补资金 -->
+          <a href="#modules" class="shrink-0 snap-item w-[132px] rounded-2xl bg-card border border-border overflow-hidden card-elev">
+            <div class="h-[70px] mod-head flex items-center justify-center text-primary-foreground" style="background-image:linear-gradient(150deg, hsl(203 90% 56%), hsl(203 82% 34%))">
+              <span class="mod-sheen"></span>
+              <span class="icon-chip"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg></span>
+            </div>
+            <div class="px-3 py-2.5"><div class="text-[14px] font-bold text-foreground">奖补资金</div><div class="text-[12px] text-muted-foreground">政策·申报</div></div>
+          </a>
+          <!-- 高原湖泊 -->
+          <a href="#modules" class="shrink-0 snap-item w-[132px] rounded-2xl bg-card border border-border overflow-hidden card-elev">
+            <div class="h-[70px] mod-head flex items-center justify-center text-primary-foreground" style="background-image:linear-gradient(150deg, hsl(203 88% 52%), hsl(168 74% 34%))">
+              <span class="mod-sheen"></span>
+              <span class="icon-chip"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg></span>
+            </div>
+            <div class="px-3 py-2.5"><div class="text-[14px] font-bold text-foreground">高原湖泊</div><div class="text-[12px] text-muted-foreground">九湖档案</div></div>
+          </a>
+          <!-- 六大水系 -->
+          <a href="#modules" class="shrink-0 snap-item w-[132px] rounded-2xl bg-card border border-border overflow-hidden card-elev">
+            <div class="h-[70px] mod-head flex items-center justify-center text-accent-foreground" style="background-image:linear-gradient(150deg, hsl(168 78% 46%), hsl(168 72% 28%))">
+              <span class="mod-sheen"></span>
+              <span class="icon-chip"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg></span>
+            </div>
+            <div class="px-3 py-2.5"><div class="text-[14px] font-bold text-foreground">六大水系</div><div class="text-[12px] text-muted-foreground">流域台账</div></div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 重点导览卡片流 -->
+      <section id="guide" class="px-4 pt-6 space-y-4 pb-4">
+        <h2 class="text-[16px] font-bold text-foreground">重点导览</h2>
+
+        <!-- 卡片：高原湖泊 -->
+        <article class="rounded-3xl overflow-hidden bg-card border border-border card-shadow opacity-0 intersect:animate-fade-up intersect-once">
+          <div class="relative h-44 w-full overflow-hidden">
+            <img src="https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_6161fd60-507c-49f2-a73e-90f364d69a4a.jpg" alt="云南抚仙湖清澈湖水" class="w-full h-full object-cover" />
+            <div class="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-primary-foreground/85 px-2.5 py-1 text-[12px] font-semibold text-primary-foreground backdrop-blur">高原湖泊</div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-[16px] font-bold text-foreground">九座重点高原湖泊</h3>
+            <p class="mt-1 text-[13px] text-muted-foreground leading-relaxed text-pretty">抚仙湖、洱海、滇池等九座湖泊档案，含水质等级、保护目标与专属管控措施，一图速览。</p>
+            <div class="mt-3 flex items-center gap-4 text-[12px]">
+              <span class="flex items-center gap-1 text-primary font-semibold"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>9 座</span>
+              <span class="flex items-center gap-1 text-accent font-semibold"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>优良 44.4%</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 卡片：幸福河湖 -->
+        <article class="rounded-3xl overflow-hidden bg-card border border-border card-shadow opacity-0 intersect:animate-fade-up intersect-once">
+          <div class="relative h-44 w-full overflow-hidden">
+            <img src="https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_0f56b4cd-3c0b-4c2f-9f89-6c888dcae33f.jpg" alt="河流生态治理 绿色幸福河湖" class="w-full h-full object-cover" />
+            <div class="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-accent/90 px-2.5 py-1 text-[12px] font-semibold text-accent-foreground backdrop-blur">幸福河湖</div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-[16px] font-bold text-foreground">幸福河湖建设指引</h3>
+            <p class="mt-1 text-[13px] text-muted-foreground leading-relaxed text-pretty">评价指标、建设任务与优秀案例做法，打造水清岸绿、人水和谐的幸福河湖。</p>
+            <a href="#guide" class="mt-3 inline-flex items-center gap-1 text-[13px] font-semibold text-primary">查看建设标准 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </div>
+        </article>
+
+        <!-- 卡片：六大水系 -->
+        <article class="rounded-3xl overflow-hidden bg-card border border-border card-shadow opacity-0 intersect:animate-fade-up intersect-once">
+          <div class="relative h-44 w-full overflow-hidden">
+            <img src="https://miaoda-site-img.cdn.bcebos.com/images/baidu_image_search_67d6ea8d-5c18-4542-8817-6eaf1cc3e1e3.jpg" alt="云南高原湖泊群航拍山水" class="w-full h-full object-cover" />
+            <div class="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-primary/90 px-2.5 py-1 text-[12px] font-semibold text-primary-foreground backdrop-blur">六大水系</div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-[16px] font-bold text-foreground">全省六大水系台账</h3>
+            <p class="mt-1 text-[13px] text-muted-foreground leading-relaxed text-pretty">长江、珠江、澜沧江、怒江、红河、伊洛瓦底江六大水系干支流概况与治理重点。</p>
+            <a href="#guide" class="mt-3 inline-flex items-center gap-1 text-[13px] font-semibold text-primary">查看流域台账 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </div>
+        </article>
+
+        <!-- 页脚 -->
+        <footer class="pt-2 pb-1 text-center text-[12px] text-muted-foreground">
+          <p>内部工作资料 · 仅供履职查阅</p>
+          <p class="mt-0.5">云南省重点高原湖泊湖长调研履职电子手册</p>
+        </footer>
+      </section>
+    </main>
+
+    <!-- 底部 8 模块导航 -->
+    <nav class="shrink-0 bg-card border-t border-border px-1 pt-1.5 pb-2.5">
+      <div class="grid grid-cols-8">
+        <a href="#modules" class="flex flex-col items-center gap-0.5 py-1 relative">
+          <span class="absolute -top-1.5 w-6 h-1 rounded-full bg-primary"></span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(203 86% 40%)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span class="text-[12px] font-semibold text-primary leading-tight text-center">文件<br>总览</span>
+        </a>
+        <a href="#modules" class="flex flex-col items-center gap-0.5 py-1">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(210 16% 42%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          <span class="text-[12px] text-muted-foreground leading-tight text-center">河湖<br>台账</span>
+        </a>
+        <a href="#modules" class="flex flex-col items-center gap-0.5 py-1">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(210 16% 42%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span class="text-[12px] text-muted-foreground leading-tight text-center">岸线<br>管控</span>
+        </a>
+        <a href="#modules" class="flex flex-col items-center gap-0.5 py-1">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(210 16% 42%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span class="text-[12px] text-muted-foreground leading-tight text-center">四乱<br>治理</span>
+        </a>
+        <a href="#modules" class="flex flex-col items-center gap-0.5 py-1">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(210 16% 42%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          <span class="text-[12px] text-muted-foreground leading-tight text-center">幸福<br>河湖</span>
+        </a>
+        <a href="#modules" class="flex flex-col items-center gap-0.5 py-1">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(210 16% 42%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg>
+          <span class="text-[12px] text-muted-foreground leading-tight text-center">奖补<br>资金</span>
+        </a>
+        <a href="#modules" class="flex flex-col items-center gap-0.5 py-1">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(210 16% 42%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+          <span class="text-[12px] text-muted-foreground leading-tight text-center">高原<br>湖泊</span>
+        </a>
+        <a href="#modules" class="flex flex-col items-center gap-0.5 py-1">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(210 16% 42%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
+          <span class="text-[12px] text-muted-foreground leading-tight text-center">六大<br>水系</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- P4 丢弃以下全部 data-preview-only 脚本 -->
+  <script src="https://code.bdstatic.com/npm/tailwindcss-intersect@2.2.0/dist/observer.min.js" data-preview-only></script>
+  <script type="module" data-preview-only>
+    import { animate, inView, scroll, stagger } from "https://cdn.jsdelivr.net/npm/motion@12.23.25/+esm";
+    Object.assign(window, { animate, inView, scroll, stagger });
+    document.dispatchEvent(new Event('motion:ready'));
+  </script>
+  <script data-preview-only>
+    /* motion 函数由上面的 module 异步挂到 window；解构必须在此回调内，顶层解构会拿到 undefined */
+    document.addEventListener('motion:ready', () => {
+      const { animate, inView, scroll, stagger } = window;
+      /* ===== MOTION-SCRIPT:BEGIN ===== */
+      /* 封面视差：随内容区滚动轻微位移 */
+      const area = document.getElementById('scrollArea');
+      const heroImg = document.getElementById('heroImg');
+      if (area && heroImg) {
+        const onScroll = () => {
+          const y = area.scrollTop;
+          heroImg.style.transform = 'translateY(' + Math.min(y * 0.35, 110) + 'px) scale(1.12)';
+        };
+        area.addEventListener('scroll', onScroll, { passive: true });
+      }
+      /* ===== MOTION-SCRIPT:END ===== */
+    });
+  </script>
+</body>
+</html>

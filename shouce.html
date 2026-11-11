@@ -11,6 +11,7 @@
   <title>云南省河湖长工作手册</title>
   <link rel="stylesheet" href="./css/fonts.css">
   <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./assets/vendor/leaflet/leaflet.css">
   <script src="./js/theme-init.js"></script>
   <!--  -->
 </head>
@@ -53,22 +54,20 @@
         <a href="#ch1" data-ch="ch1" class="toc-lv1 active"><span>总体要求与中央文件</span></a>
         <div class="toc-subs">
           <div class="toc-subs-inner">
-            <a href="#ch1-s1" data-ch="ch1" class="toc-sub">一、治水总要求（十六字治水思路）</a>
-            <a href="#ch1-s2" data-ch="ch1" class="toc-sub">二、2023 年全国生态环境保护大会讲话</a>
-            <a href="#ch1-s3" data-ch="ch1" class="toc-sub">三、党的二十大报告</a>
-            <a href="#ch1-s4" data-ch="ch1" class="toc-sub">四、中央三份文件（建制度—扩到湖—提层次）</a>
+            <a href="#ch1-s1" data-ch="ch1" class="toc-sub">一、习总书记讲话</a>
+            <a href="#ch1-s2" data-ch="ch1" class="toc-sub">二、中央三份文件（建制度—扩到湖—提层次）</a>
           </div>
         </div>
       </div>
       <div class="toc-grp">
-        <a href="#ch3" data-ch="ch3" class="toc-lv1"><span>工作要求与河湖长信息</span></a>
+        <a href="#ch3" data-ch="ch3" class="toc-lv1"><span>工作要求</span></a>
         <div class="toc-subs">
           <div class="toc-subs-inner">
-            <a href="#ch3-s1" data-ch="ch3" class="toc-sub">一、工作依据文件清单</a>
-            <a href="#ch3-s2" data-ch="ch3" class="toc-sub">二、三份关键文件要点</a>
-            <a href="#ch3-s3" data-ch="ch3" class="toc-sub">三、工作清单（按级对照）</a>
-            <a href="#ch3-s4" data-ch="ch3" class="toc-sub">四、问题处置闭环</a>
-            <a href="#ch3-s5" data-ch="ch3" class="toc-sub">五、全省各级河湖长信息</a>
+            <a href="#ch3-s1" data-ch="ch3" class="toc-sub">一、五级河湖长职责体系</a>
+            <a href="#ch3-s2" data-ch="ch3" class="toc-sub">二、工作依据文件</a>
+            <a href="#ch3-s3" data-ch="ch3" class="toc-sub">三、工作文件要点</a>
+            <a href="#ch3-s4" data-ch="ch3" class="toc-sub">四、工作任务清单</a>
+            <a href="#ch3-s5" data-ch="ch3" class="toc-sub">五、问题处置闭环</a>
           </div>
         </div>
       </div>
@@ -76,14 +75,14 @@
         <a href="#ch5" data-ch="ch5" class="toc-lv1"><span>岸线管控</span></a>
         <div class="toc-subs">
           <div class="toc-subs-inner">
-            <a href="#ch5-s1" data-ch="ch5" class="toc-sub">一、法规与文件依据</a>
-            <a href="#ch5-s2" data-ch="ch5" class="toc-sub">二、适用对象与审批底线</a>
-            <a href="#ch5-s3" data-ch="ch5" class="toc-sub">三、边界划定：先有边界，才谈管控</a>
-            <a href="#ch5-s4" data-ch="ch5" class="toc-sub">四、岸线分区分类管控</a>
-            <a href="#ch5-s5" data-ch="ch5" class="toc-sub">五、涉河项目审批：三个原则把住关口</a>
-            <a href="#ch5-s6" data-ch="ch5" class="toc-sub">六、涉水违建：分三类处置，不搞“一刀切”</a>
-            <a href="#ch5-s7" data-ch="ch5" class="toc-sub">七、河湖管理范围内耕地利用</a>
-            <a href="#ch5-s8" data-ch="ch5" class="toc-sub">八、巡查要点（岸线视角）</a>
+            <a href="#ch5-s1" data-ch="ch5" class="toc-sub">一、巡查要点</a>
+            <a href="#ch5-s2" data-ch="ch5" class="toc-sub">二、河湖管理范围边界划定</a>
+            <a href="#ch5-s3" data-ch="ch5" class="toc-sub">三、岸线分区分类管控</a>
+            <a href="#ch5-s4" data-ch="ch5" class="toc-sub">四、适用对象与审批底线</a>
+            <a href="#ch5-s5" data-ch="ch5" class="toc-sub">五、涉河项目审批</a>
+            <a href="#ch5-s6" data-ch="ch5" class="toc-sub">六、涉水违建处置</a>
+            <a href="#ch5-s7" data-ch="ch5" class="toc-sub">七、不稳定耕地退出</a>
+            <a href="#ch5-s8" data-ch="ch5" class="toc-sub">八、法规与文件依据</a>
           </div>
         </div>
       </div>
@@ -91,12 +90,10 @@
         <a href="#ch6" data-ch="ch6" class="toc-lv1"><span>清四乱</span></a>
         <div class="toc-subs">
           <div class="toc-subs-inner">
-            <a href="#ch6-types" data-ch="ch6" class="toc-sub">一、四类问题全景</a>
-            <a href="#ch6-c1" data-ch="ch6" class="toc-sub">二、乱占（8 项）</a>
-            <a href="#ch6-c2" data-ch="ch6" class="toc-sub">三、乱采（3 项）</a>
-            <a href="#ch6-c3" data-ch="ch6" class="toc-sub">四、乱堆（4 项）</a>
-            <a href="#ch6-c4" data-ch="ch6" class="toc-sub">五、乱建（8 项）</a>
-            <a href="#ch6-rule" data-ch="ch6" class="toc-sub">六、认定主线</a>
+            <a href="#ch6-s1" data-ch="ch6" class="toc-sub">一、为什么清·三个定位</a>
+            <a href="#ch6-s2" data-ch="ch6" class="toc-sub">二、清什么·四类问题</a>
+            <a href="#ch6-s3" data-ch="ch6" class="toc-sub">三、怎么清</a>
+            <a href="#ch6-rule" data-ch="ch6" class="toc-sub">四、认定主线</a>
           </div>
         </div>
       </div>
@@ -104,9 +101,10 @@
         <a href="#ch7" data-ch="ch7" class="toc-lv1"><span>幸福河湖</span></a>
         <div class="toc-subs">
           <div class="toc-subs-inner">
-            <a href="#ch7-s1" data-ch="ch7" class="toc-sub">一、内涵：五个维度</a>
+            <a href="#ch7-s1" data-ch="ch7" class="toc-sub">一、建设任务</a>
             <a href="#ch7-s2" data-ch="ch7" class="toc-sub">二、评价维度（申报自评参考）</a>
-            <a href="#ch7-s3" data-ch="ch7" class="toc-sub">三、申报流程与材料</a>
+            <a href="#ch7-s3" data-ch="ch7" class="toc-sub">三、申报流程</a>
+            <a href="#ch7-s4" data-ch="ch7" class="toc-sub">四、政策文件依据</a>
           </div>
         </div>
       </div>
@@ -128,8 +126,8 @@
         <div class="toc-subs">
           <div class="toc-subs-inner">
             <a href="#p1-2" data-ch="ch9" class="toc-sub">一、总体概况</a>
-            <a href="#p1-3" data-ch="ch9" class="toc-sub">二、九湖水质现状汇总表</a>
-            <a href="#p1-4" data-ch="ch9" class="toc-sub">三、九湖分述</a>
+            <a href="#p1-3" data-ch="ch9" class="toc-sub">二、重点湖泊水质现状汇总表</a>
+            <a href="#p1-4" data-ch="ch9" class="toc-sub">三、重点湖泊分述</a>
           </div>
         </div>
       </div>
@@ -140,6 +138,7 @@
             <a href="#ch10-s1" data-ch="ch10" class="toc-sub">一、六大水系基本情况</a>
             <a href="#ch10-s2" data-ch="ch10" class="toc-sub">二、工作要点</a>
             <a href="#ch10-s3" data-ch="ch10" class="toc-sub">三、六大水系分述</a>
+            <a href="#ch10-s4" data-ch="ch10" class="toc-sub">四、三条重点河流</a>
           </div>
         </div>
       </div>
@@ -151,95 +150,116 @@
       <section id="ch1" class="chapter gv on">
         <div class="ch-head">
           <h2>总体要求与中央文件</h2>
-          <p class="lead">习近平总书记关于治水的重要论述，是河湖长制工作的根本遵循；中央三份文件把要求固化为制度。前三节分别回答“怎么治水”“治什么”“用什么方法治”，第四节给出各级河湖长工作的上位依据。</p>
         </div>
 
-        <h4 id="ch1-s1" class="sec">一、治水总要求（十六字治水思路）</h4>
-        <div class="quote">
-          <div class="qs">节水优先、空间均衡、系统治理、两手发力。</div>
-          <div class="src">提出于 2014 年 3 月 14 日中央财经领导小组第五次会议</div>
-        </div>
+        <h4 id="ch1-s1" class="sec">一、习总书记讲话</h4>
+        <p>习近平总书记关于河湖保护治理的重要论述，按时间顺序梳理如下。从全面推行河长制，到湖泊实施湖长制、长江大保护，再到“十四五”规划强化河湖长制、二十大决议明确“党政同责”，要求层层递进，是河湖长制工作的根本遵循。</p>
+
         <div class="card">
-          <h3>逐句理解与工作指向</h3>
-          <div class="tscroll">
-            <table>
-              <thead>
-                <tr>
-                  <th style="width:96px">要义</th>
-                  <th>核心内涵</th>
-                  <th>河湖长怎么落</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><b>节水优先</b></td>
-                  <td>把节水作为水资源开发、利用、配置、保护的前提，以水定城、以水定地、以水定人、以水定产。</td>
-                  <td>谋划涉水项目先算“水账”，严控高耗水项目；推动农业节水增效、工业循环用水、城镇管网漏损治理。</td>
-                </tr>
-                <tr>
-                  <td><b>空间均衡</b></td>
-                  <td>人口、经济布局与水资源、水生态、水环境承载能力相适应。</td>
-                  <td>掌握本辖区用水总量与河流生态流量保障情况；对超载区域提出压减、退减建议。</td>
-                </tr>
-                <tr>
-                  <td><b>系统治理</b></td>
-                  <td>山水林田湖草沙一体化保护，上下游、干支流、左右岸统筹。</td>
-                  <td>跨县、跨州市河流主动协商、联防联治；一河一策统筹岸上与水里、上游与下游。</td>
-                </tr>
-                <tr>
-                  <td><b>两手发力</b></td>
-                  <td>政府与市场协同，法治、政策、市场机制并用。</td>
-                  <td>用好水权交易、水价、生态补偿等市场手段；依法查处涉河违法行为。</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+          <div class="quote">
+            <div class="qs">节水优先、空间均衡、系统治理、两手发力。</div>
+            <div class="src">——&nbsp;2014年3月14日 中央财经领导小组第五次会议</div>
+            <div class="qs">坚持山水林田湖草沙一体化保护和系统治理。</div>
+            <div class="src">——&nbsp;习近平在中国共产党第二十次全国代表大会上的报告（2022 年 10 月）</div>
+            <div class="qs">统筹水资源、水环境、水生态治理，深入推进长江、黄河等大江大河和重要湖泊保护治理。</div>
+            <div class="src">——&nbsp;2023 年 7月，全国生态环境保护大会</div>
 
-        <h4 id="ch1-s2" class="sec">二、2023 年全国生态环境保护大会讲话</h4>
-        <div class="quote">
-          <div class="qs">统筹水资源、水环境、水生态治理，深入推进长江、黄河等大江大河和重要湖泊保护治理。</div>
-          <div class="src">2023 年 7 月，全国生态环境保护大会</div>
-        </div>
-        <div class="card">
-          <h3>“三水统筹”在云南的落点</h3>
-          <div class="tscroll">
-            <table>
-              <thead>
-                <tr>
-                  <th style="width:96px">统筹维度</th>
-                  <th>看什么</th>
-                  <th>云南对应的重点</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>水资源</td>
-                  <td>水量是否够、生态流量是否保障、用水效率高不高</td>
-                  <td>金沙江等干流生态流量；高原湖泊水位；农业灌溉用水效率</td>
-                </tr>
-                <tr>
-                  <td>水环境</td>
-                  <td>水质是否达标、入河排污口是否规范、面源污染是否控制</td>
-                  <td>九大高原湖泊入湖河流水质；城镇雨污分流；农业面源</td>
-                </tr>
-                <tr>
-                  <td>水生态</td>
-                  <td>岸线是否自然、水生生物是否恢复、河湖连通是否顺畅</td>
-                  <td>滇池、洱海生态廊道；湿地修复；鱼类栖息地保护</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
-          <div class="pin">
-            <b>工作落点：</b>巡河巡湖时按“三水”三条线看——<b>水多水少</b>（水量、水位、断流）、<b>水清水浊</b>（颜色、气味、漂浮物、排污口）、<b>水活水死</b>（闸坝阻隔、河湖连通、水华蓝藻）。
+          <div class="card" hidden>
+            <h3>逐句理解与工作指向</h3>
+            <div class="tscroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width:96px">要义</th>
+                    <th>核心内涵</th>
+                    <th>河湖长怎么落</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><b>节水优先</b></td>
+                    <td>把节水作为水资源开发、利用、配置、保护的前提，以水定城、以水定地、以水定人、以水定产。</td>
+                    <td>谋划涉水项目先算“水账”，严控高耗水项目；推动农业节水增效、工业循环用水、城镇管网漏损治理。</td>
+                  </tr>
+                  <tr>
+                    <td><b>空间均衡</b></td>
+                    <td>人口、经济布局与水资源、水生态、水环境承载能力相适应。</td>
+                    <td>掌握本辖区用水总量与河流生态流量保障情况；对超载区域提出压减、退减建议。</td>
+                  </tr>
+                  <tr>
+                    <td><b>系统治理</b></td>
+                    <td>山水林田湖草沙一体化保护，上下游、干支流、左右岸统筹。</td>
+                    <td>跨县、跨州市河流主动协商、联防联治；一河一策统筹岸上与水里、上游与下游。</td>
+                  </tr>
+                  <tr>
+                    <td><b>两手发力</b></td>
+                    <td>政府与市场协同，法治、政策、市场机制并用。</td>
+                    <td>用好水权交易、水价、生态补偿等市场手段；依法查处涉河违法行为。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
 
-        <h4 id="ch1-s3" class="sec">三、党的二十大报告</h4>
-        <div class="quote">
-          <div class="qs">坚持山水林田湖草沙一体化保护和系统治理。</div>
-          <div class="src">习近平在中国共产党第二十次全国代表大会上的报告（2022 年 10 月）</div>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><a class="btys" href="https://www.gov.cn/xinwen/2016-10/11/content_5117573.htm" target="_blank"
+                  rel="noopener">中央全面深化改革领导小组第二十八次会议 ↗</a><span class="dt-ink">2016 年 10 月 11 日</span></h5>
+              <p class="talk-q">保护江河湖泊，事关人民群众福祉，事关中华民族长远发展。全面推行河长制，就是要构建责任明确、协调有序、监管严格、保护有力的河湖管理保护机制。</p>
+            </div>
+          </div>
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><a class="btys" href="https://www.gov.cn/xinwen/2016-12/31/content_5155320.htm" target="_blank"
+                  rel="noopener">二〇一七年新年贺词 ↗</a><span class="dt-ink">2016 年 12 月 31 日</span></h5>
+              <p class="talk-q">每条河流要有“河长”了。</p>
+            </div>
+          </div>
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><a class="btys" href="http://www.gov.cn/xinwen/2017-11/20/content_5241134.htm" target="_blank"
+                  rel="noopener">十九届中央全面深化改革领导小组第一次会议 ↗</a><span class="dt-ink">2017 年 11 月 20 日</span></h5>
+              <p class="talk-q">
+                在全面推行河长制的基础上，在湖泊实施湖长制，要坚持人与自然和谐共生的基本方略，遵循湖泊的生态功能和特性，严格湖泊水域空间管控，强化湖泊岸线管理保护，加强湖泊水资源保护和水污染防治，开展湖泊生态治理与修复，健全湖泊执法监管机制。
+              </p>
+            </div>
+          </div>
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><a class="btys" href="https://www.gov.cn/xinwen/2018-04/28/content_5286551.htm" target="_blank"
+                  rel="noopener">深入推动长江经济带发展座谈会 ↗</a><span class="dt-ink">2018 年 4 月 26 日</span></h5>
+              <p class="talk-q">绝不容许长江生态环境在我们这一代人手上继续恶化下去，一定要给子孙后代留下一条清洁美丽的万里长江。</p>
+            </div>
+          </div>
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><a class="btys" href="https://www.qstheory.cn/yaowen/2020-11/03/c_1126693429.htm" target="_blank"
+                  rel="noopener">关于制定“十四五”规划和二〇三五年远景目标的建议 ↗</a><span class="dt-ink">2020 年 10 月 29 日</span></h5>
+              <p class="talk-q">强化河湖长制，加强大江大河和重要湖泊湿地生态保护治理。</p>
+            </div>
+          </div>
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><a class="btys" href="https://www.gov.cn/zhengce/2021-11/16/content_5651269.htm#8" target="_blank"
+                  rel="noopener">关于党的百年奋斗重大成就和历史经验的决议 ↗</a><span class="dt-ink">2021 年 11 月 11 日</span></h5>
+              <p class="talk-q">党组织实施主体功能区战略，建立健全……河湖长制……“党政同责”和“一岗双责”等制度。</p>
+            </div>
+          </div>
+
+
+
+
+
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><a class="btys" href="http://hhs.mwr.gov.cn/gzjb/202407/t20240717_1757719.html#1" target="_blank"
+                  rel="noopener">浙东运河文化园考察调研 ↗</a><span class="dt-ink">2023 年 9 月</span></h5>
+              <p class="talk-q">河长制必须一以贯之</p>
+            </div>
+          </div>
         </div>
         <div class="card">
           <h3>为什么对河湖长尤其重要</h3>
@@ -248,13 +268,15 @@
             <li>河湖长制的制度价值，正在于由党政领导牵头，把分散在各部门的治理责任“统”起来。</li>
           </ul>
         </div>
-        <h4 id="ch1-s4" class="sec">四、中央三份文件（建制度—扩到湖—提层次）</h4>
+
+        <h4 id="ch1-s2" class="sec">二、中央三份文件（建制度—扩到湖—提层次）</h4>
         <p>河长制、湖长制由中央顶层设计确立，是生态文明制度体系的重要组成部分。三份文件构成“建制度—扩到湖—提层次”的完整链条，是各级河湖长工作的上位依据。</p>
         <div class="card">
-          <div class="doc">
-            <div class="dt">2016<br>12.11</div>
+          <div class="doc doc-date-inline">
             <div class="db">
-              <h5>中共中央办公厅 国务院办公厅《关于全面推行河长制的意见》</h5>
+              <h5><a href="https://www.gov.cn/zhengce/2016-12/11/content_5146628.htm" target="_blank"
+                  class="btys">中共中央办公厅
+                  国务院办公厅《关于全面推行河长制的意见》&#8599;</a><span class="dt-ink">2016年12月11日</span></h5>
               <div class="meta">河长制的纲领性文件，确立全国统一的制度框架</div>
               <ul>
                 <li><b>组织体系：</b>全面建立省、市、县、乡四级河长体系；各省（区、市）可结合实际延伸至村，云南由此形成<b>省、州市、区县、乡镇、村（社区）五级</b>体系。</li>
@@ -262,14 +284,14 @@
                 <li><b>工作制度：</b>河长会议制度、信息共享制度、工作督察制度、考核问责与激励机制、验收制度。</li>
                 <li><b>责任要求：</b>河长是相应河湖管理保护的第一责任人，实行生态环境损害责任终身追究制。</li>
               </ul>
-              <a class="ext" href="https://www.gov.cn/zhengce/2016-12/11/content_5146628.htm" target="_blank"
-                rel="noopener">中国政府网 · 原文 ↗</a>
             </div>
           </div>
-          <div class="doc">
-            <div class="dt">2018<br>01.04</div>
+          <hr>
+          <div class="doc doc-date-inline">
             <div class="db">
-              <h5>中共中央办公厅 国务院办公厅《关于在湖泊实施湖长制的指导意见》</h5>
+              <h5><a target="_blank" class="btys"
+                  href="https://www.gov.cn/zhengce/2018-01/04/content_5253253.htm">中共中央办公厅
+                  国务院办公厅《关于在湖泊实施湖长制的指导意见》&#8599;</a><span class="dt-ink">2018年01月04日</span></h5>
               <div class="meta">把河长制延伸到湖泊，针对湖泊封闭性、脆弱性提出更高要求</div>
               <ul>
                 <li><b>全面建立湖长制：</b>所有湖泊都要有湖长，与河长制无缝衔接、一并推进。</li>
@@ -277,14 +299,13 @@
                 <li><b>一湖一策：</b>逐湖编制保护治理方案，突出水域空间管控、岸线管理、污染源整治、生态修复。</li>
                 <li><b>云南对应：</b>九大高原湖泊由省级领导担任湖长，湖区周边实行最严格管控。</li>
               </ul>
-              <a class="ext" href="https://www.gov.cn/zhengce/2018-01/04/content_5253253.htm" target="_blank"
-                rel="noopener">中国政府网 · 原文 ↗</a>
+
             </div>
           </div>
-          <div class="doc">
-            <div class="dt">2025<br>06.17</div>
+          <div class="doc doc-date-inline">
             <div class="db">
-              <h5>中共中央办公厅 国务院办公厅《关于全面推进江河保护治理的意见》</h5>
+              <h5><a target="_blank" class="btys" href="https://www.gov.cn/zhengce/202506/content_7029509.htm">中共中央办公厅
+                  国务院办公厅《关于全面推进江河保护治理的意见》&#8599;</a><span class="dt-ink">2025年06月17日</span></h5>
               <div class="meta">面向现代化的江河保护治理总体部署</div>
               <ul>
                 <li><b>总体目标：</b>到 2035 年，江河保护治理体系和治理能力现代化基本实现，江河安澜、水资源节约集约利用、河湖生态健康、水文化传承发展的格局基本形成。</li>
@@ -292,30 +313,97 @@
                 <li><b>机制要求：</b>强化流域统一治理管理，健全河湖长制，压实各级各部门责任。</li>
                 <li><b>工作指向：</b>把河湖长制从“体系建成”推向“效能提升”，重点看问题发现率和整改销号率。</li>
               </ul>
-              <a class="ext" href="https://www.gov.cn/zhengce/202506/content_7029509.htm" target="_blank"
-                rel="noopener">中国政府网 · 原文 ↗</a>
+
             </div>
           </div>
         </div>
         <div class="pin" style="margin-top:0">
           <b>提示：</b>上述文件是工作的“上位依据”。撰写一河一策、督办函、述职报告时，引用文件应写明发文机关、文件名称，涉及具体文号、发布日期以正式印发文本核对后使用。
         </div>
+
+
+
       </section>
 
       <section id="ch3" class="chapter gv">
         <div class="ch-head">
-          <h2>工作要求与河湖长信息</h2>
-          <p class="lead">国家层面三份文件回答“河湖长具体干什么、怎么干、干不好怎么办”，云南省级四份文件解决“本地怎么落地”。工作不是“挂名”，要有动作、有记录、有结果；最后一节收录全省 16
-            个州市、五级河湖长体系与名册检索，便于对照责任人与责任河段。</p>
+          <h2>工作要求</h2>
+          <p class="lead">
+            作为“亚洲水塔”的重要组成部分，云南省承担着守护重要江河源头保护治理和保障下游地区水安全、水生态的特殊职责。全省河湖长要深入贯彻习近平总书记关于构建人类命运共同体的重要指示精神，主动融入长江经济带发展、珠江流域生态保护等国家战略，秉持“上游主动担当、六国共护共享”理念，将河湖长制工作体系全面延伸覆盖至跨境河湖治理全链条。
+          </p>
+          <div class="quote">
+            <div class="qs">保护江河湖泊，事关人民群众福祉，事关中华民族长远发展。全面推行河长制，就是要构建责任明确、协调有序、监管严格、保护有力的河湖管理保护机制。</div>
+            <div class="src"><a class="btys" target="_blank"
+                href="https://www.gov.cn/xinwen/2016-10/11/content_5117573.htm">——&nbsp;2016年10月11日，习近平总书记主持召开的中央全面深化改革领导小组第二十八次会议。</a>
+            </div>
+          </div>
+
+
         </div>
 
-        <h4 id="ch3-s1" class="sec">一、工作依据文件清单</h4>
+        <h4 id="ch3-s1" class="sec">一、五级河湖长职责体系</h4>
+        <p class="lead">根据《河长湖长履职规范（试行）》，行政区域总河长是本行政区域河湖管理保护的第一责任人；分级分段设立的河（湖）长，是相应河湖管理保护的直接责任人。
+        </p>
+        <div class="card">
+          <div class="tscroll">
+            <table class="duty">
+              <thead>
+                <tr>
+                  <th style="min-width:86px">层级</th>
+                  <th style="min-width:150px">典型岗位</th>
+                  <th style="min-width:100px">责任主体</th>
+                  <th style="min-width:320px">核心职责</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="tag lv0">省级</span></td>
+                  <td>省总河长、副总河长、省级各河（湖）长</td>
+                  <td>省委、省人民政府</td>
+                  <td>
+                    省级河长湖长审定并组织实施相应河湖“一河（湖）一策”方案，组织开展相应河湖突出问题专项整治，协调解决相应河湖管理和保护中的重大问题；明晰相应河湖上下游、左右岸管理和保护目标任务，推动建立流域统筹、区域协同、部门联动的河湖联防联控机制；组织对省级相关部门（单位）和下一级河长湖长履职情况进行督导，对目标任务完成情况进行考核。
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="tag lv1">州市级</span></td>
+                  <td>州（市）总河长、州（市）级河（湖）长</td>
+                  <td>州（市）党委、人民政府</td>
+                  <td>
+                    定期或不定期巡查河湖，审定并组织实施相应河湖“一河（湖）一策”方案或细化实施方案，组织开展相应河湖突出问题专项治理和专项整治行动；协调和督促相关部门（单位）制定、实施相应河湖管理保护和治理规划；督促下一级河长湖长及本级相关部门（单位）处理和解决河湖出现的问题；组织对本级相关部门（单位）和下一级河长湖长履职情况进行督导；完成上级河长湖长及本级总河长交办的任务。
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="tag lv2">县（市、区）级</span></td>
+                  <td>县（市、区）总河长、县级河（湖）长</td>
+                  <td>县（市、区）党委、人民政府</td>
+                  <td>开展河湖巡查，对巡查发现的问题组织整改，落实具体治理任务，协调执法与项目落地，督办乡镇级问题整改；完成上级河长湖长及本级总河长交办的任务。</td>
+                </tr>
+                <tr>
+                  <td><span class="tag lv3">乡镇级</span></td>
+                  <td>乡镇（街道）党（工）委书记、乡镇长（街道主任）</td>
+                  <td>乡镇人民政府、街道办事处</td>
+                  <td>
+                    开展河湖经常性巡查，对巡查发现的问题组织整改，不能解决的问题及时向相关上级河长湖长或河长制办公室、有关部门（单位）报告；组织开展河湖日常清漂、保洁等，配合上级河长湖长、有关部门（单位）开展河湖问题清理整治或执法行动；完成上级河长湖长交办的任务。
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="tag lv4">村（社区）级</span></td>
+                  <td>村党总支书记、村委会主任</td>
+                  <td>村民委员会、社区居民委员会</td>
+                  <td>组织订立河湖保护村规民约，开展河湖日常巡查，对发现的涉河湖违法违规行为进行劝阻、制止，不能解决的问题及时向相关上级河长湖长或河长制办公室、有关部门（单位）报告；完成上级河长湖长交办的任务。
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h4 id="ch3-s2" class="sec">二、工作依据文件</h4>
         <div class="card">
           <div class="tscroll">
             <table class="filelist">
               <thead>
                 <tr>
-                  <th style="width:44px">序号</th>
                   <th style="width:64px">层级</th>
                   <th>文件名称</th>
                   <th style="width:158px">文号</th>
@@ -323,7 +411,27 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>1</td>
+                  <td><span class="tag lv0">国家</span></td>
+                  <td><a target="_blank"
+                      href="https://www.gov.cn/gongbao/content/2019/content_5363080.htm">《关于推动河长制从“有名”到“有实”的实施意见》&#8599;</a>
+                  </td>
+                  <td>水河湖〔2018〕243号</td>
+                </tr>
+                <tr>
+                  <td><span class="tag lv0">国家</span></td>
+                  <td> <a target="_blank"
+                      href="https://www.gov.cn/zhengce/zhengceku/2020-01/01/content_5465754.htm">《水利部办公厅印发关于进一步强化河长湖长工作尽责的指导意见的通知》&#8599;</a>
+                  </td>
+                  <td>办河湖〔2019〕267号</td>
+                </tr>
+                <tr>
+                  <td><span class="tag lv0">国家</span></td>
+                  <td><a target="_blank"
+                      href="http://www.mwr.gov.cn/zwgk/gknr/202510/t20251001_2080069.html">《水利部关于印发河长湖长工作规范（试行）的通知》&#8599;</a>
+                  </td>
+                  <td>水河湖函〔2021〕72号</td>
+                </tr>
+                <tr>
                   <td><span class="tag lv0">省级</span></td>
                   <td><a
                       href="./pdf/河湖长工作具体要求/1、云南省河长制领导小组关于印发云南省全面推行河长制行动计划的通知（云河长组发〔2017〕1号  ）.pdf">云南省河长制领导小组关于印发云南省全面推行河长制行动计划的通知</a>
@@ -331,27 +439,14 @@
                   <td>云河长组发〔2017〕1号</td>
                 </tr>
                 <tr>
-                  <td>2</td>
                   <td><span class="tag lv0">省级</span></td>
                   <td><a
                       href="./pdf/河湖长工作具体要求/2、云南省河（湖）长制领导小组关于印发云南省全面贯彻落实湖长制的实施方案的通知（云河长组发〔2018〕2号）.pdf">云南省河（湖）长制领导小组关于印发云南省全面贯彻落实湖长制的实施方案的通知</a>
                   </td>
                   <td>云河长组发〔2018〕2号</td>
                 </tr>
+
                 <tr>
-                  <td>3</td>
-                  <td><span class="tag lv3">国家</span></td>
-                  <td>《关于推动河长制从“有名”到“有实”的实施意见》</td>
-                  <td>水河湖〔2018〕243号</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td><span class="tag lv3">国家</span></td>
-                  <td>《水利部办公厅印发关于进一步强化河长湖长工作尽责的指导意见的通知》</td>
-                  <td>办河湖〔2019〕267号</td>
-                </tr>
-                <tr>
-                  <td>5</td>
                   <td><span class="tag lv0">省级</span></td>
                   <td>
                     <a href="./pdf/河湖长工作具体要求/5、云南省河长制领导小组关于印发云南省全面推行河（湖）长制省级会议制度等 4 项制度的通知（云河长组发〔2020〕2 号）.pdf">云南省河长制领导小组关于印发云南省全面推行河（湖）长制省级会议制度等
@@ -360,32 +455,28 @@
                   <td>云河长组发〔2020〕2号</td>
                 </tr>
                 <tr>
-                  <td>6</td>
                   <td><span class="tag lv0">省级</span></td>
                   <td><a
                       href="./pdf/河湖长工作具体要求/6、云南省河长制办公室关于印发云南省全面推行河（湖）长制省级河（湖）长巡查办法等4个办法的通知（云河长办发〔2020〕24 号）.pdf">云南省河长制办公室关于印发云南省全面推行河（湖）长制省级河（湖）长巡查办法等
                       4 个办法的通知</a></td>
                   <td>云河长办发〔2020〕24号</td>
                 </tr>
-                <tr>
-                  <td>7</td>
-                  <td><span class="tag lv3">国家</span></td>
-                  <td>《水利部关于印发河长湖长工作规范（试行）的通知》</td>
-                  <td>水河湖函〔2021〕72号</td>
-                </tr>
+
               </tbody>
             </table>
           </div>
-          <div class="hint">前两份省级文件是云南全面推行河长制、湖长制的总施工图；第 5、6 项确立省级会议、督查、考核、信息共享制度与河（湖）长巡查办法；第 3、4、7
+          <div class="hint" hidden>前两份省级文件是云南全面推行河长制、湖长制的总施工图；第 5、6 项确立省级会议、督查、考核、信息共享制度与河（湖）长巡查办法；第 3、4、7
             项是水利部对工作内容、工作方式、责任追究的统一规范。</div>
         </div>
 
-        <h4 id="ch3-s2" class="sec">二、三份关键文件要点</h4>
+        <h4 id="ch3-s3" class="sec">三、工作文件要点</h4>
         <div class="card">
           <div class="doc">
             <div class="dt">有名<br>到有实</div>
             <div class="db">
-              <h5>《关于推动河长制从“有名”到“有实”的实施意见》<span style="font-weight:400;color:var(--muted)">（水河湖〔2018〕243号）</span></h5>
+              <h5><a class="btys" href="https://www.gov.cn/gongbao/content/2019/content_5363080.htm" target="_blank"
+                  rel="noopener">《关于推动河长制从“有名”到“有实”的实施意见》↗</a><span
+                  style="font-weight:400;color:var(--muted)">（水河湖〔2018〕243号）</span></h5>
               <div class="meta">解决“牌子挂了、人没动”的问题</div>
               <ul>
                 <li><b>责任体系实：</b>河长名单、责任河段、联系方式向社会公布，公示牌规范设置、动态更新。</li>
@@ -393,41 +484,41 @@
                 <li><b>督查暗访实：</b>以“四不两直”方式开展暗访，问题通报到人、到河段。</li>
                 <li><b>考核问责实：</b>考核结果纳入党政领导班子和领导干部考核评价。</li>
               </ul>
-              <a class="ext" href="https://www.gov.cn/gongbao/content/2019/content_5363080.htm" target="_blank"
-                rel="noopener">原文 ↗</a>
             </div>
           </div>
           <div class="doc">
             <div class="dt">强化<br>尽责</div>
             <div class="db">
-              <h5>《关于进一步强化河长湖长工作尽责的指导意见》<span style="font-weight:400;color:var(--muted)">（办河湖〔2019〕267号）</span></h5>
+              <h5> <a class="btys" href="https://www.gov.cn/zhengce/zhengceku/2020-01/01/content_5465754.htm"
+                  target="_blank" rel="noopener">《关于进一步强化河长湖长履职尽责的指导意见》 ↗</a><span
+                  style="font-weight:400;color:var(--muted)">（办河湖〔2019〕267号）</span></h5>
               <div class="meta">解决“工作不到位、责任压不实”的问题</div>
               <ul>
                 <li><b>强化河长办能力：</b>配强工作力量，建立分办、督办、通报机制。</li>
                 <li><b>提醒约谈通报：</b>对工作不力、问题长期未整改的河长湖长，实行提醒、约谈、通报。</li>
                 <li><b>结果运用：</b>工作情况与考核、评优、问责挂钩，形成“干好干坏不一样”的导向。</li>
               </ul>
-              <a class="ext" href="https://www.gov.cn/zhengce/zhengceku/2020-01/01/content_5465754.htm" target="_blank"
-                rel="noopener">原文 ↗</a>
+
             </div>
           </div>
           <div class="doc">
             <div class="dt">规范<br>工作</div>
             <div class="db">
-              <h5>《河长湖长工作规范（试行）》<span style="font-weight:400;color:var(--muted)">（水河湖函〔2021〕72号）</span></h5>
+              <h5><a class="btys" href="http://www.mwr.gov.cn/zw/tzgg/tzgs/202510/t20251001_2067353.html"
+                  target="_blank" rel="noopener">《河长湖长工作规范（试行）》 ↗</a><span
+                  style="font-weight:400;color:var(--muted)">（水河湖函〔2021〕72号）</span></h5>
               <div class="meta">明确各级河长湖长“做什么、怎么做”</div>
               <ul>
                 <li><b>工作内容：</b>巡河巡湖、问题交办督办、组织协调、督导考核、宣传引导。</li>
                 <li><b>工作方式：</b>实地巡查与暗访相结合，重点河段、敏感时段加密；发现问题现场交办、限期整改、跟踪销号。</li>
                 <li><b>工作记录：</b>巡查轨迹、问题清单、交办单、整改反馈要留痕，作为考核依据。</li>
               </ul>
-              <a class="ext" href="http://www.mwr.gov.cn/zw/tzgg/tzgs/202510/t20251001_2067353.html" target="_blank"
-                rel="noopener">水利部 · 原文 ↗</a>
+
             </div>
           </div>
         </div>
 
-        <h4 id="ch3-s3" class="sec">三、工作清单（按级对照）</h4>
+        <h4 id="ch3-s4" class="sec">四、工作任务清单</h4>
         <div class="card">
           <div class="tscroll">
             <table>
@@ -435,7 +526,7 @@
                 <tr>
                   <th style="width:92px">层级</th>
                   <th>主要工作事项</th>
-                  <th style="width:132px">巡查频次（参考）</th>
+                  <th style="width:172px">巡查频次（参考）</th>
                   <th style="width:120px">留痕方式</th>
                 </tr>
               </thead>
@@ -443,40 +534,35 @@
                 <tr>
                   <td><span class="tag lv0">省级</span></td>
                   <td>统筹部署、督办跨州市重大问题、审定一河一策</td>
-                  <td>每年不少于 1 次</td>
+                  <td rowspan="5" style="text-align:left">原则上，总河长每年不少于 1 次，省级河长湖长每年不少于 2 次</td>
                   <td>会议纪要、督办函</td>
                 </tr>
                 <tr>
                   <td><span class="tag lv1">州市级</span></td>
                   <td>组织跨县联防联治、协调解决突出问题、考核县级河长</td>
-                  <td>每半年不少于 1 次</td>
                   <td>巡查记录、交办单</td>
                 </tr>
                 <tr>
                   <td><span class="tag lv2">区县级</span></td>
                   <td>落实治理任务、协调执法与项目落地、督办乡镇整改</td>
-                  <td>每季度不少于 1 次</td>
                   <td>巡查 APP、问题台账</td>
                 </tr>
                 <tr>
                   <td><span class="tag lv3">乡镇级</span></td>
                   <td>组织日常巡查、处置发现问题、上报重大事项</td>
-                  <td>每月不少于 1 次</td>
                   <td>巡查台账、照片</td>
                 </tr>
                 <tr>
                   <td><span class="tag lv4">村（社区）级</span></td>
                   <td>巡河护河、宣传引导、第一时间上报</td>
-                  <td>每周不少于 1 次</td>
                   <td>巡查记录本</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="hint">注：频次为常见做法，具体以省级河湖长制工作规定（省级河（湖）长巡查办法等 4 个办法）和年度考核细则为准。</div>
         </div>
 
-        <h4 id="ch3-s4" class="sec">四、问题处置闭环</h4>
+        <h4 id="ch3-s5" class="sec">五、问题处置闭环</h4>
         <div class="card">
           <div class="flow">
             <span class="st">①发现</span><span class="ar">→</span>
@@ -524,10 +610,8 @@
             </table>
           </div>
         </div>
-        <h4 id="ch3-s5" class="sec">五、全省各级河湖长信息 <b><i style="color: red;">是否需要删除？或者只针对河长办（县、州\市、省）</i></b> </h4>
-        <p></p>
-        <p>全省 16 个州市、五级河湖长体系与名册检索。<b>本模块为交互式</b>：可查看层级结构与区域分布、按州市下钻、按姓名/河流/单位/编号检索。当前数据为结构示意值，正式发布前替换为省河湖长办台账。</p>
-        <div id="ch4" class="tabmod">
+        <h4 id="ch3-s6" class="sec" hidden>六、全省各级河湖长信息 <b><i style="color: red;">是否需要删除？或者只针对河长办（县、州\市、省）</i></b> </h4>
+        <div id="ch4" class="tabmod" hidden>
           <nav class="tabs subtabs">
             <div class="wrap">
               <button class="on" data-tab="overview">总览</button>
@@ -620,7 +704,7 @@
               </div>
               <div class="expo-body">
                 <div class="expo-tags">
-                  <span>十年数字墙</span><span>治水模式</span><span>六大水系</span><span>九湖亮点</span><span>制度法治</span><span>十年大事记</span><span>五级河长数据</span>
+                  <span>十年数字墙</span><span>治水模式</span><span>六大水系</span><span>重点湖泊亮点</span><span>制度法治</span><span>十年大事记</span><span>五级河长数据</span>
                 </div>
                 <a class="expo-go" href="云南河湖长制十周年成果云展.html" target="_blank" rel="noopener">进入云展 →</a>
               </div>
@@ -657,68 +741,75 @@
         </div>
       </section>
 
-      <section id="ch5" class="chapter">
+      <section id="ch5" class="chapter gv">
         <div class="ch-head">
-          <h2>河湖岸线空间管控法律法规及工作要求</h2>
-          <p class="lead">岸线是河湖生态空间的核心，管控的关键是“划定边界、分区管住、严格许可、依法处置”四个环节。本章梳理现行法规文件依据、岸线分区管控要求、涉河项目审批规则与违建分类处置口径。</p>
+          <h2>河湖岸线空间管控法律法规<br>及工作要求</h2>
+          <div class="quote">
+            <div class="qs">以空间规划统领水资源利用、水污染防治、岸线使用、航运发展等方面空间利用任务，促进经济社会发展格局、城镇空间布局、产业结构调整与资源环境承载能力相适应。</div>
+            <div class="src"><a class="btys" target="_blank"
+                href="https://www.gov.cn/gongbao/content/2018/content_5306809.htm?f_link_type=f_linkinlinenote&amp;flow_extra=eyJpbmxpbmVfZGlzcGxheV9wb3NpdGlvbiI6MCwiZG9jX3Bvc2l0aW9uIjowLCJkb2NfaWQiOiI4ZjRmY2ZiNTQxNGY5MTJiLTVlNWZlMWE3ZjIxMzJhZDMifQ%3D%3D">——&nbsp;2018年4月26日，习近平总书记在深入推动长江经济带发展座谈会上的讲话。</a>
+            </div>
+          </div>
         </div>
 
-        <h4 id="ch5-s1" class="sec">一、法规与文件依据</h4>
+        <h4 id="ch5-s1" class="sec">一、巡查要点</h4>
         <div class="card">
+          <p class="p">省级侧重统筹、督查；县、乡镇、村侧重现场实地核查取证；乡镇河长无执法权，以巡查、劝阻、拍照取证、上报为主，不得自行作出行政处罚。</p>
           <div class="tscroll">
             <table>
               <thead>
                 <tr>
-                  <th style="width:56px">层级</th>
-                  <th>依据名称</th>
-                  <th style="width:170px">管什么</th>
+                  <th style="width:104px">看什么</th>
+                  <th style="width:180px">重点判识</th>
+                  <th style="width:190px">乡镇河长处置流程<br>（记录→上报→跟踪）</th>
+                  <th style="width:270px">对应法律法规、管理文件表述</th>
+                  <th style="width:230px">法律法规、管理文件出处</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>行政法规</td>
+                  <td>看界桩、公示牌</td>
+                  <td>管理范围界桩、河湖长公示牌是否完好，有无被移动、遮挡、损毁</td>
+                  <td>发现损毁移位做好记录，上报县级水行政主管部门</td>
+                  <td>1.河湖管理范围划定成果要依法公告，并设置界桩；<br>2.河长名单、责任河段、联系方式向社会公布，公示牌规范设置、动态更新。</td>
+                  <td>1.《水利部关于加强河湖水域岸线空间管控的指导意见》（水河湖〔2022〕216号）<br>2.《关于推动河长制从“有名”到“有实”的实施意见》（水河湖〔2018〕243号）</td>
+                </tr>
+                <tr>
+                  <td>看新增建设</td>
+                  <td>岸线范围内有无新增房屋、堆场、围堤、便道，是否能出示涉河建设许可相关材料</td>
+                  <td>现场拍照定位；无许可的做好证据留存，上报县级水行政主管部门</td>
+                  <td>1.河道管理范围内建设项目必须经水行政主管部门审查同意后方可开工，严禁未批先建、越权审批、批建不符；<br>2.对2019年1月1日后新增的河湖“四乱”问题零容忍，坚决依法清理整治。</td>
+                  <td>1.《水利部办公厅关于进一步加强河湖管理范围内建设项目管理的通知》（办河湖〔2020〕177号）<br>2.《水利部关于加强河湖水域岸线空间管控的指导意见》水河湖〔2022〕216号</td>
+                </tr>
+                <tr>
+                  <td>看滩地</td>
+                  <td>滩地有无被围垦耕种、人为抬高滩地、设置阻水障碍物；是否种植高秆阻水作物</td>
+                  <td>对正在发生的行为现场予以劝阻，重大隐患上报县级水行政主管部门</td>
+                  <td>1.禁止围垦湖泊、违法围垦河道；<br>2.禁止种植妨碍行洪的高秆作物；<br>3.不得束窄河道、抬高滩地、设置阻水障碍物影响行洪安全。</td>
+                  <td>
+                    1.《中华人民共和国河道管理条例》<br>2.《关于推动河长制从“有名”到“有实”的实施意见》水河湖〔2018〕243号<br>3.《水利部关于加强河湖水域岸线空间管控的指导意见》水河湖〔2022〕216号
+                  </td>
+                </tr>
+                <tr>
+                  <td>看管道</td>
+                  <td>取水口、排污口设置是否规范；有无不明暗管、私设涵洞偷排</td>
+                  <td>发现疑似排污，固定证据，上报县级生态环境、水行政主管部门核查</td>
+                  <td>在河道管理范围内设置排污口、取水口，应当经水行政主管部门审查同意；入河排污口需规范整治，严禁私设暗管、偷排偷放。</td>
                   <td>《中华人民共和国河道管理条例》</td>
-                  <td>河道管理范围划定、涉河建设审批、禁止行为与法律责任</td>
                 </tr>
                 <tr>
-                  <td>部门规定</td>
-                  <td>《河道管理范围内建设项目管理的有关规定》（2017 年修正）</td>
-                  <td>涉河建设项目范围界定与审查程序</td>
-                </tr>
-                <tr>
-                  <td>部文件</td>
-                  <td>《水利部办公厅关于进一步加强河湖管理范围内建设项目管理的通知》（办河湖〔2020〕177号）</td>
-                  <td>规范许可范围、严格审批类别、明确禁止事项</td>
-                </tr>
-                <tr>
-                  <td>部文件</td>
+                  <td>看光伏风电</td>
+                  <td>河道、湖泊、水库水域内是否违规布设光伏、风电设施；库汊周边项目是否完成论证审批</td>
+                  <td>水域内发现光伏风电项目立即上报县级水行政主管部门</td>
+                  <td>光伏电站、风力发电等项目不得在河道、湖泊、水库内建设；在湖泊周边、水库库汊建设的，不得布设在具有防洪、供水功能和水生态、水环境保护需求的区域，不得妨碍行洪通畅。</td>
                   <td>《水利部关于加强河湖水域岸线空间管控的指导意见》（水河湖〔2022〕216号）</td>
-                  <td>边界划定、用途管制、违建处置、耕地利用</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        <h4 id="ch5-s2" class="sec">二、适用对象与审批底线</h4>
-        <div class="card">
-          <h3>哪些项目要审</h3>
-          <p class="p">
-            河道管理范围包括河道（含河滩地）、湖泊、水库、人工水道、行洪区、蓄洪区、滞洪区。在上述范围内新建、扩建、改建的建设项目均需审查，包括：开发水利（水电）、防治水害、整治河道的各类工程，以及跨河、穿河、穿堤、临河的桥梁、码头、道路、渡口、管道、缆线、取水口、排污口等建筑物，厂房、仓库、工业和民用建筑及其他公共设施。
-          </p>
-          <div class="pin"><b>核心规则：</b>河道管理范围内的建设项目，必须按照河道管理权限，经河道主管机关审查同意后，方可开工建设。<b>未批先建、越权审批、批建不符</b>均属违规。</div>
-          <h3 style="margin-top:16px">三条禁止底线</h3>
-          <ul class="ul">
-            <li>禁止在河湖管理范围内建设<b>妨碍行洪</b>的建筑物、构筑物，禁止倾倒、弃置渣土。</li>
-            <li>禁止<b>围垦湖泊</b>，禁止违法围垦河道。</li>
-            <li>严禁<b>超项目类别</b>审批许可；不得以涉河建设项目名义许可尾矿库、永久渣场；不得以桥梁、道路、码头等为名，对开发建设房屋建筑、风雨廊桥、景观工程、别墅等进行许可。</li>
-          </ul>
-          <div class="warn">
-            <b>光伏、风电特别注意：</b>应符合同相关规划并充分论证、严格控制；严重影响防洪安全、河势稳定、生态安全的，不得许可。光伏电站、风力发电等项目不得在河道、湖泊、水库内建设；在湖泊周边、水库库汊建设的，不得布设在具有防洪、供水功能和水生态、水环境保护需求的区域，不得妨碍行洪通畅，不得危害水库大坝和堤防等水利工程设施安全，不得影响河势稳定和航运安全。
-          </div>
-        </div>
-
-        <h4 id="ch5-s3" class="sec">三、边界划定：先有边界，才谈管控</h4>
+        <h4 id="ch5-s2" class="sec">二、河湖管理范围边界划定</h4>
         <div class="card">
           <p class="p">河湖管理范围划定是河湖管理保护的重要基础性工作。要完善第一次全国水利普查名录内河湖划界成果，在“全国水利一张图”上图，同步推进名录以外其他河湖的划定工作。</p>
           <ul class="ul">
@@ -726,11 +817,9 @@
             <li><b>成果公开：</b>督促有关地方及时整改，并依法公告。</li>
             <li><b>多规衔接：</b>做好河湖划界与“三区三线”划定等工作的对接，推进与相关部门成果共享。</li>
           </ul>
-          <div class="pin"><b>划定成果复核：</b>通过全国河湖遥感平台开展，复核规范后的矢量数据是加强河湖管理保护的重要依据。复核范围为民政普查名录内已划定管理范围的河湖——<b>2026
-              年</b>开展流域面积 1000 平方公里及以上河流、水面面积 1 平方公里及以上湖泊的复核；<b>2027 年</b>开展其他河湖复核。名录外河湖结合基本情况摸底，将矢量成果上图。</div>
         </div>
 
-        <h4 id="ch5-s4" class="sec">四、岸线分区分类管控</h4>
+        <h4 id="ch5-s3" class="sec">三、岸线分区分类管控</h4>
         <div class="card">
           <p class="p">按照保护优先原则，加快河湖岸线保护与利用规划编制审批，合理划分四类岸线，严格管控开发利用强度和方式，并将岸线保护与利用规划融入“多规合一”国土空间规划体系。</p>
           <div class="grid2">
@@ -754,7 +843,21 @@
           <div class="hint">省级水行政主管部门组织提出需编制岸线规划的河湖名录、明确编制主体，并征求有关流域管理机构意见。</div>
         </div>
 
-        <h4 id="ch5-s5" class="sec">五、涉河项目审批：三个原则把住关口</h4>
+        <h4 id="ch5-s4" class="sec">四、适用对象与审批底线</h4>
+        <div class="card">
+          <h3>哪些项目要审</h3>
+          <p class="p">
+            河道管理范围包括河道（含河滩地）、湖泊、水库、人工水道、行洪区、蓄洪区、滞洪区。在上述范围内新建、扩建、改建的建设项目均需审查，包括：开发水利（水电）、防治水害、整治河道的各类工程，以及跨河、穿河、穿堤、临河的桥梁、码头、道路、渡口、管道、缆线、取水口、排污口等建筑物，厂房、仓库、工业和民用建筑及其他公共设施。
+          </p>
+          <h3 style="margin-top:16px">三条禁止底线</h3>
+          <ul class="ul">
+            <li>禁止在河湖管理范围内建设<b>妨碍行洪</b>的建筑物、构筑物，禁止倾倒、弃置渣土。</li>
+            <li>禁止<b>围垦湖泊</b>，禁止违法围垦河道。</li>
+            <li>严禁<b>超项目类别</b>审批许可；不得以涉河建设项目名义许可尾矿库、永久渣场；不得以桥梁、道路、码头等为名，对开发建设房屋建筑、风雨廊桥、景观工程、别墅等进行许可。</li>
+          </ul>
+        </div>
+
+        <h4 id="ch5-s5" class="sec">五、涉河项目审批</h4>
         <div class="card">
           <div class="flow">
             <span class="st">确有必要</span><span class="ar">·</span>
@@ -773,7 +876,7 @@
           </ul>
         </div>
 
-        <h4 id="ch5-s6" class="sec">六、涉水违建：分三类处置，不搞“一刀切”</h4>
+        <h4 id="ch5-s6" class="sec">六、涉水违建处置</h4>
         <div class="card">
           <div class="tscroll">
             <table>
@@ -803,10 +906,9 @@
               </tbody>
             </table>
           </div>
-          <div class="pin">处置要统筹发展和安全，严守安全底线，聚焦河湖水域岸线空间范围内的违法违规建筑物、构筑物，依法依规、实事求是、分类处置。</div>
         </div>
 
-        <h4 id="ch5-s7" class="sec">七、河湖管理范围内耕地利用</h4>
+        <h4 id="ch5-s7" class="sec">七、不稳定耕地退出</h4>
         <div class="card">
           <p class="p">对河湖管理范围内的耕地，结合“三区三线”划定，在不妨碍行洪、蓄洪和输水等功能的前提下，商自然资源部门依法依规分类处理。</p>
           <h3>应当有序退出的不稳定耕地</h3>
@@ -823,40 +925,48 @@
             <li>禁止建设<b>妨碍行洪</b>的建筑物、构筑物；</li>
             <li>严禁以各种名义<b>围湖造地、非法围垦河道</b>。</li>
           </ul>
-          <div class="warn"><b>摸排任务：</b>按水法、防洪法、土地管理法、河道管理条例等法律法规及国土空间规划、防洪规划要求，套合河湖管理范围与 2024
-            年国土变更调查数据，逐河流（段）逐湖泊摸排影响行洪安全的不稳定耕地的位置与面积。流域面积 1000 平方公里及以上河流、防洪重要河流（段）和湖泊、大中型防洪水库要作为重点，全覆盖开展摸排。</div>
         </div>
 
-        <h4 id="ch5-s8" class="sec">八、巡查要点（岸线视角）</h4>
+        <h4 id="ch5-s8" class="sec">八、法规与文件依据</h4>
         <div class="card">
           <div class="tscroll">
             <table>
               <thead>
                 <tr>
-                  <th style="width:88px">看什么</th>
-                  <th>重点判识</th>
+                  <th style="width:56px">层级</th>
+                  <th>依据名称</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>看界桩</td>
-                  <td>管理范围界桩、公示牌是否完好，有无被移动、遮挡、损毁</td>
+                  <td>行政法规</td>
+                  <td><a target="_blank" rel="noopener"
+                      href="http://www.mwr.gov.cn/zw/zcfg/xzfghfgxwj/202603/t20260318_2104974.html">《中华人民共和国河道管理条例》</a>
+                  </td>
                 </tr>
                 <tr>
-                  <td>看新增</td>
-                  <td>岸线内有无新增建筑物、堆场、围堤、便道，是否办理许可</td>
+                  <td>部门规定</td>
+                  <td><a target="_blank" rel="noopener"
+                      href="https://www.gov.cn/zhengce/1992-04/03/content_5712335.htm">《河道管理范围内建设项目管理的有关规定》（2017
+                      年修正）</a></td>
                 </tr>
                 <tr>
-                  <td>看滩地</td>
-                  <td>滩地有无被围垦耕种、有无抬高滩地、有无阻水障碍物</td>
+                  <td>部文件</td>
+                  <td><a target="_blank" rel="noopener"
+                      href="https://www.gov.cn/gongbao/content/2019/content_5363080.htm">《关于推动河长制从“有名”到“有实”的实施意见》（水河湖〔2018〕243号）</a>
+                  </td>
                 </tr>
                 <tr>
-                  <td>看口门</td>
-                  <td>取水口、排污口设置是否合规，有无未经许可的暗管、涵洞</td>
+                  <td>部文件</td>
+                  <td><a target="_blank" rel="noopener"
+                      href="http://www.scio.gov.cn/xwfb/gwyxwbgsxwfbh/wqfbh_2284/2021n_2711/2021n12y22r/wjxgzc_4374/202208/t20220808_315648.html">《水利部办公厅关于进一步加强河湖管理范围内建设项目管理的通知》（办河湖〔2020〕177号）</a>
+                  </td>
                 </tr>
                 <tr>
-                  <td>看光伏风电</td>
-                  <td>河湖库范围内有无光伏、风电项目及其附属设施</td>
+                  <td>部文件</td>
+                  <td><a target="_blank" rel="noopener"
+                      href="https://www.gov.cn/gongbao/content/2022/content_5701574.htm">《水利部关于加强河湖水域岸线空间管控的指导意见》（水河湖〔2022〕216号）</a>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -864,534 +974,546 @@
         </div>
       </section>
 
-      <section id="ch6" class="chapter">
-        <div class="qlz">
-          <div class="qz-sheet">
-            <div class="qz-hero">
-              <span class="qz-tag">一 图 读 懂</span>
-              <h1>河湖库“清四乱”<small>问题认定标准及整改要求</small></h1>
-              <div class="qz-kpis">
-                <div><b>4 类</b><span class="qz-kpi-t">乱占 乱采 <wbr>乱堆 乱建</span></div>
-                <div><b>22 种</b>地物对象</div>
-                <div><b>1 图</b><span class="qz-kpi-t">认定＋整改</span></div>
-              </div>
+      <section id="ch6" class="chapter gv">
+        <div class="ch-head">
+          <h2>清四乱</h2>
+          <p class="lead">
+            河湖库“清四乱”，清的是<b>乱占、乱采、乱堆、乱建</b>，守的是行洪空间与水域岸线。本节按“为什么清—四类问题全景—认定主线”三层展开：先明确工作定位，再逐类给出各地物对象的认定标准与整改要求，最后归纳三条判断主线，便于现场比对遥感图斑时快速定性。
+          </p>
+        </div>
+
+        <h4 id="ch6-s1" class="sec">一、为什么清·三个定位</h4>
+        <div class="card">
+          <h3>三个定位</h3>
+          <ul class="ul">
+            <li><b>基础性任务</b>——落实党中央、国务院河湖管护部署、守住水安全底线的<b>基础性任务</b>。</li>
+            <li><b>关键举措</b>——保障<b>行洪畅通</b>的关键举措。</li>
+            <li><b>重要抓手</b>——云南省将河湖库“清四乱”作为推行<b>河湖长制</b>的重要抓手，纳入河湖长制<b>常态化工作</b>，纵深推进常态化规范化，确保全省江河行洪畅通。</li>
+          </ul>
+        </div>
+        <div class="quote">
+          <div class="qs">水安全是涉及国家长治久安的大事。</div>
+          <div class="src">————&nbsp;习近平总书记</div>
+        </div>
+        <div class="pin"><b>中央要求：</b>2026 年 6 月 30 日中央政治局会议进一步强调，<b>要确保大江大河大湖防洪安全，全面加强河湖行洪空间管控</b>。</div>
+
+        <h4 id="ch6-s2" class="sec">二、清什么·四类问题</h4>
+
+        <div class="qgrid">
+          <div class="qcard">
+            <h3 class="qc-title">乱占</h3>
+            <p class="qc-core">围、占、种、建</p>
+            <p class="qc-theme">侵占水域岸线</p>
+            <p class="qc-items">围河（湖）造地、围占养殖、围网养殖、坑塘养殖、文体旅游设施、耕地、片林、其它占用</p>
+          </div>
+          <div class="qcard">
+            <h3 class="qc-title">乱采</h3>
+            <p class="qc-core">无证、超许可</p>
+            <p class="qc-theme">挖砂取土采矿</p>
+            <p class="qc-items">采砂场、取土场、其他开采</p>
+          </div>
+          <div class="qcard">
+            <h3 class="qc-title">乱堆</h3>
+            <p class="qc-core">倾倒、堆放</p>
+            <p class="qc-theme">阻碍行洪</p>
+            <p class="qc-items">弃渣（土）场、垃圾堆放、固体堆放、其他堆放</p>
+          </div>
+          <div class="qcard">
+            <h3 class="qc-title">乱建</h3>
+            <p class="qc-core">未批先建、批建不符</p>
+            <p class="qc-items">临河房屋、码头、造（修）船厂、光伏（风电）项目、大棚、桥梁、拦河闸坝（橡胶坝）、其他建（构）筑物</p>
+          </div>
+        </div>
+
+        <h4 id="ch6-s3" class="sec">三、怎么清</h4>
+        <div class="card">
+          <h3 id="ch6-c1" class="foldable">乱占（8 项）</h3>
+          <p class="core">核心：围、占、种、建——挤占水域岸线与行洪空间。</p>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">1.</span>围河（湖）造地</h5>
+              <ul>
+                <li><b>认定：</b>任何形式围垦湖泊的行为均属于乱占问题；围垦河道前未开展科学论证、未经水行政主管部门同意、未报人民政府批准的，均属于乱占问题。</li>
+                <li>
+                  <b>整改：</b>依法依规整改。湖泊按国家规定防洪标准有计划退地还湖、退田还湖，将违法建设的土堤、矮围等清除至滩地原状高程，拆除地面建筑物、构筑物，取缔相关非法活动；河道限期拆除违法占用河道及滩地建设的围堤、护岸、阻水道路、拦河坝等，铲平抬高的滩地，恢复原状。
+                </li>
+              </ul>
             </div>
+          </div>
 
-            <!-- 1 意义 -->
-            <div class="qz-card" id="ch6-why">
-              <div class="qz-sec-head"><span class="qz-sec-num">1</span>
-                <h2>为什么清 · 三个定位</h2>
-              </div>
-              <div class="qz-why">
-                <div class="qz-why-row"><span class="qz-ico">基</span>
-                  <p><b>基础性任务</b>——落实党中央、国务院河湖管护部署、守住水安全底线的<b>基础性任务</b>。</p>
-                </div>
-                <div class="qz-why-row"><span class="qz-ico">关</span>
-                  <p><b>关键举措</b>——保障<b>行洪畅通</b>的关键举措。</p>
-                </div>
-                <div class="qz-why-row"><span class="qz-ico">抓</span>
-                  <p><b>重要抓手</b>——云南省将河湖库“清四乱”作为推行<b>河湖长制</b>的重要抓手，纳入河湖长制<b>常态化工作</b>，纵深推进常态化规范化，确保全省江河行洪畅通。</p>
-                </div>
-              </div>
-              <div style="margin-top:12px;" class="qz-quote">
-                <b>习近平总书记要求</b>
-                “水安全是涉及国家长治久安的大事”；2026年6月30日中央政治局会议进一步强调：<b
-                  style="display:inline;font-size:14.5px;letter-spacing:.5px;">全面加强河湖行洪空间管控，坚决保障人民群众生命财产安全</b>。
-              </div>
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">2.</span>围占养殖</h5>
+              <ul>
+                <li>
+                  <b>认定：</b>添堵原有河道沟叉、贮水湖塘洼淀需人民政府批准，未经批准的属于乱占问题；河道管理范围内禁止修建围堤、阻水渠道、阻水道路，禁止修建围堤，通过修建围堤围占湖泊水域进行养殖、围占河道水域养殖行为均属于乱占问题。
+                </li>
+                <li><b>整改：</b>依法依规拆除妨碍行洪的建（构）筑物。</li>
+              </ul>
             </div>
+          </div>
 
-            <!-- 2 四类全景 -->
-            <div class="qz-card" id="ch6-types">
-              <div class="qz-sec-head"><span class="qz-sec-num">2</span>
-                <h2>四类问题全景</h2>
-                <span class="qz-hint">依据全国河湖长制管理信息系统“四乱”问题管理模块</span>
-              </div>
-              <div class="qz-types">
-                <div class="qz-type qz-t1">
-                  <div class="qz-cn">乱占</div>
-                  <div class="qz-cnt">围、占、种、建<br>挤占水域岸线</div>
-                  <div class="qz-names">围河（湖）造地、围占养殖、围网养殖、坑塘养殖、文体旅游设施、耕地、片林、其它占用</div>
-                </div>
-                <div class="qz-type qz-t2">
-                  <div class="qz-cn">乱采</div>
-                  <div class="qz-cnt">无证、超许可<br>挖砂取土采矿</div>
-                  <div class="qz-names">采砂场、取土场、其他开采</div>
-                </div>
-                <div class="qz-type qz-t3">
-                  <div class="qz-cn">乱堆</div>
-                  <div class="qz-cnt">倾倒、堆放<br>阻碍行洪</div>
-                  <div class="qz-names">弃渣（土）场、垃圾堆放、固体堆放、其他堆放</div>
-                </div>
-                <div class="qz-type qz-t4">
-                  <div class="qz-cn">乱建</div>
-                  <div class="qz-cnt">未批先建<br>批建不符</div>
-                  <div class="qz-names">临河房屋、码头、造（修）船厂、光伏（风电）项目、大棚、桥梁、拦河闸坝（橡胶坝）、其他建（构）筑物</div>
-                </div>
-              </div>
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">3.</span>围网养殖</h5>
+              <ul>
+                <li><b>认定：</b>使用拦河渔网等违法渔具捕捞；位于行洪主干道、妨碍河道行洪的围网及网箱养殖；不具备水行政主管部门有效许可的围网及网箱养殖，或未按许可要求开展活动；不符合水域岸线规划的养殖。</li>
+                <li><b>整改：</b>依法依规拆除行洪通道内建设的养殖设施。</li>
+              </ul>
             </div>
+          </div>
 
-            <!-- 乱占 -->
-            <div class="qz-cat" id="ch6-c1">
-              <div class="qz-cat-head qz-t1"><span class="qz-big">乱 占</span>
-                <span class="qz-desc">核心：围垦、围占、围网、种植<br>挤占行洪空间与水域岸线</span>
-              </div>
-              <div class="qz-cat-body">
-                <div class="qz-items">
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占1</span>
-                      <h4>围河（湖）造地</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span
-                          class="qz-lab qz-lab-rule">认定</span>任何形式围垦湖泊的行为均属于乱占问题；围垦河道前未开展科学论证、未经水行政主管部门同意、未报人民政府批准的，均属于乱占问题。
-                      </p>
-                      <p class="qz-fix"><span
-                          class="qz-lab qz-lab-fix">整改</span>依法依规整改。湖泊按国家规定防洪标准有计划退地还湖、退田还湖，将违法建设的土堤、矮围等清除至滩地原状高程，拆除地面建筑物、构筑物，取缔相关非法活动；河道限期拆除违法占用河道及滩地建设的围堤、护岸、阻水道路、拦河坝等，铲平抬高的滩地，恢复原状。
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占2</span>
-                      <h4>围占养殖</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span
-                          class="qz-lab qz-lab-rule">认定</span>添堵原有河道沟叉、贮水湖塘洼淀需人民政府批准，未经批准的属于乱占问题；河道管理范围内禁止修建围堤、阻水渠道、阻水道路，禁止修建围堤，通过修建围堤围占湖泊水域进行养殖、围占河道水域养殖行为均属于乱占问题。
-                      </p>
-                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规拆除妨碍行洪的建（构）筑物。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占3</span>
-                      <h4>围网养殖</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span
-                          class="qz-lab qz-lab-rule">认定</span>使用拦河渔网等违法渔具捕捞；位于行洪主干道、妨碍河道行洪的围网及网箱养殖；不具备水行政主管部门有效许可的围网及网箱养殖，或未按许可要求开展活动；不符合水域岸线规划的养殖。
-                      </p>
-                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规拆除行洪通道内建设的养殖设施。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占4</span>
-                      <h4>坑塘养殖</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>未经河道主管机关批准或会同其他机关批准，或不按许可要求，在河道管理范围内爆破、钻探挖筑鱼塘的行为。</p>
-                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>可依法依规补办手续或出具审查意见。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占5</span>
-                      <h4>文体旅游设施</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span
-                          class="qz-lab qz-lab-rule">认定</span>未经人民政府批准围堵原有河道沟叉、贮水湖塘洼淀景观；通过抬高或者建设围堤围占湖泊水域滩地；未经水行政主管部门许可，或不按许可在河道管理范围内建设文体、旅游等相关附属建筑物、构筑物。
-                      </p>
-                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规完善许可手续或依法依规拆除。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占6</span>
-                      <h4>耕地</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span
-                          class="qz-lab qz-lab-rule">认定</span>河道管理范围内通过修建围堤、阻水渠道、阻水道路围垦河道用作耕地用途的属于乱占问题；种植妨碍行洪的高秆农作物、芦苇、杞柳、荻柴等。
-                      </p>
-                      <p class="qz-fix"><span
-                          class="qz-lab qz-lab-fix">整改</span>位于主河槽内、洪水频繁上滩的（5年一遇洪水位以下的）、水库征地线以下的不稳定耕地，有序退出；其他河道管理范围内的耕地，在不妨碍行洪、蓄洪和输水的基础上，商自然资源部门依法依规处理；确有必要保留下来的耕地及园地，不得新建、改建、扩建生产围堤，不得种植妨碍行洪的高秆作物，禁止建设妨碍行洪的建筑物、构筑物。严禁以各种名义围湖造地、非法围垦河道。
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占7</span>
-                      <h4>片林</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>河道管理条例施行后种植的片林。</p>
-                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规清除。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#0C447C">占8</span>
-                      <h4>其它占用</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>束窄河道、影响行洪安全和水生态、水环境的，以及未经许可的各类占用行为。</p>
-                      <p class="qz-fix"><span
-                          class="qz-lab qz-lab-fix">整改</span>科学评估，影响行洪或水工安全、水生态、水环境的限期按整治标准整治；不影响或可采取补救措施的，在“确有需要、无法避让、确认安全”原则下妥善处理。
-                      </p>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">4.</span>坑塘养殖</h5>
+              <ul>
+                <li><b>认定：</b>未经河道主管机关批准或会同其他机关批准，或不按许可要求，在河道管理范围内爆破、钻探挖筑鱼塘的行为。</li>
+                <li><b>整改：</b>可依法依规补办手续或出具审查意见。</li>
+              </ul>
             </div>
+          </div>
 
-            <!-- 乱采 -->
-            <div class="qz-cat" id="ch6-c2">
-              <div class="qz-cat-head qz-t2"><span class="qz-big">乱 采</span>
-                <span class="qz-desc">核心：无证或超许可<br>采砂、取土、开采矿物</span>
-              </div>
-              <div class="qz-cat-body">
-                <div class="qz-items">
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#0E6E7A">采1</span>
-                      <h4>采砂场</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>未办理河道采砂许可证的河道采砂活动；未按许可要求、超审批许可的采砂、堆放活动，均属于乱采行为。</p>
-                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>清理整治，恢复原状。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#0E6E7A">采2</span>
-                      <h4>取土场</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>未经许可，或不按许可，在河道管理范围内挖掘泥土／石块等。</p>
-                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>清理整治，恢复原状。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#0E6E7A">采3</span>
-                      <h4>其他开采</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>未经许可，或不按许可，在河道管理范围内挖掘其他矿物。</p>
-                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规处罚到位；情节严重、触犯刑律的，坚决移交司法机关追究刑事责任。</p>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">5.</span>文体旅游设施<button class="case-btn" type="button" data-case="caseMask3"
+                  aria-haspopup="dialog">典型案例</button></h5>
+              <ul>
+                <li><b>认定：</b>未经人民政府批准围堵原有河道沟叉、贮水湖塘洼淀景观；通过抬高或者建设围堤围占湖泊水域滩地；未经水行政主管部门许可，或不按许可在河道管理范围内建设文体、旅游等相关附属建筑物、构筑物。
+                </li>
+                <li><b>整改：</b>依法依规完善许可手续或依法依规拆除。</li>
+              </ul>
             </div>
+          </div>
 
-            <!-- 乱堆 -->
-            <div class="qz-cat" id="ch6-c3">
-              <div class="qz-cat-head qz-t3"><span class="qz-big">乱 堆</span>
-                <span class="qz-desc">核心：非法设置堆场、倾倒堆放<br>弃渣、垃圾、固体废物</span>
-              </div>
-              <div class="qz-cat-body">
-                <div class="qz-items">
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#8A6D1B">堆1</span>
-                      <h4>弃渣（土）场</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>河湖库管理范围内非法设置弃渣土场、尾矿库等。</p>
-                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规清除。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#8A6D1B">堆2</span>
-                      <h4>垃圾堆放</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>河湖库管理范围内乱扔乱堆垃圾。</p>
-                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规清除。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#8A6D1B">堆3</span>
-                      <h4>固体堆放</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>河湖库管理范围内倾倒、填埋、贮存、堆放固体废物；弃置、堆放阻碍行洪的物体。</p>
-                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规清除。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#8A6D1B">堆4</span>
-                      <h4>其他堆放</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>河湖库管理范围内倾倒、堆放其他物体。</p>
-                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规清除。</p>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">6.</span>耕地</h5>
+              <ul>
+                <li><b>认定：</b>河道管理范围内通过修建围堤、阻水渠道、阻水道路围垦河道用作耕地用途的属于乱占问题；种植妨碍行洪的高秆农作物、芦苇、杞柳、荻柴等。</li>
+                <li><b>整改：</b>位于主河槽内、洪水频繁上滩的（5
+                  年一遇洪水位以下的）、水库征地线以下的不稳定耕地，有序退出；其他河道管理范围内的耕地，在不妨碍行洪、蓄洪和输水的基础上，商自然资源部门依法依规处理；确有必要保留下来的耕地及园地，不得新建、改建、扩建生产围堤，不得种植妨碍行洪的高秆作物，禁止建设妨碍行洪的建筑物、构筑物。严禁以各种名义围湖造地、非法围垦河道。
+                </li>
+              </ul>
             </div>
+          </div>
 
-            <!-- 乱建 -->
-            <div class="qz-cat" id="ch6-c4">
-              <div class="qz-cat-head qz-t4"><span class="qz-big">乱 建</span>
-                <span class="qz-desc">核心：未批先建、批建不符<br>超权限许可、超类别许可</span>
-              </div>
-              <div class="qz-cat-body">
-                <div class="qz-items">
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建1</span>
-                      <h4>临河房屋</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>未经许可，或不按许可，在河湖库管理范围内建设的房屋。</p>
-                      <p class="qz-fix"><span
-                          class="qz-lab qz-lab-fix">整改</span>除河道管理条例施行前建设的、河道管理条例施行后建设但属农民唯一住房外，其余临河房屋依法依规拆除。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建2</span>
-                      <h4>码头</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>未经许可，或不按许可，在河道管理范围内建设的码头。</p>
-                      <p class="qz-fix"><span
-                          class="qz-lab qz-lab-fix">整改</span>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建3</span>
-                      <h4>造（修）船厂</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>未经许可，或不按许可，在河湖库管理范围内建设的造修船厂。</p>
-                      <p class="qz-fix"><span
-                          class="qz-lab qz-lab-fix">整改</span>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建4</span>
-                      <h4>光伏（风电）项目</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>非法在河湖库管理范围内建设光伏电站、风力发电站及附属房屋等建筑物、构筑物。</p>
-                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规拆除。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建5</span>
-                      <h4>大棚</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span
-                          class="qz-lab qz-lab-rule">认定</span>行洪河道主槽及设计标准洪水对应行洪断面内，缩窄河道、增加流速、影响河势、壅高水位等阻碍行洪、蓄洪的大棚；位于防洪高水位以下侵占水库防洪库容的大棚。
-                      </p>
-                      <p class="qz-fix"><span class="qz-lab qz-lab-fix">整改</span>依法依规整改。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建6</span>
-                      <h4>桥梁</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>在河湖库管理范围内未批先建、批建不符、超权限许可、超类别许可的桥梁。</p>
-                      <p class="qz-fix"><span
-                          class="qz-lab qz-lab-fix">整改</span>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建7</span>
-                      <h4>拦河闸坝（橡胶坝）</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>未经许可，或不按许可，在河湖库管理范围内建设的拦河闸坝。</p>
-                      <p class="qz-fix"><span
-                          class="qz-lab qz-lab-fix">整改</span>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</p>
-                    </div>
-                  </div>
-
-                  <div class="qz-item">
-                    <div class="qz-item-top"><span class="qz-idx" style="background:#B4232A">建8</span>
-                      <h4>其他建（构）筑物</h4>
-                    </div>
-                    <div class="qz-item-body">
-                      <p><span class="qz-lab qz-lab-rule">认定</span>未经许可，或不按许可，在河道管理范围内建设的其他建筑物、构筑物。</p>
-                      <p class="qz-fix"><span
-                          class="qz-lab qz-lab-fix">整改</span>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</p>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">7.</span>片林</h5>
+              <ul>
+                <li><b>认定：</b>河道管理条例施行后种植的片林。</li>
+                <li><b>整改：</b>依法依规清除。</li>
+              </ul>
             </div>
+          </div>
 
-            <!-- 3 共性 -->
-            <div class="qz-card" id="ch6-rule">
-              <div class="qz-sec-head"><span class="qz-sec-num">3</span>
-                <h2>认定主线 · 三句话看懂</h2>
-                <span class="qz-hint">据各条认定标准归纳</span>
-              </div>
-              <div class="qz-common">
-                <div><b>① 有没有“许可”</b>未经许可、不按许可、超范围超类别许可——是绝大多数问题成立的共同前提（乱占、乱采、乱建尤甚）。</div>
-                <div><b>② 有没有“批准”</b>围垦河道、添堵沟叉、围堵景观等情形，须经科学论证、水行政主管部门同意、人民政府批准，缺一即为乱占。</div>
-                <div><b>③ 有没有“妨碍行洪”</b>是否阻碍行洪蓄洪、束窄河道、抬高水位、侵占防洪库容、危害水工安全——决定问题性质与整改力度。</div>
-                <div>
-                  <b>整改四条路径</b>拆除（临河房屋、光伏风电、片林、围网设施）／限期整治恢复原状（采砂取土、堆放、围垦）／完善许可手续或审查意见（码头、船厂、桥梁、闸坝、坑塘）／分类处置有序退出（不稳定耕地、其它占用）。
-                </div>
-              </div>
-            </div>
-
-            <div class="qz-foot">
-              <div class="qz-rule"></div>
-              依据：全国河湖长制管理信息系统四乱问题管理模块分类；认定标准及整改要求参照水利部河湖保护中心 2025 年 9 月<br>
-              下发的河湖库地物遥感图斑判定工作指引解读，及云南省 2024 年发布的河湖地物遥感图斑核查工作和<br>
-              河湖“四乱”问题认定标准及整改措施<br>
-              <span style="color:#A8B8C6;">说明：原文概览表述四类问题共涉 22 种地物对象；认定章节按乱占 8 项、乱采 3 项、乱堆 4 项、乱建 8 项逐项列明（原文乱建小节序号缺
-                5）。本图以认定章节为准，不作增补。</span>
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">8.</span>其它占用<button class="case-btn" type="button" data-case="caseMask4"
+                  aria-haspopup="dialog">典型案例</button></h5>
+              <ul>
+                <li><b>认定：</b>束窄河道、影响行洪安全和水生态、水环境的，以及未经许可的各类占用行为。</li>
+                <li><b>整改：</b>科学评估，影响行洪或水工安全、水生态、水环境的限期按整治标准整治；不影响或可采取补救措施的，在“确有需要、无法避让、确认安全”原则下妥善处理。</li>
+              </ul>
             </div>
           </div>
         </div>
-      </section>
 
-      <section id="ch7" class="chapter">
-        <div class="ch-head">
-          <h2>幸福河湖申报有关要求</h2>
-          <p class="lead">幸福河湖是河湖长制成效的“综合答卷”：既要水安澜、水干净，也要岸线美、群众满意。申报的本质是<b>用可核查的指标证明管护成效</b>。</p>
+        <div class="card">
+          <h3 id="ch6-c2" class="foldable">乱采（3 项）</h3>
+          <p class="core">核心：无证或超许可——采砂、取土、开采矿物。</p>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">1.</span>采砂场<button class="case-btn" type="button" data-case="caseMask5"
+                  aria-haspopup="dialog">典型案例</button></h5>
+              <ul>
+                <li><b>认定：</b>未办理河道采砂许可证的河道采砂活动；未按许可要求、超审批许可的采砂、堆放活动，均属于乱采行为。</li>
+                <li><b>整改：</b>清理整治，恢复原状。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">2.</span>取土场</h5>
+              <ul>
+                <li><b>认定：</b>未经许可，或不按许可，在河道管理范围内挖掘泥土／石块等。</li>
+                <li><b>整改：</b>清理整治，恢复原状。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">3.</span>其他开采</h5>
+              <ul>
+                <li><b>认定：</b>未经许可，或不按许可，在河道管理范围内挖掘其他矿物。</li>
+                <li><b>整改：</b>依法依规处罚到位；情节严重、触犯刑律的，坚决移交司法机关追究刑事责任。</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <h4 id="ch7-s1" class="sec">一、内涵：五个维度</h4>
         <div class="card">
-          <table>
-            <thead>
-              <tr>
-                <th style="width:130px">维度</th>
-                <th>具体要求</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><b>防洪保安全</b></td>
-                <td>堤防达标、行洪通畅、无重大防汛隐患，历史险工险段完成整治</td>
-              </tr>
-              <tr>
-                <td><b>优质水资源</b></td>
-                <td>水量有保障、生态流量达标、用水效率较高</td>
-              </tr>
-              <tr>
-                <td><b>健康水生态</b></td>
-                <td>岸线自然、河湖连通、水生生物多样性恢复、湿地功能完好</td>
-              </tr>
-              <tr>
-                <td><b>宜居水环境</b></td>
-                <td>水质达标、无黑臭、无成片漂浮物、亲水设施完善</td>
-              </tr>
-              <tr>
-                <td><b>先进水文化</b></td>
-                <td>水文化遗存得到保护、有科普宣教场所、群众参与度高</td>
-              </tr>
-            </tbody>
-          </table>
+          <h3 id="ch6-c3" class="foldable">乱堆（4 项）</h3>
+          <p class="core">核心：倾倒、堆放——弃渣、垃圾、固体废物阻碍行洪。</p>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">1.</span>弃渣（土）场<button class="case-btn" type="button" data-case="caseMask6"
+                  aria-haspopup="dialog">典型案例</button></h5>
+              <ul>
+                <li><b>认定：</b>河湖库管理范围内非法设置弃渣土场、尾矿库等。</li>
+                <li><b>整改：</b>依法依规清除。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">2.</span>垃圾堆放</h5>
+              <ul>
+                <li><b>认定：</b>河湖库管理范围内乱扔乱堆垃圾。</li>
+                <li><b>整改：</b>依法依规清除。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">3.</span>固体堆放</h5>
+              <ul>
+                <li><b>认定：</b>河湖库管理范围内倾倒、填埋、贮存、堆放固体废物；弃置、堆放阻碍行洪的物体。</li>
+                <li><b>整改：</b>依法依规清除。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">4.</span>其他堆放</h5>
+              <ul>
+                <li><b>认定：</b>河湖库管理范围内倾倒、堆放其他物体。</li>
+                <li><b>整改：</b>依法依规清除。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 id="ch6-c4" class="foldable">乱建（8 项）</h3>
+          <p class="core">核心：未批先建、批建不符——超权限许可、超类别许可。</p>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">1.</span>临河房屋<button class="case-btn" type="button" data-case="caseMask2"
+                  aria-haspopup="dialog">典型案例</button></h5>
+              <ul>
+                <li><b>认定：</b>未经许可，或不按许可，在河湖库管理范围内建设的房屋。</li>
+                <li><b>整改：</b>除河道管理条例施行前建设的、河道管理条例施行后建设但属农民唯一住房外，其余临河房屋依法依规拆除。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">2.</span>码头</h5>
+              <ul>
+                <li><b>认定：</b>未经许可，或不按许可，在河道管理范围内建设的码头。</li>
+                <li><b>整改：</b>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">3.</span>造（修）船厂</h5>
+              <ul>
+                <li><b>认定：</b>未经许可，或不按许可，在河湖库管理范围内建设的造修船厂。</li>
+                <li><b>整改：</b>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">4.</span>光伏（风电）项目</h5>
+              <ul>
+                <li><b>认定：</b>非法在河湖库管理范围内建设光伏电站、风力发电站及附属房屋等建筑物、构筑物。</li>
+                <li><b>整改：</b>依法依规拆除。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">5.</span>大棚<button class="case-btn" type="button" data-case="caseMask"
+                  aria-haspopup="dialog">典型案例</button></h5>
+              <ul>
+                <li><b>认定：</b>行洪河道主槽及设计标准洪水对应行洪断面内，缩窄河道、增加流速、影响河势、壅高水位等阻碍行洪、蓄洪的大棚；位于防洪高水位以下侵占水库防洪库容的大棚。</li>
+                <li><b>整改：</b>依法依规整改。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">6.</span>桥梁</h5>
+              <ul>
+                <li><b>认定：</b>在河湖库管理范围内未批先建、批建不符、超权限许可、超类别许可的桥梁。</li>
+                <li><b>整改：</b>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">7.</span>拦河闸坝（橡胶坝）</h5>
+              <ul>
+                <li><b>认定：</b>未经许可，或不按许可，在河湖库管理范围内建设的拦河闸坝。</li>
+                <li><b>整改：</b>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc doc-flat">
+            <div class="db">
+              <h5><span class="no">8.</span>其他建（构）筑物</h5>
+              <ul>
+                <li><b>认定：</b>未经许可，或不按许可，在河道管理范围内建设的其他建筑物、构筑物。</li>
+                <li><b>整改：</b>依法依规完善提供有权限的流域管理机构或县级以上地方水行政主管部门出具的许可文件或审查意见，或依法依规拆除。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <h4 id="ch6-rule" class="sec">四、认定主线</h4>
+        <div class="card">
+          <h3>三条判断主线与四条整改路径</h3>
+          <ul class="ul">
+            <li><b>① 有没有“许可”</b>——未经许可、不按许可、超范围超类别许可，是绝大多数问题成立的共同前提（乱占、乱采、乱建尤甚）。</li>
+            <li><b>② 有没有“批准”</b>——围垦河道、添堵沟叉、围堵景观等情形，须经科学论证、水行政主管部门同意、人民政府批准，缺一即为乱占。</li>
+            <li><b>③ 有没有“妨碍行洪”</b>——是否阻碍行洪蓄洪、束窄河道、抬高水位、侵占防洪库容、危害水工安全，决定问题性质与整改力度。</li>
+            <li>
+              <b>四条整改路径</b>——拆除（临河房屋、光伏风电、片林、围网设施）／限期整治恢复原状（采砂取土、堆放、围垦）／完善许可手续或审查意见（码头、船厂、桥梁、闸坝、坑塘）／分类处置有序退出（不稳定耕地、其它占用）。
+            </li>
+          </ul>
+        </div>
+
+      </section>
+
+      <section id="ch7" class="chapter gv">
+        <div class="ch-head">
+          <h2>幸福河湖申报有关要求</h2>
+          <div class="quote">
+            <div class="qs">让黄河成为造福人民的幸福河</div>
+            <div class="src">——&nbsp;2019年9月18日，习总书记在黄河流域生态保护和高质量发展座谈会的讲话。
+            </div>
+          </div>
+          <p class="lead">习近平总书记指出，“要建设造福人民的幸福河”。云南认真贯彻落实习近平总书记“节水优先、空间均衡、系统治理、两手发力”治水思路，以河湖长制为核心载体，全力打造人民共享的幸福河湖。</p>
+        </div>
+
+        <h4 id="ch7-s1" class="sec">一、建设任务</h4>
+        <p class="lead">国家层面：幸福河湖是河湖保护治理的总体目标，中央层面实行建设项目制+成效评估+优秀案例征集，不开展省-市-县逐级命名授牌。
+          国家层面五大建设方面。</p>
+        <div class="card">
+          <div class="tscroll">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:130px">一级方向</th>
+                  <th>核心内涵</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>提升河湖安全保障水平</b></td>
+                  <td>坚持人民至上、生命至上，完善流域防洪减灾体系，保障人民群众生命财产安全。</td>
+                </tr>
+                <tr>
+                  <td><b>维护河湖健康生命</b></td>
+                  <td>强化水资源刚性约束，保障生态流量，提升水生态系统质量和稳定性。</td>
+                </tr>
+                <tr>
+                  <td><b>实现河湖清洁美丽</b></td>
+                  <td>改善水环境，修复水域岸线，打造宜居宜业滨水空间。</td>
+                </tr>
+                <tr>
+                  <td><b>保护传承弘扬江河文化</b></td>
+                  <td>保护水利遗产，弘扬治水精神，强化水情教育。</td>
+                </tr>
+                <tr>
+                  <td><b>推动河湖生态产品价值转化</b></td>
+                  <td>助力流域区域高质量发展，增进群众获得感幸福感安全感。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <h4 id="ch7-s2" class="sec">二、评价维度（申报自评参考）</h4>
         <div class="card">
+          <div class="tscroll">
+            <table>
+
+              <thead>
+                <tr>
+                  <th style="width: 70;">一级维度</th>
+                  <th>核心内容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>安澜</td>
+                  <td>防洪达标率、排涝达标率，<br>保障河湖防洪安全。</td>
+                </tr>
+                <tr>
+                  <td>健康</td>
+                  <td>用水总量强度双控、生态流量保障、鱼类保有、<br>水资源开发利用。</td>
+                </tr>
+                <tr>
+                  <td>清洁</td>
+                  <td>水系连通、水质优劣、水面整洁，<br>保障水环境质量。</td>
+                </tr>
+                <tr>
+                  <td>绿美</td>
+                  <td>岸线保护、水土保持、居民亲水空间，<br>提升滨水生态品质。</td>
+                </tr>
+                <tr>
+                  <td>文化</td>
+                  <td>水文化遗产保护、河湖文化载体繁荣，<br>传承弘扬水文化。</td>
+                </tr>
+                <tr>
+                  <td>富民</td>
+                  <td>长效管护落实、居民收入提升、公众满意，<br>实现生态惠民。</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+          <h3 style="margin-top:16px">准入红线：有下列任一情形的，不得纳入评价范围</h3>
+          <ul class="ul">
+            <li>未完成幸福河湖建设实施方案全部任务，或中央资金建设任务未通过验收；</li>
+            <li>地方配套资金到位率不足90%；</li>
+            <li>河湖健康评价结果未达到二类（健康）及以上；</li>
+            <li>项目建设周期内存在中央领导批示、国家部委通报的重大河湖问题，中央媒体曝光或群众反映强烈的突出问题，水利部督查发现重大问题；</li>
+            <li>发生有人员死亡的洪涝灾害、较大及以上水污染事件；存在Ⅴ类、劣Ⅴ类水质断面；</li>
+            <li>河湖长制责任体系不健全，管护机构、人员、经费未全面落实，违法违规问题处置机制失效。</li>
+          </ul>
+        </div>
+
+        <h4 id="ch7-s3" class="sec">三、申报流程</h4>
+        <div class="card">
+          <h3>（一）中央财政幸福河湖建设项目工作流程</h3>
+          <div class="steps">
+            <div class="step">
+              <h5>项目储备</h5>
+              <p>省级水行政主管部门商财政部门组织储备，竞争性立项筛选，编制实施方案。</p>
+            </div>
+            <div class="step">
+              <h5>评审确定</h5>
+              <p>省级择优向水利部、财政部推荐，水利部组织评审商财政部确定项目名单。</p>
+            </div>
+            <div class="step">
+              <h5>组织实施</h5>
+              <p>省级审批实施方案，实行项目法人制、招投标制、监理制、合同制，实施周期1.5年。</p>
+            </div>
+            <div class="step">
+              <h5>验收评估</h5>
+              <p>中期评估→总体验收→省级自评估→水利部复核评估；85分及以上通过，不通过的纳入河湖长制督查激励扣分。</p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>（二）云南省幸福河湖评价工作流程</h3>
+          <div class="steps">
+            <div class="step">
+              <h5>县级申报</h5>
+              <p>县级组织自评，编制申报材料，向州市级推荐；</p>
+            </div>
+            <div class="step">
+              <h5>州市初审</h5>
+              <p>州市级开展初审，择优向省级推荐；</p>
+            </div>
+            <div class="step">
+              <h5>省级评定</h5>
+              <p>省级组织资料审查、现场核查、公众满意度测评，综合评定；</p>
+            </div>
+            <div class="step">
+              <h5>公示命名</h5>
+              <p>对符合标准的河湖公示无异议后，纳入省级幸福河湖名录并命名；</p>
+            </div>
+            <div class="step">
+              <h5>动态复核</h5>
+              <p>定期开展“回头看”复核，不达标者按程序调出名录。</p>
+            </div>
+          </div>
+        </div>
+        <h4 id="ch7-s4" class="sec">四、政策文件依据</h4>
+        <div class="tscroll">
           <table>
             <thead>
               <tr>
-                <th style="width:150px">评价维度</th>
-                <th>关键指标举例</th>
-                <th style="width:150px">佐证材料</th>
+                <th style="min-width:150px">层级</th>
+                <th>文件名称</th>
+                <th>文号</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>组织与制度</td>
-                <td>河湖长体系健全、公示牌规范、一河一策年度任务完成率</td>
-                <td>文件、公示牌照片、任务台账</td>
+                <td>六部委规范性文件</td>
+                <td>《关于全面推进幸福河湖建设的意见》</td>
+                <td>水河湖〔2024〕344号</td>
               </tr>
               <tr>
-                <td>水资源</td>
-                <td>用水总量控制、生态流量保障程度</td>
-                <td>取用水台账、流量监测数据</td>
+                <td>水利部</td>
+                <td>《幸福河湖建设项目实施意见（试行）》</td>
+                <td>办河湖〔2024〕170号</td>
               </tr>
               <tr>
-                <td>水环境</td>
-                <td>水质类别与达标率、入河排污口整治率</td>
-                <td>监测报告、排污口清单</td>
+                <td>水利部</td>
+                <td>《幸福河湖建设项目负面清单指南（试行）》</td>
+                <td>办河湖〔2024〕154号</td>
               </tr>
               <tr>
-                <td>水生态</td>
-                <td>岸线自然化率、水生植被覆盖、鱼类种群恢复</td>
-                <td>遥感影像、调查记录</td>
+                <td>绿美</td>
+                <td>《幸福河湖建设成效评估工作方案（试行）》</td>
+                <td>水利部河长办第119号</td>
               </tr>
               <tr>
-                <td>岸线空间</td>
-                <td>划界确权完成率、四乱问题动态清零</td>
-                <td>划界成果、清四乱台账</td>
+                <td>水利部</td>
+                <td>《幸福河湖建设实施方案编制指南》</td>
+                <td>水利部河长办第165号</td>
               </tr>
               <tr>
-                <td>管护成效</td>
-                <td>巡查频次与问题发现率、保洁长效化、信息化监管</td>
-                <td>巡查记录、监控截图</td>
+                <td>国家标准</td>
+                <td>《幸福河湖评价导则第1部分：流域面积3000km²以下（含）河流》</td>
+                <td>GB/T46336.1-2025</td>
               </tr>
               <tr>
-                <td>群众满意度</td>
-                <td>问卷调查得分、投诉办理满意率</td>
-                <td>问卷原件、办理回访记录</td>
+                <td>省级</td>
+                <td>云南省争当生态文明建设排头兵全域推进幸福河湖建设实施方案（2025-2030年）</td>
+                <td>云南省第12号总河长令</td>
+              </tr>
+              <tr>
+                <td>省级</td>
+                <td>《云南省幸福河湖评价指南（试行）》</td>
+                <td>云河长办发〔2025〕27号</td>
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <h4 id="ch7-s3" class="sec">三、申报流程与材料</h4>
-        <div class="card">
-          <div class="flow">
-            <span class="st">县级编制建设方案</span><span class="ar">→</span>
-            <span class="st">州市初审推荐</span><span class="ar">→</span>
-            <span class="st">省级评估（资料+现场+满意度）</span><span class="ar">→</span>
-            <span class="st">公示命名</span><span class="ar">→</span>
-            <span class="st">年度复核</span>
-          </div>
-          <div class="grid2" style="margin-top:14px">
-            <div class="card">
-              <h3>材料清单</h3>
-              <ul style="margin-left:17px;font-size:12.5px;color:var(--ink-2);line-height:1.95">
-                <li>申报表与基本情况表</li>
-                <li>幸福河湖建设方案（含问题、任务、投资、进度）</li>
-                <li>自评报告及逐项佐证材料</li>
-                <li>近三年水质监测数据与四乱整治台账</li>
-                <li>群众满意度调查原件</li>
-                <li>影像资料（全景、节点对比、亲水设施）</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>常见失分点</h3>
-              <ul style="margin-left:17px;font-size:12.5px;color:var(--ink-2);line-height:1.95">
-                <li>重建设轻管护，建成后保洁、巡查无长效机制</li>
-                <li>指标缺佐证，只有结论没有数据与影像</li>
-                <li>岸线仍有四乱或新增违建未清零</li>
-                <li>建设方案与一河一策“两张皮”</li>
-                <li>群众满意度样本量不足、问卷不规范</li>
-              </ul>
-            </div>
-          </div>
-          <div class="hint">具体申报条件、评分细则、命名程序以省级年度申报通知为准。</div>
         </div>
       </section>
 
 
 
-      <section id="ch8" class="chapter">
+      <section id="ch8" class="chapter gv">
         <div class="ch-head">
           <h2>湖泊省级奖补资金项目申报和审核有关要求</h2>
-          <p class="lead">省级奖补资金聚焦重点高原湖泊保护治理。自 2027 年度起实行<b>一年一次集中审核</b>，项目能否进入实施清单，取决于规划依据、前期手续、资金闭合与排序位置。</p>
+          <p class="lead">
+            按照2026年8月23日省人民政府主要领导批示要求，自2027年起重点高原湖泊省级财政奖补资金纳入省水利厅部门预算管理，由省水利厅（省河长办）统筹规划编制、项目谋划和资金安排。本章节内容以《云南省重点高原湖泊省级财政奖补资金项目审核工作机制》为核心依据，涉及《资金管理办法》《负面清单》的条款，待正式印发后从其规定。
+          </p>
         </div>
 
         <h4 id="ch8-s1" class="sec">一、支持范围与申报条件</h4>
@@ -1399,18 +1521,19 @@
         <div class="grid2">
           <div class="card">
             <h3>支持方向（示例）</h3>
-            <ul style="margin-left:17px;font-size:12.5px;color:var(--ink-2);line-height:1.95">
-              <li>环湖截污治污、雨污分流与尾水提标</li>
-              <li>入湖河流综合整治与生态清洁小流域</li>
-              <li>湖泊流域生态搬迁与退塘退田还湖</li>
-              <li>湿地修复、生态廊道与缓冲带建设</li>
-              <li>蓝藻水华防控与内源污染治理</li>
-              <li>农业面源污染治理与种植结构调整</li>
+            <ul class="ul">
+              <li>水利类：入湖河道防洪治理、水资源配置、水土保持、幸福河湖建设等</li>
+              <li>生态环境类：水污染防治、入湖排污口整治、蓝藻防控、湖泊内源治理、农村生活污水治理等</li>
+              <li>城乡建设类：城市、县城及乡镇生活污水垃圾收集处理设施建设等</li>
+              <li>农业农村类：农田面源防治、绿色有机种植基地建设等</li>
+              <li>林草类：流域面山生态保护修复、湿地保护与恢复等</li>
+              <li>自然资源类：流域历史遗留矿山生态修复等</li>
+              <li>科研运维类：湖泊保护治理应用技术研究与示范、已建成治理设施长效运维等</li>
             </ul>
           </div>
           <div class="card">
             <h3>申报条件</h3>
-            <ul style="margin-left:17px;font-size:12.5px;color:var(--ink-2);line-height:1.95">
+            <ul class="ul">
               <li>已纳入县级及以上“十五五”规划，与“三区三线”“两线三区”衔接</li>
               <li>前期手续完备：立项、用地、环评、初设批复</li>
               <li>实施主体明确，具备建设与运营能力</li>
@@ -1444,54 +1567,56 @@
 
         <div class="card">
           <h3>省级成员单位责任分工</h3>
-          <table class="dept">
-            <thead>
-              <tr>
-                <th style="width:124px">单位</th>
-                <th>主要职责与审核范围</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><b>省水利厅</b></td>
-                <td>
-                  统筹规划编制、项目谋划和资金安排；牵头做好统筹、联审组织工作；审核入湖河道防洪治理、除险加固及老旧水库改造提升、幸福河湖、水系连通、水资源配置、水土保持和河湖长制重点任务等水利类项目；做好水土保持方案、洪水影响评价、取水许可等涉水要素保障。
-                </td>
-              </tr>
-              <tr>
-                <td><b>省财政厅</b></td>
-                <td>会同省水利厅做好资金统筹、绩效评价等工作；审核项目资金筹措方案合理性；统筹做好省级财政奖补资金安排、拨付及使用全过程监管。</td>
-              </tr>
-              <tr>
-                <td><b>省发展改革委</b></td>
-                <td>指导地方开展项目前期工作、提级论证等；审核项目是否符合国家及省级投资政策；指导做好项目与中央预算内投资、超长期特别国债等有效衔接；做好省级及以上项目的审查审批以及申报工作。</td>
-              </tr>
-              <tr>
-                <td><b>省生态环境厅</b></td>
-                <td>审核水污染防治、水环境治理、美丽河湖、入湖排污口排查整治、蓝藻防控、湖泊内源污染治理、农村生活污水治理等生态环保类项目；审核项目生态环境准入、环评合规性等。</td>
-              </tr>
-              <tr>
-                <td><b>省自然资源厅</b></td>
-                <td>审核流域历史遗留矿山生态修复等项目；审核项目是否符合国土空间规划“三区三线”等管控要求；做好用地要素保障等。</td>
-              </tr>
-              <tr>
-                <td><b>省住房城乡建设厅</b></td>
-                <td>审核城市、县城和乡镇（镇区）生活污水垃圾收集处理设施建设等城乡环境类项目。</td>
-              </tr>
-              <tr>
-                <td><b>省农业农村厅</b></td>
-                <td>审核化肥农药减量增效、畜禽养殖污染治理、农田面源污染防治、绿色有机种植基地建设、农业产业结构调整等农业面源污染治理类项目。</td>
-              </tr>
-              <tr>
-                <td><b>省林草局</b></td>
-                <td>审核流域面山生态保护修复、湿地保护与恢复等林草生态保护修复类项目；做好林地、草地等要素保障。</td>
-              </tr>
-              <tr>
-                <td><b>省科技厅</b></td>
-                <td>审核高原湖泊保护治理科研类项目。</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="tscroll">
+            <table class="dept">
+              <thead>
+                <tr>
+                  <th style="width:124px">单位</th>
+                  <th>主要职责与审核范围</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>省水利厅</b></td>
+                  <td>
+                    统筹规划编制、项目谋划和资金安排；牵头做好统筹、联审组织工作；审核入湖河道防洪治理、除险加固及老旧水库改造提升、幸福河湖、水系连通、水资源配置、水土保持和河湖长制重点任务等水利类项目；做好水土保持方案、洪水影响评价、取水许可等涉水要素保障。
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>省财政厅</b></td>
+                  <td>会同省水利厅做好资金统筹、绩效评价等工作；审核项目资金筹措方案合理性；统筹做好省级财政奖补资金安排、拨付及使用全过程监管。</td>
+                </tr>
+                <tr>
+                  <td><b>省发展改革委</b></td>
+                  <td>指导地方开展项目前期工作、提级论证等；审核项目是否符合国家及省级投资政策；指导做好项目与中央预算内投资、超长期特别国债等有效衔接；做好省级及以上项目的审查审批以及申报工作。</td>
+                </tr>
+                <tr>
+                  <td><b>省生态环境厅</b></td>
+                  <td>审核水污染防治、水环境治理、美丽河湖、入湖排污口排查整治、蓝藻防控、湖泊内源污染治理、农村生活污水治理等生态环保类项目；审核项目生态环境准入、环评合规性等。</td>
+                </tr>
+                <tr>
+                  <td><b>省自然资源厅</b></td>
+                  <td>审核流域历史遗留矿山生态修复等项目；审核项目是否符合国土空间规划“三区三线”等管控要求；做好用地要素保障等。</td>
+                </tr>
+                <tr>
+                  <td><b>省住房城乡建设厅</b></td>
+                  <td>审核城市、县城和乡镇（镇区）生活污水垃圾收集处理设施建设等城乡环境类项目。</td>
+                </tr>
+                <tr>
+                  <td><b>省农业农村厅</b></td>
+                  <td>审核化肥农药减量增效、畜禽养殖污染治理、农田面源污染防治、绿色有机种植基地建设、农业产业结构调整等农业面源污染治理类项目。</td>
+                </tr>
+                <tr>
+                  <td><b>省林草局</b></td>
+                  <td>审核流域面山生态保护修复、湿地保护与恢复等林草生态保护修复类项目；做好林地、草地等要素保障。</td>
+                </tr>
+                <tr>
+                  <td><b>省科技厅</b></td>
+                  <td>审核高原湖泊保护治理科研类项目。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <div class="hint">各成员单位应明确牵头处室（部门），对归口审核项目的审核结果负监管责任。</div>
         </div>
 
@@ -1541,37 +1666,39 @@
 
         <div class="card">
           <h3>各环节关注点与常见退回原因</h3>
-          <table>
-            <thead>
-              <tr>
-                <th style="width:130px">环节</th>
-                <th>审查重点</th>
-                <th style="width:200px">常见退回原因</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>形式审查</td>
-                <td>材料齐全性、格式规范、签章完备</td>
-                <td>缺初设批复、绩效表未盖章</td>
-              </tr>
-              <tr>
-                <td>专家评审</td>
-                <td>技术方案可行性、投资合理性、与湖泊保护规划衔接</td>
-                <td>投资估算依据不足、工艺路线不成熟</td>
-              </tr>
-              <tr>
-                <td>部门联审</td>
-                <td>用地、环评、生态红线与自然保护地符合性</td>
-                <td>占用生态保护红线、涉自然保护区未论证</td>
-              </tr>
-              <tr>
-                <td>绩效审核</td>
-                <td>绩效指标与投资匹配、可测量可考核</td>
-                <td>指标定性描述、无基准值与目标值</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="tscroll">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:130px">环节</th>
+                  <th>审查重点</th>
+                  <th style="width:200px">常见退回原因</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>形式审查</td>
+                  <td>材料齐全性、格式规范、签章完备</td>
+                  <td>缺初设批复、绩效表未盖章</td>
+                </tr>
+                <tr>
+                  <td>专家评审</td>
+                  <td>技术方案可行性、投资合理性、与湖泊保护规划衔接</td>
+                  <td>投资估算依据不足、工艺路线不成熟</td>
+                </tr>
+                <tr>
+                  <td>部门联审</td>
+                  <td>用地、环评、生态红线与自然保护地符合性</td>
+                  <td>占用生态保护红线、涉自然保护区未论证</td>
+                </tr>
+                <tr>
+                  <td>绩效审核</td>
+                  <td>绩效指标与投资匹配、可测量可考核</td>
+                  <td>指标定性描述、无基准值与目标值</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <h4 id="ch8-s4" class="sec">四、项目审核要点</h4>
@@ -1699,55 +1826,87 @@
 
         <h4 id="ch8-s6" class="sec">六、资金使用红线与绩效管理</h4>
         <div class="card">
-          <table>
-            <thead>
-              <tr>
-                <th style="width:130px">类别</th>
-                <th>要求</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><b>专款专用</b></td>
-                <td>按批复内容使用，不得擅自变更建设内容、地点、规模</td>
-              </tr>
-              <tr>
-                <td><b>负面清单</b></td>
-                <td>不得用于人员经费与办公经费、楼堂馆所、偿还债务、形象工程、与湖泊保护无关的支出</td>
-              </tr>
-              <tr>
-                <td><b>禁止行为</b></td>
-                <td>不得挤占挪用、虚列支出、重复申报、以拨代支</td>
-              </tr>
-              <tr>
-                <td><b>绩效管理</b></td>
-                <td>事前评估—目标审核—事中监控—事后自评与抽查，结果与下年度分配挂钩</td>
-              </tr>
-              <tr>
-                <td><b>进度要求</b></td>
-                <td>按季度调度；逾期未开工或进度严重滞后的，按规定收回或调整资金</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="pin"><b>申报实操建议：</b>把“绩效目标表”当主线写方案——每条指标都要能指向一处可核查的工程或监测数据（如“入湖河流总磷下降
-            X%”需对应具体河流断面与整治工程），评审最容易在这里看出方案虚实。</div>
-          <div class="hint">具体支持范围、补助比例、申报时限以省财政、水利（湖泊管理）部门当年联合印发的申报指南为准。</div>
-        </div>
+          <div class="tscroll">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:130px">类别</th>
+                  <th>要求</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>专款专用</b></td>
+                  <td>按批复内容使用，不得擅自变更建设内容、地点、规模</td>
+                </tr>
+                <tr>
+                  <td><b>负面清单</b></td>
+                  <td>不得用于人员经费与办公经费、楼堂馆所、偿还债务、形象工程、与湖泊保护无关的支出</td>
+                </tr>
+                <tr>
+                  <td><b>禁止行为</b></td>
+                  <td>不得挤占挪用、虚列支出、重复申报、以拨代支</td>
+                </tr>
+                <tr>
+                  <td><b>绩效管理</b></td>
+                  <td>事前评估—目标审核—事中监控—事后自评与抽查，结果与下年度分配挂钩</td>
+                </tr>
+                <tr>
+                  <td><b>进度要求</b></td>
+                  <td>按季度调度；逾期未开工或进度严重滞后的，按规定收回或调整资金</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
       </section>
 
 
 
-      <section id="ch9" class="chapter">
+      <section id="ch9" class="chapter gv">
         <div class="ch-head">
           <h2>重点高原湖泊基本情况及图例</h2>
-          <p class="lead">本章收录九大高原湖泊的总体概况与水质现状两部分内容：前者给出九湖位置示意与基本情况底数，后者按国考点位口径汇总水质类别与营养状态。<b>数据截止 2025 年 12 月 31
-              日</b>，图件为示意，不作为测绘成果或执法依据。</p>
+          <div class="quote">
+            <div class="qs">一定要把洱海保护好，让‘苍山不墨千秋画，洱海无弦万古琴’的自然美景永驻人间。</div>
+            <div class="src"><a target="_blank"
+                href="https://www.news.cn/politics/2022-07/16/c_1128837348.htm">——&nbsp;2015年1月，习总书记在云南调研时的讲话。</a>
+            </div>
+
+            <div class="qs">滇池是镶嵌在昆明的一颗宝石，要拿出咬定青山不放松的劲头，按照山水林田湖草是一个生命共同体的理念，加强综合治理、系统治理、源头治理，再接再厉，把滇池治理工作做得更好。</div>
+            <div class="src"><a target="_blank"
+                href="http://cpc.people.com.cn/n1/2024/0222/c164113-40181387.html?showOutlinkMenu=1&hgWebShareTitle=?_hgOutLink=news/newsDetail&id=238651#1">——&nbsp;2020年1月20日，习总书记在云南昆明市滇池星海半岛生态湿地考察时的讲话。</a>
+            </div>
+
+            <div class="qs">要加强国土空间用途管制与生态环境分区管控衔接，扎实推进重点领域污染防治和重点湖泊环境治理。</div>
+            <div class="src"><a target="_blank"
+                href="https://www.ynrd.gov.cn/html/2025/yaowenzixun_0321/4032483.html?show=2025new#1">——&nbsp;习总书记2025年3月19日至20日在云南考察时的讲话。</a>
+            </div>
+            <!-- <div class="qs">2015 年 1
+              月，习近平总书记在洱海考察时强调，要把生态环境保护放在更加突出位置，像保护眼睛一样保护生态环境，像对待生命一样对待生态环境。生态环境保护是一个长期任务，要久久为功。一定要把洱海保护好，让“苍山不墨千秋画，洱海无弦万古琴”的自然美景永驻人间。在和当地干部合影后，习近平总书记说，立此存照，过几年再来，希望水更干净清澈。
+            </div>
+            <div class="src"><a target="_blank"
+                href="https://www.ynrd.gov.cn/html/2025/yaowenzixun_0321/4032483.html?show=2025new#1">——&nbsp;习总书记2015年1月19在洱海考察的讲话。</a>
+            </div> -->
+            <!-- 
+            <div class="qs">
+              2020年1月，习近平总书记在滇池星海半岛生态湿地考察时强调，滇池是镶嵌在昆明的一颗宝石，要拿出咬定青山不放松的劲头，按照山水林田湖草是一个生命共同体的理念，加强综合治理、系统治理、源头治理，再接再厉，把滇池治理工作做得更好。习近平总书记指出，我们要避免走先污染再治理的老路，一定要摒弃过去那种以生态环境为代价换取一时经济发展的做法。要继续抓下去，锲而不舍，久久为功，把绿水青山真正变成金山银山。
+            </div>
+            <div class="src"><a target="_blank"
+                href="https://www.ynrd.gov.cn/html/2025/yaowenzixun_0321/4032483.html?show=2025new#1">——&nbsp;习总书记2020年1月在滇池星海半岛生态湿地考察的讲话。</a>
+            </div> -->
+
+
+          </div>
+          <p class="lead">
+            高原湖泊是镶嵌在云岭大地上的“高原明珠”。习近平总书记三次考察云南，均对高原湖泊保护治理作出重要指示。云南始终以河湖长制为核心抓手，推动高原湖泊保护治理从“一湖之治”向“流域之治”“全域联治”转变。</p>
+
         </div>
 
         <div class="lakebook">
           <section class="part" id="p1">
             <h3 id="p1-2">一、总体概况</h3>
-            <p>九湖分属五个州市，水质从Ⅰ类到Ⅴ类差距很大，治理重心完全不同：抚仙湖、泸沽湖是「守住Ⅰ类」，滇池、洱海是「巩固提升」，星云湖、杞麓湖、异龙湖是「脱劣向优」。</p>
+
+
 
             <div class="fig" id="fig-9lakes">
               <div class="fig-t fig-t-center">云南省重点高原湖泊示意图</div>
@@ -1856,7 +2015,7 @@
               </div>
               <p class="map-hint">提示：手机上可双指缩放、拖动查看细节，双击可放大或复位。</p>
               <p class="map-note">
-                九湖分属三大水系：金沙江水系（滇池、程海、泸沽湖）、澜沧江水系（洱海）、珠江水系（阳宗海、抚仙湖、星云湖、杞麓湖、异龙湖）。底图据公开行政区划数据简化绘制，仅示意九湖相对位置；圆点大小按湖面面积比例设定，非实际水域范围，个别点位经适度位移以避免压盖。本图不作为界线、测绘成果或执法依据。
+                重点湖泊分属三大水系：金沙江水系（滇池、程海、泸沽湖）、澜沧江水系（洱海）、珠江水系（阳宗海、抚仙湖、星云湖、杞麓湖、异龙湖）。底图据公开行政区划数据简化绘制，仅示意重点湖泊相对位置；圆点大小按湖面面积比例设定，非实际水域范围，个别点位经适度位移以避免压盖。本图不作为界线、测绘成果或执法依据。
               </p>
             </div>
             <div class="tb-wrap">
@@ -1866,8 +2025,7 @@
                     <th>湖泊</th>
                     <th>所在州市</th>
                     <th>水面面积 km²</th>
-                    <th>水质（2025 年）</th>
-                    <th>营养状态</th>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -1876,86 +2034,63 @@
                     <td data-label="湖泊"><b>滇池</b></td>
                     <td data-label="所在州市">昆明市</td>
                     <td data-label="面积">309.5</td>
-                    <td data-label="水质">Ⅳ类</td>
-                    <td data-label="营养状态">轻度富营养</td>
                   </tr>
 
                   <tr>
                     <td data-label="湖泊"><b>洱海</b></td>
                     <td data-label="所在州市">大理州</td>
                     <td data-label="面积">252.0</td>
-                    <td data-label="水质">Ⅲ类</td>
-                    <td data-label="营养状态">中营养</td>
                   </tr>
 
                   <tr>
                     <td data-label="湖泊"><b>抚仙湖</b></td>
                     <td data-label="所在州市">玉溪市</td>
                     <td data-label="面积">216.6</td>
-                    <td data-label="水质">Ⅰ类</td>
-                    <td data-label="营养状态">贫营养</td>
                   </tr>
 
                   <tr>
                     <td data-label="湖泊"><b>星云湖</b></td>
                     <td data-label="所在州市">玉溪市</td>
                     <td data-label="面积">34.7</td>
-                    <td data-label="水质">Ⅴ类</td>
-                    <td data-label="营养状态">轻度富营养</td>
                   </tr>
 
                   <tr>
                     <td data-label="湖泊"><b>杞麓湖</b></td>
                     <td data-label="所在州市">玉溪市</td>
                     <td data-label="面积">36.9</td>
-                    <td data-label="水质">Ⅴ类</td>
-                    <td data-label="营养状态">中度富营养</td>
                   </tr>
 
                   <tr>
                     <td data-label="湖泊"><b>阳宗海</b></td>
                     <td data-label="所在州市">昆明市、玉溪市</td>
                     <td data-label="面积">31.9</td>
-                    <td data-label="水质">Ⅲ类</td>
-                    <td data-label="营养状态">中营养</td>
                   </tr>
 
                   <tr>
                     <td data-label="湖泊"><b>泸沽湖</b></td>
                     <td data-label="所在州市">丽江市（跨川滇）</td>
                     <td data-label="面积">50.1</td>
-                    <td data-label="水质">Ⅰ类</td>
-                    <td data-label="营养状态">贫营养</td>
                   </tr>
 
                   <tr>
                     <td data-label="湖泊"><b>程海</b></td>
                     <td data-label="所在州市">丽江市</td>
                     <td data-label="面积">78.8</td>
-                    <td data-label="水质">Ⅳ类</td>
-                    <td data-label="营养状态">中营养</td>
                   </tr>
 
                   <tr>
                     <td data-label="湖泊"><b>异龙湖</b></td>
                     <td data-label="所在州市">红河州</td>
                     <td data-label="面积">31.0</td>
-                    <td data-label="水质">Ⅴ类</td>
-                    <td data-label="营养状态">轻度富营养</td>
                   </tr>
 
                 </tbody>
               </table>
             </div>
-            <p class="cap">湖面面积取常用公开口径，与水利普查量算值存在差异（普查滇池 363.0、洱海 300.8、抚仙湖 262.1 平方公里），正式引用请与主管部门核对。水质为 2025 年国考点位均值。
-            </p>
-            <p>九湖流域人口密集、产业集中，城镇与农田紧贴湖岸，污染负荷主要来自城镇生活、农业面源和内源释放三条线。湖体多为封闭或半封闭，换水一次动辄数年，一旦污染，修复周期远长于治理周期。</p>
-            <p>
-              从治理阶段看，抚仙湖、泸沽湖处在「防退」阶段，重点是挡住径流区开发和旅游压力；滇池、洱海、阳宗海处在「巩固」阶段，重点是管网运维和面源削减；星云湖、杞麓湖、异龙湖、程海处在「攻坚」阶段，重点是脱劣、补水和水生态修复。
-            </p>
 
-            <h3 id="p1-3">二、九湖水质现状汇总表</h3>
-            <p>2025 年，九湖水质总体稳中向好：抚仙湖、泸沽湖稳定保持Ⅰ类，阳宗海、洱海保持Ⅲ类，滇池全湖Ⅳ类且主要指标达 1993 年系统监测以来最好水平，杞麓湖、异龙湖实现脱劣。</p>
+
+            <h3 id="p1-3">二、重点湖泊水质现状汇总表</h3>
+            <p>2025 年，重点湖泊水质总体稳中向好：抚仙湖、泸沽湖稳定保持Ⅰ类，阳宗海、洱海保持Ⅲ类，滇池全湖Ⅳ类且主要指标达 1993 年系统监测以来最好水平，杞麓湖、异龙湖实现脱劣。</p>
             <div class="tb-wrap">
               <table class="stack src">
                 <thead>
@@ -2060,18 +2195,13 @@
                 </tbody>
               </table>
             </div>
-            <p class="cap">按国考点位均值评价，来源：2025 年云南省生态环境状况公报。滇池草海、外海分列评价，全湖综合评价为Ⅳ类。</p>
-            <div class="note">
-              <span class="t">这张表怎么读</span>
-              口径要看清楚：同一个湖，「国考点位均值」和「全湖综合评价」可能差一个类别，汇报时必须说明用的是哪个口径。滇池 2025 年全湖Ⅳ类、外海国控点均值Ⅳ类、草海仍是Ⅳ类但营养状态为中度富营养，三个数不是一回事。
-            </div>
 
-            <h3 id="p1-4">三、九湖分述</h3>
-            <p>九湖位置、所属水系与形态特征差异明显。以下按湖逐一展开，便于对照查阅与巡湖前速查。</p>
-            <div class="tip">每个湖泊按「基础概况 → 湖泊类型与换水条件」两段展开：前一段是湖泊本底数据，后一段是湖性与换水条件，巡湖前看一遍即可带着问题出门。</div>
+
+            <h3 id="p1-4">三、重点湖泊分述</h3>
+            <p>重点湖泊位置、所属水系与形态特征差异明显，以下按湖逐一展开。</p>
             <div class="ws-page">
               <div class="ws-head">
-                <h5 class="ws-name">滇池<span class="ws-code">HP-01</span></h5>
+                <h4 class="ws-name">滇池<span class="ws-code">HP-01</span></h4>
                 <span class="ws-region">昆明市 · 长江流域（普渡河）</span>
               </div>
               <p class="ws-lead">云南湖面最大的高原淡水湖，被昆明主城三面环抱——它的水质，直接决定着一座省会城市的宜居底线。</p>
@@ -2095,22 +2225,33 @@
                   </div>
                 </div>
                 <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-                <p class="map-note">本图为滇池流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
               </div>
               <h6 class="ws-sub">（一）基础概况</h6>
               <table class="ws-kv">
                 <tbody>
                   <tr>
-                    <th>所在州市</th>
-                    <td>昆明市（主城区南部）</td>
+                    <th>所属水系</th>
+                    <td>长江</td>
                   </tr>
                   <tr>
-                    <th>所属流域</th>
-                    <td>长江流域 · 普渡河（金沙江水系）</td>
+                    <th>管理机构</th>
+                    <td>昆明市滇池管理局</td>
                   </tr>
                   <tr>
-                    <th>区位特征</th>
-                    <td>地处长江、红河、珠江分水岭地带</td>
+                    <th>涉及州市县</th>
+                    <td>昆明市五华区、盘龙区、官渡区、西山区、呈贡区、晋宁区</td>
+                  </tr>
+                  <tr>
+                    <th>河湖长数量</th>
+                    <td>共797名：省级1名、州市级9名、县级及以下787名</td>
+                  </tr>
+                  <tr>
+                    <th>省级湖长</th>
+                    <td>刘洪建（省委副书记、昆明市委书记）</td>
+                  </tr>
+                  <tr>
+                    <th>省级湖长联系部门</th>
+                    <td>省住房城乡建设厅</td>
                   </tr>
                   <tr>
                     <th>流域面积</th>
@@ -2121,20 +2262,76 @@
                     <td>309.5 km²</td>
                   </tr>
                   <tr>
+                    <th>湖滨生态红线</th>
+                    <td>168 km</td>
+                  </tr>
+                  <tr>
+                    <th>湖泊生态黄线</th>
+                    <td>169.6 km</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护核心区</th>
+                    <td>49.4 km²</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护缓冲区</th>
+                    <td>61.2 km²</td>
+                  </tr>
+                  <tr>
+                    <th>最大水深</th>
+                    <td>11.2 m</td>
+                  </tr>
+                  <tr>
                     <th>平均水深</th>
                     <td>5.3 m</td>
                   </tr>
                   <tr>
-                    <th>蓄水量</th>
+                    <th>最高运行水位</th>
+                    <td>1887.50 m</td>
+                  </tr>
+                  <tr>
+                    <th>最低运行水位</th>
+                    <td>1886.36 m</td>
+                  </tr>
+                  <tr>
+                    <th>平均水位</th>
+                    <td>1887.08 m</td>
+                  </tr>
+                  <tr>
+                    <th>总容积</th>
                     <td>15.6 亿 m³</td>
                   </tr>
                   <tr>
-                    <th>正常高水位</th>
-                    <td>1887.5 m</td>
+                    <th>主要入湖河道数</th>
+                    <td>35条（牧羊河、新宝象河、大河、盘龙江等）</td>
                   </tr>
                   <tr>
-                    <th>主要入湖河流</th>
-                    <td>35 条，其中集水面积大于 100 km² 的 7 条：盘龙江、宝象河、洛龙河、捞鱼河、大河、柴河、东大河</td>
+                    <th>主要入湖沟渠数</th>
+                    <td>66条</td>
+                  </tr>
+                  <tr>
+                    <th>入湖径流量</th>
+                    <td>外海：9.03 亿 m³ 草海：0.67 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面降雨量</th>
+                    <td>2.8 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面蒸发量</th>
+                    <td>外海：4.26 亿 m³ 草海：0.14 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>下泄口及泄水量</th>
+                    <td>海口（3.75 亿 m³） 西园隧洞（3.83 亿 m³）</td>
+                  </tr>
+                  <tr>
+                    <th>流域人口</th>
+                    <td>587.48 万人</td>
+                  </tr>
+                  <tr>
+                    <th>耕地面积</th>
+                    <td>51.85 万亩</td>
                   </tr>
                 </tbody>
               </table>
@@ -2169,7 +2366,7 @@
 
             <div class="ws-page">
               <div class="ws-head">
-                <h5 class="ws-name">洱海<span class="ws-code">HP-02</span></h5>
+                <h4 class="ws-name">洱海<span class="ws-code">HP-02</span></h4>
                 <span class="ws-region">大理州 · 澜沧江—湄公河水系</span>
               </div>
               <p class="ws-lead">云南第二大高原淡水湖：苍山十八溪汇入、西洱河唯一出流——换一次水，要等好几年。</p>
@@ -2193,22 +2390,33 @@
                   </div>
                 </div>
                 <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-                <p class="map-note">本图为洱海流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
               </div>
               <h6 class="ws-sub">（一）基础概况</h6>
               <table class="ws-kv">
                 <tbody>
                   <tr>
-                    <th>所在州市</th>
-                    <td>大理白族自治州（大理市、洱源县）</td>
+                    <th>所属水系</th>
+                    <td>澜沧江</td>
                   </tr>
                   <tr>
-                    <th>所属流域</th>
-                    <td>澜沧江—湄公河水系</td>
+                    <th>管理机构</th>
+                    <td>大理州洱海管理局</td>
                   </tr>
                   <tr>
-                    <th>湖泊地位</th>
-                    <td>云南省第二大高原淡水湖</td>
+                    <th>涉及州市县</th>
+                    <td>大理州大理市、洱源县</td>
+                  </tr>
+                  <tr>
+                    <th>河湖长数量</th>
+                    <td>共75名：省级1名、州市级2名、县级及以下72名</td>
+                  </tr>
+                  <tr>
+                    <th>省级湖长</th>
+                    <td>王宁（省委书记、省人大常委会主任）</td>
+                  </tr>
+                  <tr>
+                    <th>省级湖长联系部门</th>
+                    <td>省生态环境厅</td>
                   </tr>
                   <tr>
                     <th>流域面积</th>
@@ -2219,6 +2427,22 @@
                     <td>252 km²</td>
                   </tr>
                   <tr>
+                    <th>湖滨生态红线</th>
+                    <td>128.77 km</td>
+                  </tr>
+                  <tr>
+                    <th>湖泊生态黄线</th>
+                    <td>865.27 km</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护核心区</th>
+                    <td>6.29 km²</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护缓冲区</th>
+                    <td>106.85 km²</td>
+                  </tr>
+                  <tr>
                     <th>最大水深</th>
                     <td>21.3 m</td>
                   </tr>
@@ -2227,12 +2451,52 @@
                     <td>10.8 m</td>
                   </tr>
                   <tr>
-                    <th>蓄水量</th>
+                    <th>最高运行水位</th>
+                    <td>1966.00 m</td>
+                  </tr>
+                  <tr>
+                    <th>最低运行水位</th>
+                    <td>1964.30 m</td>
+                  </tr>
+                  <tr>
+                    <th>平均水位</th>
+                    <td>1965.06 m</td>
+                  </tr>
+                  <tr>
+                    <th>总容量</th>
                     <td>29.6 亿 m³</td>
                   </tr>
                   <tr>
-                    <th>主要入湖河流</th>
-                    <td>27 条：弥苴河、永安江、罗时江、苍山十八溪等</td>
+                    <th>主要入湖河道数</th>
+                    <td>27条（弥苴河、永安江、波罗江、罗时江等）</td>
+                  </tr>
+                  <tr>
+                    <th>主要入湖沟渠数</th>
+                    <td>89条</td>
+                  </tr>
+                  <tr>
+                    <th>入湖径流量</th>
+                    <td>8.78 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面降雨量</th>
+                    <td>2.69 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面蒸发量</th>
+                    <td>3.05 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>下泄口及泄水量</th>
+                    <td>西洱河、“引洱入宾”工程（共4 亿 m³）</td>
+                  </tr>
+                  <tr>
+                    <th>流域人口</th>
+                    <td>101.72 万人</td>
+                  </tr>
+                  <tr>
+                    <th>耕地面积</th>
+                    <td>59.86 万亩</td>
                   </tr>
                 </tbody>
               </table>
@@ -2267,10 +2531,10 @@
 
             <div class="ws-page">
               <div class="ws-head">
-                <h5 class="ws-name">抚仙湖<span class="ws-code">HP-03</span></h5>
+                <h4 class="ws-name">抚仙湖<span class="ws-code">HP-03</span></h4>
                 <span class="ws-region">玉溪市 · 珠江流域（南盘江）</span>
               </div>
-              <p class="ws-lead">珠江源头的第一大湖，蓄水量占九湖的 68.2%——最深、最清，也最经不起一次失误。</p>
+              <p class="ws-lead">珠江源头的第一大湖，蓄水量占重点湖泊的 68.2%——最深、最清，也最经不起一次失误。</p>
               <div class="fig ws-fig">
                 <div class="fig-t fig-t-center">抚仙湖流域地理位置图 · 水系分布图</div>
                 <div class="ws-slider" data-slider role="group" aria-label="抚仙湖流域图集">
@@ -2291,46 +2555,113 @@
                   </div>
                 </div>
                 <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-                <p class="map-note">本图为抚仙湖流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
               </div>
               <h6 class="ws-sub">（一）基础概况</h6>
               <table class="ws-kv">
                 <tbody>
                   <tr>
-                    <th>所在州市</th>
-                    <td>玉溪市（澄江市、江川区、华宁县）</td>
+                    <th>所属水系</th>
+                    <td>珠江</td>
                   </tr>
                   <tr>
-                    <th>所属流域</th>
-                    <td>珠江流域 · 南盘江（西江水系）</td>
+                    <th>管理机构</th>
+                    <td>玉溪市湖泊管理局</td>
                   </tr>
                   <tr>
-                    <th>湖泊地位</th>
-                    <td>珠江源头第一大湖、云南蓄水量最大的湖泊</td>
+                    <th>涉及州市县</th>
+                    <td>玉溪市澄江市、江川区、华宁县</td>
                   </tr>
                   <tr>
-                    <th>区位特征</th>
-                    <td>居滇中盆地中心，地处长江、珠江分水岭</td>
+                    <th>河湖长数量</th>
+                    <td>共203名：省级1名、州市级8名、县级及以下194名</td>
+                  </tr>
+                  <tr>
+                    <th>省级湖长</th>
+                    <td>王予波（省委副书记、省长）</td>
+                  </tr>
+                  <tr>
+                    <th>省级湖长联系部门</th>
+                    <td>省文化和旅游厅</td>
+                  </tr>
+                  <tr>
+                    <th>流域面积</th>
+                    <td>674.69 km²</td>
                   </tr>
                   <tr>
                     <th>湖面面积</th>
                     <td>216.6 km²</td>
                   </tr>
                   <tr>
+                    <th>湖滨生态红线</th>
+                    <td>104.34 km</td>
+                  </tr>
+                  <tr>
+                    <th>湖泊生态黄线</th>
+                    <td>151.71 km</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护核心区</th>
+                    <td>40.15 km²</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护缓冲区</th>
+                    <td>238.51 km²</td>
+                  </tr>
+                  <tr>
                     <th>最大水深</th>
-                    <td>158.9 m（我国最深淡水湖之一）</td>
+                    <td>158.9 m</td>
                   </tr>
                   <tr>
                     <th>平均水深</th>
                     <td>95.2 m</td>
                   </tr>
                   <tr>
-                    <th>蓄水量</th>
-                    <td>206.2 亿 m³，占九大高原湖泊的 68.2%</td>
+                    <th>最高运行水位</th>
+                    <td>1723.35 m</td>
                   </tr>
                   <tr>
-                    <th>主要入湖河流</th>
-                    <td>22 条</td>
+                    <th>最低运行水位</th>
+                    <td>1721.65 m</td>
+                  </tr>
+                  <tr>
+                    <th>平均水位</th>
+                    <td>1720.14 m</td>
+                  </tr>
+                  <tr>
+                    <th>总容量</th>
+                    <td>206.2 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>主要入湖河道数</th>
+                    <td>21条（梁王河、东大河、抚澄河、尖山河等）</td>
+                  </tr>
+                  <tr>
+                    <th>主要入湖沟渠数</th>
+                    <td>43条</td>
+                  </tr>
+                  <tr>
+                    <th>入湖径流量</th>
+                    <td>1.58 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面降雨量</th>
+                    <td>1.88 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面蒸发量</th>
+                    <td>2.81 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>下泄口及泄水量</th>
+                    <td>海口河（无出湖水量）</td>
+                  </tr>
+                  <tr>
+                    <th>流域人口</th>
+                    <td>18.21 万人</td>
+                  </tr>
+                  <tr>
+                    <th>耕地面积</th>
+                    <td>26.16 万亩</td>
                   </tr>
                 </tbody>
               </table>
@@ -2365,10 +2696,10 @@
 
             <div class="ws-page">
               <div class="ws-head">
-                <h5 class="ws-name">程海<span class="ws-code">HP-04</span></h5>
+                <h4 class="ws-name">程海<span class="ws-code">HP-04</span></h4>
                 <span class="ws-region">丽江市永胜县 · 长江流域（金沙江）</span>
               </div>
-              <p class="ws-lead">九湖中唯一没有出流的封闭型湖泊，也是世界三大天然生长螺旋藻的湖泊之一。</p>
+              <p class="ws-lead">重点湖泊中唯一没有出流的封闭型湖泊，也是世界三大天然生长螺旋藻的湖泊之一。</p>
               <div class="fig ws-fig">
                 <div class="fig-t fig-t-center">程海流域地理位置图 · 水系分布图</div>
                 <div class="ws-slider" data-slider role="group" aria-label="程海流域图集">
@@ -2389,38 +2720,57 @@
                   </div>
                 </div>
                 <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-                <p class="map-note">本图为程海流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
               </div>
               <h6 class="ws-sub">（一）基础概况</h6>
               <table class="ws-kv">
                 <tbody>
                   <tr>
-                    <th>所在州市</th>
+                    <th>所属水系</th>
+                    <td>长江</td>
+                  </tr>
+                  <tr>
+                    <th>管理机构</th>
+                    <td>永胜县程海管理局</td>
+                  </tr>
+                  <tr>
+                    <th>涉及州市县</th>
                     <td>丽江市永胜县</td>
                   </tr>
                   <tr>
-                    <th>别　　名</th>
-                    <td>黑伍海</td>
+                    <th>河湖长数量</th>
+                    <td>共15名：省级1名、州市级2名、县级及以下12名</td>
                   </tr>
                   <tr>
-                    <th>所属流域</th>
-                    <td>长江流域 · 金沙江（金沙江水系）</td>
+                    <th>省级湖长</th>
+                    <td>曾艳（省委常委、宣传部部长）</td>
                   </tr>
                   <tr>
-                    <th>成因类型</th>
-                    <td>断层陷落式深水湖泊</td>
-                  </tr>
-                  <tr>
-                    <th>水质类型</th>
-                    <td>封闭型偏碱性淡水湖</td>
+                    <th>省级湖长联系部门</th>
+                    <td>省委宣传部</td>
                   </tr>
                   <tr>
                     <th>流域面积</th>
                     <td>318.3 km²</td>
                   </tr>
                   <tr>
-                    <th>水面面积</th>
+                    <th>湖面面积</th>
                     <td>76.85 km²</td>
+                  </tr>
+                  <tr>
+                    <th>湖滨生态红线</th>
+                    <td>45.45 km</td>
+                  </tr>
+                  <tr>
+                    <th>湖泊生态黄线</th>
+                    <td>73.52 km</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护核心区</th>
+                    <td>4.06 km²</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护缓冲区</th>
+                    <td>91.67 km²</td>
                   </tr>
                   <tr>
                     <th>最大水深</th>
@@ -2431,12 +2781,52 @@
                     <td>25.7 m</td>
                   </tr>
                   <tr>
-                    <th>蓄水量</th>
+                    <th>最高运行水位</th>
+                    <td>1501.00 m</td>
+                  </tr>
+                  <tr>
+                    <th>最低运行水位</th>
+                    <td>1499.20 m</td>
+                  </tr>
+                  <tr>
+                    <th>平均水位</th>
+                    <td>1495.74 m</td>
+                  </tr>
+                  <tr>
+                    <th>总容量</th>
                     <td>19.01 亿 m³</td>
                   </tr>
                   <tr>
-                    <th>入湖河流</th>
-                    <td>47 条（河流及冲沟，均为季节性间歇河）</td>
+                    <th>主要入湖河道数</th>
+                    <td>5条（季官河、王官河、团山河、大朗河、青草湾河）</td>
+                  </tr>
+                  <tr>
+                    <th>主要入湖沟渠数</th>
+                    <td>4条</td>
+                  </tr>
+                  <tr>
+                    <th>入湖径流量</th>
+                    <td>0.125 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面降雨量</th>
+                    <td>0.56 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面蒸发量</th>
+                    <td>1.58 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>下泄口及泄水量</th>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th>流域人口</th>
+                    <td>3.57 万人</td>
+                  </tr>
+                  <tr>
+                    <th>耕地面积</th>
+                    <td>4.85 万亩</td>
                   </tr>
                 </tbody>
               </table>
@@ -2471,10 +2861,10 @@
 
             <div class="ws-page">
               <div class="ws-head">
-                <h5 class="ws-name">泸沽湖<span class="ws-code">HP-05</span></h5>
+                <h4 class="ws-name">泸沽湖<span class="ws-code">HP-05</span></h4>
                 <span class="ws-region">丽江市宁蒗县 · 川滇共管</span>
               </div>
-              <p class="ws-lead">滇川交界的深水湖泊，九湖中水质最优之一——也是唯一跨省共管的一个。</p>
+              <p class="ws-lead">滇川交界的深水湖泊，重点湖泊中水质最优之一——也是唯一跨省共管的一个。</p>
               <div class="fig ws-fig">
                 <div class="fig-t fig-t-center">泸沽湖流域地理位置图 · 水系分布图</div>
                 <div class="ws-slider" data-slider role="group" aria-label="泸沽湖流域图集">
@@ -2495,26 +2885,57 @@
                   </div>
                 </div>
                 <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-                <p class="map-note">本图为泸沽湖流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
               </div>
               <h6 class="ws-sub">（一）基础概况</h6>
               <table class="ws-kv">
                 <tbody>
                   <tr>
-                    <th>所在州市</th>
-                    <td>丽江市宁蒗县（与四川省盐源县共管）</td>
+                    <th>所属水系</th>
+                    <td>长江</td>
                   </tr>
                   <tr>
-                    <th>湖泊地位</th>
-                    <td>九大高原湖泊中水质最优之一、我国第三深淡水湖</td>
+                    <th>管理机构</th>
+                    <td>丽江泸沽湖管理局</td>
+                  </tr>
+                  <tr>
+                    <th>涉及州市县</th>
+                    <td>丽江市宁蒗县</td>
+                  </tr>
+                  <tr>
+                    <th>河湖长数量</th>
+                    <td>共5名：省级1名、州市级1名、县级及以下3名</td>
+                  </tr>
+                  <tr>
+                    <th>省级湖长</th>
+                    <td>胡大鹏（省委常委、政法委书记）</td>
+                  </tr>
+                  <tr>
+                    <th>省级湖长联系部门</th>
+                    <td>省委政法委</td>
                   </tr>
                   <tr>
                     <th>流域面积</th>
-                    <td>247.71 km²（云南境内 107 km²）</td>
+                    <td>107.0 km²（总247.71）</td>
                   </tr>
                   <tr>
                     <th>湖面面积</th>
-                    <td>51.3 km²</td>
+                    <td>30.3 km²（总51.3 km²）</td>
+                  </tr>
+                  <tr>
+                    <th>湖滨生态红线</th>
+                    <td>26.02 km</td>
+                  </tr>
+                  <tr>
+                    <th>湖泊生态黄线</th>
+                    <td>52.67 km</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护核心区</th>
+                    <td>4.6 km²</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护缓冲区</th>
+                    <td>52.71 km²</td>
                   </tr>
                   <tr>
                     <th>最大水深</th>
@@ -2525,12 +2946,52 @@
                     <td>38.4 m</td>
                   </tr>
                   <tr>
-                    <th>蓄水量</th>
+                    <th>最高运行水位</th>
+                    <td>2691.80 m</td>
+                  </tr>
+                  <tr>
+                    <th>最低运行水位</th>
+                    <td>2691.00 m</td>
+                  </tr>
+                  <tr>
+                    <th>平均水位</th>
+                    <td>2691.35 m</td>
+                  </tr>
+                  <tr>
+                    <th>总容量</th>
                     <td>22.52 亿 m³</td>
                   </tr>
                   <tr>
-                    <th>云南境内入湖河流</th>
-                    <td>5 条</td>
+                    <th>主要入湖河道数</th>
+                    <td>5条（山垮河、大渔坝河、乌马河、三家村河、蒗放河）</td>
+                  </tr>
+                  <tr>
+                    <th>主要入湖沟渠数</th>
+                    <td>4条</td>
+                  </tr>
+                  <tr>
+                    <th>入湖径流量</th>
+                    <td>0.79 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面降雨量</th>
+                    <td>0.5 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面蒸发量</th>
+                    <td>0.6 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>下泄口及泄水量</th>
+                    <td>草海（0.53 亿 m³、四川管辖）</td>
+                  </tr>
+                  <tr>
+                    <th>流域人口</th>
+                    <td>0.42 万人</td>
+                  </tr>
+                  <tr>
+                    <th>耕地面积</th>
+                    <td>0.18 万亩</td>
                   </tr>
                 </tbody>
               </table>
@@ -2565,7 +3026,7 @@
 
             <div class="ws-page">
               <div class="ws-head">
-                <h5 class="ws-name">杞麓湖<span class="ws-code">HP-06</span></h5>
+                <h4 class="ws-name">杞麓湖<span class="ws-code">HP-06</span></h4>
                 <span class="ws-region">玉溪市通海县 · 珠江流域（西江）</span>
               </div>
               <p class="ws-lead">新月形的浅水湖，没有天然出流——水进得来、出不去，全靠调蓄与人工补水。</p>
@@ -2589,30 +3050,57 @@
                   </div>
                 </div>
                 <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-                <p class="map-note">本图为杞麓湖流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
               </div>
               <h6 class="ws-sub">（一）基础概况</h6>
               <table class="ws-kv">
                 <tbody>
                   <tr>
-                    <th>所在州市</th>
+                    <th>所属水系</th>
+                    <td>珠江</td>
+                  </tr>
+                  <tr>
+                    <th>管理机构</th>
+                    <td>玉溪市湖泊管理局</td>
+                  </tr>
+                  <tr>
+                    <th>涉及州市县</th>
                     <td>玉溪市通海县</td>
                   </tr>
                   <tr>
-                    <th>所属流域</th>
-                    <td>珠江流域 · 西江水系</td>
+                    <th>河湖长数量</th>
+                    <td>共96名：省级1名、州市级4名、县级及以下91名</td>
                   </tr>
                   <tr>
-                    <th>形态特征</th>
-                    <td>新月形断陷盆地</td>
+                    <th>省级湖长</th>
+                    <td>李保俊（省委常委、统战部部长）</td>
                   </tr>
                   <tr>
-                    <th>湖面海拔</th>
-                    <td>1797.65 m</td>
+                    <th>省级湖长联系部门</th>
+                    <td>省林草局</td>
+                  </tr>
+                  <tr>
+                    <th>流域面积</th>
+                    <td>354 km²</td>
                   </tr>
                   <tr>
                     <th>湖面面积</th>
                     <td>37.26 km²</td>
+                  </tr>
+                  <tr>
+                    <th>湖滨生态红线</th>
+                    <td>37.47 km</td>
+                  </tr>
+                  <tr>
+                    <th>湖泊生态黄线</th>
+                    <td>41.98 km</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护核心区</th>
+                    <td>3.75 km²</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护缓冲区</th>
+                    <td>20.88 km²</td>
                   </tr>
                   <tr>
                     <th>最大水深</th>
@@ -2623,12 +3111,52 @@
                     <td>4 m</td>
                   </tr>
                   <tr>
-                    <th>蓄水量</th>
+                    <th>最高运行水位</th>
+                    <td>1796.62 m</td>
+                  </tr>
+                  <tr>
+                    <th>最低运行水位</th>
+                    <td>1793.92 m</td>
+                  </tr>
+                  <tr>
+                    <th>平均水位</th>
+                    <td>1795.15 m</td>
+                  </tr>
+                  <tr>
+                    <th>总容量</th>
                     <td>1.83 亿 m³</td>
                   </tr>
                   <tr>
-                    <th>东西长度</th>
-                    <td>约 10.4 km</td>
+                    <th>主要入湖河道数</th>
+                    <td>7条（红旗河、大新河、者湾河、中河等）</td>
+                  </tr>
+                  <tr>
+                    <th>主要入湖沟渠数</th>
+                    <td>18条</td>
+                  </tr>
+                  <tr>
+                    <th>入湖径流量</th>
+                    <td>0.86 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面降雨量</th>
+                    <td>0.33 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面蒸发量</th>
+                    <td>0.48 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>下泄口及泄水量</th>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th>流域人口</th>
+                    <td>26.37 万人</td>
+                  </tr>
+                  <tr>
+                    <th>耕地面积</th>
+                    <td>16.2 万亩</td>
                   </tr>
                 </tbody>
               </table>
@@ -2663,7 +3191,7 @@
 
             <div class="ws-page">
               <div class="ws-head">
-                <h5 class="ws-name">星云湖<span class="ws-code">HP-07</span></h5>
+                <h4 class="ws-name">星云湖<span class="ws-code">HP-07</span></h4>
                 <span class="ws-region">玉溪市江川区 · 珠江流域（南盘江）</span>
               </div>
               <p class="ws-lead">与抚仙湖一山之隔、一河相连的浅水湖——它的出水，直接进入抚仙湖。</p>
@@ -2687,46 +3215,113 @@
                   </div>
                 </div>
                 <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-                <p class="map-note">本图为星云湖流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
               </div>
               <h6 class="ws-sub">（一）基础概况</h6>
               <table class="ws-kv">
                 <tbody>
                   <tr>
-                    <th>所在州市</th>
+                    <th>所属水系</th>
+                    <td>珠江</td>
+                  </tr>
+                  <tr>
+                    <th>管理机构</th>
+                    <td>玉溪市湖泊管理局</td>
+                  </tr>
+                  <tr>
+                    <th>涉及州市县</th>
                     <td>玉溪市江川区</td>
                   </tr>
                   <tr>
-                    <th>所属流域</th>
-                    <td>珠江流域 · 南盘江水系</td>
+                    <th>河湖长数量</th>
+                    <td>共91名：省级1名、州市级5名、县级及以下85名</td>
                   </tr>
                   <tr>
-                    <th>成因类型</th>
-                    <td>滇中高原陷落型浅水湖</td>
+                    <th>省级湖长</th>
+                    <td>/</td>
                   </tr>
                   <tr>
-                    <th>相邻关系</th>
-                    <td>与抚仙湖一山之隔、一河相连</td>
+                    <th>省级湖长联系部门</th>
+                    <td>省农业农村厅</td>
+                  </tr>
+                  <tr>
+                    <th>流域面积</th>
+                    <td>380.35 km²</td>
                   </tr>
                   <tr>
                     <th>湖面面积</th>
                     <td>35.57 km²</td>
                   </tr>
                   <tr>
+                    <th>湖滨生态红线</th>
+                    <td>48.33 km</td>
+                  </tr>
+                  <tr>
+                    <th>湖泊生态黄线</th>
+                    <td>59.74 km</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护核心区</th>
+                    <td>7.6 km²</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护缓冲区</th>
+                    <td>23.6 km²</td>
+                  </tr>
+                  <tr>
                     <th>最大水深</th>
-                    <td>10.81 m</td>
+                    <td>10.8 m</td>
                   </tr>
                   <tr>
                     <th>平均水深</th>
-                    <td>6.01 m</td>
+                    <td>6 m</td>
                   </tr>
                   <tr>
-                    <th>蓄水量</th>
-                    <td>2.10 亿 m³</td>
+                    <th>最高运行水位</th>
+                    <td>1723.35 m</td>
                   </tr>
                   <tr>
-                    <th>南北长度</th>
-                    <td>9.09 km</td>
+                    <th>最低运行水位</th>
+                    <td>1721.65 m</td>
+                  </tr>
+                  <tr>
+                    <th>平均水位</th>
+                    <td>1722.62 m</td>
+                  </tr>
+                  <tr>
+                    <th>总容量</th>
+                    <td>2.1 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>主要入湖河道数</th>
+                    <td>12条（东西大河、大寨河、渔村河、螺蛳铺河等）</td>
+                  </tr>
+                  <tr>
+                    <th>主要入湖沟渠数</th>
+                    <td>19条</td>
+                  </tr>
+                  <tr>
+                    <th>入湖径流量</th>
+                    <td>0.62 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面降雨量</th>
+                    <td>0.3 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面蒸发量</th>
+                    <td>0.71 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>下泄口及泄水量</th>
+                    <td>玉带河（0，入抚仙湖，已闸住）</td>
+                  </tr>
+                  <tr>
+                    <th>流域人口</th>
+                    <td>25.61 万人</td>
+                  </tr>
+                  <tr>
+                    <th>耕地面积</th>
+                    <td>8.51 万亩</td>
                   </tr>
                 </tbody>
               </table>
@@ -2761,10 +3356,10 @@
 
             <div class="ws-page">
               <div class="ws-head">
-                <h5 class="ws-name">阳宗海<span class="ws-code">HP-08</span></h5>
+                <h4 class="ws-name">阳宗海<span class="ws-code">HP-08</span></h4>
                 <span class="ws-region">昆明市 · 珠江流域（南盘江）</span>
               </div>
-              <p class="ws-lead">南北狭长的小湖，只有一条汤池河出流——九湖里水量账算得最细的一个。</p>
+              <p class="ws-lead">南北狭长的小湖，只有一条汤池河出流——重点湖泊里水量账算得最细的一个。</p>
               <div class="fig ws-fig">
                 <div class="fig-t fig-t-center">阳宗海流域地理位置图 · 水系分布图</div>
                 <div class="ws-slider" data-slider role="group" aria-label="阳宗海流域图集">
@@ -2785,50 +3380,118 @@
                   </div>
                 </div>
                 <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-                <p class="map-note">本图为阳宗海流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
               </div>
               <h6 class="ws-sub">（一）基础概况</h6>
               <table class="ws-kv">
                 <tbody>
                   <tr>
-                    <th>所在州市</th>
-                    <td>昆明市阳宗海风景名胜区</td>
+                    <th>所属水系</th>
+                    <td>珠江</td>
                   </tr>
                   <tr>
-                    <th>所属流域</th>
-                    <td>珠江流域 · 南盘江水系</td>
+                    <th>管理机构</th>
+                    <td>昆明市阳宗海管理局</td>
                   </tr>
                   <tr>
-                    <th>形态特征</th>
-                    <td>南北狭长、岸线曲折</td>
+                    <th>涉及州市县</th>
+                    <td>昆明市呈贡区、宜良县， 玉溪市澄江市</td>
                   </tr>
                   <tr>
-                    <th>流域天然面积</th>
-                    <td>192 km²（含引水区共 286 km²）</td>
+                    <th>河湖长数量</th>
+                    <td>共84名：省级1名、州市级2名、县级及以下81名</td>
+                  </tr>
+                  <tr>
+                    <th>省级湖长</th>
+                    <td>/</td>
+                  </tr>
+                  <tr>
+                    <th>省级湖长联系部门</th>
+                    <td>省委组织部</td>
+                  </tr>
+                  <tr>
+                    <th>流域面积</th>
+                    <td>192 km²</td>
                   </tr>
                   <tr>
                     <th>湖面面积</th>
                     <td>31.9 km²</td>
                   </tr>
                   <tr>
+                    <th>湖滨生态红线</th>
+                    <td>45.65 km</td>
+                  </tr>
+                  <tr>
+                    <th>湖泊生态黄线</th>
+                    <td>48.69 km</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护核心区</th>
+                    <td>11.37 km²</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护缓冲区</th>
+                    <td>22.47 km²</td>
+                  </tr>
+                  <tr>
                     <th>最大水深</th>
-                    <td>30 m</td>
+                    <td>29.8 m</td>
                   </tr>
                   <tr>
                     <th>平均水深</th>
                     <td>20 m</td>
                   </tr>
                   <tr>
-                    <th>蓄水量</th>
+                    <th>最高运行水位</th>
+                    <td>1769.90 m</td>
+                  </tr>
+                  <tr>
+                    <th>最低运行水位</th>
+                    <td>1766.15 m</td>
+                  </tr>
+                  <tr>
+                    <th>平均水位</th>
+                    <td>1768.60 m</td>
+                  </tr>
+                  <tr>
+                    <th>总容量</th>
                     <td>6.17 亿 m³</td>
                   </tr>
                   <tr>
-                    <th>入湖与出流</th>
-                    <td>主要天然入湖河流 4 条（南部）；北部汤池河为唯一出流</td>
+                    <th>主要入湖河道数</th>
+                    <td>4条（阳宗大河、七星河、鲁溪冲河、东排浸沟）</td>
+                  </tr>
+                  <tr>
+                    <th>主要入湖沟渠数</th>
+                    <td>14条</td>
+                  </tr>
+                  <tr>
+                    <th>入湖径流量</th>
+                    <td>0.38 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面降雨量</th>
+                    <td>0.26 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面蒸发量</th>
+                    <td>0.4 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>下泄口及泄水量</th>
+                    <td>汤池河（0.04）</td>
+                  </tr>
+                  <tr>
+                    <th>流域人口</th>
+                    <td>4.52 万人</td>
+                  </tr>
+                  <tr>
+                    <th>耕地面积</th>
+                    <td>6.43 万亩</td>
                   </tr>
                 </tbody>
               </table>
-              <p class="ws-p">阳宗海湖面狭长、岸线曲折，入湖河流集中在南岸，出流仅北岸汤池河一处，水量平衡对取水与调度高度敏感。湖区旅游与度假设施集中，湖滨开发强度大，是九湖中「人湖距离最近」的一个。</p>
+              <p class="ws-p">阳宗海湖面狭长、岸线曲折，入湖河流集中在南岸，出流仅北岸汤池河一处，水量平衡对取水与调度高度敏感。湖区旅游与度假设施集中，湖滨开发强度大，是重点湖泊中「人湖距离最近」的一个。
+              </p>
 
               <h6 class="ws-sub">（二）湖泊类型与换水条件</h6>
               <table class="ws-kv">
@@ -2859,10 +3522,10 @@
 
             <div class="ws-page">
               <div class="ws-head">
-                <h5 class="ws-name">异龙湖<span class="ws-code">HP-09</span></h5>
+                <h4 class="ws-name">异龙湖<span class="ws-code">HP-09</span></h4>
                 <span class="ws-region">红河州石屏县 · 珠江流域</span>
               </div>
-              <p class="ws-lead">九湖中面积与水量最小的一个，紧靠两大流域分水岭，2017 年重新回归珠江流域。</p>
+              <p class="ws-lead">重点湖泊中面积与水量最小的一个，紧靠两大流域分水岭，2017 年重新回归珠江流域。</p>
               <div class="fig ws-fig">
                 <div class="fig-t fig-t-center">异龙湖流域地理位置图 · 水系分布图</div>
                 <div class="ws-slider" data-slider role="group" aria-label="异龙湖流域图集">
@@ -2883,30 +3546,65 @@
                   </div>
                 </div>
                 <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-                <p class="map-note">本图为异龙湖流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
               </div>
               <h6 class="ws-sub">（一）基础概况</h6>
               <table class="ws-kv">
                 <tbody>
                   <tr>
-                    <th>所在州市</th>
+                    <th>所属水系</th>
+                    <td>珠江</td>
+                  </tr>
+                  <tr>
+                    <th>管理机构</th>
+                    <td>异龙湖管理局</td>
+                  </tr>
+                  <tr>
+                    <th>涉及州市县</th>
                     <td>红河州石屏县</td>
                   </tr>
                   <tr>
-                    <th>所属流域</th>
-                    <td>珠江流域（2017 年重新明确属珠江流域）</td>
+                    <th>河湖长数量</th>
+                    <td>共14名：省级1名、州市级1名、县级及以下12名</td>
                   </tr>
                   <tr>
-                    <th>区位特征</th>
-                    <td>紧靠南盘江与红河两大流域分水岭</td>
+                    <th>省级湖长</th>
+                    <td>/</td>
+                  </tr>
+                  <tr>
+                    <th>省级湖长联系部门</th>
+                    <td>省民政厅</td>
                   </tr>
                   <tr>
                     <th>流域面积</th>
                     <td>360.4 km²</td>
                   </tr>
                   <tr>
-                    <th>蓄水量</th>
-                    <td>1.14 亿 m³</td>
+                    <th>湖面面积</th>
+                    <td>35.67 km²</td>
+                  </tr>
+                  <tr>
+                    <th>湖滨生态红线</th>
+                    <td>80.51 km</td>
+                  </tr>
+                  <tr>
+                    <th>湖泊生态黄线</th>
+                    <td>66.49 km</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护核心区</th>
+                    <td>70.12 km²</td>
+                  </tr>
+                  <tr>
+                    <th>生态保护缓冲区</th>
+                    <td>87.57 km²</td>
+                  </tr>
+                  <tr>
+                    <th>最大水深</th>
+                    <td>6.55 m</td>
+                  </tr>
+                  <tr>
+                    <th>平均水深</th>
+                    <td>2.75 m</td>
                   </tr>
                   <tr>
                     <th>最高运行水位</th>
@@ -2917,8 +3615,44 @@
                     <td>1412.67 m</td>
                   </tr>
                   <tr>
-                    <th>入湖河流</th>
-                    <td>7 条（均为季节性）；城河、城北河、城南河占入湖水量的 85%</td>
+                    <th>平均水位</th>
+                    <td>1412.62 m</td>
+                  </tr>
+                  <tr>
+                    <th>总容量</th>
+                    <td>1.14 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>主要入湖河道数</th>
+                    <td>7条（城南河、城河、龙港河、城北河等）</td>
+                  </tr>
+                  <tr>
+                    <th>主要入湖沟渠数</th>
+                    <td>9条</td>
+                  </tr>
+                  <tr>
+                    <th>入湖径流量</th>
+                    <td>0.78 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面降雨量</th>
+                    <td>0.27 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>湖面蒸发量</th>
+                    <td>0.33 亿 m³</td>
+                  </tr>
+                  <tr>
+                    <th>下泄口及泄水量</th>
+                    <td>新街海河、青鱼湾 （均为0）</td>
+                  </tr>
+                  <tr>
+                    <th>流域人口</th>
+                    <td>13.95 万人</td>
+                  </tr>
+                  <tr>
+                    <th>耕地面积</th>
+                    <td>11.57 万亩</td>
                   </tr>
                 </tbody>
               </table>
@@ -2958,10 +3692,21 @@
 
 
 
-      <section id="ch10" class="chapter">
+      <section id="ch10" class="chapter gv">
         <div class="ch-head">
-          <h2>六大水系基本情况及图例</h2>
-          <p class="lead">云南地处长江、珠江、元江（红河）、澜沧江、怒江、伊洛瓦底江六大水系上游或源头，四条为国际河流。河湖长工作需同时把握<b>流域整体性</b>和<b>涉外敏感性</b>。</p>
+          <div class="quote">
+            <div class="qs">长江是中华民族的母亲河。推动长江经济带发展必须从中华民族长远利益考虑，把修复长江生态环境摆在压倒性位置，共抓大保护，不搞大开发。</div>
+
+            <div class="src">
+              <a target="_blank" class="btys"
+                href="https://www.gov.cn/xinwen/2016-01/07/content_5031289.htm">——&nbsp;2016年1月5日，习近平总书记在重庆召开的推动长江经济带发展座谈会上的讲话。</a>
+            </div>
+          </div>
+          <p class="lead">
+            云南地处长江、珠江、元江（红河）、澜沧江、怒江、伊洛瓦底江六大水系上游或源头，肩负重大上游生态保护政治责任。要深入学习贯彻习近平总书记考察云南重要讲话精神和总书记在推动长江经济带发展座谈会上的重要讲话精神，对长江（金沙江）严格落实“共抓大保护、不搞大开发”要求，强化上游意识、扛牢上游责任，坚持生态优先、绿色发展，统筹推进六大水系保护修复，持续巩固提升出境跨界断面水质，确保“一江清水出云南”，筑牢我国西南生态安全屏障。
+          </p>
+          <h2>六大水系基本情况及图示</h2>
+          <p class="lead">云南地处长江、珠江、红河、澜沧江、怒江、伊洛瓦底江六大水系上游或源头，四条为国际河流。河湖长工作需同时把握<b>流域整体性</b>和<b>涉外敏感性</b>。</p>
         </div>
 
         <div class="fig" id="fig-6rivers">
@@ -2971,10 +3716,14 @@
               alt="云南省六大水系分布图：长江流域、珠江流域、红河流域、澜沧江流域、怒江流域、伊洛瓦底江流域" loading="lazy">
           </div>
           <p class="map-hint">提示：点击图件可查看原图，手机上可双指缩放。</p>
-          <p class="map-note">本图为云南省六大水系分布图，据公开地理数据整理，仅作流域分布与位置关系示意，不作为界线、测绘成果或执法依据。点击图件可查看原图。</p>
         </div>
 
         <h4 id="ch10-s1" class="sec">一、六大水系基本情况</h4>
+        <p>基本水情：云南境内河流众多，径流面积 100 平方公里以上的河流有 1002 条，分属长江、珠江、红河、澜沧江、怒江和伊洛瓦底江六大水系。全省水资源总量 2141 亿立方米，居全国第三位，人均水资源量 4535
+          立方米。根据《2023年云南省水资源公报》，2023 年，全省年平均降水量 1050.3 毫米，降水总量 4025 亿立方米，较常年偏少 16.8%。全省水资源总量 1502 亿立方米，人均水资源量 3216
+          立方米。全省径流面积 50 平方公里以上的河流 2095 条；全省水面面积大于 1 平方公里的湖泊 30 个；出国境水资源量 2133 亿立方米，占全国出国境水资源量的 36.2%，水能资源储量 1.28
+          亿千瓦，居全国第二位。</p>
+        <div class="tip"><b>四多四难：</b>降水多、存水难，水系多、用水难，洪水多、保安难，湖泊多、治水难。</div>
         <div class="tblwrap">
           <table id="riverTable">
             <thead>
@@ -3002,8 +3751,8 @@
                 <td>珠江源保护、南盘江水质、工业园区排污</td>
               </tr>
               <tr>
-                <td><b>元江水系</b></td>
-                <td>元江（红河）</td>
+                <td><b>红河水系</b></td>
+                <td>红河</td>
                 <td>李仙江、藤条江、南溪河</td>
                 <td>南流出境→越南红河→北部湾</td>
                 <td>国际河流、跨境水文合作、河谷农业面源</td>
@@ -3074,7 +3823,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>国际河流（元江、澜沧江、怒江、伊洛瓦底江）</td>
+                <td>国际河流（红河、澜沧江、怒江、伊洛瓦底江）</td>
                 <td>严格按涉外管理要求开展工作；水文数据、边界河段信息不擅自对外发布；跨界河段巡河与相邻州市、相邻国家地区协同</td>
               </tr>
               <tr>
@@ -3128,39 +3877,74 @@
               </div>
             </div>
             <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-            <p class="map-note">本图为长江流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
           </div>
 
           <h6 class="ws-sub">（一）基础概况</h6>
           <table class="ws-kv">
             <tbody>
               <tr>
-                <th>涉及州市</th>
-                <td>迪庆、丽江、大理、楚雄、昆明、曲靖、昭通</td>
+                <th>长度</th>
+                <td>1560 km（含川滇界河）</td>
               </tr>
               <tr>
-                <th>省内面积</th>
-                <td>10.9 万 km²，六大流域中面积最大</td>
+                <th>流域面积</th>
+                <td>10.96 万 km²</td>
               </tr>
               <tr>
-                <th>干　流</th>
-                <td>金沙江（长江上游），迪庆德钦入滇、昭通水富出境</td>
+                <th>涉及州市县</th>
+                <td>迪庆、丽江、大理、楚雄、昆明、曲靖、昭通7个州（市）的48个县（市、区）</td>
               </tr>
               <tr>
-                <th>主要一级支流</th>
-                <td>硕多岗河、漾弓江、达旦河、渔泡江、龙川江、普渡河、小江、以礼河、牛栏江、横江、赤水河、乌江</td>
+                <th>河湖长数量</th>
+                <td>共7100名：省级1名、州（市）级195名、县级及以下6904名</td>
               </tr>
               <tr>
-                <th>区内高原湖泊</th>
-                <td>滇池、程海、泸沽湖</td>
+                <th>省级河长</th>
+                <td>王学勤（副省长）</td>
               </tr>
               <tr>
-                <th>地形地貌</th>
-                <td>西高东低、逐渐向东南倾斜；山区、半山区（丘陵）占 97%，山间盆地及湖泊河流约 3%</td>
+                <th>省级河长联系部门</th>
+                <td>省水利厅</td>
               </tr>
               <tr>
-                <th>标志性节点</th>
-                <td>石鼓「长江第一湾」、虎跳峡（下切 3000 余 m）</td>
+                <th>发源地</th>
+                <td>青海省玉树州治多县 （格拉丹冬雪山西南侧）</td>
+              </tr>
+              <tr>
+                <th>云南境内落差</th>
+                <td>2020 m</td>
+              </tr>
+              <tr>
+                <th>入境处及高程</th>
+                <td>德钦县，2290 m</td>
+              </tr>
+              <tr>
+                <th>出境处及高程</th>
+                <td>水富市，270 m</td>
+              </tr>
+              <tr>
+                <th>监测断面</th>
+                <td>共计201个，其中国控断面78个、省控断面123个</td>
+              </tr>
+              <tr>
+                <th>2024年出境水质</th>
+                <td>Ⅱ类</td>
+              </tr>
+              <tr>
+                <th>多年平均水资源量</th>
+                <td>413.3 亿 m³</td>
+              </tr>
+              <tr>
+                <th>近3年平均水资源量</th>
+                <td>319 亿 m³</td>
+              </tr>
+              <tr>
+                <th>流域人口</th>
+                <td>1782.8 万人</td>
+              </tr>
+              <tr>
+                <th>人均水资源量</th>
+                <td>2391 m³</td>
               </tr>
             </tbody>
           </table>
@@ -3229,44 +4013,79 @@
               </div>
             </div>
             <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-            <p class="map-note">本图为珠江流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
           </div>
 
           <h6 class="ws-sub">（一）基础概况</h6>
           <table class="ws-kv">
             <tbody>
               <tr>
-                <th>涉及州市</th>
-                <td>曲靖、昆明、玉溪、红河、文山</td>
+                <th>长度</th>
+                <td>644 km</td>
               </tr>
               <tr>
-                <th>省内面积</th>
+                <th>流域面积</th>
                 <td>5.86 万 km²</td>
               </tr>
               <tr>
-                <th>干　流</th>
-                <td>南盘江，珠江正源，源于曲靖市沾益区马雄山</td>
+                <th>涉及州市县</th>
+                <td>曲靖、昆明、玉溪、红河、文山5个州（市）的30个县（市、区）</td>
               </tr>
               <tr>
-                <th>河长与落差</th>
-                <td>省内河长约 644 km，落差 1724 m</td>
+                <th>河湖长数量</th>
+                <td>共7174名：省级1名、州（市）级77名、县级及以下7096名</td>
               </tr>
               <tr>
-                <th>出　省</th>
-                <td>经贵州、广西，汇入珠江流域西江水系</td>
+                <th>省级河长</th>
+                <td>赵俊民（省委常委、常务副省长）</td>
               </tr>
               <tr>
-                <th>区内高原湖泊</th>
-                <td>抚仙湖、杞麓湖、异龙湖、星云湖、阳宗海</td>
+                <th>省级河长联系部门</th>
+                <td>省财政厅</td>
               </tr>
               <tr>
-                <th>主要支流</th>
-                <td>黄泥河、曲江、泸江、甸溪河、清水江、北盘江、右江</td>
+                <th>发源地</th>
+                <td>曲靖市沾益区 （马雄山南麓）</td>
+              </tr>
+              <tr>
+                <th>云南境内落差</th>
+                <td>1724 m</td>
+              </tr>
+              <tr>
+                <th>发源地高程</th>
+                <td>2444 m</td>
+              </tr>
+              <tr>
+                <th>出境处及高程</th>
+                <td>罗平县，720 m</td>
+              </tr>
+              <tr>
+                <th>监测断面</th>
+                <td>共计98个，其中国控断面30个、省控断面68个</td>
+              </tr>
+              <tr>
+                <th>2024年出境水质</th>
+                <td>Ⅱ类</td>
+              </tr>
+              <tr>
+                <th>多年平均水资源量</th>
+                <td>219.8 亿 m³</td>
+              </tr>
+              <tr>
+                <th>近3年平均水资源量</th>
+                <td>165 亿 m³</td>
+              </tr>
+              <tr>
+                <th>流域人口</th>
+                <td>1142.65 万人</td>
+              </tr>
+              <tr>
+                <th>人均水资源量</th>
+                <td>1980.56 m³</td>
               </tr>
             </tbody>
           </table>
           <p class="ws-p">
-            流域位于云南省东部及东南部，是六大流域中唯一发源、出境均在省内的水系。上游为滇东岩溶高原，宽谷、坝子与峰丛相间；中下游切割加深，南盘江在罗平一带形成多级跌水与峡谷。流域内集中了云南最密集的城镇群与工业园区，也是九大高原湖泊最集中的区域——九湖之中有五湖属珠江水系。
+            流域位于云南省东部及东南部，是六大流域中唯一发源、出境均在省内的水系。上游为滇东岩溶高原，宽谷、坝子与峰丛相间；中下游切割加深，南盘江在罗平一带形成多级跌水与峡谷。流域内集中了云南最密集的城镇群与工业园区，也是九大高原湖泊最集中的区域——重点湖泊之中有五湖属珠江水系。
           </p>
 
           <h6 class="ws-sub">（二）水系结构与水文特征</h6>
@@ -3323,48 +4142,79 @@
               </div>
             </div>
             <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-            <p class="map-note">本图为红河流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
           </div>
 
           <h6 class="ws-sub">（一）基础概况</h6>
           <table class="ws-kv">
             <tbody>
               <tr>
-                <th>涉及州市</th>
-                <td>大理、楚雄、玉溪、红河、文山</td>
+                <th>长度</th>
+                <td>692 km</td>
               </tr>
               <tr>
-                <th>省内面积</th>
+                <th>流域面积</th>
                 <td>7.17 万 km²</td>
               </tr>
               <tr>
-                <th>干　流</th>
-                <td>元江（上游称礼社江，经元江后始称红河）</td>
+                <th>涉及州市县</th>
+                <td>大理、楚雄、昆明、玉溪、红河、文山、普洱7个州（市）的39个县（市、区）</td>
               </tr>
               <tr>
-                <th>发　源</th>
-                <td>大理州巍山县</td>
+                <th>河湖长数量</th>
+                <td>共5435名：省级1名、州（市）级62名、县级及以下5372名</td>
               </tr>
               <tr>
-                <th>省内河长</th>
-                <td>约 692 km</td>
+                <th>省级河长</th>
+                <td>杨洋（副省长）</td>
               </tr>
               <tr>
-                <th>出　境</th>
-                <td>红河州河口县出境入越南，注入北部湾</td>
+                <th>省级河长联系部门</th>
+                <td>省教育厅</td>
               </tr>
               <tr>
-                <th>主要一级支流</th>
-                <td>绿汁江、小河底河、南溪河</td>
+                <th>发源地</th>
+                <td>巍山县永建乡六摩村与大理市下关镇梧栖村交界山岭</td>
               </tr>
               <tr>
-                <th>地形高差</th>
-                <td>河谷深切，最高点无量山 3306 m，最低点河口 76.4 m</td>
+                <th>云南境内落差</th>
+                <td>2563.6 m</td>
+              </tr>
+              <tr>
+                <th>发源地高程</th>
+                <td>2640 m</td>
+              </tr>
+              <tr>
+                <th>出境处及高程</th>
+                <td>河口县，76.4 m</td>
+              </tr>
+              <tr>
+                <th>监测断面</th>
+                <td>共计71个，其中国控断面28个、省控断面43个</td>
+              </tr>
+              <tr>
+                <th>2024年出境水质</th>
+                <td>Ⅱ类</td>
+              </tr>
+              <tr>
+                <th>多年平均水资源量</th>
+                <td>432 亿 m³</td>
+              </tr>
+              <tr>
+                <th>近3年平均水资源量</th>
+                <td>317 亿 m³</td>
+              </tr>
+              <tr>
+                <th>流域人口</th>
+                <td>735 万人</td>
+              </tr>
+              <tr>
+                <th>人均水资源量</th>
+                <td>5878 m³</td>
               </tr>
             </tbody>
           </table>
           <p class="ws-p">
-            云南段位于全省中部及东南部，干流自西北向东南斜贯，是滇中、滇南重要的水资源通道。上游穿行于滇中高原的宽谷与坝子之间，中下游切入哀牢山与六诏山区，形成连续深谷；河口以下进入越南，为中越共有的国际河流。流域内干热河谷面积大，元江、绿汁江沿岸蒸发强烈、植被恢复慢。
+            云南段位于全省中部及东南部，干流自西北向东南斜贯，是滇中、滇南重要的水资源通道。上游穿行于滇中高原的宽谷与坝子之间，中下游切入哀牢山与六诏山区，形成连续深谷；河口以下进入越南，为中越共有的国际河流。流域内干热河谷面积大，红河、绿汁江沿岸蒸发强烈、植被恢复慢。
           </p>
 
           <h6 class="ws-sub">（二）水系结构与水文特征</h6>
@@ -3421,39 +4271,74 @@
               </div>
             </div>
             <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-            <p class="map-note">本图为澜沧江流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
           </div>
 
           <h6 class="ws-sub">（一）基础概况</h6>
           <table class="ws-kv">
             <tbody>
               <tr>
-                <th>涉及州市</th>
-                <td>迪庆、怒江、大理、保山、临沧、普洱、西双版纳</td>
+                <th>长度</th>
+                <td>1227.4 km</td>
               </tr>
               <tr>
-                <th>省内面积</th>
+                <th>流域面积</th>
                 <td>8.85 万 km²</td>
               </tr>
               <tr>
-                <th>干　流</th>
-                <td>澜沧江，出境后称湄公河</td>
+                <th>涉及州市县</th>
+                <td>迪庆、怒江、大理、保山、临沧、普洱、西双版纳7个州（市）的32个县（市、区）</td>
               </tr>
               <tr>
-                <th>河长与落差</th>
-                <td>省内干流 1227.4 km，落差 1768 m</td>
+                <th>河湖长数量</th>
+                <td>共4987名：省级1名、州（市）级46名、县级及以下4940名</td>
               </tr>
               <tr>
-                <th>入境与出境</th>
-                <td>迪庆州德钦县入境，西双版纳州出境</td>
+                <th>省级河长</th>
+                <td>徐浩（副省长）</td>
               </tr>
               <tr>
-                <th>区内高原湖泊</th>
-                <td>洱海（云南省第二大高原淡水湖）</td>
+                <th>省级河长联系部门</th>
+                <td>省发展改革委</td>
               </tr>
               <tr>
-                <th>主要支流</th>
-                <td>沘江、黑惠江、罗闸河、小黑江、威远江、南腊河</td>
+                <th>发源地</th>
+                <td>青海省玉树州杂多县 （唐古拉山北麓）</td>
+              </tr>
+              <tr>
+                <th>云南境内落差</th>
+                <td>1768 m</td>
+              </tr>
+              <tr>
+                <th>入境处及高程</th>
+                <td>德钦县，2248 m</td>
+              </tr>
+              <tr>
+                <th>出境处及高程</th>
+                <td>勐腊县，480 m</td>
+              </tr>
+              <tr>
+                <th>监测断面</th>
+                <td>共计88个，其中国控断面46个、省控断面42个</td>
+              </tr>
+              <tr>
+                <th>2024年出境水质</th>
+                <td>Ⅱ类</td>
+              </tr>
+              <tr>
+                <th>多年平均水资源量</th>
+                <td>503.8 亿 m³</td>
+              </tr>
+              <tr>
+                <th>近3年平均水资源量</th>
+                <td>403 亿 m³</td>
+              </tr>
+              <tr>
+                <th>流域人口</th>
+                <td>595.15 万人</td>
+              </tr>
+              <tr>
+                <th>人均水资源量</th>
+                <td>7927 m³</td>
               </tr>
             </tbody>
           </table>
@@ -3515,39 +4400,74 @@
               </div>
             </div>
             <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-            <p class="map-note">本图为怒江流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
           </div>
 
           <h6 class="ws-sub">（一）基础概况</h6>
           <table class="ws-kv">
             <tbody>
               <tr>
-                <th>涉及州市</th>
-                <td>怒江、保山、临沧、德宏</td>
+                <th>长度</th>
+                <td>618 km</td>
               </tr>
               <tr>
-                <th>省内面积</th>
+                <th>流域面积</th>
                 <td>3.34 万 km²</td>
               </tr>
               <tr>
-                <th>干　流</th>
-                <td>怒江，出境后称萨尔温江</td>
+                <th>涉及州市县</th>
+                <td>怒江、大理、保山、临沧、普洱、德宏6个州（市）的18个县（市、区）</td>
               </tr>
               <tr>
-                <th>河长与落差</th>
-                <td>省内干流 618 km，落差 1152 m，平均比降 1.86‰</td>
+                <th>河湖长数量</th>
+                <td>共6946名：省级1名、州（市）级28名、县级及以下6917名</td>
               </tr>
               <tr>
-                <th>入境与出境</th>
-                <td>怒江州贡山县丙中洛入境，德宏州芒市出境</td>
+                <th>省级河长</th>
+                <td>王显刚（省政府党组副书记）</td>
               </tr>
               <tr>
-                <th>主要支流</th>
-                <td>勐波罗河、大勐统河、南汀河、南滚河、南卡江</td>
+                <th>省级河长联系部门</th>
+                <td>省自然资源厅</td>
               </tr>
               <tr>
-                <th>地形地貌</th>
-                <td>高山峡谷，谷深坡陡，河谷与山脊高差常达 2000 m 以上</td>
+                <th>发源地</th>
+                <td>西藏自治区那曲市安多县 （唐古拉山南麓）</td>
+              </tr>
+              <tr>
+                <th>云南境内落差</th>
+                <td>1152 m</td>
+              </tr>
+              <tr>
+                <th>入境处及高程</th>
+                <td>贡山县，1680 m</td>
+              </tr>
+              <tr>
+                <th>出境处及高程</th>
+                <td>芒市，528 m</td>
+              </tr>
+              <tr>
+                <th>监测断面</th>
+                <td>共计31个，其中国控断面13个、省控断面18个</td>
+              </tr>
+              <tr>
+                <th>2024年出境水质</th>
+                <td>Ⅱ类</td>
+              </tr>
+              <tr>
+                <th>多年平均水资源量</th>
+                <td>311.4 亿 m³</td>
+              </tr>
+              <tr>
+                <th>近3年平均水资源量</th>
+                <td>246 亿 m³</td>
+              </tr>
+              <tr>
+                <th>流域人口</th>
+                <td>280.15 万人</td>
+              </tr>
+              <tr>
+                <th>人均水资源量</th>
+                <td>11003.5 m³</td>
               </tr>
             </tbody>
           </table>
@@ -3609,39 +4529,74 @@
               </div>
             </div>
             <p class="map-hint">提示：点击两侧箭头或下方圆点切换「地理位置图 / 水系分布图」，手机上可左右滑动。</p>
-            <p class="map-note">本图为伊洛瓦底江流域地理位置图与水系分布图，据公开地理数据整理，仅作位置与流域关系示意，不作为界线、测绘成果或执法依据。</p>
           </div>
 
           <h6 class="ws-sub">（一）基础概况</h6>
           <table class="ws-kv">
             <tbody>
               <tr>
-                <th>涉及州市</th>
-                <td>怒江、保山、德宏</td>
+                <th>长度</th>
+                <td>80 km（干流独龙江）</td>
               </tr>
               <tr>
-                <th>省内面积</th>
-                <td>1.90 万 km²，六大流域中面积最小</td>
+                <th>流域面积</th>
+                <td>1.90 万 km²</td>
               </tr>
               <tr>
-                <th>干　流</th>
-                <td>独龙江（入滇后上游称独龙江）</td>
+                <th>涉及州市县</th>
+                <td>怒江、保山、德宏3个州（市）的9个县（市、区）</td>
               </tr>
               <tr>
-                <th>省内河长</th>
-                <td>干流 86.8 km</td>
+                <th>河湖长数量</th>
+                <td>共1858名：省级1名、州（市）级21名、县级及以下1836名</td>
               </tr>
               <tr>
-                <th>主要支流</th>
-                <td>大盈江、龙江—瑞丽江</td>
+                <th>省级河长</th>
+                <td>王正英（省委常委、省委秘书长）</td>
               </tr>
               <tr>
-                <th>出　境</th>
-                <td>出境入缅甸，汇入伊洛瓦底江</td>
+                <th>省级河长联系部门</th>
+                <td>省外办</td>
               </tr>
               <tr>
-                <th>地形地质</th>
-                <td>北高南低；腾冲、龙陵一带多地震，地热火山发育</td>
+                <th>发源地</th>
+                <td>西藏自治区林芝市察隅县 （伯舒拉岭山脉西南麓）</td>
+              </tr>
+              <tr>
+                <th>云南境内落差</th>
+                <td>4890 m</td>
+              </tr>
+              <tr>
+                <th>干流入境处及高程</th>
+                <td>贡山县，2330 m</td>
+              </tr>
+              <tr>
+                <th>干流出境处及高程</th>
+                <td>贡山县，528 m</td>
+              </tr>
+              <tr>
+                <th>监测断面</th>
+                <td>共计26个，其中国控断面15个、省控断面11个</td>
+              </tr>
+              <tr>
+                <th>2024年出境水质</th>
+                <td>Ⅱ类</td>
+              </tr>
+              <tr>
+                <th>多年平均水资源量</th>
+                <td>261.5 亿 m³</td>
+              </tr>
+              <tr>
+                <th>近3年平均水资源量</th>
+                <td>218 亿 m³</td>
+              </tr>
+              <tr>
+                <th>流域人口</th>
+                <td>191.24 万人</td>
+              </tr>
+              <tr>
+                <th>人均水资源量</th>
+                <td>12883 m³</td>
               </tr>
             </tbody>
           </table>
@@ -3671,6 +4626,213 @@
               <tr>
                 <th>生态本底</th>
                 <td>高黎贡山、铜壁关自然保护区，生物多样性极高</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 id="ch10-s4" class="sec">四、三条重点河流</h4>
+        <p>3 条重点河流：牛栏江、赤水河、黑惠江。</p>
+
+        <div class="ws-page">
+          <div class="ws-head">
+            <h5 class="ws-name">牛栏江<span class="ws-code">WS-07</span></h5>
+            <span class="ws-region">昆明 · 曲靖 · 昭通，金沙江一级支流</span>
+          </div>
+          <h6 class="ws-sub">基础概况</h6>
+          <table class="ws-kv">
+            <tbody>
+              <tr>
+                <th>长度</th>
+                <td>440 km</td>
+              </tr>
+              <tr>
+                <th>流域面积</th>
+                <td>1.14 万 km²</td>
+              </tr>
+              <tr>
+                <th>涉及州市县</th>
+                <td>昆明、曲靖、昭通3个州（市）的10个县（市、区）</td>
+              </tr>
+              <tr>
+                <th>河湖长数量</th>
+                <td>共1304名：省级1名、州（市）级7名、县级及以下1296名</td>
+              </tr>
+              <tr>
+                <th>发源地</th>
+                <td>昆明市寻甸县金所乡 （老黄山）</td>
+              </tr>
+              <tr>
+                <th>云南境内落差</th>
+                <td>1768 m</td>
+              </tr>
+              <tr>
+                <th>发源地高程</th>
+                <td>2295 m</td>
+              </tr>
+              <tr>
+                <th>出境处及高程</th>
+                <td>昭阳区，527 m</td>
+              </tr>
+              <tr>
+                <th>监测断面</th>
+                <td>共计14个，其中国控断面7个、省控断面7个</td>
+              </tr>
+              <tr>
+                <th>2024年出境水质</th>
+                <td>Ⅱ类</td>
+              </tr>
+              <tr>
+                <th>多年平均水资源量</th>
+                <td>42.50 亿 m³</td>
+              </tr>
+              <tr>
+                <th>近3年平均水资源量</th>
+                <td>-</td>
+              </tr>
+              <tr>
+                <th>流域人口</th>
+                <td>198.67 万人</td>
+              </tr>
+              <tr>
+                <th>人均水资源量</th>
+                <td>2139 m³</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ws-page">
+          <div class="ws-head">
+            <h5 class="ws-name">赤水河<span class="ws-code">WS-08</span></h5>
+            <span class="ws-region">昭通市镇雄县、威信县，长江上游一级支流</span>
+          </div>
+          <h6 class="ws-sub">基础概况</h6>
+          <table class="ws-kv">
+            <tbody>
+              <tr>
+                <th>长度</th>
+                <td>97 km</td>
+              </tr>
+              <tr>
+                <th>流域面积</th>
+                <td>1890.3 km²</td>
+              </tr>
+              <tr>
+                <th>涉及州市县</th>
+                <td>昭通市镇雄县、威信县</td>
+              </tr>
+              <tr>
+                <th>河湖长数量</th>
+                <td>共181名：省级1名、州（市）级1名、县级及以下179名</td>
+              </tr>
+              <tr>
+                <th>发源地</th>
+                <td>镇雄县赤水源镇银厂村 （长槽村民小组滮水岩）</td>
+              </tr>
+              <tr>
+                <th>云南境内落差</th>
+                <td>1295 m</td>
+              </tr>
+              <tr>
+                <th>发源地高程</th>
+                <td>2020 m</td>
+              </tr>
+              <tr>
+                <th>出境处及高程</th>
+                <td>镇雄县坡头镇德隆村三岔河，725 m</td>
+              </tr>
+              <tr>
+                <th>监测断面</th>
+                <td>共计4个，其中国控断面2个、省控断面2个</td>
+              </tr>
+              <tr>
+                <th>2024年出境水质</th>
+                <td>Ⅱ类</td>
+              </tr>
+              <tr>
+                <th>多年平均水资源量</th>
+                <td>8.65 亿 m³</td>
+              </tr>
+              <tr>
+                <th>近3年平均水资源量</th>
+                <td>-</td>
+              </tr>
+              <tr>
+                <th>流域人口</th>
+                <td>60.14 万人</td>
+              </tr>
+              <tr>
+                <th>人均水资源量</th>
+                <td>1438 m³</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ws-page">
+          <div class="ws-head">
+            <h5 class="ws-name">黑惠江<span class="ws-code">WS-09</span></h5>
+            <span class="ws-region">丽江 · 大理 · 保山 · 临沧，澜沧江一级支流</span>
+          </div>
+          <h6 class="ws-sub">基础概况</h6>
+          <table class="ws-kv">
+            <tbody>
+              <tr>
+                <th>长度</th>
+                <td>341.8 km</td>
+              </tr>
+              <tr>
+                <th>流域面积</th>
+                <td>12044 km²</td>
+              </tr>
+              <tr>
+                <th>涉及州市县</th>
+                <td>丽江、大理、保山、临沧4个州（市）的11个县（市、区）</td>
+              </tr>
+              <tr>
+                <th>河湖长数量</th>
+                <td>共344名：省级1名、州（市）级4名、县级及以下339名</td>
+              </tr>
+              <tr>
+                <th>发源地</th>
+                <td>丽江市玉龙县九河乡 （白汉场罗凤山）</td>
+              </tr>
+              <tr>
+                <th>云南境内落差</th>
+                <td>1790 m</td>
+              </tr>
+              <tr>
+                <th>发源地高程</th>
+                <td>2720 m</td>
+              </tr>
+              <tr>
+                <th>汇入澜沧江处及高程</th>
+                <td>南涧县岔江村，930 m</td>
+              </tr>
+              <tr>
+                <th>监测断面</th>
+                <td>共计8个，其中国控断面4个、省控断面4个</td>
+              </tr>
+              <tr>
+                <th>2024年总体水质</th>
+                <td>Ⅱ类</td>
+              </tr>
+              <tr>
+                <th>多年平均水资源量</th>
+                <td>46.56 亿 m³</td>
+              </tr>
+              <tr>
+                <th>近3年平均水资源量</th>
+                <td>-</td>
+              </tr>
+              <tr>
+                <th>流域人口</th>
+                <td>150.34 万人</td>
+              </tr>
+              <tr>
+                <th>人均水资源量</th>
+                <td>3108 m³</td>
               </tr>
             </tbody>
           </table>
@@ -3725,12 +4887,41 @@
       </div>
 
       <div class="vm-user" id="vmUser" hidden>
-        <div class="vm-user__name" id="vmUserName"></div>
-        <p class="vm-user__meta">登录状态保存在本机，仅手动退出才清除</p>
-        <p class="vm-user__hint">水域清单取自河湖长制信息管理系统，接入后在此按河段、湖片、渠段、坝塘片、水库片分组显示。</p>
-        <div class="vm-actions">
-          <button class="vm-btn primary" type="button" id="vmLogout">退出登录</button>
+        <div class="vm-state" id="vmState">
+          <span class="vm-state__txt" id="vmStateTxt">加载中…</span>
+          <span class="vm-state__acts">
+            <button class="vm-btn primary" type="button" id="vmLogout">退出登录</button>
+          </span>
         </div>
+
+        <div class="vm-map" id="vmMap">
+          <div class="vm-map__flag" id="vmMapFlag">底图未加载</div>
+          <div class="vm-map__acts">
+            <button class="vm-chip" type="button" id="vmBaseBtn" aria-pressed="true">底图 · 影像</button>
+            <button class="vm-chip" type="button" id="vmWaterChip" aria-pressed="true">水域线</button>
+            <button class="vm-chip" type="button" id="vmKidsChip" aria-pressed="true">下辖区划</button>
+          </div>
+        </div>
+
+        <div class="vm-stat">
+          <div><b id="vmStArea">—</b><span>所属区划</span></div>
+          <div><b id="vmStKids">—</b><span id="vmStKidsLabel">下辖区划</span></div>
+          <div><b id="vmStWater">—</b><span>河湖库渠塘</span></div>
+          <div><b id="vmStChief">—</b><span>下级河长</span></div>
+        </div>
+
+        <details class="vm-fold" open>
+          <summary><span id="vmFoldTitle">下辖区划</span> <em id="vmFoldCount">0</em></summary>
+          <ul class="vm-kids" id="vmKidList"></ul>
+        </details>
+
+        <details class="vm-fold">
+          <summary>数据说明</summary>
+          <ul class="vm-note__body" id="vmWarn">
+            <li>管辖范围取自河湖长制信息管理系统，点位为区划中心点。</li>
+            <li>底图仅覆盖云南省域，省界以外显示为空白。</li>
+          </ul>
+        </details>
       </div>
 
       <div class="vm-note">
@@ -3760,6 +4951,17 @@
       </svg>
       <span>下一章</span>
     </button>
+    <a class="tabbar__item" href="./云南河湖长制十周年成果云展.html" target="_blank" rel="noopener" aria-label="参观云南河湖长制十周年成果云展">
+      <svg viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+        stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 屏幕 + 水波：线上展馆（云展），水波点出河湖 -->
+        <rect x="2.8" y="4.2" width="18.4" height="12.4" rx="1.8" />
+        <path d="M9.4 20.3h5.2" />
+        <path d="M12 16.6v3.7" />
+        <path d="M7.2 10.5c1.5-1.35 3-1.35 4.5 0s3 1.35 4.5 0" />
+      </svg>
+      <span>十周年云展&#8599;</span>
+    </a>
     <a class="tabbar__item" href="#ch1" data-ch="ch1">
       <svg viewBox="0 0 1121 1024" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -3792,9 +4994,343 @@
           d="M700.672 719.189333c92.16-61.269333 153.088-166.058667 153.088-284.757333 0-188.416-153.344-341.76-341.76-341.76S170.24 246.016 170.24 434.432c0 118.698667 60.928 223.488 153.088 284.757333a160.085333 160.085333 0 0 0-30.464 21.504c-38.997333 35.328-58.709333 87.978667-58.709333 156.416 0 18.858667 15.274667 34.133333 34.133333 34.133334s34.133333-15.274667 34.133333-34.133334c0-48.128 12.032-83.541333 35.84-105.472 32.768-30.122667 79.530667-26.88 80.810667-26.709333 2.048 0.170667 4.096 0.170667 6.058667 0a342.016 342.016 0 0 0 173.482666 0c2.133333 0.170667 4.266667 0.256 6.4 0 0.512 0 47.104-3.669333 80.213334 26.282667 24.064 21.845333 36.266667 57.429333 36.266666 105.898666 0 18.858667 15.274667 34.133333 34.133334 34.133334s34.133333-15.274667 34.133333-34.133334c0-68.522667-19.712-121.088-58.709333-156.416a156.945067 156.945067 0 0 0-30.378667-21.504zM238.506667 434.432c0-150.784 122.709333-273.493333 273.493333-273.493333s273.493333 122.709333 273.493333 273.493333S662.784 707.925333 512 707.925333 238.506667 585.216 238.506667 434.432z"
           fill="#5F5F6B" />
       </svg>
-      <span>我管理的水域</span>
+      <span>水域管理</span>
     </a>
   </nav>
+
+  <!-- 典型案例弹层：乱建 · 大棚（对应「5. 大棚」条目） -->
+  <div class="dlg-mask" id="caseMask" hidden>
+    <div class="dlg dlg-case" role="dialog" aria-modal="true" aria-labelledby="caseTitle">
+      <div class="dlg-bar" aria-hidden="true"></div>
+      <button class="dlg-x" type="button" aria-label="关闭" data-case-close>
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9"
+          stroke-linecap="round">
+          <path d="M5 5l14 14M19 5L5 19" />
+        </svg>
+      </button>
+
+      <div class="dlg-head">
+        <h2 class="dlg-title" id="caseTitle">昆明市阳宗海拆除管理范围内大棚案</h2>
+      </div>
+
+      <div class="case-body">
+        <h3>一、基本案情</h3>
+        <p>阳宗海，云南省重点高原湖泊之一，属珠江水系南盘江流域，总蓄水量 6.17 亿立方米，湖面最大面积 31.9
+          平方公里，平均水深约 20 米，最大水深 29.7 米，流域面积 192 平方公里。</p>
+        <p>2024 年 2 月，水利部向云南省推送河湖疑似问题图斑，其中涉及阳宗海管理范围内 1 个疑似问题图斑，经现场复核，该图斑为胡家庄社区村民搭建的种植大棚。</p>
+
+        <h3>二、清理整治过程</h3>
+        <p><b>一是坚持高位统筹推进整改。</b>针对阳宗海管理范围（胡家庄区域）内大棚，阳宗海风景区管委会由分管负责同志组织召开
+          2 次会议，研究大棚退出事宜，制定拆除工作方案，明确退出时间及后续管控措施，并于 2024 年 12 月 16
+          日组织人员对大棚进行拆除。</p>
+        <p><b>二是坚持用法治化思维治理湖泊。</b>通过立法的形式，着力解决管理保护过程中违法成本过低、处罚力度不足等问题。先后 4
+          次对《云南省阳宗海保护条例》（以下简称《条例》）进行修订，最新版的《条例》已于 2024 年 1 月 1
+          日正式施行。加强《条例》宣传力度，2024 年以来，向市级、区级相关部门及乡镇（街道）发放《条例》文本 3000 余册，在《条例》应知应会手册中确定题目
+          60 条，向群众发放明白卡 10000 余份，编辑关于“三区”管控要求的广播语 3 条，开展集中宣传 25 次，让《条例》入脑入心，为推进阳宗海保护治理工作持续发力。</p>
+        <p>
+          <b>三是坚持长效管护制定措施。</b>谨防此类问题再次发生，建立健全河湖管护长效机制，出台了《昆明阳宗海风景名胜区河湖管护方案》，指定专人划定区域负责管护阳宗海管理范围内日常管护保洁工作，要求及时清理湖岸及管理范围内所有杂物，做到日产日清，同时做好宣传、劝导、监督工作，发现在阳宗海管理范围内填湖、围湖、造田、造地、开垦、围垦、填埋、复垦、污水和垃圾直接排入阳宗海、新增违法违规建（构）筑物的行为，及时劝阻，对劝阻无效的由阳宗海综合执法处进行处理，形成违法事项处理闭环。
+        </p>
+
+        <h3>三、以案释法</h3>
+        <p>
+          <b>一是</b>违反《中华人民共和国水法》第三十七条“禁止在江河、湖泊、水库、运河、渠道内弃置、堆放阻碍行洪的物体和种植阻碍行洪的林木及高秆作物。禁止在河道管理范围内建设妨碍行洪的建筑物、构筑物以及从事影响河势稳定、危害河岸堤防安全和其他妨碍河道行洪的活动”。
+        </p>
+        <p>
+          <b>二是</b>违反《中华人民共和国防洪法》第二十二条“河道、湖泊管理范围内的土地和岸线的利用，应当符合行洪、输水的要求。禁止在河道、湖泊管理范围内建设妨碍行洪的建筑物、构筑物，倾倒垃圾、渣土，从事影响河势稳定、危害河岸堤防安全和其他妨碍河道行洪的活动”。
+        </p>
+
+        <h3>整改前后对比</h3>
+        <div class="case-pics">
+          <figure>
+            <img src="./images/docx/dapeng1.png" tabindex="0" alt="整改前：阳宗海管理范围内搭建的种植大棚" loading="lazy">
+            <figcaption>整改前 · 2024 年 6 月</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/docx/dapeng2.png" tabindex="0" alt="整改后：大棚已拆除并清理地面残留物" loading="lazy">
+            <figcaption>整改后 · 2024 年 12 月</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 典型案例弹层：乱建 · 临河房屋（对应「1. 临河房屋」条目） -->
+  <div class="dlg-mask" id="caseMask2" hidden>
+    <div class="dlg dlg-case" role="dialog" aria-modal="true" aria-labelledby="caseTitle2">
+      <div class="dlg-bar" aria-hidden="true"></div>
+      <button class="dlg-x" type="button" aria-label="关闭" data-case-close>
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9"
+          stroke-linecap="round">
+          <path d="M5 5l14 14M19 5L5 19" />
+        </svg>
+      </button>
+
+      <div class="dlg-head">
+        <h2 class="dlg-title" id="caseTitle2">曲靖市麒麟区独木水库库区管理范围内乱建房屋拆除案</h2>
+      </div>
+
+      <div class="case-body">
+        <h3>一、基本案情</h3>
+        <p>独木水库位于曲靖市麒麟区东南部九龙河上段源头区，水库径流面积 196 平方千米，总库容 10560 万立方米，是一座以城市供水为主，兼顾农业灌溉、防洪的大（Ⅱ）型水库。2024
+          年水利部向曲靖市推送的河湖库卫星遥感图斑中显示曲靖市独木水库库区内存在疑似乱建问题，经现场复核，该图斑为独木村村民未经批准的自建房屋，主体建筑 200
+          平方米，附属建筑 75.6 平方米，对水库的行洪安全和生态环境造成了影响。</p>
+
+        <h3>二、清理整治过程</h3>
+        <p>曲靖市河长办迅速组织麒麟区水务局、独木水库管理局、东山镇人民政府等有关部门进行会商研判，明确整改要求及时限，同时联合市公安局、市检察院对该问题进行现场调查取证、核查认定，及时下达限期整改通知，确保问题按期按质完成整改。
+        </p>
+        <p>经过多次与当事人沟通协调，宣传讲解相关法律法规及河长制、河湖库“清四乱”等工作相关政策，传达该建筑物对水库行洪安全及生态环境产生的严重影响后，当事人表示同意配合拆除，并于
+          2024 年 11 月 11 日开始拆除工作，历时 15 天，投入 2 台机械设备，投入整治人数 10 人，清理整治资金 10 万元，整治面积累计达到 275.6 平方米，清理建筑垃圾 337
+          吨，完成了违建房屋拆除工作，恢复了库区原貌。</p>
+
+        <h3>三、以案释法</h3>
+        <p>
+          在水库库区建房，影响水库功能发挥，违反《中华人民共和国水法》第三十七条“禁止在江河、湖泊、水库、运河、渠道内弃置、堆放阻碍行洪的物体和种植阻碍行洪的林木及高秆作物”、《中华人民共和国防洪法》第二十二条“禁止在河道、湖泊管理范围内建设妨碍行洪的建筑物、构筑物，倾倒垃圾、渣土，从事影响河势稳定、危害河岸堤防安全和其他妨碍河道行洪的活动”、《云南省水利工程管理条例》第三十条“在水利工程管理范围内，除执行本条例第二十九条规定外，还禁止下列行为：（六）建设与水利工程管理无关的建筑物、构筑物”的规定。
+        </p>
+
+        <h3>整改前后对比</h3>
+        <div class="case-pics">
+          <figure>
+            <img src="./images/docx/case2-dumu-1.png" tabindex="0" alt="整改前：独木水库库区管理范围内临水而建的房屋" loading="lazy">
+            <figcaption>整改前 1 · 库岸房屋</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/docx/case2-dumu-2.jpeg" tabindex="0" alt="整改前：独木水库库区远景，房屋位于水岸" loading="lazy">
+            <figcaption>整改前 2 · 库区远景</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/docx/case2-dumu-3.jpeg" tabindex="0" alt="整改后：房屋已拆除，库岸恢复原貌" loading="lazy">
+            <figcaption>整改后 1 · 库岸恢复</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/docx/case2-dumu-4.jpeg" tabindex="0" alt="整改后：与整改前同一机位的库区现状" loading="lazy">
+            <figcaption>整改后 2 · 同机位对比</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 典型案例弹层：乱占 · 文体旅游设施（对应「5. 文体旅游设施」条目） -->
+  <div class="dlg-mask" id="caseMask3" hidden>
+    <div class="dlg dlg-case" role="dialog" aria-modal="true" aria-labelledby="caseTitle3">
+      <div class="dlg-bar" aria-hidden="true"></div>
+      <button class="dlg-x" type="button" aria-label="关闭" data-case-close>
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9"
+          stroke-linecap="round">
+          <path d="M5 5l14 14M19 5L5 19" />
+        </svg>
+      </button>
+
+      <div class="dlg-head">
+        <h2 class="dlg-title" id="caseTitle3">西双版纳州景洪市景洪电站库区非法开展水上娱乐项目查处案</h2>
+      </div>
+
+      <div class="case-body">
+        <h3>一、基本案情</h3>
+        <p>景洪电站水库位于澜沧江下游西双版纳州境内，于 2009 年全部建成，坝址距下游的景洪市约 5 公里。电站以发电为主，并兼有航运、防洪、旅游等综合利用效益，是景洪市城区主要供水水源地。2024
+          年 2 月 20
+          日，景洪市河长办联合市级各有关部门对澜沧江景洪电站库区江头曼咪村旅游开发项目进行联合检查时，发现西双版纳发现王国主题乐园有限公司在江头曼咪村小组码头处未经许可擅自开展快艇、摩托艇等水上娱乐项目经营活动，路面占地面积约
+          30 亩，水上浮船面积 500 平方米，未获得相关部门的批准或报备。该项目自 2023 年 10 月 20 日起开始营业，通过互联网平台宣传和网络售票吸引大量游客，对澜沧江水生态安全构成潜在威胁。</p>
+        <p>经调查，该公司与江头曼咪村小组于 2023 年 8 月 25 日签订合作协议，并于 2023 年 11 月 29
+          日仅在市教育体育局进行了体育项目经营报备，未取得其他有关部门的批准。项目位于城区饮用水水源地二级保护区范围内，主要污染物为摩托艇、快艇尾气及生活垃圾。尽管水质监测显示取水口水质达标，但项目已构成违法运营。</p>
+
+        <h3>二、清理整治过程</h3>
+        <p>2024 年 2 月 21
+          日，景洪市交通运输局依据《国内水路运输管理条例》对西双版纳发现王国主题乐园有限公司下达行政强制措施决定书，要求清除摩托艇和游船，停止运营。西双版纳州生态环境局景洪分局认为西双版纳发现王国主题乐园有限公司涉嫌违反《中华人民共和国水污染防治法》，依法立案处理。景洪市江北街道办事处在核实合同签订情况后，发现西双版纳发现王国主题乐园有限公司存在未经批准擅自签订协议的问题，决定解除合同并追究相关责任。西双版纳发现王国主题乐园有限公司于
+          2024 年 2 月 22 日停止水上娱乐项目运营，拆除并清运相关设施，恢复河道原貌。</p>
+
+        <h3>三、以案释法</h3>
+        <p>
+          西双版纳发现王国主题乐园有限公司在城市饮用水水源地二级保护区范围内擅自开展快艇、摩托艇等水上娱乐项目经营活动，一是违反了《国内水路运输管理条例》第二十七条“经营船舶管理业务，应当经设区的市级以上地方人民政府负责水路运输管理的部门批准”。二是违反了《中华人民共和国水污染防治法》第六十六条“禁止在饮用水水源二级保护区内新建、改建、扩建排放污染物的建设项目；已建成的排放污染物的建设项目，由县级以上人民政府责令拆除或者关闭”。
+        </p>
+
+        <h3>整改前后对比</h3>
+        <div class="case-pics">
+          <figure>
+            <img src="./images/docx/case3-jinghong-1.jpeg" tabindex="0" alt="整改前：景洪电站库区码头处的水上娱乐项目设施" loading="lazy">
+            <figcaption>整改前</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/docx/case3-jinghong-2.jpeg" tabindex="0" alt="整改后：水上娱乐设施已拆除，河道恢复原貌" loading="lazy">
+            <figcaption>整改后</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 典型案例弹层：乱占 · 其它占用（对应「8. 其它占用」条目） -->
+  <div class="dlg-mask" id="caseMask4" hidden>
+    <div class="dlg dlg-case" role="dialog" aria-modal="true" aria-labelledby="caseTitle4">
+      <div class="dlg-bar" aria-hidden="true"></div>
+      <button class="dlg-x" type="button" aria-label="关闭" data-case-close>
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9"
+          stroke-linecap="round">
+          <path d="M5 5l14 14M19 5L5 19" />
+        </svg>
+      </button>
+
+      <div class="dlg-head">
+        <h2 class="dlg-title" id="caseTitle4">大理州鹤庆县金沙江禾米渡口船舶占用河道管理范围案</h2>
+      </div>
+
+      <div class="case-body">
+        <h3>一、基本案情</h3>
+        <p>金沙江（鹤庆段）流域面积 439 平方千米，在鹤庆县境内的长度 53.5 千米。主要支流漾弓江、落漏河、河川河、后山河自西向东在龙开口镇汇入金沙江。</p>
+        <p>2024 年 6 月 10 日，省河长办对金沙江干流（鹤庆段）岸线进行巡查，发现龙开口镇禾米村委会禾米渡口有船舶占用河道管理范围。占用河道管理范围的船舶有 4 艘，其中
+          52.8 米采砂船 1 艘，500 吨运砂船 2 艘、生活用船 1 艘，船舶下部及周边留有洪水消退后的泥沙，水位上升船舶被浸没高度达 1 米。同年 8 月 2
+          日县人民检察院对该问题进行公益诉讼案件立案调查，同时提交县水务局、县林草局和龙开口镇人民政府。</p>
+
+        <h3>二、清理整治过程</h3>
+        <p>
+          <b>（一）高位推动，履职效能持续提升。</b>针对禾米村委会禾米渡口船舶占用河道管理范围的问题，县人民政府高度重视，制定金沙江干流（鹤庆段）岸线巡查发现问题整改工作方案，成立专项工作领导小组，由分管副县长任组长，县水务局、林草局、交通局及龙开口镇负责人为成员，统筹协调推进整改工作，全面清理河道管理范围内违规停放的船舶，恢复河道行洪畅通，保障沿岸群众生命财产安全。
+        </p>
+        <p>
+          <b>（二）以“河湖长＋检察长”机制为抓手，持续完善协同体系，强化履职效能。</b>收到检察院检察建议书后，县水务局作为牵头部门，迅速组织对检察整改建议进行研究，第一时间成立由局长任组长、局其他班子成员为副组长、联合县林草局、交通局和龙开口镇人民政府成立工作专班，明确各单位职责分工，凝心聚力抓实整改工作。
+        </p>
+        <p><b>（三）举一反三，狠抓整改落实见效。</b>一是开展集中清理整治，县水务局积极会同龙开口镇人民政府分析研判，采取有力措施，积极进行整治。与船主多次协商，签订《金沙江（鹤庆段）“三无”船舶拆解协议书》，经过近
+          1 个月时间的拆解和外运，于 11 月 5
+          日全面完成拆解。在拆除过程中将所有的废弃材料及产生的垃圾及时运走，禁止继续侵占金沙江水域岸线管理范围堆放废弃物，污染水体。二是认真反思，深刻反省，举一反三，进一步认真查找问题，同时常态化开展河湖库渠“四乱”排查，对发现的问题及时进行清理整治，避免类似问题再次发生。三是强化宣传引导，增强群众环保意识。以乡村振兴、幸福河湖建设、“长江十年禁渔”等相关专项行动为契机，大力开展金沙江保护宣传工作，引导群众珍爱河湖，保护生态。
+        </p>
+
+        <h3>三、以案释法</h3>
+        <p>
+          占用河道管理范围弃置船舶，违反了《中华人民共和国防洪法》第二十二条“禁止在河道、湖泊管理范围内建设妨碍行洪的建筑物、构筑物，倾倒垃圾、渣土，从事影响河势稳定、危害河岸堤防安全和其他妨碍河道行洪的活动”和第五十五条：“在河道、湖泊管理范围内倾倒垃圾、渣土，从事影响河势稳定、危害河岸堤防安全和其他妨碍河道行洪的行为，责令停止违法行为，排除阻碍或者采取其他补救措施，可处五万元以下的罚款”。
+        </p>
+
+        <h3>整改前后对比</h3>
+        <div class="case-pics">
+          <figure>
+            <img src="./images/docx/case4-hemi-1.jpeg" tabindex="0" alt="整改前：禾米渡口停放的采砂船、运砂船占用河道管理范围" loading="lazy">
+            <figcaption>整改前</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/docx/case4-hemi-2.jpeg" tabindex="0" alt="整改后：船舶已拆解清运，河道恢复行洪畅通" loading="lazy">
+            <figcaption>整改后</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 典型案例弹层：乱采 · 采砂场（对应「1. 采砂场」条目） -->
+  <div class="dlg-mask" id="caseMask5" hidden>
+    <div class="dlg dlg-case" role="dialog" aria-modal="true" aria-labelledby="caseTitle5">
+      <div class="dlg-bar" aria-hidden="true"></div>
+      <button class="dlg-x" type="button" aria-label="关闭" data-case-close>
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9"
+          stroke-linecap="round">
+          <path d="M5 5l14 14M19 5L5 19" />
+        </svg>
+      </button>
+
+      <div class="dlg-head">
+        <h2 class="dlg-title" id="caseTitle5">德宏州盈江县打击大盈江非法采砂案</h2>
+      </div>
+
+      <div class="case-body">
+        <h3>一、基本案情</h3>
+        <p>大盈江是盈江县辖区内最大的河流，属伊洛瓦底江流域，盈江县境内全长 77.25 公里，流域面积 2885.3
+          平方公里，是全县工农业生产、生活用水及生态补水的重要水源，沿岸砂石资源丰富、品质优良。受利益驱使，部分不法分子在大盈江河道内违法盗采砂石，不仅破坏了河道生态环境，还影响了河势稳定、防洪安全和沿岸群众生产生活秩序。</p>
+        <p>2024 年 10 月 7 日凌晨 4 点，盈江县水利局水政监察大队接到 110
+          来电举报，反映孔某某在平原镇勐町村委会户蚌村民小组旁大盈江河道内违法开采河砂，接到举报后盈江县水利局立即启动“河湖长＋警长”联动响应机制，及时派出执法工作人员，连夜开展现场执法，经县水利局、公安局执法人员现场调查核实，当事人孔某某未获水行政主管部门批准，擅自在大盈江河道内违采河砂
+          54 立方米，所采砂石未出售，现场遗留采砂设备及堆砂痕迹。</p>
+
+        <h3>二、清理整治过程</h3>
+        <p>
+          <b>（一）落实机制强保障，高效推进案件查处。</b>切实发挥公安机关在河湖长制工作中的法治执行作用，严格落实《盈江县公安机关全面落实“河湖警长制”工作实施办法（试行）》，通过“河湖长＋警长”工作机制加大全域河流、水库和湿地等执法保护力度，严厉打击破坏生态环境等违法犯罪行为。在孔某某非法采砂案处置过程中，盈江县严格按照“河湖长＋警长”协作要求，水利部门第一时间向公安部门移交案件线索，公安机关迅速指派警力配合水政执法人员开展现场调查取证，有效保障案件查处及时高效推进。
+        </p>
+        <p>
+          <b>（二）依法处置严打击，确保整改落实到位。</b>经调查取证，孔某某未经许可擅自开采河道砂石的违法行为违反了《中华人民共和国河道管理条例》第二十五条规定。依据《中华人民共和国河道管理条例》第四十四条、《云南省实施&lt;中华人民共和国水法&gt;办法》第四十二条、《云南省水行政处罚自由裁量权实施标准》第一章河道管理第十三项规定，对当事人处以
+          10000 元罚款并责其限期整改清理，恢复江滩原貌。同时，执法人员对孔某某进行了生态环境保护法律法规宣传教育，引导其认识到非法采砂的危害性，增强守法意识。
+        </p>
+        <p>
+          <b>（三）以案促改强监管，推动河湖治理常态化。</b>以孔某某非法采砂案为契机，盈江县不断完善“河湖长＋警长”协作机制，水利部门坚持开展河道日常巡查，公安部门治安大队及各派出所将河道巡查纳入日常警务工作，对发现的违法线索及时移交处置；及时组织联合执法专项行动，严厉打击各类涉河违法犯罪行为。此外，盈江县还通过电视、广播、微信公众号等渠道，广泛宣传河道管理法律法规及非法采砂的危害性，公布举报电话，鼓励群众积极参与河湖保护，形成了“政府主导、部门联动、群众参与”的河湖生态保护格局。
+        </p>
+
+        <h3>三、以案释法</h3>
+        <p>
+          当事人孔某某未经水行政主管部门批准，擅自在大盈江河道内开采河砂，违反了《中华人民共和国河道管理条例》第二十五条、第四十四条，依据《云南省实施&lt;中华人民共和国水法&gt;办法》第四十二条、《云南省水行政处罚自由裁量权实施标准》第一章河道管理第十三项规定进行处罚。
+        </p>
+
+        <h3>查处现场</h3>
+        <div class="case-pics">
+          <figure>
+            <img src="./images/docx/case5-yingjiang-1.png" tabindex="0" alt="大盈江平原镇勐町村户蚌段查处违法盗采砂石现场联合执法" loading="lazy">
+            <figcaption>现场联合执法</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/docx/case5-yingjiang-2.jpeg" tabindex="0" alt="大盈江平原镇勐町村户蚌段查处违法盗采砂石现场查扣机械"
+              loading="lazy">
+            <figcaption>现场查扣机械</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/docx/case5-yingjiang-3.jpeg" tabindex="0" alt="大盈江平原镇勐町村户蚌段非法采砂现场" loading="lazy">
+            <figcaption>非法采砂现场 1</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/docx/case5-yingjiang-4.jpeg" tabindex="0" alt="大盈江平原镇勐町村户蚌段非法采砂现场" loading="lazy">
+            <figcaption>非法采砂现场 2</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 典型案例弹层：乱堆 · 弃渣（土）场（对应「1. 弃渣（土）场」条目） -->
+  <div class="dlg-mask" id="caseMask6" hidden>
+    <div class="dlg dlg-case" role="dialog" aria-modal="true" aria-labelledby="caseTitle6">
+      <div class="dlg-bar" aria-hidden="true"></div>
+      <button class="dlg-x" type="button" aria-label="关闭" data-case-close>
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9"
+          stroke-linecap="round">
+          <path d="M5 5l14 14M19 5L5 19" />
+        </svg>
+      </button>
+
+      <div class="dlg-head">
+        <h2 class="dlg-title" id="caseTitle6">怒江州贡山县王得洛河河道内违规弃渣案</h2>
+      </div>
+
+      <div class="case-body">
+        <h3>一、基本案情</h3>
+        <p>贡山县水利局于 2025 年 12 月中旬开展全面推行“清河”专项行动及全面排查整治河湖管理范围内“倾倒垃圾”问题专项行动。2025 年 12 月 19
+          日接到乡镇河道管理员举报，王得洛河存在河道内违规倾倒渣土问题，贡山县水利局立即反应并迅速赶赴现场核查。经对现场施工人员问询及周边村民指证，中交集团第六公司受贡山县住房和城乡建设局委托，开展城市污水管网更换施工，中交集团第六公司将施工中产生的渣土倾倒至王得洛河河道内。
+        </p>
+
+        <h3>二、清理整治过程</h3>
+        <p>接到问题举报并进行核实后，贡山县水利局在 2025 年 12 月 19
+          日迅速向县住房和城乡建设局、中交集团第六公司项目负责人印发《贡山县水利局关于王得洛非法倾倒渣土问题督办函》《贡山县水利局关于王得洛非法倾倒渣土问题整改通知书》，要求 1
+          周内限期清运违规倾倒渣土，恢复河道原貌。2025 年 12 月 24
+          日，县水利局对违规倾倒渣土施工单位和县住建局项目负责人进行约谈，现场宣讲河湖保护相关法律法规，告知其违法行为的危害和法律后果。中交集团第六公司当天下午通过动用小型挖机、卡车等机械设备，清运渣土 30
+          余吨。2025 年 12 月 25
+          日，县水利局组织工作人员现场复核，确认该倾倒点渣土全部清理完毕，岸线生态恢复良好，行洪断面恢复正常，对照河湖问题台账完成销号。同时，要求河道管理员增加巡查频次，实现常态化管控。</p>
+
+        <h3>三、以案释法</h3>
+        <p>
+          中交集团第六公司受贡山县住房和城乡建设局委托，在开展城市污水管网更换施工过程中，为节约成本，方便施工。在未取得水行政部门许可的情况下，私自在王得洛河河道管理范围堆放渣土，部分渣土滚入河道缩小了河道行洪断面，阻碍了水流正常通行，一旦遭遇洪水，水流速度会减缓，水位将迅速上升，大大增加了洪水泛滥风险，严重威胁到周边居民的生命和财产安全。此案违反了《中华人民共和国防洪法》第二十二条规定，禁止在河道、湖泊管理范围内建设妨碍行洪的建筑物、构筑物，倾倒垃圾、渣土，从事影响河势稳定、危害河岸堤防安全和其他妨碍河道行洪的活动。
+        </p>
+
+        <h3>整改前后对比</h3>
+        <div class="case-pics">
+          <figure>
+            <img src="./images/docx/case6-gongshan-1.jpeg" tabindex="0" alt="整改前：王得洛河河道内违规倾倒的渣土" loading="lazy">
+            <figcaption>整改前</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/docx/case6-gongshan-2.jpeg" tabindex="0" alt="整改后：渣土清运完毕，行洪断面恢复" loading="lazy">
+            <figcaption>整改后</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 案例照片查看大图：点弹层内照片后全屏展示 -->
+  <div class="img-viewer" id="caseViewer" hidden role="dialog" aria-modal="true" aria-label="查看大图" tabindex="-1">
+    <img alt="">
+    <div class="iv-tip">点击空白处或按 Esc 返回</div>
+  </div>
 
   <!-- 登录模态框：替代原 login.html 页面，就地弹层 -->
   <div class="dlg-mask" id="loginMask" hidden>
@@ -3859,10 +5395,14 @@
 
   <!-- 脚本地址带版本串，避免改完 JS 后还跑旧的 -->
   <script src="./assets/vendor/sm2.js"></script>
+  <script src="./assets/vendor/leaflet/leaflet.js"></script>
+  <script src="./js/url-login.js"></script>
   <script src="./js/index.js"></script>
   <script src="./js/section-collapse.js"></script>
+  <script src="./js/case-modal.js"></script>
   <script src="./js/login-modal.js"></script>
   <script src="./js/my-waters.js"></script>
+  <script src="./js/mine-map.js"></script>
 </body>
 
 </html>

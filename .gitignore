@@ -8,3 +8,6 @@ assets/font/*.zip
 assets/font/heiti/
 assets/font/songti/
 assets/font/kaiti/
+*.zip
+*.md
+*.docx

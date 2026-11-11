@@ -23,13 +23,12 @@
     <div class="cv-inner">
       <p class="cv-kicker">欢 迎 使 用</p>
       <h1 class="cv-title">云南省河湖长工作手册</h1>
-      <p class="cv-slogan">政策依据 · 工作清单 · 河湖信息速查</p>
+      <p class="cv-slogan">政策依据·工作清单·河湖信息速查</p>
       <p class="cv-desc">面向省、州（市）、县、乡、村五级河湖长，汇集政策依据、工作要求、全省河湖长信息、岸线空间管控、清四乱、幸福河湖、奖补资金与高原湖泊、六大水系资料，巡河巡湖随手可查。</p>
 
       <div class="cv-meta">
         <span><b>8</b> 章</span><i></i>
-        <span><b>45</b> 个小节</span><i></i>
-        <span>数据截止 2025-12-31</span>
+        <span><b>45</b> 个小节</span>
       </div>
 
       <div class="cv-btns">
@@ -47,11 +46,21 @@
     </div>
   </div>
 
+  <script src="./js/url-login.js"></script>
   <script>
-    /* 进入手册：先播 0.6s 淡出再跳转；脚本失效时 <a href> 仍可直接进 */
+    /* 进入手册：先播 0.6s 淡出再跳转；脚本失效时 <a href> 仍可直接进。
+       带 ?userName&token 时等价于已登录，直达正文、跳过封面 */
     (function () {
       var cover = document.getElementById('cover');
       var btn = document.getElementById('coverEnter');
+      var qs = window.location.search || '';
+
+      // 带登录参数 → 直接进正文（登录态已由 url-login.js 写入 localStorage）
+      if (/[?&]userName=/i.test(qs) && /[?&]token=/i.test(qs)) {
+        window.location.replace('./shouce.html' + qs + '#ch1');
+        return;
+      }
+
       if (!cover || !btn) return;
       btn.addEventListener('click', function (e) {
         if (btn.dataset.leaving === '1') return;
@@ -59,7 +68,7 @@
         btn.dataset.leaving = '1';
         cover.classList.add('closing');
         window.setTimeout(function () {
-          window.location.href = './shouce.html#ch1';
+          window.location.href = './shouce.html' + qs + '#ch1';
         }, 600);
       });
     })();

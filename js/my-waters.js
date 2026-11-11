@@ -9,9 +9,6 @@
   if (!view || !layout) return;
 
   var KEY = 'hzz_session';
-  var guest = document.getElementById('vmGuest');
-  var userBox = document.getElementById('vmUser');
-  var userName = document.getElementById('vmUserName');
   var tabItem = document.querySelector('[data-open-login]');
   var isOpen = false;
 
@@ -25,10 +22,13 @@
 
   function render() {
     var s = readSession();
-    var logged = !!(s && s.userName);
+    // ?uid= 用于未登录演示：直接按该账号渲染，不必真登录
+    var demo = new URLSearchParams(location.search).get('uid');
+    var logged = !!(s && s.token) || !!demo;
+    var guest = document.getElementById('vmGuest');
+    var userBox = document.getElementById('vmUser');
     if (guest) guest.hidden = logged;
     if (userBox) userBox.hidden = !logged;
-    if (logged && userName) userName.textContent = s.userName;
     // 底栏高亮只在视图打开时算数
     if (tabItem) tabItem.classList.toggle('is-view', isOpen);
   }
@@ -98,6 +98,5 @@
   document.addEventListener('hzz:session', render);
 
   if (location.hash === '#my') show();
-
   render();
 })();
