@@ -6735,9 +6735,8 @@
       height: auto;
       z-index: -1;
       border: 1px solid #D8E7F6;
-      border-radius: 6px;
+      border-radius: 8px;
       background: linear-gradient(90deg, #DDEBFA 0%, #F4F9FE 100%);
-      transform: skewX(-12deg);
       transition: background .15s ease, border-color .15s ease
     }
 
@@ -6925,8 +6924,8 @@
       }
 
       .tabbar__item span {
-        /* 五项并排后每格只剩约 70px，「我管理的水域」六个字要在 10px 上下才放得下 */
-        font-size: calc(clamp(9.5px, 2.7vw, 11.5px) * var(--fs-k));
+        /* 七项并排，每格约 55px；两行两字排布下 12px 也放得下，不必压到 10px */
+        font-size: calc(clamp(11px, 3.05vw, 13px) * var(--fs-k));
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -6968,9 +6967,9 @@
         background: var(--blue)
       }
 
-      /* 给固定条让位，别压住「上一章/下一章」 */
+      /* 给固定条让位：字号放大后底栏约 76px（手机）/ 65px（Pad），「大」字号再涨一档 */
       .layout {
-        padding-bottom: calc(74px + env(safe-area-inset-bottom))
+        padding-bottom: calc(86px + env(safe-area-inset-bottom))
       }
     }
 
@@ -7074,9 +7073,8 @@
       height: auto;
       z-index: -1;
       border: 1px solid #D8E7F6;
-      border-radius: 6px;
+      border-radius: 8px;
       background: linear-gradient(90deg, #DDEBFA 0%, #F4F9FE 100%);
-      transform: skewX(-12deg);
       transition: background .15s ease, border-color .15s ease
     }
 
@@ -7179,6 +7177,12 @@
     /* 章头里的引文块：章头本身居中，这里整体回到左对齐，框内文字两端对齐 */
     .gv .ch-head .quote {
       margin: 18px 0 0;
+      text-align: left
+    }
+
+    /* 章头里的说明框同理：继承来的居中会让换行后的末行悬在中间，改回左对齐 */
+    .gv .ch-head .pin {
+      margin-top: 14px;
       text-align: left
     }
 
@@ -7344,16 +7348,17 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      width: 54px;
-      height: calc(52px * var(--fs-k));
+      width: 66px;
+      min-height: calc(44px * var(--fs-k));
       border: 1px solid #C6D1DA;
-      background: var(--gv-fill);
+      background: #fff;
       border-radius: 0;
       color: var(--gv-ink);
       font-family: var(--gv-serif);
-      font-size: calc(12.5px * var(--fs-k));
+      font-size: calc(11.5px * var(--fs-k));
       font-weight: 700;
-      letter-spacing: .5px
+      letter-spacing: .2px;
+      padding: 5px 2px
     }
 
     /* .db 拆开参与网格：标题进第二列第一行，说明 / 要点 / 链接依次排在下面 */
@@ -9434,9 +9439,8 @@
   height: auto;
   z-index: -1;
   border: 1px solid #D8E7F6;
-  border-radius: 6px;
+  border-radius: 8px;
   background: linear-gradient(90deg, #DDEBFA 0%, #F4F9FE 100%);
-  transform: skewX(-12deg);
   transition: background .15s ease, border-color .15s ease
 }
 
@@ -9533,10 +9537,10 @@
   color: var(--gv-ink2)
 }
 
-/* 标题颜色 */
+/* 标题颜色：链接统一用政务红偏亮的 #c8102e（原 pure red 太刺眼） */
 .btys {
   text-decoration: none;
-  color: red;
+  color: #C8102E;
 }
 
 /* 基础概况键值表：文字居中（九大高原湖泊 + 六大水系）
@@ -9811,4 +9815,1181 @@ table.ws-kv td {
   background: #F5E9E8;
   color: var(--gv-red);
   border-color: #E6C9C5
+}
+
+
+/* ========================================================================
+   纵向条目化：原 <table> 表格改排为条目流
+   1) 信息表（层级 / 类别 / 环节 / 维度 …）→ .tlist > .titem
+      左侧方框标签 + 条目标题 + 说明 + 要点，样式对齐「工作文件要点」
+   2) 键值表（一湖一档 / 一河一档）→ .kvlist > .kvrow
+      左键右值逐行纵向排列，去掉表头、网格与底纹
+   ======================================================================== */
+
+.gv .tlist {
+  margin: 2px 0
+}
+
+.gv .titem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--gv-line2)
+}
+
+.gv .titem:first-child {
+  padding-top: 2px
+}
+
+.gv .titem:last-child {
+  border-bottom: 0;
+  padding-bottom: 2px
+}
+
+/* 左侧方框标签：方角、细边框、白底，不再使用深色块 */
+.gv .titem>.tk {
+  align-self: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  min-height: calc(44px * var(--fs-k));
+  padding: 5px 2px;
+  border: 1px solid #C6D1DA;
+  background: #fff;
+  color: var(--gv-ink);
+  font-family: var(--gv-serif);
+  font-size: calc(11.5px * var(--fs-k));
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-align: center
+}
+
+/* 分类词太长、收不进方框的条目：单列，分类词本身作标题 */
+.gv .titem.flat {
+  grid-template-columns: 1fr;
+  column-gap: 0
+}
+
+.gv .titem>.tb {
+  min-width: 0
+}
+
+.gv .titem h5 {
+  margin: 0 0 5px;
+  font-family: var(--gv-serif);
+  font-size: calc(15.5px * var(--fs-k));
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--gv-ink)
+}
+
+.gv .titem h5 a {
+  color: #C8102E;
+  text-decoration: none;
+  border-bottom: 0
+}
+
+.gv .titem h5 a:hover {
+  border-bottom: 1px solid currentColor
+}
+
+.gv .titem .txt {
+  font-family: var(--gv-song);
+  font-size: calc(13.5px * var(--fs-k));
+  line-height: 1.9;
+  color: var(--gv-ink2)
+}
+
+.gv .titem .meta {
+  margin-top: 3px;
+  font-family: var(--gv-fang);
+  font-size: calc(12px * var(--fs-k));
+  letter-spacing: .2px;
+  color: #7A8794
+}
+
+.gv .titem ul {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none
+}
+
+.gv .titem li {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 5px;
+  font-family: var(--gv-song);
+  font-size: calc(13px * var(--fs-k));
+  line-height: 1.85;
+  color: var(--gv-ink2)
+}
+
+.gv .titem li:last-child {
+  margin-bottom: 0
+}
+
+/* 要点符号：暗红小方点，与条目标题的朱红同源 */
+.gv .titem li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: .8em;
+  width: 4px;
+  height: 4px;
+  background: var(--gv-red)
+}
+
+.gv .titem li b {
+  font-family: var(--gv-hei);
+  font-weight: 700;
+  color: var(--gv-ink)
+}
+
+/* ---------- 键值表：逐行纵向排列，左键名右键值 ---------- */
+.gv .kvlist {
+  margin: 6px 0 2px;
+  border-top: 1px solid var(--gv-line2)
+}
+
+.gv .kvrow {
+  display: grid;
+  grid-template-columns: 8.6em 1fr;
+  align-items: baseline;
+  gap: 2px 14px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--gv-line2)
+}
+
+.gv .kvrow .k {
+  font-family: var(--gv-hei);
+  font-size: calc(12.5px * var(--fs-k));
+  letter-spacing: .2px;
+  color: #5B6E7E
+}
+
+.gv .kvrow .v {
+  font-family: var(--gv-song);
+  font-size: calc(13.5px * var(--fs-k));
+  line-height: 1.75;
+  color: var(--gv-ink)
+}
+
+/* 改了排版的容器：表格外层的边框 / 阴影 / 白底一并撤销，避免残留灰底块 */
+.gv .tblwrap,
+.gv .tb-wrap {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: none
+}
+
+.gv .tscroll {
+  border-radius: 0
+}
+
+/* ---------- 取消文字底色：层级 / 类别标签一律改纯文字 ---------- */
+.gv .tag,
+.gv .tag.lv0,
+.gv .tag.lv1,
+.gv .tag.lv2,
+.gv .tag.lv3,
+.gv .tag.lv4,
+.gv .tag.soft {
+  background: transparent;
+  border-color: transparent;
+  color: var(--gv-ink);
+  padding: 0;
+  border-radius: 0
+}
+
+.gv .tag.soft {
+  color: var(--gv-red)
+}
+
+/* 标签去掉底色后，连续出现时用间距隔开，避免挤成一串 */
+.gv .tag+.tag {
+  margin-left: 14px
+}
+
+@media (max-width:640px) {
+
+  .gv .titem {
+    column-gap: 12px;
+    padding: 14px 0
+  }
+
+  .gv .titem>.tk {
+    width: 48px;
+    min-height: calc(46px * var(--fs-k));
+    padding: 4px 1px;
+    font-size: calc(10px * var(--fs-k));
+    letter-spacing: 0
+  }
+
+  .gv .titem h5 {
+    font-size: calc(14.5px * var(--fs-k))
+  }
+
+  .gv .kvrow {
+    grid-template-columns: 1fr;
+    gap: 1px;
+    padding: 7px 0
+  }
+
+  .gv .kvrow .k {
+    color: #6B7C8B
+  }
+}
+
+
+/* ========================================================================
+   五、问题处置闭环：横向流程条 + 纵向红色箭头（政务红）
+   1) 流程条 .flow .st 由灰底填充块改为白底细边框，圆角收小
+   2) 五个环节之间插入 .farrow，用深红竖线 + 实心三角连成一条纵向链
+   3) 条目之间不再画横向分隔线，改由箭头承担视觉衔接
+   ======================================================================== */
+
+.gv .flow .st {
+  background: #fff;
+  border: 1px solid #C6D1DA;
+  border-radius: 3px;
+  color: var(--gv-ink);
+  padding: 6px 12px
+}
+
+.gv .flowlist .titem {
+  border-bottom: 0;
+  padding: 6px 0
+}
+
+.gv .flowlist .titem:first-child {
+  padding-top: 0
+}
+
+.gv .flowlist .titem:last-child {
+  padding-bottom: 0
+}
+
+/* 箭头列宽与左侧标签方框（66px）对齐，保证竖线落在方框中心 */
+.gv .flowlist .farrow {
+  display: grid;
+  grid-template-columns: 66px 1fr;
+  column-gap: 18px;
+  height: 34px
+}
+
+.gv .flowlist .farrow i {
+  grid-column: 1;
+  justify-self: center;
+  position: relative;
+  display: block;
+  width: 2px;
+  height: 100%;
+  background: var(--gv-red)
+}
+
+.gv .flowlist .farrow i::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid var(--gv-red)
+}
+
+@media (max-width:640px) {
+
+  .gv .flowlist .farrow {
+    grid-template-columns: 44px 1fr;
+    column-gap: 12px;
+    height: 28px
+  }
+
+  .gv .flow .st {
+    padding: 4px 6px
+  }
+}
+
+/* ========================================================================
+   章节标题条：斜切平行四边形 → 矩形圆角
+   ======================================================================== */
+#ch9 .lakebook .part>h3::before {
+  transform: none;
+  border-radius: 8px
+}
+
+/* ========================================================================
+   湖名页头：蓝色大字 + 2.5px 粗蓝线 → 红竖条 + 墨色标题 + 细线
+   ======================================================================== */
+.gv .ws-head {
+  position: relative;
+  border-bottom: 1px solid var(--gv-line2);
+  padding: 3px 26px 9px 13px
+}
+
+.gv .ws-head::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 4px;
+  height: calc(17px * var(--fs-k));
+  background: var(--gv-red)
+}
+
+.gv .ws-name {
+  font-family: var(--gv-hei);
+  font-size: calc(17px * var(--fs-k));
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--gv-ink)
+}
+
+.gv .ws-region {
+  font-family: var(--gv-fang);
+  font-size: calc(12.5px * var(--fs-k));
+  color: #7A8794
+}
+
+
+/* ========================================================================
+   底部目录栏：8 个章节入口（替换原「上一章/下一章/云展/政策/水域管理」五项）
+   1) 每项等分，图标 21px，四字标题分两行
+   2) 选中态改为「顶部短横条 + 蓝字」，不用整块浅蓝底
+   3) 正文底部的翻页条 .chnav 已移除，翻章全部交给本栏与左侧目录
+   ======================================================================== */
+@media (max-width:1024px) {
+
+  .tabbar {
+    gap: 0;
+    padding: 5px 4px calc(5px + env(safe-area-inset-bottom));
+    justify-content: space-between
+  }
+
+  .tabbar__item {
+    flex: 1 1 0;
+    max-width: none;
+    gap: 3px;
+    padding: 6px 1px 3px
+  }
+
+  .tabbar__item svg {
+    width: 22px;
+    height: 22px
+  }
+
+  /* 四字标题排两行：每行两字，窄屏也能看清 */
+  .tabbar__item span {
+    display: block;
+    width: 2.5em;
+    font-size: calc(clamp(11px, 3.05vw, 13px) * var(--fs-k));
+    line-height: 1.3;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    text-align: center
+  }
+
+  /* 选中态：顶部短横条 + 蓝字，取消整块浅蓝底 */
+  .tabbar__item.is-on,
+  .tabbar__item.is-view,
+  body.view-mine-on .tabbar__item.is-view {
+    background: none;
+    color: #0B4F8A;
+    font-weight: 700
+  }
+
+  .tabbar__item.is-on::before,
+  .tabbar__item.is-view::before,
+  body.view-mine-on .tabbar__item.is-view::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 18px;
+    height: 3px;
+    margin-left: -9px;
+    border-radius: 0 0 2px 2px;
+    background: var(--blue)
+  }
+
+  .layout {
+    padding-bottom: calc(86px + env(safe-area-inset-bottom))
+  }
+}
+
+/* 桌面端「我管理的水域」视图里底栏会临时放开，8 项要收窄才能一行排下 */
+@media (min-width:1025px) {
+
+  body.view-mine-on .tabbar {
+    flex-wrap: wrap;
+    gap: 4px
+  }
+
+  body.view-mine-on .tabbar__item {
+    min-width: 96px;
+    padding: 7px 10px;
+    font-size: 12.5px
+  }
+
+  body.view-mine-on .tabbar__item span {
+    white-space: nowrap
+  }
+}
+
+/* 极窄屏（≤380）再收一档：底栏已从 8 项收到 7 项，每格宽了，
+   字号不必再压到 9px，维持 11px 即可，两行两字仍放得下 */
+@media (max-width:380px) {
+
+  .tabbar__item svg {
+    width: 21px;
+    height: 21px
+  }
+
+  .tabbar__item span {
+    font-size: calc(11px * var(--fs-k));
+    width: 2.5em
+  }
+}
+
+/* ========================================================================
+   依据文件清单（原「八、法规与文件依据」并入「一、巡查要点」）
+   只保留链接，做成紧凑条目块：暗红小标题 + 灰色方点 + 细下划线链接
+   ======================================================================== */
+.gv .refbox {
+  margin: 12px 0 2px;
+  padding: 13px 18px 15px;
+  border: 1px solid var(--gv-line);
+  background: #FCFCFA
+}
+
+.gv .refbox>b {
+  display: block;
+  font-family: var(--gv-hei);
+  font-size: calc(12.5px * var(--fs-k));
+  font-weight: 700;
+  letter-spacing: .6px;
+  color: var(--gv-red)
+}
+
+.gv .refbox ul {
+  margin: 7px 0 0;
+  padding: 0;
+  list-style: none
+}
+
+.gv .refbox li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 3px;
+  font-family: var(--gv-fang);
+  font-size: calc(13px * var(--fs-k));
+  line-height: 1.85;
+  color: var(--gv-ink2)
+}
+
+.gv .refbox li:last-child {
+  margin-bottom: 0
+}
+
+.gv .refbox li::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: .85em;
+  width: 4px;
+  height: 4px;
+  background: #C0CBD4
+}
+
+.gv .refbox a {
+  color: var(--gv-ink2);
+  text-decoration: none;
+  border-bottom: 1px solid #DFE5EA;
+  transition: color .15s ease, border-color .15s ease
+}
+
+.gv .refbox a:hover {
+  color: var(--gv-red);
+  border-bottom-color: currentColor
+}
+
+/* 湖泊 / 水系两个 part 合并为一章后，中间留出呼吸，避免两条边框贴成一条粗线 */
+#ch9 .lakebook .part+.part {
+  margin-top: 24px
+}
+
+/* ========================================================================
+   工作依据文件：水利部 / 云南省分组标题
+   1）长清单按发文层级切成两段，靠红竖条 + 细线分段，不用整体包裹
+   2）首条贴住 card 内边距，不再叠加 margin-top
+   ======================================================================== */
+.gv .grp-h {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  margin: 22px 0 0;
+  padding: 0 0 8px;
+  border-bottom: 1px solid var(--gv-line2);
+  font-family: var(--gv-hei);
+  font-size: calc(14px * var(--fs-k));
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--gv-ink)
+}
+
+.gv .grp-h:first-child {
+  margin-top: 0
+}
+
+.gv .grp-h::before {
+  content: "";
+  align-self: center;
+  width: 4px;
+  height: calc(14px * var(--fs-k));
+  background: var(--gv-red);
+  border-radius: 2px
+}
+
+.gv .grp-h .cnt {
+  margin-left: auto;
+  font-family: var(--gv-fang);
+  font-size: calc(12px * var(--fs-k));
+  font-weight: 400;
+  letter-spacing: .2px;
+  color: #7A8794
+}
+
+/* 依据文件清单只有「标题 + 一句摘要」，条目比默认更扁，靠压缩上下留白收紧节奏 */
+.gv .card.doc-tight .doc {
+  padding: 13px 0
+}
+
+.gv .card.doc-tight .doc .db h5 {
+  margin-bottom: 4px
+}
+
+.gv .card.doc-tight .doc:first-of-type {
+  padding-top: 10px
+}
+
+/* ================= 重点湖泊水质现状：两列网格卡片 =================
+   原来一湖一张大卡，三行要点竖着摊开，12 条要滚很久，也看不出水质梯度。
+   改为两列网格：左侧色条 + 类别色标按类别分色（Ⅰ蓝 / Ⅲ绿 / Ⅳ橙 / Ⅴ红），
+   三项指标压成一行，滇池的草海、外海作为子行挂在父卡下。 */
+.gv .wqgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 4px 0 14px;
+  align-items: start
+}
+
+.gv .wqcard {
+  position: relative;
+  padding: 13px 14px 12px 16px;
+  border: 1px solid var(--gv-line);
+  background: #fff
+}
+
+/* 左侧 3px 色条：不进网格，绝对定位贴边，卡片圆角为 0 时刚好齐平 */
+.gv .wqcard::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--wq-c)
+}
+
+.gv .wqcard.lv1 { --wq-c: #1F6FA8; --wq-bg: #EDF4FA }
+.gv .wqcard.lv3 { --wq-c: #2F7A55; --wq-bg: #EDF6F0 }
+.gv .wqcard.lv4 { --wq-c: #B0741A; --wq-bg: #FAF2E4 }
+.gv .wqcard.lv5 { --wq-c: #AE3A2C; --wq-bg: #FAECEA }
+
+.gv .wq-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 9px
+}
+
+.gv .wq-name {
+  font-family: var(--gv-hei);
+  font-size: calc(15.5px * var(--fs-k));
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--gv-ink)
+}
+
+/* 类别标签：淡底同色字，比原来 h5 的纯黑大字更能区分档次 */
+.gv .wq-lv {
+  flex: none;
+  padding: 1px 8px;
+  background: var(--wq-bg);
+  color: var(--wq-c);
+  font-family: var(--gv-hei);
+  font-size: calc(12.5px * var(--fs-k));
+  font-weight: 700;
+  letter-spacing: .5px
+}
+
+.gv .wq-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font-family: var(--gv-song);
+  font-size: calc(12.5px * var(--fs-k));
+  line-height: 1.6;
+  color: var(--gv-ink2)
+}
+
+.gv .wq-line i {
+  font-style: normal;
+  margin-right: 3px;
+  color: #929DA8
+}
+
+/* 滇池的两个子湖区：虚线分隔，缩进一档，弱于父级信息 */
+.gv .wq-sub {
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px dashed var(--gv-line2)
+}
+
+.gv .wq-subrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 12px;
+  font-family: var(--gv-song);
+  font-size: calc(12px * var(--fs-k));
+  line-height: 1.6;
+  color: var(--gv-ink2)
+}
+
+.gv .wq-subrow + .wq-subrow {
+  margin-top: 4px
+}
+
+.gv .wq-sn {
+  font-family: var(--gv-hei);
+  font-weight: 700;
+  color: var(--wq-c)
+}
+
+.gv .wq-subrow i {
+  font-style: normal;
+  margin-right: 3px;
+  color: #929DA8
+}
+
+/* 滇池含两个子湖区，跨两列铺开，正好把 9 张卡排满 5 行不留空位 */
+.gv .wqcard.wq-wide {
+  grid-column: span 2
+}
+
+.gv .wq-sub--row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 24px
+}
+
+.gv .wq-sub--row .wq-subrow {
+  margin-top: 0
+}
+
+@media (max-width: 640px) {
+  .gv .wqgrid {
+    grid-template-columns: 1fr
+  }
+
+  .gv .wqcard.wq-wide {
+    grid-column: auto
+  }
+
+  .gv .wq-sub--row {
+    grid-template-columns: 1fr
+  }
+}
+
+/* ========================================================================
+   湖泊水系：篇级标题（湖泊 / 水系）
+   章下面是「湖泊」「水系」两个二级标题，各自统辖若干小节。
+   视觉上比小节标题（蓝色斜切底片）高一层：红粗条 + 大字 + 右侧副题 + 细线收口。
+   ======================================================================== */
+#ch9 .part-h {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 0 0 18px;
+  padding: 0 0 13px 16px;
+  border-bottom: 1px solid var(--gv-line2)
+}
+
+#ch9 .part-h::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 6px;
+  height: calc(23px * var(--fs-k));
+  background: var(--gv-red)
+}
+
+#ch9 .part-h .ph-t {
+  margin: 0;
+  font-family: var(--gv-hei);
+  font-size: calc(22px * var(--fs-k));
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 5px;
+  color: var(--gv-ink)
+}
+
+#ch9 .part-h .ph-sub {
+  margin-left: auto;
+  font-family: var(--gv-fang);
+  font-size: calc(12.5px * var(--fs-k));
+  letter-spacing: .5px;
+  color: #8A96A2
+}
+
+/* 篇标题下第一节的小节标题不再叠加 24px 上边距，避免篇名与首节之间空一大截 */
+#ch9 .part-h + h3 {
+  margin-top: 0
+}
+
+@media (max-width: 640px) {
+  #ch9 .part-h {
+    padding-left: 13px;
+    margin-bottom: 14px
+  }
+
+  #ch9 .part-h .ph-t {
+    font-size: calc(19px * var(--fs-k));
+    letter-spacing: 4px
+  }
+
+  #ch9 .part-h .ph-sub {
+    margin-left: 0
+  }
+}
+
+/* 目录里的篇级分组标签：不可点，只作层级提示 */
+aside.toc .toc-sub-g {
+  padding: 9px 8px 3px;
+  margin: 0;
+  font-family: var(--gv-hei);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #97A4B1;
+  line-height: 1.4
+}
+
+aside.toc .toc-sub-g:first-child {
+  padding-top: 2px
+}
+
+/* 篇标题也可能被外部锚点跳转命中，同样避开固定顶栏 */
+#ch9 .part-h[id] {
+  scroll-margin-top: 80px
+}
+
+/* ========================================================================
+   岸线四类分区（第三章第三节）
+   原来用 .mini：浅蓝底 + 10px 圆角 + 蓝色标题，是全站唯一的旧版 UI 残留，
+   与米白 / 方角 / 政务红的公文风冲突。改为与「清四乱·四类问题」同一套卡片：
+   一行四列全景、左缘红条、方角白底；卡内名称 / 管控口径 / 区域界定三层递进。
+   四类信息量相当但都很短，四列比两列更能一眼看全，也不会留大片空白。
+   ======================================================================== */
+.gv .pzgrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0 15px;
+  align-items: stretch
+}
+
+.gv .pzcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 15px 14px 18px;
+  border: 1px solid var(--gv-line);
+  background: #fff
+}
+
+.gv .pzcard::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gv-red)
+}
+
+.gv .pz-name {
+  margin: 0 0 5px;
+  font-family: var(--gv-hei);
+  font-size: calc(15.5px * var(--fs-k));
+  font-weight: 700;
+  letter-spacing: .3px;
+  line-height: 1.35;
+  color: var(--gv-ink)
+}
+
+/* 管控口径：每张卡最该记住的一句，用字重压住名称之下的位置 */
+.gv .pz-core {
+  margin: 0 0 6px;
+  font-family: var(--gv-hei);
+  font-size: calc(13.5px * var(--fs-k));
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--gv-ink)
+}
+
+/* 区域界定：降为注释，与口径拉开一档字色，底对齐靠 margin-top:auto */
+.gv .pz-desc {
+  margin: auto 0 0;
+  padding-top: 2px;
+  font-family: var(--gv-fang);
+  font-size: calc(12.5px * var(--fs-k));
+  line-height: 1.7;
+  color: #6C7A87
+}
+
+@media (max-width: 1024px) {
+  .gv .pzgrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  }
+}
+
+@media (max-width: 560px) {
+  .gv .pzgrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    margin: 14px 0 12px
+  }
+
+  .gv .pzcard {
+    padding: 13px 15px 13px 16px
+  }
+}
+
+/* ========================================================================
+   底部导航（手机 / Pad）
+   Pad 竖屏下七项每格 90px 以上，四字横排一行比折两行清楚；
+   手机上仍两行两字，只把字号从 9.75px 提到 12px 左右。
+   ======================================================================== */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .tabbar__item span {
+    width: auto;
+    white-space: nowrap;
+    font-size: calc(13px * var(--fs-k));
+    letter-spacing: .5px
+  }
+
+  .tabbar__item {
+    gap: 5px;
+    padding: 7px 2px 6px
+  }
+
+  .tabbar__item svg {
+    width: 24px;
+    height: 24px
+  }
+}
+
+/* ========================================================================
+   水域管理：「展示河长管理」入口 + 河长信息卡
+   1）两个入口并排浮在虚线占位框底边，白底容器代替原先按钮外圈的 5px 白晕；
+   2）信息卡沿用视图本身的深蓝（#16324A）体系，方角、细线，不引入政务红，
+      避免和这份手册正文的红黑配色互相打架；
+   3）信息卡只在「展示河长管理」模式下出现，正式登录仍是原来的状态条 + 地图。
+   ======================================================================== */
+.wl-ctas {
+  position: absolute;
+  left: 50%;
+  bottom: -25px;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(22, 50, 74, .14)
+}
+
+/* 定位与白圈交给容器，按钮本身回到普通流 */
+.wl-ctas .wl-cta {
+  position: static;
+  left: auto;
+  bottom: auto;
+  transform: none;
+  min-width: 0;
+  height: 40px;
+  padding: 0 20px;
+  letter-spacing: 3px;
+  text-indent: 3px;
+  box-shadow: none
+}
+
+.wl-ctas .wl-cta.primary {
+  letter-spacing: 4px;
+  text-indent: 4px
+}
+
+.wl-cta--ghost {
+  border-color: #16324A;
+  background: #fff;
+  color: #16324A;
+  font-weight: 700
+}
+
+.wl-cta--ghost:hover {
+  background: #EFF3F7;
+  border-color: #16324A
+}
+
+/* ------------------------------------------------------------ 河长信息卡 */
+.vm-chief {
+  /* 全站有一条 `section{display:none}` 的重置，section 必须显式声明显示 */
+  display: block;
+  max-width: 980px;
+  margin: 16px auto 0;
+  border: 1px solid #C6D1DA;
+  background: #fff;
+  text-align: left
+}
+
+.vm-chief[hidden] {
+  display: none
+}
+
+.vm-chief__hd {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #E3E9EE;
+  background: #FBFCFD
+}
+
+.vm-chief__hd::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #16324A
+}
+
+.vm-chief__av {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: #16324A;
+  color: #fff;
+  font-family: "SimSun", "宋体", serif;
+  font-size: 19px;
+  font-weight: 700
+}
+
+.vm-chief__who {
+  flex: 1 1 auto;
+  min-width: 0
+}
+
+.vm-chief__name-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px 8px;
+  padding-right: 60px
+}
+
+.vm-chief__name-line h3 {
+  margin: 0;
+  font-family: "SimSun", "宋体", serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #16324A
+}
+
+.vm-chief__lv {
+  padding: 1px 7px;
+  border: 1px solid #16324A;
+  font-size: 11.5px;
+  letter-spacing: .5px;
+  color: #16324A
+}
+
+.vm-chief__org {
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #7A8794
+}
+
+.vm-chief__flag {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  padding: 2px 8px;
+  background: #EFF3F7;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #5B6B7B
+}
+
+.vm-chief__kv {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  border-bottom: 1px solid #E3E9EE
+}
+
+.vm-chief__kv>div {
+  padding: 11px 14px;
+  border-right: 1px solid #E3E9EE
+}
+
+.vm-chief__kv>div:last-child {
+  border-right: 0
+}
+
+.vm-chief__kv dt {
+  font-size: 11.5px;
+  letter-spacing: .5px;
+  color: #8A96A2
+}
+
+.vm-chief__kv dd {
+  margin: 5px 0 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #16324A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
+.vm-chief__list {
+  padding: 12px 16px 14px
+}
+
+.vm-chief__list h4 {
+  margin: 0 0 9px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #7A8794
+}
+
+.vm-chief__list ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+.vm-chief__list li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 6px 11px;
+  border: 1px solid #DCE3EA;
+  background: #FAFBFC;
+  font-size: 12.5px;
+  color: #16324A
+}
+
+.vm-chief__list li i {
+  font-style: normal;
+  font-size: 11px;
+  color: #8A96A2
+}
+
+.vm-chief__list li em {
+  font-style: normal;
+  font-size: 11px;
+  color: #5B6B7B
+}
+
+@media (max-width:760px) {
+  .vm-chief__kv {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  }
+
+  .vm-chief__kv>div:nth-child(2n) {
+    border-right: 0
+  }
+
+  .vm-chief__kv>div:nth-child(-n+2) {
+    border-bottom: 1px solid #E3E9EE
+  }
+}
+
+@media (max-width:400px) {
+  .wl-ctas {
+    gap: 7px;
+    padding: 4px
+  }
+
+  .wl-ctas .wl-cta {
+    height: 36px;
+    padding: 0 13px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-indent: 1px
+  }
+
+  .vm-chief__hd {
+    gap: 10px;
+    padding: 12px 13px
+  }
+
+  .vm-chief__av {
+    width: 36px;
+    height: 36px;
+    font-size: 17px
+  }
+
+  .vm-chief__name-line h3 {
+    font-size: 17px
+  }
+
+  .vm-chief__flag {
+    right: 11px;
+    top: 11px
+  }
+
+  .vm-chief__kv>div {
+    padding: 10px 12px
+  }
+
+  .vm-chief__list {
+    padding: 11px 13px 13px
+  }
 }

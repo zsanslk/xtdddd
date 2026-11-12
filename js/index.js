@@ -910,9 +910,10 @@
     var inView = !!(window.__hzzMine && window.__hzzMine.isOpen());
     /* 底栏只有「政策」和「我管理的水域」两栏，选中态做成互斥的：
        在手册里就亮「政策」，进了视图就亮「我管理的水域」，始终能看出现在在哪 */
+    /* 底栏即目录：高亮当前所在章节，进了「水域管理」视图则不亮任何章节 */
     items.forEach(function (it) {
       if (!it.dataset.ch) return;
-      it.classList.toggle('is-on', !inView);
+      it.classList.toggle('is-on', !inView && it.dataset.ch === id);
     });
 
     /* 首末章要把对应的翻页按钮置灰；视图里一律禁用 */
@@ -930,8 +931,12 @@
     var item = e.target.closest('.tabbar__item[data-ch]');
     if (!item) return;
     e.preventDefault();
-    if (window.__hzzMine && window.__hzzMine.isOpen()) {
-      window.__hzzMine.hide({ refocus: true });
+    var opening = window.__hzzMine && window.__hzzMine.isOpen();
+    if (opening) window.__hzzMine.hide({ refocus: false });
+    /* 已在当前章就不重复切（切章会重置滚动位置） */
+    var cur = document.querySelector('.chapter.on');
+    if (!cur || cur.id !== item.dataset.ch) {
+      if (window.__hzzShowCh) window.__hzzShowCh(item.dataset.ch);
     }
   });
 

@@ -60,6 +60,11 @@
     } catch (e) { return null; }
   }
 
+  // 演示河长：chief-demo.js 写入 sessionStorage，用来指定按谁的身份渲染
+  function readChief() {
+    try { return JSON.parse(sessionStorage.getItem('hzz_chief') || 'null'); } catch (e) { return null; }
+  }
+
   // 临时 token：地址带 ?tk= 时存进 sessionStorage，仅本标签页有效，便于演示
   function getToken() {
     try {
@@ -189,7 +194,8 @@
   /* -------------------------------------------------------------- 渲染 */
 
   function render(user, self, list) {
-    var isDemo = !getToken() && !new URLSearchParams(location.search).get('uid');
+    var chief = readChief();
+    var isDemo = !!(chief && chief.id) || (!getToken() && !new URLSearchParams(location.search).get('uid'));
 
     el.meta.textContent = (isDemo ? '演示 · ' : '') + (self.ascription || '') +
       (list.length ? ' · ' + list.length + ' 个下辖区划' : '');
@@ -349,7 +355,8 @@
         var kidsLabel = document.getElementById('vmStKidsLabel');
         if (kidsLabel) kidsLabel.textContent = '管辖水域';
         if (self) {
-          el.meta.textContent = (self.ascription || '') +
+          // 演示态保留前缀，避免和真实登录的同一行文案混淆
+          el.meta.textContent = (readChief() ? '演示 · ' : '') + (self.ascription || '') +
             (items.length ? ' · ' + items.length + ' 处管辖水域' : '');
         }
         el.kidList.innerHTML = items.length
@@ -431,8 +438,9 @@
       return;
     }
 
-    // 没登录也没有显式 uid 就不加载，保持占位图
-    var uidParam = new URLSearchParams(location.search).get('uid');
+    // 没登录也没有显式 uid / 演示河长就不加载，保持占位图
+    var chief = readChief();
+    var uidParam = new URLSearchParams(location.search).get('uid') || (chief && chief.id) || '';
     if (!uidParam && !getToken()) return;
 
     started = true;
@@ -497,6 +505,8 @@
 
     var kl = document.getElementById('vmStKidsLabel');
     if (kl) kl.textContent = '下辖区划';
+    var cl = document.getElementById('vmStChiefLabel');
+    if (cl) cl.textContent = '下级河长';
 
     el.kidsChip.hidden = false;
     el.kidsChip.setAttribute('aria-pressed', 'true');

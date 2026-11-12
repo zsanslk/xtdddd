@@ -20,15 +20,29 @@
     try { return JSON.parse(raw); } catch (e) { return null; }
   }
 
+  // 演示河长标记：chief-demo.js 写入，退出登录或正式登录时清掉
+  function readChief() {
+    try { return JSON.parse(sessionStorage.getItem('hzz_chief') || 'null'); } catch (e) { return null; }
+  }
+
   function render() {
     var s = readSession();
     // ?uid= 用于未登录演示：直接按该账号渲染，不必真登录
-    var demo = new URLSearchParams(location.search).get('uid');
+    var demo = new URLSearchParams(location.search).get('uid') || readChief();
     var logged = !!(s && s.token) || !!demo;
     var guest = document.getElementById('vmGuest');
     var userBox = document.getElementById('vmUser');
     if (guest) guest.hidden = logged;
     if (userBox) userBox.hidden = !logged;
+
+    // 演示态在导语上直接写清在看谁，避免和真实登录混淆
+    var lead = document.getElementById('vmLead');
+    var chief = readChief();
+    if (lead) {
+      lead.textContent = chief && chief.name
+        ? '当前展示：' + chief.name + '（演示数据）'
+        : '登录后显示您担任河湖长的河段、湖片、渠段、坝塘片与水库片';
+    }
     // 底栏高亮只在视图打开时算数
     if (tabItem) tabItem.classList.toggle('is-view', isOpen);
   }

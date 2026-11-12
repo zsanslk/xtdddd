@@ -65,6 +65,9 @@
     try {
       localStorage.setItem(KEY, JSON.stringify({ userName: userName, token: tk }));
       sessionStorage.removeItem(KEY);
+      // 真实登录优先：演示用的临时 token 与指定河长标记一并作废
+      sessionStorage.removeItem('hzz_tk_tmp');
+      sessionStorage.removeItem('hzz_chief');
     } catch (e) { /* 隐私模式忽略 */ }
   }
 
@@ -79,6 +82,9 @@
   function clearSession() {
     try { localStorage.removeItem(KEY); } catch (e) { }
     try { sessionStorage.removeItem(KEY); } catch (e) { }
+    // 「展示河长管理」写下的演示凭证也在这里清，否则退出后地图仍按演示河长加载
+    try { sessionStorage.removeItem('hzz_tk_tmp'); } catch (e) { }
+    try { sessionStorage.removeItem('hzz_chief'); } catch (e) { }
   }
 
   function encryptPhone(phone) {

@@ -941,6 +941,89 @@
       min-width: 220px
     }
 
+
+    /* ---------- 九湖速查：纵向条目（原表格改排） ---------- */
+    .lake-list {
+      margin-top: 10px;
+      border-top: 1px solid var(--line)
+    }
+
+    .lake-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .lake-row .lt {
+      align-self: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 66px;
+      min-height: 44px;
+      padding: 4px 2px;
+      border: 1px solid #cfdde9;
+      background: #fff;
+      color: var(--blue);
+      font-size: 12.5px;
+      font-weight: 700;
+      line-height: 1.35;
+      text-align: center
+    }
+
+    .lake-row .lb {
+      min-width: 0
+    }
+
+    .lake-row h5 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--blue-d);
+      margin-bottom: 3px
+    }
+
+    .lake-row ul {
+      list-style: none
+    }
+
+    .lake-row li {
+      position: relative;
+      padding-left: 14px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--sub)
+    }
+
+    .lake-row li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: .8em;
+      width: 4px;
+      height: 4px;
+      background: var(--gold)
+    }
+
+    .lake-row li b {
+      color: var(--ink);
+      font-weight: 600
+    }
+
+    @media(max-width:600px) {
+
+      .lake-row .lt {
+        width: 54px;
+        min-height: 38px;
+        font-size: 11.5px
+      }
+
+      .lake-row li {
+        font-size: 13.5px
+      }
+    }
+
     /* ---------- 顶栏：桌面横排 / 移动端折叠面板 ---------- */
     .nav {
       display: flex;
@@ -1902,80 +1985,106 @@
 
     <h3 class="sub-h">九湖责任数据速查</h3>
     <p>各级河湖长可按责任归属快速定位对应湖泊的基础与成效数据。</p>
-    <p class="table-hint">表格内容较多，可左右滑动查看。</p>
-    <div class="table-wrap">
-      <table>
-        <tr>
-          <th>湖泊</th>
-          <th>所在区域</th>
-          <th>所属水系</th>
-          <th>主要入湖河道</th>
-          <th>十年亮点数据</th>
-        </tr>
-        <tr>
-          <td><strong>滇池</strong></td>
-          <td>昆明市</td>
-          <td>长江（金沙江）</td>
-          <td>35 条</td>
-          <td>全湖Ⅳ类连续 8 年；环湖绿道 108 公里、美丽乡村 46 个</td>
-        </tr>
-        <tr>
-          <td><strong>洱海</strong></td>
-          <td>大理州</td>
-          <td>澜沧江（湄公河）</td>
-          <td>27 条</td>
-          <td>海菜花恢复超 43 万平方米</td>
-        </tr>
-        <tr>
-          <td><strong>抚仙湖</strong></td>
-          <td>玉溪市</td>
-          <td>珠江（南盘江）</td>
-          <td>22 条</td>
-          <td>深水湖泊保护优先，水质保持优良</td>
-        </tr>
-        <tr>
-          <td><strong>星云湖</strong></td>
-          <td>玉溪市</td>
-          <td>珠江（南盘江）</td>
-          <td>12 条</td>
-          <td>与抚仙湖隔河联合调度、系统协同</td>
-        </tr>
-        <tr>
-          <td><strong>杞麓湖</strong></td>
-          <td>玉溪市</td>
-          <td>珠江（南盘江）</td>
-          <td>7 条</td>
-          <td>2025 年实现脱劣</td>
-        </tr>
-        <tr>
-          <td><strong>阳宗海</strong></td>
-          <td>昆明市、玉溪市</td>
-          <td>珠江（南盘江）</td>
-          <td>4 条</td>
-          <td>跨行政区域联防联治持续推进</td>
-        </tr>
-        <tr>
-          <td><strong>泸沽湖</strong></td>
-          <td>丽江市（滇川交界）</td>
-          <td>长江（金沙江）</td>
-          <td>5 条</td>
-          <td>滇川跨省联防联治机制深化</td>
-        </tr>
-        <tr>
-          <td><strong>程海</strong></td>
-          <td>丽江市永胜县</td>
-          <td>长江（金沙江）</td>
-          <td>5 条</td>
-          <td>生态水位与科学补水统筹推进</td>
-        </tr>
-        <tr>
-          <td><strong>异龙湖</strong></td>
-          <td>红河州石屏县</td>
-          <td>珠江（南盘江）</td>
-          <td>7 条</td>
-          <td>2025 年实现脱劣</td>
-        </tr>
-      </table>
+    <div class="lake-list">
+      <div class="lake-row">
+        <div class="lt">滇池</div>
+        <div class="lb">
+          <h5>昆明市</h5>
+          <ul>
+            <li><b>所属水系：</b>长江（金沙江）</li>
+            <li><b>主要入湖河道：</b>35 条</li>
+            <li><b>十年亮点：</b>全湖Ⅳ类连续 8 年；环湖绿道 108 公里、美丽乡村 46 个</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lake-row">
+        <div class="lt">洱海</div>
+        <div class="lb">
+          <h5>大理州</h5>
+          <ul>
+            <li><b>所属水系：</b>澜沧江（湄公河）</li>
+            <li><b>主要入湖河道：</b>27 条</li>
+            <li><b>十年亮点：</b>海菜花恢复超 43 万平方米</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lake-row">
+        <div class="lt">抚仙湖</div>
+        <div class="lb">
+          <h5>玉溪市</h5>
+          <ul>
+            <li><b>所属水系：</b>珠江（南盘江）</li>
+            <li><b>主要入湖河道：</b>22 条</li>
+            <li><b>十年亮点：</b>深水湖泊保护优先，水质保持优良</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lake-row">
+        <div class="lt">星云湖</div>
+        <div class="lb">
+          <h5>玉溪市</h5>
+          <ul>
+            <li><b>所属水系：</b>珠江（南盘江）</li>
+            <li><b>主要入湖河道：</b>12 条</li>
+            <li><b>十年亮点：</b>与抚仙湖隔河联合调度、系统协同</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lake-row">
+        <div class="lt">杞麓湖</div>
+        <div class="lb">
+          <h5>玉溪市</h5>
+          <ul>
+            <li><b>所属水系：</b>珠江（南盘江）</li>
+            <li><b>主要入湖河道：</b>7 条</li>
+            <li><b>十年亮点：</b>2025 年实现脱劣</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lake-row">
+        <div class="lt">阳宗海</div>
+        <div class="lb">
+          <h5>昆明市、玉溪市</h5>
+          <ul>
+            <li><b>所属水系：</b>珠江（南盘江）</li>
+            <li><b>主要入湖河道：</b>4 条</li>
+            <li><b>十年亮点：</b>跨行政区域联防联治持续推进</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lake-row">
+        <div class="lt">泸沽湖</div>
+        <div class="lb">
+          <h5>丽江市（滇川交界）</h5>
+          <ul>
+            <li><b>所属水系：</b>长江（金沙江）</li>
+            <li><b>主要入湖河道：</b>5 条</li>
+            <li><b>十年亮点：</b>滇川跨省联防联治机制深化</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lake-row">
+        <div class="lt">程海</div>
+        <div class="lb">
+          <h5>丽江市永胜县</h5>
+          <ul>
+            <li><b>所属水系：</b>长江（金沙江）</li>
+            <li><b>主要入湖河道：</b>5 条</li>
+            <li><b>十年亮点：</b>生态水位与科学补水统筹推进</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lake-row">
+        <div class="lt">异龙湖</div>
+        <div class="lb">
+          <h5>红河州石屏县</h5>
+          <ul>
+            <li><b>所属水系：</b>珠江（南盘江）</li>
+            <li><b>主要入湖河道：</b>7 条</li>
+            <li><b>十年亮点：</b>2025 年实现脱劣</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
